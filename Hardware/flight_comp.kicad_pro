@@ -617,6 +617,10 @@
     [
       "ccff0650-056e-451f-a7b4-968f0cd07701",
       "SENSORS"
+    ],
+    [
+      "6f744634-bd06-4fba-9095-f7817bb9515d",
+      "POWER"
     ]
   ],
   "text_variables": {}
