@@ -2950,6 +2950,12 @@
 		(uuid "19747e8d-9705-4e45-8859-095a53f09a16")
 	)
 	(junction
+		(at 64.77 158.75)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2aa88e5e-2e06-44b9-9a49-5d0453194477")
+	)
+	(junction
 		(at 134.62 41.91)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3153,7 +3159,7 @@
 	)
 	(wire
 		(pts
-			(xy 59.69 165.1) (xy 68.58 165.1)
+			(xy 59.69 158.75) (xy 64.77 158.75)
 		)
 		(stroke
 			(width 0)
@@ -3333,16 +3339,6 @@
 	)
 	(wire
 		(pts
-			(xy 68.58 158.75) (xy 74.93 158.75)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2be886ba-2dcc-4890-976c-0b4e141b0da6")
-	)
-	(wire
-		(pts
 			(xy 110.49 133.35) (xy 113.03 133.35)
 		)
 		(stroke
@@ -3360,16 +3356,6 @@
 			(type default)
 		)
 		(uuid "2e88a451-c004-4721-96c2-a78aa82d6d73")
-	)
-	(wire
-		(pts
-			(xy 54.61 153.67) (xy 54.61 160.02)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "332a1d32-209b-42a7-bfb0-ef5e68a5bbf5")
 	)
 	(polyline
 		(pts
@@ -3400,6 +3386,16 @@
 			(type default)
 		)
 		(uuid "37eaa0f8-65dc-4877-848d-d4bf9b1922de")
+	)
+	(wire
+		(pts
+			(xy 64.77 158.75) (xy 74.93 158.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3b3f7ef2-1c1d-446a-a4e5-effb0f8326e5")
 	)
 	(wire
 		(pts
@@ -3720,6 +3716,16 @@
 			(type default)
 		)
 		(uuid "74d22bc2-182a-47d8-a613-9690d5b38a67")
+	)
+	(wire
+		(pts
+			(xy 64.77 158.75) (xy 64.77 160.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "760d1ad1-6d43-4033-aac5-dd2d7305783d")
 	)
 	(wire
 		(pts
@@ -4373,16 +4379,6 @@
 	)
 	(wire
 		(pts
-			(xy 68.58 158.75) (xy 68.58 165.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d0e512e2-0e8f-411e-98ee-b11bf2d45c02")
-	)
-	(wire
-		(pts
 			(xy 163.83 73.66) (xy 163.83 76.2)
 		)
 		(stroke
@@ -4523,7 +4519,7 @@
 	)
 	(wire
 		(pts
-			(xy 74.93 161.29) (xy 74.93 171.45)
+			(xy 74.93 161.29) (xy 74.93 165.1)
 		)
 		(stroke
 			(width 0)
@@ -5175,7 +5171,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_Coaxial")
-		(at 54.61 165.1 180)
+		(at 54.61 158.75 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5184,7 +5180,7 @@
 		(fields_autoplaced yes)
 		(uuid "08e363e0-04f7-4269-beca-2f109b431e89")
 		(property "Reference" "J1"
-			(at 50.8 163.5367 0)
+			(at 50.8 157.1867 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5193,7 +5189,7 @@
 			)
 		)
 		(property "Value" "Conn_Coaxial"
-			(at 50.8 166.0767 0)
+			(at 50.8 159.7267 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5202,7 +5198,7 @@
 			)
 		)
 		(property "Footprint" "Connector_Coaxial:SMA_Molex_73251-2200_Horizontal"
-			(at 54.61 165.1 0)
+			(at 54.61 158.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5211,7 +5207,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 54.61 165.1 0)
+			(at 54.61 158.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5220,7 +5216,7 @@
 			)
 		)
 		(property "Description" "coaxial connector (BNC, SMA, SMB, SMC, Cinch/RCA, LEMO, ...)"
-			(at 54.61 165.1 0)
+			(at 54.61 158.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5435,6 +5431,72 @@
 			(project "flight_comp"
 				(path "/99100214-bcab-4638-96e7-2342f837a8e5/ccff0650-056e-451f-a7b4-968f0cd07701"
 					(reference "#PWR091")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 64.77 167.64 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "201e89c9-cfdd-4fa7-b6a4-bfe3cff11f23")
+		(property "Reference" "#PWR0140"
+			(at 64.77 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 64.77 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 64.77 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 64.77 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 64.77 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d8ce8774-ddf4-452e-964b-8c22e351ecd3")
+		)
+		(instances
+			(project "flight_comp"
+				(path "/99100214-bcab-4638-96e7-2342f837a8e5/ccff0650-056e-451f-a7b4-968f0cd07701"
+					(reference "#PWR0140")
 					(unit 1)
 				)
 			)
@@ -6298,6 +6360,74 @@
 			(project "flight_comp"
 				(path "/99100214-bcab-4638-96e7-2342f837a8e5/ccff0650-056e-451f-a7b4-968f0cd07701"
 					(reference "C2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:D_TVS")
+		(at 64.77 163.83 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4c85420d-7e6f-4179-af64-64a1ba79d024")
+		(property "Reference" "D2"
+			(at 58.42 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "D_TVS"
+			(at 60.96 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Diode_SMD:D_SOD-523"
+			(at 64.77 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 64.77 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Bidirectional transient-voltage-suppression diode"
+			(at 64.77 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "b27d09ed-4677-4ced-adb1-8f96226b8d6c")
+		)
+		(pin "1"
+			(uuid "aae88dbe-5c0d-466e-a97d-206045d53fd8")
+		)
+		(instances
+			(project "flight_comp"
+				(path "/99100214-bcab-4638-96e7-2342f837a8e5/ccff0650-056e-451f-a7b4-968f0cd07701"
+					(reference "D2")
 					(unit 1)
 				)
 			)
@@ -8334,7 +8464,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 74.93 171.45 0)
+		(at 74.93 165.1 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8342,7 +8472,7 @@
 		(dnp no)
 		(uuid "a9eecf65-d0c7-42f2-9a72-f327861672be")
 		(property "Reference" "#PWR012"
-			(at 74.93 177.8 0)
+			(at 74.93 171.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8351,7 +8481,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 72.898 175.514 0)
+			(at 72.898 169.164 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8360,7 +8490,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 74.93 171.45 0)
+			(at 74.93 165.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8369,7 +8499,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 74.93 171.45 0)
+			(at 74.93 165.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8378,7 +8508,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 74.93 171.45 0)
+			(at 74.93 165.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
