@@ -1,0 +1,1633 @@
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"usbd_msc_bot.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c"
+  20              		.section	.text.MSC_BOT_SendData,"ax",%progbits
+  21              		.align	1
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	MSC_BOT_SendData:
+  27              	.LVL0:
+  28              	.LFB249:
+   1:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** /**
+   2:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   ******************************************************************************
+   3:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @file    usbd_msc_bot.c
+   4:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @author  MCD Application Team
+   5:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @brief   This file provides all the BOT protocol core functions.
+   6:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   ******************************************************************************
+   7:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @attention
+   8:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   *
+   9:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * Copyright (c) 2015 STMicroelectronics.
+  10:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * All rights reserved.
+  11:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   *
+  12:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * This software is licensed under terms that can be found in the LICENSE file
+  13:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * in the root directory of this software component.
+  14:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * If no LICENSE file comes with this software, it is provided AS-IS.
+  15:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   *
+  16:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   ******************************************************************************
+  17:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   */
+  18:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+  19:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** /* BSPDependencies
+  20:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** - "stm32xxxxx_{eval}{discovery}{nucleo_144}.c"
+  21:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** - "stm32xxxxx_{eval}{discovery}_io.c"
+  22:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** - "stm32xxxxx_{eval}{discovery}{adafruit}_sd.c"
+  23:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** EndBSPDependencies */
+  24:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+  25:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** /* Includes ------------------------------------------------------------------*/
+  26:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** #include "usbd_msc_bot.h"
+  27:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** #include "usbd_msc.h"
+  28:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** #include "usbd_msc_scsi.h"
+  29:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** #include "usbd_ioreq.h"
+  30:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s 			page 2
+
+
+  31:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** /** @addtogroup STM32_USB_DEVICE_LIBRARY
+  32:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @{
+  33:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   */
+  34:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+  35:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+  36:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** /** @defgroup MSC_BOT
+  37:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @brief BOT protocol module
+  38:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @{
+  39:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   */
+  40:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+  41:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** /** @defgroup MSC_BOT_Private_TypesDefinitions
+  42:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @{
+  43:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   */
+  44:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** /**
+  45:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @}
+  46:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   */
+  47:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+  48:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+  49:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** /** @defgroup MSC_BOT_Private_Defines
+  50:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @{
+  51:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   */
+  52:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+  53:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** /**
+  54:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @}
+  55:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   */
+  56:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+  57:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+  58:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** /** @defgroup MSC_BOT_Private_Macros
+  59:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @{
+  60:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   */
+  61:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** /**
+  62:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @}
+  63:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   */
+  64:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+  65:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+  66:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** /** @defgroup MSC_BOT_Private_Variables
+  67:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @{
+  68:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   */
+  69:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** extern uint8_t MSCInEpAdd;
+  70:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** extern uint8_t MSCOutEpAdd;
+  71:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** /**
+  72:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @}
+  73:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   */
+  74:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+  75:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+  76:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** /** @defgroup MSC_BOT_Private_FunctionPrototypes
+  77:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @{
+  78:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   */
+  79:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** static void MSC_BOT_SendData(USBD_HandleTypeDef *pdev, uint8_t *pbuf, uint32_t len);
+  80:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** static void MSC_BOT_CBW_Decode(USBD_HandleTypeDef *pdev);
+  81:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** static void MSC_BOT_Abort(USBD_HandleTypeDef *pdev);
+  82:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** /**
+  83:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @}
+  84:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   */
+  85:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+  86:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+  87:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** /** @defgroup MSC_BOT_Private_Functions
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s 			page 3
+
+
+  88:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @{
+  89:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   */
+  90:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+  91:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+  92:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** /**
+  93:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @brief  MSC_BOT_Init
+  94:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   *         Initialize the BOT Process
+  95:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @param  pdev: device instance
+  96:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @retval None
+  97:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   */
+  98:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** void MSC_BOT_Init(USBD_HandleTypeDef *pdev)
+  99:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** {
+ 100:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   USBD_MSC_BOT_HandleTypeDef *hmsc = (USBD_MSC_BOT_HandleTypeDef *)pdev->pClassDataCmsit[pdev->clas
+ 101:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 102:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** #ifdef USE_USBD_COMPOSITE
+ 103:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   /* Get the Endpoints addresses allocated for this class instance */
+ 104:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   MSCInEpAdd  = USBD_CoreGetEPAdd(pdev, USBD_EP_IN, USBD_EP_TYPE_BULK, (uint8_t)pdev->classId);
+ 105:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   MSCOutEpAdd = USBD_CoreGetEPAdd(pdev, USBD_EP_OUT, USBD_EP_TYPE_BULK, (uint8_t)pdev->classId);
+ 106:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** #endif /* USE_USBD_COMPOSITE */
+ 107:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 108:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   if (hmsc == NULL)
+ 109:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 110:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     return;
+ 111:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   }
+ 112:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 113:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   hmsc->bot_state = USBD_BOT_IDLE;
+ 114:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   hmsc->bot_status = USBD_BOT_STATUS_NORMAL;
+ 115:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 116:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   hmsc->scsi_sense_tail = 0U;
+ 117:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   hmsc->scsi_sense_head = 0U;
+ 118:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   hmsc->scsi_medium_state = SCSI_MEDIUM_UNLOCKED;
+ 119:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 120:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   ((USBD_StorageTypeDef *)pdev->pUserData[pdev->classId])->Init(0U);
+ 121:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 122:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   (void)USBD_LL_FlushEP(pdev, MSCOutEpAdd);
+ 123:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   (void)USBD_LL_FlushEP(pdev, MSCInEpAdd);
+ 124:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 125:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   /* Prepare EP to Receive First BOT Cmd */
+ 126:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   (void)USBD_LL_PrepareReceive(pdev, MSCOutEpAdd, (uint8_t *)&hmsc->cbw,
+ 127:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****                                USBD_BOT_CBW_LENGTH);
+ 128:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** }
+ 129:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 130:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** /**
+ 131:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @brief  MSC_BOT_Reset
+ 132:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   *         Reset the BOT Machine
+ 133:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @param  pdev: device instance
+ 134:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @retval  None
+ 135:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   */
+ 136:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** void MSC_BOT_Reset(USBD_HandleTypeDef *pdev)
+ 137:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** {
+ 138:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   USBD_MSC_BOT_HandleTypeDef *hmsc = (USBD_MSC_BOT_HandleTypeDef *)pdev->pClassDataCmsit[pdev->clas
+ 139:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 140:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** #ifdef USE_USBD_COMPOSITE
+ 141:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   /* Get the Endpoints addresses allocated for this class instance */
+ 142:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   MSCInEpAdd  = USBD_CoreGetEPAdd(pdev, USBD_EP_IN, USBD_EP_TYPE_BULK, (uint8_t)pdev->classId);
+ 143:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   MSCOutEpAdd = USBD_CoreGetEPAdd(pdev, USBD_EP_OUT, USBD_EP_TYPE_BULK, (uint8_t)pdev->classId);
+ 144:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** #endif /* USE_USBD_COMPOSITE */
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s 			page 4
+
+
+ 145:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 146:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   if (hmsc == NULL)
+ 147:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 148:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     return;
+ 149:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   }
+ 150:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 151:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   hmsc->bot_state  = USBD_BOT_IDLE;
+ 152:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   hmsc->bot_status = USBD_BOT_STATUS_RECOVERY;
+ 153:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 154:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   (void)USBD_LL_ClearStallEP(pdev, MSCInEpAdd);
+ 155:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   (void)USBD_LL_ClearStallEP(pdev, MSCOutEpAdd);
+ 156:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 157:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   /* Prepare EP to Receive First BOT Cmd */
+ 158:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   (void)USBD_LL_PrepareReceive(pdev, MSCOutEpAdd, (uint8_t *)&hmsc->cbw,
+ 159:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****                                USBD_BOT_CBW_LENGTH);
+ 160:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** }
+ 161:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 162:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** /**
+ 163:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @brief  MSC_BOT_DeInit
+ 164:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   *         DeInitialize the BOT Machine
+ 165:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @param  pdev: device instance
+ 166:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @retval None
+ 167:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   */
+ 168:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** void MSC_BOT_DeInit(USBD_HandleTypeDef  *pdev)
+ 169:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** {
+ 170:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   USBD_MSC_BOT_HandleTypeDef *hmsc = (USBD_MSC_BOT_HandleTypeDef *)pdev->pClassDataCmsit[pdev->clas
+ 171:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 172:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   if (hmsc != NULL)
+ 173:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 174:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     hmsc->bot_state = USBD_BOT_IDLE;
+ 175:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   }
+ 176:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** }
+ 177:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 178:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** /**
+ 179:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @brief  MSC_BOT_DataIn
+ 180:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   *         Handle BOT IN data stage
+ 181:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @param  pdev: device instance
+ 182:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @param  epnum: endpoint index
+ 183:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @retval None
+ 184:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   */
+ 185:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** void MSC_BOT_DataIn(USBD_HandleTypeDef *pdev, uint8_t epnum)
+ 186:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** {
+ 187:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   UNUSED(epnum);
+ 188:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 189:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   USBD_MSC_BOT_HandleTypeDef *hmsc = (USBD_MSC_BOT_HandleTypeDef *)pdev->pClassDataCmsit[pdev->clas
+ 190:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 191:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   if (hmsc == NULL)
+ 192:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 193:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     return;
+ 194:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   }
+ 195:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 196:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   switch (hmsc->bot_state)
+ 197:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 198:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     case USBD_BOT_DATA_IN:
+ 199:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       if (SCSI_ProcessCmd(pdev, hmsc->cbw.bLUN, &hmsc->cbw.CB[0]) < 0)
+ 200:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       {
+ 201:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****         MSC_BOT_SendCSW(pdev, USBD_CSW_CMD_FAILED);
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s 			page 5
+
+
+ 202:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       }
+ 203:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       break;
+ 204:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 205:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     case USBD_BOT_SEND_DATA:
+ 206:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     case USBD_BOT_LAST_DATA_IN:
+ 207:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       MSC_BOT_SendCSW(pdev, USBD_CSW_CMD_PASSED);
+ 208:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       break;
+ 209:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 210:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     default:
+ 211:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       break;
+ 212:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   }
+ 213:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** }
+ 214:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** /**
+ 215:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @brief  MSC_BOT_DataOut
+ 216:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   *         Process MSC OUT data
+ 217:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @param  pdev: device instance
+ 218:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @param  epnum: endpoint index
+ 219:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @retval None
+ 220:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   */
+ 221:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** void MSC_BOT_DataOut(USBD_HandleTypeDef *pdev, uint8_t epnum)
+ 222:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** {
+ 223:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   UNUSED(epnum);
+ 224:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 225:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   USBD_MSC_BOT_HandleTypeDef *hmsc = (USBD_MSC_BOT_HandleTypeDef *)pdev->pClassDataCmsit[pdev->clas
+ 226:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 227:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   if (hmsc == NULL)
+ 228:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 229:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     return;
+ 230:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   }
+ 231:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 232:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   switch (hmsc->bot_state)
+ 233:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 234:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     case USBD_BOT_IDLE:
+ 235:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       MSC_BOT_CBW_Decode(pdev);
+ 236:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       break;
+ 237:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 238:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     case USBD_BOT_DATA_OUT:
+ 239:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       if (SCSI_ProcessCmd(pdev, hmsc->cbw.bLUN, &hmsc->cbw.CB[0]) < 0)
+ 240:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       {
+ 241:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****         MSC_BOT_SendCSW(pdev, USBD_CSW_CMD_FAILED);
+ 242:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       }
+ 243:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       break;
+ 244:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 245:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     default:
+ 246:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       break;
+ 247:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   }
+ 248:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** }
+ 249:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 250:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** /**
+ 251:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @brief  MSC_BOT_CBW_Decode
+ 252:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   *         Decode the CBW command and set the BOT state machine accordingly
+ 253:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @param  pdev: device instance
+ 254:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @retval None
+ 255:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   */
+ 256:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** static void  MSC_BOT_CBW_Decode(USBD_HandleTypeDef *pdev)
+ 257:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** {
+ 258:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   USBD_MSC_BOT_HandleTypeDef *hmsc = (USBD_MSC_BOT_HandleTypeDef *)pdev->pClassDataCmsit[pdev->clas
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s 			page 6
+
+
+ 259:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 260:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** #ifdef USE_USBD_COMPOSITE
+ 261:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   /* Get the Endpoints addresses allocated for this class instance */
+ 262:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   MSCInEpAdd  = USBD_CoreGetEPAdd(pdev, USBD_EP_IN, USBD_EP_TYPE_BULK, (uint8_t)pdev->classId);
+ 263:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   MSCOutEpAdd = USBD_CoreGetEPAdd(pdev, USBD_EP_OUT, USBD_EP_TYPE_BULK, (uint8_t)pdev->classId);
+ 264:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** #endif /* USE_USBD_COMPOSITE */
+ 265:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 266:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   if (hmsc == NULL)
+ 267:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 268:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     return;
+ 269:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   }
+ 270:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 271:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   hmsc->csw.dTag = hmsc->cbw.dTag;
+ 272:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   hmsc->csw.dDataResidue = hmsc->cbw.dDataLength;
+ 273:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 274:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   if ((USBD_LL_GetRxDataSize(pdev, MSCOutEpAdd) != USBD_BOT_CBW_LENGTH) ||
+ 275:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       (hmsc->cbw.dSignature != USBD_BOT_CBW_SIGNATURE) ||
+ 276:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       (hmsc->cbw.bLUN > hmsc->max_lun) || (hmsc->cbw.bCBLength < 1U) ||
+ 277:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       (hmsc->cbw.bCBLength > 16U))
+ 278:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 279:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     SCSI_SenseCode(pdev, hmsc->cbw.bLUN, ILLEGAL_REQUEST, INVALID_CDB);
+ 280:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 281:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     hmsc->bot_status = USBD_BOT_STATUS_ERROR;
+ 282:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     MSC_BOT_Abort(pdev);
+ 283:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   }
+ 284:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   else
+ 285:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 286:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     if (SCSI_ProcessCmd(pdev, hmsc->cbw.bLUN, &hmsc->cbw.CB[0]) < 0)
+ 287:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     {
+ 288:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       if (hmsc->bot_state == USBD_BOT_NO_DATA)
+ 289:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       {
+ 290:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****         MSC_BOT_SendCSW(pdev, USBD_CSW_CMD_FAILED);
+ 291:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       }
+ 292:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       else
+ 293:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       {
+ 294:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****         MSC_BOT_Abort(pdev);
+ 295:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       }
+ 296:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     }
+ 297:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     /* Burst xfer handled internally */
+ 298:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     else if ((hmsc->bot_state != USBD_BOT_DATA_IN) &&
+ 299:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****              (hmsc->bot_state != USBD_BOT_DATA_OUT) &&
+ 300:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****              (hmsc->bot_state != USBD_BOT_LAST_DATA_IN))
+ 301:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     {
+ 302:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       if (hmsc->bot_data_length > 0U)
+ 303:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       {
+ 304:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****         MSC_BOT_SendData(pdev, hmsc->bot_data, hmsc->bot_data_length);
+ 305:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       }
+ 306:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       else if (hmsc->bot_data_length == 0U)
+ 307:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       {
+ 308:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****         MSC_BOT_SendCSW(pdev, USBD_CSW_CMD_PASSED);
+ 309:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       }
+ 310:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       else
+ 311:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       {
+ 312:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****         MSC_BOT_Abort(pdev);
+ 313:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       }
+ 314:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     }
+ 315:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     else
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s 			page 7
+
+
+ 316:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     {
+ 317:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       return;
+ 318:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     }
+ 319:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   }
+ 320:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** }
+ 321:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 322:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** /**
+ 323:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @brief  MSC_BOT_SendData
+ 324:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   *         Send the requested data
+ 325:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @param  pdev: device instance
+ 326:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @param  buf: pointer to data buffer
+ 327:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @param  len: Data Length
+ 328:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @retval None
+ 329:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   */
+ 330:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** static void  MSC_BOT_SendData(USBD_HandleTypeDef *pdev, uint8_t *pbuf, uint32_t len)
+ 331:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** {
+  29              		.loc 1 331 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		.loc 1 331 1 is_stmt 0 view .LVU1
+  34 0000 38B5     		push	{r3, r4, r5, lr}
+  35              		.cfi_def_cfa_offset 16
+  36              		.cfi_offset 3, -16
+  37              		.cfi_offset 4, -12
+  38              		.cfi_offset 5, -8
+  39              		.cfi_offset 14, -4
+ 332:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   USBD_MSC_BOT_HandleTypeDef *hmsc = (USBD_MSC_BOT_HandleTypeDef *)pdev->pClassDataCmsit[pdev->clas
+  40              		.loc 1 332 3 is_stmt 1 view .LVU2
+  41              		.loc 1 332 94 is_stmt 0 view .LVU3
+  42 0002 D0F8D442 		ldr	r4, [r0, #724]
+  43              		.loc 1 332 31 view .LVU4
+  44 0006 B034     		adds	r4, r4, #176
+  45 0008 50F82440 		ldr	r4, [r0, r4, lsl #2]
+  46              	.LVL1:
+ 333:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 334:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   uint32_t length;
+  47              		.loc 1 334 3 is_stmt 1 view .LVU5
+ 335:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 336:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** #ifdef USE_USBD_COMPOSITE
+ 337:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   /* Get the Endpoints addresses allocated for this class instance */
+ 338:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   MSCInEpAdd  = USBD_CoreGetEPAdd(pdev, USBD_EP_IN, USBD_EP_TYPE_BULK, (uint8_t)pdev->classId);
+ 339:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   MSCOutEpAdd = USBD_CoreGetEPAdd(pdev, USBD_EP_OUT, USBD_EP_TYPE_BULK, (uint8_t)pdev->classId);
+ 340:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** #endif /* USE_USBD_COMPOSITE */
+ 341:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 342:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   if (hmsc == NULL)
+  48              		.loc 1 342 3 view .LVU6
+  49              		.loc 1 342 6 is_stmt 0 view .LVU7
+  50 000c A4B1     		cbz	r4, .L1
+  51 000e 1346     		mov	r3, r2
+ 343:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 344:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     return;
+ 345:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   }
+ 346:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 347:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   length = MIN(hmsc->cbw.dDataLength, len);
+  52              		.loc 1 347 3 is_stmt 1 view .LVU8
+  53              		.loc 1 347 12 is_stmt 0 view .LVU9
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s 			page 8
+
+
+  54 0010 D4F81852 		ldr	r5, [r4, #536]
+  55              	.LVL2:
+ 348:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 349:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   hmsc->csw.dDataResidue -= len;
+  56              		.loc 1 349 3 is_stmt 1 view .LVU10
+  57              		.loc 1 349 12 is_stmt 0 view .LVU11
+  58 0014 D4F83822 		ldr	r2, [r4, #568]
+  59              	.LVL3:
+  60              		.loc 1 349 26 view .LVU12
+  61 0018 D21A     		subs	r2, r2, r3
+  62 001a C4F83822 		str	r2, [r4, #568]
+ 350:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   hmsc->csw.bStatus = USBD_CSW_CMD_PASSED;
+  63              		.loc 1 350 3 is_stmt 1 view .LVU13
+  64              		.loc 1 350 21 is_stmt 0 view .LVU14
+  65 001e 0022     		movs	r2, #0
+  66 0020 84F83C22 		strb	r2, [r4, #572]
+ 351:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   hmsc->bot_state = USBD_BOT_SEND_DATA;
+  67              		.loc 1 351 3 is_stmt 1 view .LVU15
+  68              		.loc 1 351 19 is_stmt 0 view .LVU16
+  69 0024 0422     		movs	r2, #4
+  70 0026 2272     		strb	r2, [r4, #8]
+ 352:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 353:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   (void)USBD_LL_Transmit(pdev, MSCInEpAdd, pbuf, length);
+  71              		.loc 1 353 3 is_stmt 1 view .LVU17
+  72              		.loc 1 353 9 is_stmt 0 view .LVU18
+  73 0028 AB42     		cmp	r3, r5
+  74 002a 28BF     		it	cs
+  75 002c 2B46     		movcs	r3, r5
+  76              	.LVL4:
+  77              		.loc 1 353 9 view .LVU19
+  78 002e 0A46     		mov	r2, r1
+  79 0030 0249     		ldr	r1, .L4
+  80              	.LVL5:
+  81              		.loc 1 353 9 view .LVU20
+  82 0032 0978     		ldrb	r1, [r1]	@ zero_extendqisi2
+  83 0034 FFF7FEFF 		bl	USBD_LL_Transmit
+  84              	.LVL6:
+  85              	.L1:
+ 354:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** }
+  86              		.loc 1 354 1 view .LVU21
+  87 0038 38BD     		pop	{r3, r4, r5, pc}
+  88              	.LVL7:
+  89              	.L5:
+  90              		.loc 1 354 1 view .LVU22
+  91 003a 00BF     		.align	2
+  92              	.L4:
+  93 003c 00000000 		.word	MSCInEpAdd
+  94              		.cfi_endproc
+  95              	.LFE249:
+  97              		.section	.text.MSC_BOT_Abort,"ax",%progbits
+  98              		.align	1
+  99              		.syntax unified
+ 100              		.thumb
+ 101              		.thumb_func
+ 103              	MSC_BOT_Abort:
+ 104              	.LVL8:
+ 105              	.LFB251:
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s 			page 9
+
+
+ 355:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 356:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** /**
+ 357:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @brief  MSC_BOT_SendCSW
+ 358:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   *         Send the Command Status Wrapper
+ 359:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @param  pdev: device instance
+ 360:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @param  status : CSW status
+ 361:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @retval None
+ 362:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   */
+ 363:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** void  MSC_BOT_SendCSW(USBD_HandleTypeDef *pdev, uint8_t CSW_Status)
+ 364:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** {
+ 365:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   USBD_MSC_BOT_HandleTypeDef *hmsc = (USBD_MSC_BOT_HandleTypeDef *)pdev->pClassDataCmsit[pdev->clas
+ 366:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 367:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** #ifdef USE_USBD_COMPOSITE
+ 368:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   /* Get the Endpoints addresses allocated for this class instance */
+ 369:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   MSCInEpAdd  = USBD_CoreGetEPAdd(pdev, USBD_EP_IN, USBD_EP_TYPE_BULK, (uint8_t)pdev->classId);
+ 370:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   MSCOutEpAdd = USBD_CoreGetEPAdd(pdev, USBD_EP_OUT, USBD_EP_TYPE_BULK, (uint8_t)pdev->classId);
+ 371:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** #endif /* USE_USBD_COMPOSITE */
+ 372:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 373:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   if (hmsc == NULL)
+ 374:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 375:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     return;
+ 376:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   }
+ 377:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 378:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   hmsc->csw.dSignature = USBD_BOT_CSW_SIGNATURE;
+ 379:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   hmsc->csw.bStatus = CSW_Status;
+ 380:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   hmsc->bot_state = USBD_BOT_IDLE;
+ 381:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 382:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   (void)USBD_LL_Transmit(pdev, MSCInEpAdd, (uint8_t *)&hmsc->csw,
+ 383:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****                          USBD_BOT_CSW_LENGTH);
+ 384:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 385:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   /* Prepare EP to Receive next Cmd */
+ 386:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   (void)USBD_LL_PrepareReceive(pdev, MSCOutEpAdd, (uint8_t *)&hmsc->cbw,
+ 387:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****                                USBD_BOT_CBW_LENGTH);
+ 388:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** }
+ 389:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 390:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** /**
+ 391:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @brief  MSC_BOT_Abort
+ 392:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   *         Abort the current transfer
+ 393:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @param  pdev: device instance
+ 394:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @retval status
+ 395:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   */
+ 396:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 397:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** static void  MSC_BOT_Abort(USBD_HandleTypeDef *pdev)
+ 398:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** {
+ 106              		.loc 1 398 1 is_stmt 1 view -0
+ 107              		.cfi_startproc
+ 108              		@ args = 0, pretend = 0, frame = 0
+ 109              		@ frame_needed = 0, uses_anonymous_args = 0
+ 110              		.loc 1 398 1 is_stmt 0 view .LVU24
+ 111 0000 38B5     		push	{r3, r4, r5, lr}
+ 112              		.cfi_def_cfa_offset 16
+ 113              		.cfi_offset 3, -16
+ 114              		.cfi_offset 4, -12
+ 115              		.cfi_offset 5, -8
+ 116              		.cfi_offset 14, -4
+ 399:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   USBD_MSC_BOT_HandleTypeDef *hmsc = (USBD_MSC_BOT_HandleTypeDef *)pdev->pClassDataCmsit[pdev->clas
+ 117              		.loc 1 399 3 is_stmt 1 view .LVU25
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s 			page 10
+
+
+ 118              		.loc 1 399 94 is_stmt 0 view .LVU26
+ 119 0002 D0F8D432 		ldr	r3, [r0, #724]
+ 120              		.loc 1 399 31 view .LVU27
+ 121 0006 B033     		adds	r3, r3, #176
+ 122 0008 50F82350 		ldr	r5, [r0, r3, lsl #2]
+ 123              	.LVL9:
+ 400:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 401:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** #ifdef USE_USBD_COMPOSITE
+ 402:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   /* Get the Endpoints addresses allocated for this class instance */
+ 403:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   MSCInEpAdd  = USBD_CoreGetEPAdd(pdev, USBD_EP_IN, USBD_EP_TYPE_BULK, (uint8_t)pdev->classId);
+ 404:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   MSCOutEpAdd = USBD_CoreGetEPAdd(pdev, USBD_EP_OUT, USBD_EP_TYPE_BULK, (uint8_t)pdev->classId);
+ 405:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** #endif /* USE_USBD_COMPOSITE */
+ 406:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 407:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   if (hmsc == NULL)
+ 124              		.loc 1 407 3 is_stmt 1 view .LVU28
+ 125              		.loc 1 407 6 is_stmt 0 view .LVU29
+ 126 000c 85B1     		cbz	r5, .L6
+ 127 000e 0446     		mov	r4, r0
+ 408:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 409:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     return;
+ 410:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   }
+ 411:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 412:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   if ((hmsc->cbw.bmFlags == 0U) &&
+ 128              		.loc 1 412 3 is_stmt 1 view .LVU30
+ 129              		.loc 1 412 17 is_stmt 0 view .LVU31
+ 130 0010 95F81C32 		ldrb	r3, [r5, #540]	@ zero_extendqisi2
+ 131              		.loc 1 412 6 view .LVU32
+ 132 0014 23B9     		cbnz	r3, .L8
+ 413:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       (hmsc->cbw.dDataLength != 0U) &&
+ 133              		.loc 1 413 17 view .LVU33
+ 134 0016 D5F81832 		ldr	r3, [r5, #536]
+ 412:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       (hmsc->cbw.dDataLength != 0U) &&
+ 135              		.loc 1 412 33 discriminator 1 view .LVU34
+ 136 001a 0BB1     		cbz	r3, .L8
+ 414:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       (hmsc->bot_status == USBD_BOT_STATUS_NORMAL))
+ 137              		.loc 1 414 12 view .LVU35
+ 138 001c 6B7A     		ldrb	r3, [r5, #9]	@ zero_extendqisi2
+ 413:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       (hmsc->cbw.dDataLength != 0U) &&
+ 139              		.loc 1 413 37 view .LVU36
+ 140 001e 43B1     		cbz	r3, .L10
+ 141              	.LVL10:
+ 142              	.L8:
+ 415:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 416:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     (void)USBD_LL_StallEP(pdev, MSCOutEpAdd);
+ 417:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   }
+ 418:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 419:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   (void)USBD_LL_StallEP(pdev, MSCInEpAdd);
+ 143              		.loc 1 419 3 is_stmt 1 view .LVU37
+ 144              		.loc 1 419 9 is_stmt 0 view .LVU38
+ 145 0020 0C4B     		ldr	r3, .L12
+ 146 0022 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+ 147 0024 2046     		mov	r0, r4
+ 148 0026 FFF7FEFF 		bl	USBD_LL_StallEP
+ 149              	.LVL11:
+ 420:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 421:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   if (hmsc->bot_status == USBD_BOT_STATUS_ERROR)
+ 150              		.loc 1 421 3 is_stmt 1 view .LVU39
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s 			page 11
+
+
+ 151              		.loc 1 421 11 is_stmt 0 view .LVU40
+ 152 002a 6B7A     		ldrb	r3, [r5, #9]	@ zero_extendqisi2
+ 153              		.loc 1 421 6 view .LVU41
+ 154 002c 022B     		cmp	r3, #2
+ 155 002e 05D0     		beq	.L11
+ 156              	.LVL12:
+ 157              	.L6:
+ 422:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 423:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     (void)USBD_LL_StallEP(pdev, MSCInEpAdd);
+ 424:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     (void)USBD_LL_StallEP(pdev, MSCOutEpAdd);
+ 425:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   }
+ 426:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** }
+ 158              		.loc 1 426 1 view .LVU42
+ 159 0030 38BD     		pop	{r3, r4, r5, pc}
+ 160              	.LVL13:
+ 161              	.L10:
+ 416:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   }
+ 162              		.loc 1 416 5 is_stmt 1 view .LVU43
+ 416:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   }
+ 163              		.loc 1 416 11 is_stmt 0 view .LVU44
+ 164 0032 094B     		ldr	r3, .L12+4
+ 165 0034 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+ 166 0036 FFF7FEFF 		bl	USBD_LL_StallEP
+ 167              	.LVL14:
+ 416:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   }
+ 168              		.loc 1 416 11 view .LVU45
+ 169 003a F1E7     		b	.L8
+ 170              	.L11:
+ 423:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     (void)USBD_LL_StallEP(pdev, MSCOutEpAdd);
+ 171              		.loc 1 423 5 is_stmt 1 view .LVU46
+ 423:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     (void)USBD_LL_StallEP(pdev, MSCOutEpAdd);
+ 172              		.loc 1 423 11 is_stmt 0 view .LVU47
+ 173 003c 054B     		ldr	r3, .L12
+ 174 003e 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+ 175 0040 2046     		mov	r0, r4
+ 176 0042 FFF7FEFF 		bl	USBD_LL_StallEP
+ 177              	.LVL15:
+ 424:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   }
+ 178              		.loc 1 424 5 is_stmt 1 view .LVU48
+ 424:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   }
+ 179              		.loc 1 424 11 is_stmt 0 view .LVU49
+ 180 0046 044B     		ldr	r3, .L12+4
+ 181 0048 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+ 182 004a 2046     		mov	r0, r4
+ 183 004c FFF7FEFF 		bl	USBD_LL_StallEP
+ 184              	.LVL16:
+ 185 0050 EEE7     		b	.L6
+ 186              	.L13:
+ 187 0052 00BF     		.align	2
+ 188              	.L12:
+ 189 0054 00000000 		.word	MSCInEpAdd
+ 190 0058 00000000 		.word	MSCOutEpAdd
+ 191              		.cfi_endproc
+ 192              	.LFE251:
+ 194              		.section	.text.MSC_BOT_Init,"ax",%progbits
+ 195              		.align	1
+ 196              		.global	MSC_BOT_Init
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s 			page 12
+
+
+ 197              		.syntax unified
+ 198              		.thumb
+ 199              		.thumb_func
+ 201              	MSC_BOT_Init:
+ 202              	.LVL17:
+ 203              	.LFB243:
+  99:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   USBD_MSC_BOT_HandleTypeDef *hmsc = (USBD_MSC_BOT_HandleTypeDef *)pdev->pClassDataCmsit[pdev->clas
+ 204              		.loc 1 99 1 is_stmt 1 view -0
+ 205              		.cfi_startproc
+ 206              		@ args = 0, pretend = 0, frame = 0
+ 207              		@ frame_needed = 0, uses_anonymous_args = 0
+  99:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   USBD_MSC_BOT_HandleTypeDef *hmsc = (USBD_MSC_BOT_HandleTypeDef *)pdev->pClassDataCmsit[pdev->clas
+ 208              		.loc 1 99 1 is_stmt 0 view .LVU51
+ 209 0000 70B5     		push	{r4, r5, r6, lr}
+ 210              		.cfi_def_cfa_offset 16
+ 211              		.cfi_offset 4, -16
+ 212              		.cfi_offset 5, -12
+ 213              		.cfi_offset 6, -8
+ 214              		.cfi_offset 14, -4
+ 100:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 215              		.loc 1 100 3 is_stmt 1 view .LVU52
+ 100:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 216              		.loc 1 100 94 is_stmt 0 view .LVU53
+ 217 0002 D0F8D432 		ldr	r3, [r0, #724]
+ 100:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 218              		.loc 1 100 31 view .LVU54
+ 219 0006 B033     		adds	r3, r3, #176
+ 220 0008 50F82350 		ldr	r5, [r0, r3, lsl #2]
+ 221              	.LVL18:
+ 108:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 222              		.loc 1 108 3 is_stmt 1 view .LVU55
+ 108:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 223              		.loc 1 108 6 is_stmt 0 view .LVU56
+ 224 000c 15B3     		cbz	r5, .L14
+ 225 000e 0446     		mov	r4, r0
+ 113:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   hmsc->bot_status = USBD_BOT_STATUS_NORMAL;
+ 226              		.loc 1 113 3 is_stmt 1 view .LVU57
+ 113:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   hmsc->bot_status = USBD_BOT_STATUS_NORMAL;
+ 227              		.loc 1 113 19 is_stmt 0 view .LVU58
+ 228 0010 0020     		movs	r0, #0
+ 229              	.LVL19:
+ 113:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   hmsc->bot_status = USBD_BOT_STATUS_NORMAL;
+ 230              		.loc 1 113 19 view .LVU59
+ 231 0012 2872     		strb	r0, [r5, #8]
+ 114:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 232              		.loc 1 114 3 is_stmt 1 view .LVU60
+ 114:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 233              		.loc 1 114 20 is_stmt 0 view .LVU61
+ 234 0014 6872     		strb	r0, [r5, #9]
+ 116:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   hmsc->scsi_sense_head = 0U;
+ 235              		.loc 1 116 3 is_stmt 1 view .LVU62
+ 116:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   hmsc->scsi_sense_head = 0U;
+ 236              		.loc 1 116 25 is_stmt 0 view .LVU63
+ 237 0016 85F86102 		strb	r0, [r5, #609]
+ 117:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   hmsc->scsi_medium_state = SCSI_MEDIUM_UNLOCKED;
+ 238              		.loc 1 117 3 is_stmt 1 view .LVU64
+ 117:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   hmsc->scsi_medium_state = SCSI_MEDIUM_UNLOCKED;
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s 			page 13
+
+
+ 239              		.loc 1 117 25 is_stmt 0 view .LVU65
+ 240 001a 85F86002 		strb	r0, [r5, #608]
+ 118:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 241              		.loc 1 118 3 is_stmt 1 view .LVU66
+ 118:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 242              		.loc 1 118 27 is_stmt 0 view .LVU67
+ 243 001e 85F86202 		strb	r0, [r5, #610]
+ 120:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 244              		.loc 1 120 3 is_stmt 1 view .LVU68
+ 120:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 245              		.loc 1 120 47 is_stmt 0 view .LVU69
+ 246 0022 D4F8D432 		ldr	r3, [r4, #724]
+ 120:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 247              		.loc 1 120 42 view .LVU70
+ 248 0026 B033     		adds	r3, r3, #176
+ 249 0028 04EB8303 		add	r3, r4, r3, lsl #2
+ 250 002c 5B68     		ldr	r3, [r3, #4]
+ 120:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 251              		.loc 1 120 58 view .LVU71
+ 252 002e 1B68     		ldr	r3, [r3]
+ 120:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 253              		.loc 1 120 4 view .LVU72
+ 254 0030 9847     		blx	r3
+ 255              	.LVL20:
+ 122:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   (void)USBD_LL_FlushEP(pdev, MSCInEpAdd);
+ 256              		.loc 1 122 3 is_stmt 1 view .LVU73
+ 257 0032 094E     		ldr	r6, .L17
+ 122:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   (void)USBD_LL_FlushEP(pdev, MSCInEpAdd);
+ 258              		.loc 1 122 9 is_stmt 0 view .LVU74
+ 259 0034 3178     		ldrb	r1, [r6]	@ zero_extendqisi2
+ 260 0036 2046     		mov	r0, r4
+ 261 0038 FFF7FEFF 		bl	USBD_LL_FlushEP
+ 262              	.LVL21:
+ 123:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 263              		.loc 1 123 3 is_stmt 1 view .LVU75
+ 123:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 264              		.loc 1 123 9 is_stmt 0 view .LVU76
+ 265 003c 074B     		ldr	r3, .L17+4
+ 266 003e 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+ 267 0040 2046     		mov	r0, r4
+ 268 0042 FFF7FEFF 		bl	USBD_LL_FlushEP
+ 269              	.LVL22:
+ 126:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****                                USBD_BOT_CBW_LENGTH);
+ 270              		.loc 1 126 3 is_stmt 1 view .LVU77
+ 126:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****                                USBD_BOT_CBW_LENGTH);
+ 271              		.loc 1 126 9 is_stmt 0 view .LVU78
+ 272 0046 1F23     		movs	r3, #31
+ 273 0048 05F50472 		add	r2, r5, #528
+ 274 004c 3178     		ldrb	r1, [r6]	@ zero_extendqisi2
+ 275 004e 2046     		mov	r0, r4
+ 276 0050 FFF7FEFF 		bl	USBD_LL_PrepareReceive
+ 277              	.LVL23:
+ 278              	.L14:
+ 128:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 279              		.loc 1 128 1 view .LVU79
+ 280 0054 70BD     		pop	{r4, r5, r6, pc}
+ 281              	.LVL24:
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s 			page 14
+
+
+ 282              	.L18:
+ 128:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 283              		.loc 1 128 1 view .LVU80
+ 284 0056 00BF     		.align	2
+ 285              	.L17:
+ 286 0058 00000000 		.word	MSCOutEpAdd
+ 287 005c 00000000 		.word	MSCInEpAdd
+ 288              		.cfi_endproc
+ 289              	.LFE243:
+ 291              		.section	.text.MSC_BOT_Reset,"ax",%progbits
+ 292              		.align	1
+ 293              		.global	MSC_BOT_Reset
+ 294              		.syntax unified
+ 295              		.thumb
+ 296              		.thumb_func
+ 298              	MSC_BOT_Reset:
+ 299              	.LVL25:
+ 300              	.LFB244:
+ 137:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   USBD_MSC_BOT_HandleTypeDef *hmsc = (USBD_MSC_BOT_HandleTypeDef *)pdev->pClassDataCmsit[pdev->clas
+ 301              		.loc 1 137 1 is_stmt 1 view -0
+ 302              		.cfi_startproc
+ 303              		@ args = 0, pretend = 0, frame = 0
+ 304              		@ frame_needed = 0, uses_anonymous_args = 0
+ 137:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   USBD_MSC_BOT_HandleTypeDef *hmsc = (USBD_MSC_BOT_HandleTypeDef *)pdev->pClassDataCmsit[pdev->clas
+ 305              		.loc 1 137 1 is_stmt 0 view .LVU82
+ 306 0000 70B5     		push	{r4, r5, r6, lr}
+ 307              		.cfi_def_cfa_offset 16
+ 308              		.cfi_offset 4, -16
+ 309              		.cfi_offset 5, -12
+ 310              		.cfi_offset 6, -8
+ 311              		.cfi_offset 14, -4
+ 138:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 312              		.loc 1 138 3 is_stmt 1 view .LVU83
+ 138:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 313              		.loc 1 138 94 is_stmt 0 view .LVU84
+ 314 0002 D0F8D432 		ldr	r3, [r0, #724]
+ 138:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 315              		.loc 1 138 31 view .LVU85
+ 316 0006 B033     		adds	r3, r3, #176
+ 317 0008 50F82350 		ldr	r5, [r0, r3, lsl #2]
+ 318              	.LVL26:
+ 146:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 319              		.loc 1 146 3 is_stmt 1 view .LVU86
+ 146:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 320              		.loc 1 146 6 is_stmt 0 view .LVU87
+ 321 000c A5B1     		cbz	r5, .L19
+ 322 000e 0446     		mov	r4, r0
+ 151:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   hmsc->bot_status = USBD_BOT_STATUS_RECOVERY;
+ 323              		.loc 1 151 3 is_stmt 1 view .LVU88
+ 151:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   hmsc->bot_status = USBD_BOT_STATUS_RECOVERY;
+ 324              		.loc 1 151 20 is_stmt 0 view .LVU89
+ 325 0010 0023     		movs	r3, #0
+ 326 0012 2B72     		strb	r3, [r5, #8]
+ 152:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 327              		.loc 1 152 3 is_stmt 1 view .LVU90
+ 152:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 328              		.loc 1 152 20 is_stmt 0 view .LVU91
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s 			page 15
+
+
+ 329 0014 0123     		movs	r3, #1
+ 330 0016 6B72     		strb	r3, [r5, #9]
+ 154:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   (void)USBD_LL_ClearStallEP(pdev, MSCOutEpAdd);
+ 331              		.loc 1 154 3 is_stmt 1 view .LVU92
+ 154:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   (void)USBD_LL_ClearStallEP(pdev, MSCOutEpAdd);
+ 332              		.loc 1 154 9 is_stmt 0 view .LVU93
+ 333 0018 084B     		ldr	r3, .L22
+ 334 001a 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+ 335 001c FFF7FEFF 		bl	USBD_LL_ClearStallEP
+ 336              	.LVL27:
+ 155:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 337              		.loc 1 155 3 is_stmt 1 view .LVU94
+ 338 0020 074E     		ldr	r6, .L22+4
+ 155:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 339              		.loc 1 155 9 is_stmt 0 view .LVU95
+ 340 0022 3178     		ldrb	r1, [r6]	@ zero_extendqisi2
+ 341 0024 2046     		mov	r0, r4
+ 342 0026 FFF7FEFF 		bl	USBD_LL_ClearStallEP
+ 343              	.LVL28:
+ 158:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****                                USBD_BOT_CBW_LENGTH);
+ 344              		.loc 1 158 3 is_stmt 1 view .LVU96
+ 158:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****                                USBD_BOT_CBW_LENGTH);
+ 345              		.loc 1 158 9 is_stmt 0 view .LVU97
+ 346 002a 1F23     		movs	r3, #31
+ 347 002c 05F50472 		add	r2, r5, #528
+ 348 0030 3178     		ldrb	r1, [r6]	@ zero_extendqisi2
+ 349 0032 2046     		mov	r0, r4
+ 350 0034 FFF7FEFF 		bl	USBD_LL_PrepareReceive
+ 351              	.LVL29:
+ 352              	.L19:
+ 160:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 353              		.loc 1 160 1 view .LVU98
+ 354 0038 70BD     		pop	{r4, r5, r6, pc}
+ 355              	.LVL30:
+ 356              	.L23:
+ 160:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 357              		.loc 1 160 1 view .LVU99
+ 358 003a 00BF     		.align	2
+ 359              	.L22:
+ 360 003c 00000000 		.word	MSCInEpAdd
+ 361 0040 00000000 		.word	MSCOutEpAdd
+ 362              		.cfi_endproc
+ 363              	.LFE244:
+ 365              		.section	.text.MSC_BOT_DeInit,"ax",%progbits
+ 366              		.align	1
+ 367              		.global	MSC_BOT_DeInit
+ 368              		.syntax unified
+ 369              		.thumb
+ 370              		.thumb_func
+ 372              	MSC_BOT_DeInit:
+ 373              	.LVL31:
+ 374              	.LFB245:
+ 169:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   USBD_MSC_BOT_HandleTypeDef *hmsc = (USBD_MSC_BOT_HandleTypeDef *)pdev->pClassDataCmsit[pdev->clas
+ 375              		.loc 1 169 1 is_stmt 1 view -0
+ 376              		.cfi_startproc
+ 377              		@ args = 0, pretend = 0, frame = 0
+ 378              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s 			page 16
+
+
+ 379              		@ link register save eliminated.
+ 170:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 380              		.loc 1 170 3 view .LVU101
+ 170:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 381              		.loc 1 170 94 is_stmt 0 view .LVU102
+ 382 0000 D0F8D432 		ldr	r3, [r0, #724]
+ 170:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 383              		.loc 1 170 31 view .LVU103
+ 384 0004 B033     		adds	r3, r3, #176
+ 385 0006 50F82330 		ldr	r3, [r0, r3, lsl #2]
+ 386              	.LVL32:
+ 172:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 387              		.loc 1 172 3 is_stmt 1 view .LVU104
+ 172:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 388              		.loc 1 172 6 is_stmt 0 view .LVU105
+ 389 000a 0BB1     		cbz	r3, .L24
+ 174:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   }
+ 390              		.loc 1 174 5 is_stmt 1 view .LVU106
+ 174:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   }
+ 391              		.loc 1 174 21 is_stmt 0 view .LVU107
+ 392 000c 0022     		movs	r2, #0
+ 393 000e 1A72     		strb	r2, [r3, #8]
+ 394              	.L24:
+ 176:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 395              		.loc 1 176 1 view .LVU108
+ 396 0010 7047     		bx	lr
+ 397              		.cfi_endproc
+ 398              	.LFE245:
+ 400              		.section	.text.MSC_BOT_SendCSW,"ax",%progbits
+ 401              		.align	1
+ 402              		.global	MSC_BOT_SendCSW
+ 403              		.syntax unified
+ 404              		.thumb
+ 405              		.thumb_func
+ 407              	MSC_BOT_SendCSW:
+ 408              	.LVL33:
+ 409              	.LFB250:
+ 364:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   USBD_MSC_BOT_HandleTypeDef *hmsc = (USBD_MSC_BOT_HandleTypeDef *)pdev->pClassDataCmsit[pdev->clas
+ 410              		.loc 1 364 1 is_stmt 1 view -0
+ 411              		.cfi_startproc
+ 412              		@ args = 0, pretend = 0, frame = 0
+ 413              		@ frame_needed = 0, uses_anonymous_args = 0
+ 364:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   USBD_MSC_BOT_HandleTypeDef *hmsc = (USBD_MSC_BOT_HandleTypeDef *)pdev->pClassDataCmsit[pdev->clas
+ 414              		.loc 1 364 1 is_stmt 0 view .LVU110
+ 415 0000 38B5     		push	{r3, r4, r5, lr}
+ 416              		.cfi_def_cfa_offset 16
+ 417              		.cfi_offset 3, -16
+ 418              		.cfi_offset 4, -12
+ 419              		.cfi_offset 5, -8
+ 420              		.cfi_offset 14, -4
+ 365:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 421              		.loc 1 365 3 is_stmt 1 view .LVU111
+ 365:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 422              		.loc 1 365 94 is_stmt 0 view .LVU112
+ 423 0002 D0F8D432 		ldr	r3, [r0, #724]
+ 365:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 424              		.loc 1 365 31 view .LVU113
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s 			page 17
+
+
+ 425 0006 B033     		adds	r3, r3, #176
+ 426 0008 50F82350 		ldr	r5, [r0, r3, lsl #2]
+ 427              	.LVL34:
+ 373:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 428              		.loc 1 373 3 is_stmt 1 view .LVU114
+ 373:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 429              		.loc 1 373 6 is_stmt 0 view .LVU115
+ 430 000c B5B1     		cbz	r5, .L26
+ 431 000e 0446     		mov	r4, r0
+ 378:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   hmsc->csw.bStatus = CSW_Status;
+ 432              		.loc 1 378 3 is_stmt 1 view .LVU116
+ 378:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   hmsc->csw.bStatus = CSW_Status;
+ 433              		.loc 1 378 24 is_stmt 0 view .LVU117
+ 434 0010 0B4B     		ldr	r3, .L29
+ 435 0012 C5F83032 		str	r3, [r5, #560]
+ 379:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   hmsc->bot_state = USBD_BOT_IDLE;
+ 436              		.loc 1 379 3 is_stmt 1 view .LVU118
+ 379:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   hmsc->bot_state = USBD_BOT_IDLE;
+ 437              		.loc 1 379 21 is_stmt 0 view .LVU119
+ 438 0016 85F83C12 		strb	r1, [r5, #572]
+ 380:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 439              		.loc 1 380 3 is_stmt 1 view .LVU120
+ 380:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 440              		.loc 1 380 19 is_stmt 0 view .LVU121
+ 441 001a 0023     		movs	r3, #0
+ 442 001c 2B72     		strb	r3, [r5, #8]
+ 382:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****                          USBD_BOT_CSW_LENGTH);
+ 443              		.loc 1 382 3 is_stmt 1 view .LVU122
+ 382:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****                          USBD_BOT_CSW_LENGTH);
+ 444              		.loc 1 382 9 is_stmt 0 view .LVU123
+ 445 001e 0D23     		movs	r3, #13
+ 446 0020 05F50C72 		add	r2, r5, #560
+ 447 0024 0749     		ldr	r1, .L29+4
+ 448              	.LVL35:
+ 382:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****                          USBD_BOT_CSW_LENGTH);
+ 449              		.loc 1 382 9 view .LVU124
+ 450 0026 0978     		ldrb	r1, [r1]	@ zero_extendqisi2
+ 451 0028 FFF7FEFF 		bl	USBD_LL_Transmit
+ 452              	.LVL36:
+ 386:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****                                USBD_BOT_CBW_LENGTH);
+ 453              		.loc 1 386 3 is_stmt 1 view .LVU125
+ 386:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****                                USBD_BOT_CBW_LENGTH);
+ 454              		.loc 1 386 9 is_stmt 0 view .LVU126
+ 455 002c 1F23     		movs	r3, #31
+ 456 002e 05F50472 		add	r2, r5, #528
+ 457 0032 0549     		ldr	r1, .L29+8
+ 458 0034 0978     		ldrb	r1, [r1]	@ zero_extendqisi2
+ 459 0036 2046     		mov	r0, r4
+ 460 0038 FFF7FEFF 		bl	USBD_LL_PrepareReceive
+ 461              	.LVL37:
+ 462              	.L26:
+ 388:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 463              		.loc 1 388 1 view .LVU127
+ 464 003c 38BD     		pop	{r3, r4, r5, pc}
+ 465              	.LVL38:
+ 466              	.L30:
+ 388:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s 			page 18
+
+
+ 467              		.loc 1 388 1 view .LVU128
+ 468 003e 00BF     		.align	2
+ 469              	.L29:
+ 470 0040 55534253 		.word	1396855637
+ 471 0044 00000000 		.word	MSCInEpAdd
+ 472 0048 00000000 		.word	MSCOutEpAdd
+ 473              		.cfi_endproc
+ 474              	.LFE250:
+ 476              		.section	.text.MSC_BOT_DataIn,"ax",%progbits
+ 477              		.align	1
+ 478              		.global	MSC_BOT_DataIn
+ 479              		.syntax unified
+ 480              		.thumb
+ 481              		.thumb_func
+ 483              	MSC_BOT_DataIn:
+ 484              	.LVL39:
+ 485              	.LFB246:
+ 186:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   UNUSED(epnum);
+ 486              		.loc 1 186 1 is_stmt 1 view -0
+ 487              		.cfi_startproc
+ 488              		@ args = 0, pretend = 0, frame = 0
+ 489              		@ frame_needed = 0, uses_anonymous_args = 0
+ 187:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 490              		.loc 1 187 3 view .LVU130
+ 189:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 491              		.loc 1 189 3 view .LVU131
+ 189:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 492              		.loc 1 189 94 is_stmt 0 view .LVU132
+ 493 0000 D0F8D432 		ldr	r3, [r0, #724]
+ 189:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 494              		.loc 1 189 31 view .LVU133
+ 495 0004 B033     		adds	r3, r3, #176
+ 496 0006 50F82310 		ldr	r1, [r0, r3, lsl #2]
+ 497              	.LVL40:
+ 191:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 498              		.loc 1 191 3 is_stmt 1 view .LVU134
+ 191:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 499              		.loc 1 191 6 is_stmt 0 view .LVU135
+ 500 000a D1B1     		cbz	r1, .L37
+ 186:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   UNUSED(epnum);
+ 501              		.loc 1 186 1 view .LVU136
+ 502 000c 10B5     		push	{r4, lr}
+ 503              		.cfi_def_cfa_offset 8
+ 504              		.cfi_offset 4, -8
+ 505              		.cfi_offset 14, -4
+ 506 000e 0446     		mov	r4, r0
+ 196:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 507              		.loc 1 196 3 is_stmt 1 view .LVU137
+ 196:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 508              		.loc 1 196 15 is_stmt 0 view .LVU138
+ 509 0010 0B7A     		ldrb	r3, [r1, #8]	@ zero_extendqisi2
+ 196:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 510              		.loc 1 196 3 view .LVU139
+ 511 0012 022B     		cmp	r3, #2
+ 512 0014 08D0     		beq	.L33
+ 513 0016 06D3     		bcc	.L31
+ 514 0018 033B     		subs	r3, r3, #3
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s 			page 19
+
+
+ 515 001a DBB2     		uxtb	r3, r3
+ 516 001c 012B     		cmp	r3, #1
+ 517 001e 02D8     		bhi	.L31
+ 207:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       break;
+ 518              		.loc 1 207 7 is_stmt 1 view .LVU140
+ 519 0020 0021     		movs	r1, #0
+ 520              	.LVL41:
+ 207:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       break;
+ 521              		.loc 1 207 7 is_stmt 0 view .LVU141
+ 522 0022 FFF7FEFF 		bl	MSC_BOT_SendCSW
+ 523              	.LVL42:
+ 208:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 524              		.loc 1 208 7 is_stmt 1 view .LVU142
+ 525              	.L31:
+ 213:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** /**
+ 526              		.loc 1 213 1 is_stmt 0 view .LVU143
+ 527 0026 10BD     		pop	{r4, pc}
+ 528              	.LVL43:
+ 529              	.L33:
+ 199:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       {
+ 530              		.loc 1 199 7 is_stmt 1 view .LVU144
+ 199:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       {
+ 531              		.loc 1 199 11 is_stmt 0 view .LVU145
+ 532 0028 01F21F22 		addw	r2, r1, #543
+ 533 002c 91F81D12 		ldrb	r1, [r1, #541]	@ zero_extendqisi2
+ 534              	.LVL44:
+ 199:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       {
+ 535              		.loc 1 199 11 view .LVU146
+ 536 0030 FFF7FEFF 		bl	SCSI_ProcessCmd
+ 537              	.LVL45:
+ 199:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       {
+ 538              		.loc 1 199 10 discriminator 1 view .LVU147
+ 539 0034 0028     		cmp	r0, #0
+ 540 0036 F6DA     		bge	.L31
+ 201:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       }
+ 541              		.loc 1 201 9 is_stmt 1 view .LVU148
+ 542 0038 0121     		movs	r1, #1
+ 543 003a 2046     		mov	r0, r4
+ 544 003c FFF7FEFF 		bl	MSC_BOT_SendCSW
+ 545              	.LVL46:
+ 546 0040 F1E7     		b	.L31
+ 547              	.LVL47:
+ 548              	.L37:
+ 549              		.cfi_def_cfa_offset 0
+ 550              		.cfi_restore 4
+ 551              		.cfi_restore 14
+ 201:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       }
+ 552              		.loc 1 201 9 is_stmt 0 view .LVU149
+ 553 0042 7047     		bx	lr
+ 554              		.cfi_endproc
+ 555              	.LFE246:
+ 557              		.section	.text.MSC_BOT_CBW_Decode,"ax",%progbits
+ 558              		.align	1
+ 559              		.syntax unified
+ 560              		.thumb
+ 561              		.thumb_func
+ 563              	MSC_BOT_CBW_Decode:
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s 			page 20
+
+
+ 564              	.LVL48:
+ 565              	.LFB248:
+ 257:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   USBD_MSC_BOT_HandleTypeDef *hmsc = (USBD_MSC_BOT_HandleTypeDef *)pdev->pClassDataCmsit[pdev->clas
+ 566              		.loc 1 257 1 is_stmt 1 view -0
+ 567              		.cfi_startproc
+ 568              		@ args = 0, pretend = 0, frame = 0
+ 569              		@ frame_needed = 0, uses_anonymous_args = 0
+ 257:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   USBD_MSC_BOT_HandleTypeDef *hmsc = (USBD_MSC_BOT_HandleTypeDef *)pdev->pClassDataCmsit[pdev->clas
+ 570              		.loc 1 257 1 is_stmt 0 view .LVU151
+ 571 0000 38B5     		push	{r3, r4, r5, lr}
+ 572              		.cfi_def_cfa_offset 16
+ 573              		.cfi_offset 3, -16
+ 574              		.cfi_offset 4, -12
+ 575              		.cfi_offset 5, -8
+ 576              		.cfi_offset 14, -4
+ 258:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 577              		.loc 1 258 3 is_stmt 1 view .LVU152
+ 258:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 578              		.loc 1 258 94 is_stmt 0 view .LVU153
+ 579 0002 D0F8D432 		ldr	r3, [r0, #724]
+ 258:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 580              		.loc 1 258 31 view .LVU154
+ 581 0006 B033     		adds	r3, r3, #176
+ 582 0008 50F82350 		ldr	r5, [r0, r3, lsl #2]
+ 583              	.LVL49:
+ 266:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 584              		.loc 1 266 3 is_stmt 1 view .LVU155
+ 266:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 585              		.loc 1 266 6 is_stmt 0 view .LVU156
+ 586 000c FDB1     		cbz	r5, .L40
+ 587 000e 0446     		mov	r4, r0
+ 271:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   hmsc->csw.dDataResidue = hmsc->cbw.dDataLength;
+ 588              		.loc 1 271 3 is_stmt 1 view .LVU157
+ 271:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   hmsc->csw.dDataResidue = hmsc->cbw.dDataLength;
+ 589              		.loc 1 271 29 is_stmt 0 view .LVU158
+ 590 0010 D5F81432 		ldr	r3, [r5, #532]
+ 271:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   hmsc->csw.dDataResidue = hmsc->cbw.dDataLength;
+ 591              		.loc 1 271 18 view .LVU159
+ 592 0014 C5F83432 		str	r3, [r5, #564]
+ 272:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 593              		.loc 1 272 3 is_stmt 1 view .LVU160
+ 272:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 594              		.loc 1 272 37 is_stmt 0 view .LVU161
+ 595 0018 D5F81832 		ldr	r3, [r5, #536]
+ 272:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 596              		.loc 1 272 26 view .LVU162
+ 597 001c C5F83832 		str	r3, [r5, #568]
+ 274:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       (hmsc->cbw.dSignature != USBD_BOT_CBW_SIGNATURE) ||
+ 598              		.loc 1 274 3 is_stmt 1 view .LVU163
+ 274:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       (hmsc->cbw.dSignature != USBD_BOT_CBW_SIGNATURE) ||
+ 599              		.loc 1 274 8 is_stmt 0 view .LVU164
+ 600 0020 234B     		ldr	r3, .L51
+ 601 0022 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+ 602 0024 FFF7FEFF 		bl	USBD_LL_GetRxDataSize
+ 603              	.LVL50:
+ 274:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       (hmsc->cbw.dSignature != USBD_BOT_CBW_SIGNATURE) ||
+ 604              		.loc 1 274 6 discriminator 1 view .LVU165
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s 			page 21
+
+
+ 605 0028 1F28     		cmp	r0, #31
+ 606 002a 04D1     		bne	.L42
+ 275:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       (hmsc->cbw.bLUN > hmsc->max_lun) || (hmsc->cbw.bCBLength < 1U) ||
+ 607              		.loc 1 275 17 view .LVU166
+ 608 002c D5F81022 		ldr	r2, [r5, #528]
+ 274:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       (hmsc->cbw.dSignature != USBD_BOT_CBW_SIGNATURE) ||
+ 609              		.loc 1 274 73 discriminator 1 view .LVU167
+ 610 0030 204B     		ldr	r3, .L51+4
+ 611 0032 9A42     		cmp	r2, r3
+ 612 0034 0CD0     		beq	.L48
+ 613              	.L42:
+ 279:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 614              		.loc 1 279 5 is_stmt 1 view .LVU168
+ 615 0036 2023     		movs	r3, #32
+ 616 0038 0522     		movs	r2, #5
+ 617 003a 95F81D12 		ldrb	r1, [r5, #541]	@ zero_extendqisi2
+ 618 003e 2046     		mov	r0, r4
+ 619 0040 FFF7FEFF 		bl	SCSI_SenseCode
+ 620              	.LVL51:
+ 281:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     MSC_BOT_Abort(pdev);
+ 621              		.loc 1 281 5 view .LVU169
+ 281:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     MSC_BOT_Abort(pdev);
+ 622              		.loc 1 281 22 is_stmt 0 view .LVU170
+ 623 0044 0223     		movs	r3, #2
+ 624 0046 6B72     		strb	r3, [r5, #9]
+ 282:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   }
+ 625              		.loc 1 282 5 is_stmt 1 view .LVU171
+ 626 0048 2046     		mov	r0, r4
+ 627 004a FFF7FEFF 		bl	MSC_BOT_Abort
+ 628              	.LVL52:
+ 629              	.L40:
+ 320:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 630              		.loc 1 320 1 is_stmt 0 view .LVU172
+ 631 004e 38BD     		pop	{r3, r4, r5, pc}
+ 632              	.LVL53:
+ 633              	.L48:
+ 276:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       (hmsc->cbw.bCBLength > 16U))
+ 634              		.loc 1 276 17 view .LVU173
+ 635 0050 95F81D12 		ldrb	r1, [r5, #541]	@ zero_extendqisi2
+ 276:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       (hmsc->cbw.bCBLength > 16U))
+ 636              		.loc 1 276 29 view .LVU174
+ 637 0054 2B68     		ldr	r3, [r5]
+ 275:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       (hmsc->cbw.bLUN > hmsc->max_lun) || (hmsc->cbw.bCBLength < 1U) ||
+ 638              		.loc 1 275 56 view .LVU175
+ 639 0056 9942     		cmp	r1, r3
+ 640 0058 EDD8     		bhi	.L42
+ 276:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       (hmsc->cbw.bCBLength > 16U))
+ 641              		.loc 1 276 53 view .LVU176
+ 642 005a 95F81E32 		ldrb	r3, [r5, #542]	@ zero_extendqisi2
+ 276:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       (hmsc->cbw.bCBLength > 16U))
+ 643              		.loc 1 276 40 view .LVU177
+ 644 005e 002B     		cmp	r3, #0
+ 645 0060 E9D0     		beq	.L42
+ 276:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       (hmsc->cbw.bCBLength > 16U))
+ 646              		.loc 1 276 70 discriminator 1 view .LVU178
+ 647 0062 102B     		cmp	r3, #16
+ 648 0064 E7D8     		bhi	.L42
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s 			page 22
+
+
+ 286:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     {
+ 649              		.loc 1 286 5 is_stmt 1 view .LVU179
+ 286:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     {
+ 650              		.loc 1 286 9 is_stmt 0 view .LVU180
+ 651 0066 05F21F22 		addw	r2, r5, #543
+ 652 006a 2046     		mov	r0, r4
+ 653 006c FFF7FEFF 		bl	SCSI_ProcessCmd
+ 654              	.LVL54:
+ 286:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     {
+ 655              		.loc 1 286 8 discriminator 1 view .LVU181
+ 656 0070 0028     		cmp	r0, #0
+ 657 0072 0CDB     		blt	.L49
+ 298:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****              (hmsc->bot_state != USBD_BOT_DATA_OUT) &&
+ 658              		.loc 1 298 10 is_stmt 1 view .LVU182
+ 298:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****              (hmsc->bot_state != USBD_BOT_DATA_OUT) &&
+ 659              		.loc 1 298 19 is_stmt 0 view .LVU183
+ 660 0074 2B7A     		ldrb	r3, [r5, #8]	@ zero_extendqisi2
+ 299:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****              (hmsc->bot_state != USBD_BOT_LAST_DATA_IN))
+ 661              		.loc 1 299 53 view .LVU184
+ 662 0076 013B     		subs	r3, r3, #1
+ 663 0078 DBB2     		uxtb	r3, r3
+ 298:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****              (hmsc->bot_state != USBD_BOT_DATA_OUT) &&
+ 664              		.loc 1 298 13 view .LVU185
+ 665 007a 022B     		cmp	r3, #2
+ 666 007c E7D9     		bls	.L40
+ 302:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       {
+ 667              		.loc 1 302 7 is_stmt 1 view .LVU186
+ 302:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       {
+ 668              		.loc 1 302 15 is_stmt 0 view .LVU187
+ 669 007e EA68     		ldr	r2, [r5, #12]
+ 302:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       {
+ 670              		.loc 1 302 10 view .LVU188
+ 671 0080 8AB1     		cbz	r2, .L46
+ 304:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       }
+ 672              		.loc 1 304 9 is_stmt 1 view .LVU189
+ 673 0082 05F11001 		add	r1, r5, #16
+ 674 0086 2046     		mov	r0, r4
+ 675 0088 FFF7FEFF 		bl	MSC_BOT_SendData
+ 676              	.LVL55:
+ 677 008c DFE7     		b	.L40
+ 678              	.L49:
+ 288:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       {
+ 679              		.loc 1 288 7 view .LVU190
+ 288:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       {
+ 680              		.loc 1 288 15 is_stmt 0 view .LVU191
+ 681 008e 2B7A     		ldrb	r3, [r5, #8]	@ zero_extendqisi2
+ 288:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       {
+ 682              		.loc 1 288 10 view .LVU192
+ 683 0090 052B     		cmp	r3, #5
+ 684 0092 03D0     		beq	.L50
+ 294:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       }
+ 685              		.loc 1 294 9 is_stmt 1 view .LVU193
+ 686 0094 2046     		mov	r0, r4
+ 687 0096 FFF7FEFF 		bl	MSC_BOT_Abort
+ 688              	.LVL56:
+ 689 009a D8E7     		b	.L40
+ 690              	.L50:
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s 			page 23
+
+
+ 290:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       }
+ 691              		.loc 1 290 9 view .LVU194
+ 692 009c 0121     		movs	r1, #1
+ 693 009e 2046     		mov	r0, r4
+ 694 00a0 FFF7FEFF 		bl	MSC_BOT_SendCSW
+ 695              	.LVL57:
+ 696 00a4 D3E7     		b	.L40
+ 697              	.L46:
+ 306:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       {
+ 698              		.loc 1 306 12 view .LVU195
+ 308:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       }
+ 699              		.loc 1 308 9 view .LVU196
+ 700 00a6 0021     		movs	r1, #0
+ 701 00a8 2046     		mov	r0, r4
+ 702 00aa FFF7FEFF 		bl	MSC_BOT_SendCSW
+ 703              	.LVL58:
+ 704 00ae CEE7     		b	.L40
+ 705              	.L52:
+ 706              		.align	2
+ 707              	.L51:
+ 708 00b0 00000000 		.word	MSCOutEpAdd
+ 709 00b4 55534243 		.word	1128420181
+ 710              		.cfi_endproc
+ 711              	.LFE248:
+ 713              		.section	.text.MSC_BOT_DataOut,"ax",%progbits
+ 714              		.align	1
+ 715              		.global	MSC_BOT_DataOut
+ 716              		.syntax unified
+ 717              		.thumb
+ 718              		.thumb_func
+ 720              	MSC_BOT_DataOut:
+ 721              	.LVL59:
+ 722              	.LFB247:
+ 222:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   UNUSED(epnum);
+ 723              		.loc 1 222 1 view -0
+ 724              		.cfi_startproc
+ 725              		@ args = 0, pretend = 0, frame = 0
+ 726              		@ frame_needed = 0, uses_anonymous_args = 0
+ 223:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 727              		.loc 1 223 3 view .LVU198
+ 225:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 728              		.loc 1 225 3 view .LVU199
+ 225:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 729              		.loc 1 225 94 is_stmt 0 view .LVU200
+ 730 0000 D0F8D432 		ldr	r3, [r0, #724]
+ 225:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 731              		.loc 1 225 31 view .LVU201
+ 732 0004 B033     		adds	r3, r3, #176
+ 733 0006 50F82330 		ldr	r3, [r0, r3, lsl #2]
+ 734              	.LVL60:
+ 227:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 735              		.loc 1 227 3 is_stmt 1 view .LVU202
+ 227:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 736              		.loc 1 227 6 is_stmt 0 view .LVU203
+ 737 000a ABB1     		cbz	r3, .L58
+ 222:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   UNUSED(epnum);
+ 738              		.loc 1 222 1 view .LVU204
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s 			page 24
+
+
+ 739 000c 10B5     		push	{r4, lr}
+ 740              		.cfi_def_cfa_offset 8
+ 741              		.cfi_offset 4, -8
+ 742              		.cfi_offset 14, -4
+ 743 000e 0446     		mov	r4, r0
+ 232:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 744              		.loc 1 232 3 is_stmt 1 view .LVU205
+ 232:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 745              		.loc 1 232 15 is_stmt 0 view .LVU206
+ 746 0010 1A7A     		ldrb	r2, [r3, #8]	@ zero_extendqisi2
+ 232:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 747              		.loc 1 232 3 view .LVU207
+ 748 0012 72B1     		cbz	r2, .L55
+ 749 0014 012A     		cmp	r2, #1
+ 750 0016 0ED1     		bne	.L53
+ 239:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       {
+ 751              		.loc 1 239 7 is_stmt 1 view .LVU208
+ 239:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       {
+ 752              		.loc 1 239 11 is_stmt 0 view .LVU209
+ 753 0018 03F21F22 		addw	r2, r3, #543
+ 754 001c 93F81D12 		ldrb	r1, [r3, #541]	@ zero_extendqisi2
+ 755              	.LVL61:
+ 239:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       {
+ 756              		.loc 1 239 11 view .LVU210
+ 757 0020 FFF7FEFF 		bl	SCSI_ProcessCmd
+ 758              	.LVL62:
+ 239:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       {
+ 759              		.loc 1 239 10 discriminator 1 view .LVU211
+ 760 0024 0028     		cmp	r0, #0
+ 761 0026 06DA     		bge	.L53
+ 241:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       }
+ 762              		.loc 1 241 9 is_stmt 1 view .LVU212
+ 763 0028 0121     		movs	r1, #1
+ 764 002a 2046     		mov	r0, r4
+ 765 002c FFF7FEFF 		bl	MSC_BOT_SendCSW
+ 766              	.LVL63:
+ 767 0030 01E0     		b	.L53
+ 768              	.LVL64:
+ 769              	.L55:
+ 235:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****       break;
+ 770              		.loc 1 235 7 view .LVU213
+ 771 0032 FFF7FEFF 		bl	MSC_BOT_CBW_Decode
+ 772              	.LVL65:
+ 236:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 773              		.loc 1 236 7 view .LVU214
+ 774              	.L53:
+ 248:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 775              		.loc 1 248 1 is_stmt 0 view .LVU215
+ 776 0036 10BD     		pop	{r4, pc}
+ 777              	.LVL66:
+ 778              	.L58:
+ 779              		.cfi_def_cfa_offset 0
+ 780              		.cfi_restore 4
+ 781              		.cfi_restore 14
+ 248:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 782              		.loc 1 248 1 view .LVU216
+ 783 0038 7047     		bx	lr
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s 			page 25
+
+
+ 784              		.cfi_endproc
+ 785              	.LFE247:
+ 787              		.section	.text.MSC_BOT_CplClrFeature,"ax",%progbits
+ 788              		.align	1
+ 789              		.global	MSC_BOT_CplClrFeature
+ 790              		.syntax unified
+ 791              		.thumb
+ 792              		.thumb_func
+ 794              	MSC_BOT_CplClrFeature:
+ 795              	.LVL67:
+ 796              	.LFB252:
+ 427:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 428:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** /**
+ 429:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @brief  MSC_BOT_CplClrFeature
+ 430:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   *         Complete the clear feature request
+ 431:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @param  pdev: device instance
+ 432:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @param  epnum: endpoint index
+ 433:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   * @retval None
+ 434:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   */
+ 435:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 436:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** void  MSC_BOT_CplClrFeature(USBD_HandleTypeDef *pdev, uint8_t epnum)
+ 437:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** {
+ 797              		.loc 1 437 1 is_stmt 1 view -0
+ 798              		.cfi_startproc
+ 799              		@ args = 0, pretend = 0, frame = 0
+ 800              		@ frame_needed = 0, uses_anonymous_args = 0
+ 438:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   USBD_MSC_BOT_HandleTypeDef *hmsc = (USBD_MSC_BOT_HandleTypeDef *)pdev->pClassDataCmsit[pdev->clas
+ 801              		.loc 1 438 3 view .LVU218
+ 802              		.loc 1 438 94 is_stmt 0 view .LVU219
+ 803 0000 D0F8D432 		ldr	r3, [r0, #724]
+ 804              		.loc 1 438 31 view .LVU220
+ 805 0004 B033     		adds	r3, r3, #176
+ 806 0006 50F82330 		ldr	r3, [r0, r3, lsl #2]
+ 807              	.LVL68:
+ 439:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 440:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** #ifdef USE_USBD_COMPOSITE
+ 441:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   /* Get the Endpoints addresses allocated for this class instance */
+ 442:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   MSCInEpAdd  = USBD_CoreGetEPAdd(pdev, USBD_EP_IN, USBD_EP_TYPE_BULK, (uint8_t)pdev->classId);
+ 443:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   MSCOutEpAdd = USBD_CoreGetEPAdd(pdev, USBD_EP_OUT, USBD_EP_TYPE_BULK, (uint8_t)pdev->classId);
+ 444:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** #endif /* USE_USBD_COMPOSITE */
+ 445:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 446:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   if (hmsc == NULL)
+ 808              		.loc 1 446 3 is_stmt 1 view .LVU221
+ 809              		.loc 1 446 6 is_stmt 0 view .LVU222
+ 810 000a BBB1     		cbz	r3, .L65
+ 437:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   USBD_MSC_BOT_HandleTypeDef *hmsc = (USBD_MSC_BOT_HandleTypeDef *)pdev->pClassDataCmsit[pdev->clas
+ 811              		.loc 1 437 1 view .LVU223
+ 812 000c 10B5     		push	{r4, lr}
+ 813              		.cfi_def_cfa_offset 8
+ 814              		.cfi_offset 4, -8
+ 815              		.cfi_offset 14, -4
+ 816 000e 0446     		mov	r4, r0
+ 447:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 448:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     return;
+ 449:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   }
+ 450:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** 
+ 451:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   if (hmsc->bot_status == USBD_BOT_STATUS_ERROR) /* Bad CBW Signature */
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s 			page 26
+
+
+ 817              		.loc 1 451 3 is_stmt 1 view .LVU224
+ 818              		.loc 1 451 11 is_stmt 0 view .LVU225
+ 819 0010 5B7A     		ldrb	r3, [r3, #9]	@ zero_extendqisi2
+ 820              	.LVL69:
+ 821              		.loc 1 451 6 view .LVU226
+ 822 0012 022B     		cmp	r3, #2
+ 823 0014 08D0     		beq	.L68
+ 452:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 453:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     (void)USBD_LL_StallEP(pdev, MSCInEpAdd);
+ 454:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     (void)USBD_LL_StallEP(pdev, MSCOutEpAdd);
+ 455:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   }
+ 456:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   else if (((epnum & 0x80U) == 0x80U) && (hmsc->bot_status != USBD_BOT_STATUS_RECOVERY))
+ 824              		.loc 1 456 8 is_stmt 1 view .LVU227
+ 825              		.loc 1 456 11 is_stmt 0 view .LVU228
+ 826 0016 11F0800F 		tst	r1, #128
+ 827 001a 04D0     		beq	.L61
+ 828              		.loc 1 456 39 discriminator 1 view .LVU229
+ 829 001c 012B     		cmp	r3, #1
+ 830 001e 02D0     		beq	.L61
+ 457:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 458:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     MSC_BOT_SendCSW(pdev, USBD_CSW_CMD_FAILED);
+ 831              		.loc 1 458 5 is_stmt 1 view .LVU230
+ 832 0020 0121     		movs	r1, #1
+ 833              	.LVL70:
+ 834              		.loc 1 458 5 is_stmt 0 view .LVU231
+ 835 0022 FFF7FEFF 		bl	MSC_BOT_SendCSW
+ 836              	.LVL71:
+ 837              	.L61:
+ 459:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   }
+ 460:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   else
+ 461:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   {
+ 462:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     return;
+ 463:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   }
+ 464:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c **** }
+ 838              		.loc 1 464 1 view .LVU232
+ 839 0026 10BD     		pop	{r4, pc}
+ 840              	.LVL72:
+ 841              	.L68:
+ 453:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     (void)USBD_LL_StallEP(pdev, MSCOutEpAdd);
+ 842              		.loc 1 453 5 is_stmt 1 view .LVU233
+ 453:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     (void)USBD_LL_StallEP(pdev, MSCOutEpAdd);
+ 843              		.loc 1 453 11 is_stmt 0 view .LVU234
+ 844 0028 054B     		ldr	r3, .L69
+ 845 002a 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+ 846              	.LVL73:
+ 453:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****     (void)USBD_LL_StallEP(pdev, MSCOutEpAdd);
+ 847              		.loc 1 453 11 view .LVU235
+ 848 002c FFF7FEFF 		bl	USBD_LL_StallEP
+ 849              	.LVL74:
+ 454:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   }
+ 850              		.loc 1 454 5 is_stmt 1 view .LVU236
+ 454:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   }
+ 851              		.loc 1 454 11 is_stmt 0 view .LVU237
+ 852 0030 044B     		ldr	r3, .L69+4
+ 853 0032 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+ 854 0034 2046     		mov	r0, r4
+ 855 0036 FFF7FEFF 		bl	USBD_LL_StallEP
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s 			page 27
+
+
+ 856              	.LVL75:
+ 857 003a F4E7     		b	.L61
+ 858              	.LVL76:
+ 859              	.L65:
+ 860              		.cfi_def_cfa_offset 0
+ 861              		.cfi_restore 4
+ 862              		.cfi_restore 14
+ 454:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c ****   }
+ 863              		.loc 1 454 11 view .LVU238
+ 864 003c 7047     		bx	lr
+ 865              	.L70:
+ 866 003e 00BF     		.align	2
+ 867              	.L69:
+ 868 0040 00000000 		.word	MSCInEpAdd
+ 869 0044 00000000 		.word	MSCOutEpAdd
+ 870              		.cfi_endproc
+ 871              	.LFE252:
+ 873              		.text
+ 874              	.Letext0:
+ 875              		.file 2 "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/arm-none-eabi/include/ma
+ 876              		.file 3 "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/arm-none-eabi/include/sy
+ 877              		.file 4 "Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h"
+ 878              		.file 5 "Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc/usbd_msc_bot.h"
+ 879              		.file 6 "Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc/usbd_msc_scsi.h"
+ 880              		.file 7 "Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc/usbd_msc.h"
+ 881              		.file 8 "Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h"
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s 			page 28
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 usbd_msc_bot.c
+C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s:21     .text.MSC_BOT_SendData:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s:26     .text.MSC_BOT_SendData:00000000 MSC_BOT_SendData
+C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s:93     .text.MSC_BOT_SendData:0000003c $d
+C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s:98     .text.MSC_BOT_Abort:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s:103    .text.MSC_BOT_Abort:00000000 MSC_BOT_Abort
+C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s:189    .text.MSC_BOT_Abort:00000054 $d
+C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s:195    .text.MSC_BOT_Init:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s:201    .text.MSC_BOT_Init:00000000 MSC_BOT_Init
+C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s:286    .text.MSC_BOT_Init:00000058 $d
+C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s:292    .text.MSC_BOT_Reset:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s:298    .text.MSC_BOT_Reset:00000000 MSC_BOT_Reset
+C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s:360    .text.MSC_BOT_Reset:0000003c $d
+C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s:366    .text.MSC_BOT_DeInit:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s:372    .text.MSC_BOT_DeInit:00000000 MSC_BOT_DeInit
+C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s:401    .text.MSC_BOT_SendCSW:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s:407    .text.MSC_BOT_SendCSW:00000000 MSC_BOT_SendCSW
+C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s:470    .text.MSC_BOT_SendCSW:00000040 $d
+C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s:477    .text.MSC_BOT_DataIn:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s:483    .text.MSC_BOT_DataIn:00000000 MSC_BOT_DataIn
+C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s:558    .text.MSC_BOT_CBW_Decode:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s:563    .text.MSC_BOT_CBW_Decode:00000000 MSC_BOT_CBW_Decode
+C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s:708    .text.MSC_BOT_CBW_Decode:000000b0 $d
+C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s:714    .text.MSC_BOT_DataOut:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s:720    .text.MSC_BOT_DataOut:00000000 MSC_BOT_DataOut
+C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s:788    .text.MSC_BOT_CplClrFeature:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s:794    .text.MSC_BOT_CplClrFeature:00000000 MSC_BOT_CplClrFeature
+C:\Users\kroko\AppData\Local\Temp\cc2SFhPh.s:868    .text.MSC_BOT_CplClrFeature:00000040 $d
+
+UNDEFINED SYMBOLS
+USBD_LL_Transmit
+MSCInEpAdd
+USBD_LL_StallEP
+MSCOutEpAdd
+USBD_LL_FlushEP
+USBD_LL_PrepareReceive
+USBD_LL_ClearStallEP
+SCSI_ProcessCmd
+USBD_LL_GetRxDataSize
+SCSI_SenseCode

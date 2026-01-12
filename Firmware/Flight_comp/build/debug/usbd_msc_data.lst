@@ -1,0 +1,73 @@
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccubyJDo.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"usbd_msc_data.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_data.c"
+  20              		.global	MSC_Diagnostic_Data
+  21              		.section	.bss.MSC_Diagnostic_Data,"aw",%nobits
+  22              		.align	2
+  25              	MSC_Diagnostic_Data:
+  26 0000 00000000 		.space	8
+  26      00000000 
+  27              		.global	MSC_Mode_Sense10_data
+  28              		.section	.data.MSC_Mode_Sense10_data,"aw"
+  29              		.align	2
+  32              	MSC_Mode_Sense10_data:
+  33 0000 00060000 		.ascii	"\000\006\000\000\000\000\000\000"
+  33      00000000 
+  34              		.global	MSC_Mode_Sense6_data
+  35              		.section	.data.MSC_Mode_Sense6_data,"aw"
+  36              		.align	2
+  39              	MSC_Mode_Sense6_data:
+  40 0000 03000000 		.ascii	"\003\000\000\000"
+  41              		.global	MSC_Page80_Inquiry_Data
+  42              		.section	.data.MSC_Page80_Inquiry_Data,"aw"
+  43              		.align	2
+  46              	MSC_Page80_Inquiry_Data:
+  47 0000 00800008 		.ascii	"\000\200\000\010    "
+  47      20202020 
+  48              		.global	MSC_Page00_Inquiry_Data
+  49              		.section	.data.MSC_Page00_Inquiry_Data,"aw"
+  50              		.align	2
+  53              	MSC_Page00_Inquiry_Data:
+  54 0000 00000002 		.ascii	"\000\000\000\002\000\200"
+  54      0080
+  55              		.text
+  56              	.Letext0:
+  57              		.file 2 "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/arm-none-eabi/include/ma
+  58              		.file 3 "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/arm-none-eabi/include/sy
+  59              		.file 4 "Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc/usbd_msc_data.h"
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccubyJDo.s 			page 2
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 usbd_msc_data.c
+C:\Users\kroko\AppData\Local\Temp\ccubyJDo.s:25     .bss.MSC_Diagnostic_Data:00000000 MSC_Diagnostic_Data
+C:\Users\kroko\AppData\Local\Temp\ccubyJDo.s:22     .bss.MSC_Diagnostic_Data:00000000 $d
+C:\Users\kroko\AppData\Local\Temp\ccubyJDo.s:32     .data.MSC_Mode_Sense10_data:00000000 MSC_Mode_Sense10_data
+C:\Users\kroko\AppData\Local\Temp\ccubyJDo.s:29     .data.MSC_Mode_Sense10_data:00000000 $d
+C:\Users\kroko\AppData\Local\Temp\ccubyJDo.s:39     .data.MSC_Mode_Sense6_data:00000000 MSC_Mode_Sense6_data
+C:\Users\kroko\AppData\Local\Temp\ccubyJDo.s:36     .data.MSC_Mode_Sense6_data:00000000 $d
+C:\Users\kroko\AppData\Local\Temp\ccubyJDo.s:46     .data.MSC_Page80_Inquiry_Data:00000000 MSC_Page80_Inquiry_Data
+C:\Users\kroko\AppData\Local\Temp\ccubyJDo.s:43     .data.MSC_Page80_Inquiry_Data:00000000 $d
+C:\Users\kroko\AppData\Local\Temp\ccubyJDo.s:53     .data.MSC_Page00_Inquiry_Data:00000000 MSC_Page00_Inquiry_Data
+C:\Users\kroko\AppData\Local\Temp\ccubyJDo.s:50     .data.MSC_Page00_Inquiry_Data:00000000 $d
+
+NO UNDEFINED SYMBOLS

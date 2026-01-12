@@ -1,0 +1,265 @@
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccWHpgLn.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"neopixel.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "Core/Src/neopixel.c"
+  20              		.section	.text.LED_Update,"ax",%progbits
+  21              		.align	1
+  22              		.global	LED_Update
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	LED_Update:
+  28              	.LFB239:
+   1:Core/Src/neopixel.c **** #include "neopixel.h"
+   2:Core/Src/neopixel.c **** 
+   3:Core/Src/neopixel.c **** PixelRGB_t pixel[NUM_PX] = {0};
+   4:Core/Src/neopixel.c **** uint32_t dmaBuffer[DMA_BUFF] = {0};
+   5:Core/Src/neopixel.c **** 
+   6:Core/Src/neopixel.c **** void LED_Update(){
+  29              		.loc 1 6 18 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+   7:Core/Src/neopixel.c ****     uint32_t *pBuff;
+  34              		.loc 1 7 5 view .LVU1
+   8:Core/Src/neopixel.c ****     pBuff = dmaBuffer;
+  35              		.loc 1 8 5 view .LVU2
+  36              	.LVL0:
+   9:Core/Src/neopixel.c ****     for (uint8_t i = 0; i < NUM_PX; i++)
+  37              		.loc 1 9 5 view .LVU3
+  38              	.LBB2:
+  39              		.loc 1 9 10 view .LVU4
+  40              		.loc 1 9 27 discriminator 1 view .LVU5
+  10:Core/Src/neopixel.c ****     {
+  11:Core/Src/neopixel.c ****        for (uint8_t j = 23; j >= 0; j--)
+  41              		.loc 1 11 8 view .LVU6
+  42              	.LBB3:
+  43              		.loc 1 11 13 view .LVU7
+  44              		.loc 1 11 21 is_stmt 0 view .LVU8
+  45 0000 1723     		movs	r3, #23
+  46              	.LBE3:
+  47              	.LBE2:
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccWHpgLn.s 			page 2
+
+
+   8:Core/Src/neopixel.c ****     for (uint8_t i = 0; i < NUM_PX; i++)
+  48              		.loc 1 8 11 view .LVU9
+  49 0002 0849     		ldr	r1, .L5
+  50 0004 04E0     		b	.L4
+  51              	.LVL1:
+  52              	.L2:
+  53              	.LBB5:
+  54              	.LBB4:
+  12:Core/Src/neopixel.c ****        {
+  13:Core/Src/neopixel.c ****          if ((pixel[i].data >> j) & 0x01)
+  14:Core/Src/neopixel.c ****          {
+  15:Core/Src/neopixel.c ****            *pBuff = NEOPIXEL_1;
+  16:Core/Src/neopixel.c ****          }
+  17:Core/Src/neopixel.c ****          else
+  18:Core/Src/neopixel.c ****          {
+  19:Core/Src/neopixel.c ****            *pBuff = NEOPIXEL_0;
+  55              		.loc 1 19 12 is_stmt 1 view .LVU10
+  56              		.loc 1 19 19 is_stmt 0 view .LVU11
+  57 0006 1E22     		movs	r2, #30
+  58 0008 0A60     		str	r2, [r1]
+  59              	.L3:
+  20:Core/Src/neopixel.c ****          }
+  21:Core/Src/neopixel.c ****          pBuff++;
+  60              		.loc 1 21 10 is_stmt 1 view .LVU12
+  61              		.loc 1 21 15 is_stmt 0 view .LVU13
+  62 000a 0431     		adds	r1, r1, #4
+  63              	.LVL2:
+  11:Core/Src/neopixel.c ****        {
+  64              		.loc 1 11 38 is_stmt 1 view .LVU14
+  65 000c 013B     		subs	r3, r3, #1
+  66              	.LVL3:
+  11:Core/Src/neopixel.c ****        {
+  67              		.loc 1 11 38 is_stmt 0 view .LVU15
+  68 000e DBB2     		uxtb	r3, r3
+  69              	.LVL4:
+  11:Core/Src/neopixel.c ****        {
+  70              		.loc 1 11 8 is_stmt 1 view .LVU16
+  71              	.L4:
+  13:Core/Src/neopixel.c ****          {
+  72              		.loc 1 13 10 view .LVU17
+  13:Core/Src/neopixel.c ****          {
+  73              		.loc 1 13 23 is_stmt 0 view .LVU18
+  74 0010 054A     		ldr	r2, .L5+4
+  75 0012 1268     		ldr	r2, [r2]
+  13:Core/Src/neopixel.c ****          {
+  76              		.loc 1 13 29 view .LVU19
+  77 0014 DA40     		lsrs	r2, r2, r3
+  13:Core/Src/neopixel.c ****          {
+  78              		.loc 1 13 13 view .LVU20
+  79 0016 12F0010F 		tst	r2, #1
+  80 001a F4D0     		beq	.L2
+  15:Core/Src/neopixel.c ****          }
+  81              		.loc 1 15 12 is_stmt 1 view .LVU21
+  15:Core/Src/neopixel.c ****          }
+  82              		.loc 1 15 19 is_stmt 0 view .LVU22
+  83 001c 3C22     		movs	r2, #60
+  84 001e 0A60     		str	r2, [r1]
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccWHpgLn.s 			page 3
+
+
+  85 0020 F3E7     		b	.L3
+  86              	.L6:
+  87 0022 00BF     		.align	2
+  88              	.L5:
+  89 0024 00000000 		.word	dmaBuffer
+  90 0028 00000000 		.word	pixel
+  91              	.LBE4:
+  92              	.LBE5:
+  93              		.cfi_endproc
+  94              	.LFE239:
+  96              		.section	.text.LED_Set_Color,"ax",%progbits
+  97              		.align	1
+  98              		.global	LED_Set_Color
+  99              		.syntax unified
+ 100              		.thumb
+ 101              		.thumb_func
+ 103              	LED_Set_Color:
+ 104              	.LVL5:
+ 105              	.LFB240:
+  22:Core/Src/neopixel.c ****      }
+  23:Core/Src/neopixel.c ****     }
+  24:Core/Src/neopixel.c ****     dmaBuffer[DMA_BUFF - 1] = 0;
+  25:Core/Src/neopixel.c **** 
+  26:Core/Src/neopixel.c ****     HAL_TIM_PWM_Start_DMA(&NEOPIXEL_TIM, NEOPIXEL_CH, dmaBuffer, DMA_BUFF);
+  27:Core/Src/neopixel.c **** }
+  28:Core/Src/neopixel.c **** 
+  29:Core/Src/neopixel.c **** void LED_Set_Color(uint8_t led, uint8_t r, uint8_t g, uint8_t b){
+ 106              		.loc 1 29 65 is_stmt 1 view -0
+ 107              		.cfi_startproc
+ 108              		@ args = 0, pretend = 0, frame = 0
+ 109              		@ frame_needed = 0, uses_anonymous_args = 0
+ 110              		@ link register save eliminated.
+ 111              		.loc 1 29 65 is_stmt 0 view .LVU24
+ 112 0000 10B4     		push	{r4}
+ 113              		.cfi_def_cfa_offset 4
+ 114              		.cfi_offset 4, -4
+  30:Core/Src/neopixel.c ****     pixel[led].color.r = r;
+ 115              		.loc 1 30 5 is_stmt 1 view .LVU25
+ 116              		.loc 1 30 24 is_stmt 0 view .LVU26
+ 117 0002 064C     		ldr	r4, .L9
+ 118 0004 04EB800C 		add	ip, r4, r0, lsl #2
+ 119 0008 8CF80110 		strb	r1, [ip, #1]
+  31:Core/Src/neopixel.c ****     pixel[led].color.b = b;
+ 120              		.loc 1 31 5 is_stmt 1 view .LVU27
+ 121              		.loc 1 31 24 is_stmt 0 view .LVU28
+ 122 000c 04F82030 		strb	r3, [r4, r0, lsl #2]
+  32:Core/Src/neopixel.c ****     pixel[led].color.g = g;
+ 123              		.loc 1 32 5 is_stmt 1 view .LVU29
+ 124              		.loc 1 32 24 is_stmt 0 view .LVU30
+ 125 0010 8CF80220 		strb	r2, [ip, #2]
+  33:Core/Src/neopixel.c **** }
+ 126              		.loc 1 33 1 view .LVU31
+ 127 0014 5DF8044B 		ldr	r4, [sp], #4
+ 128              		.cfi_restore 4
+ 129              		.cfi_def_cfa_offset 0
+ 130 0018 7047     		bx	lr
+ 131              	.L10:
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccWHpgLn.s 			page 4
+
+
+ 132 001a 00BF     		.align	2
+ 133              	.L9:
+ 134 001c 00000000 		.word	pixel
+ 135              		.cfi_endproc
+ 136              	.LFE240:
+ 138              		.section	.text.HAL_TIM_PWM_PulseFinishedCallback,"ax",%progbits
+ 139              		.align	1
+ 140              		.global	HAL_TIM_PWM_PulseFinishedCallback
+ 141              		.syntax unified
+ 142              		.thumb
+ 143              		.thumb_func
+ 145              	HAL_TIM_PWM_PulseFinishedCallback:
+ 146              	.LVL6:
+ 147              	.LFB241:
+  34:Core/Src/neopixel.c **** 
+  35:Core/Src/neopixel.c **** void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim)
+  36:Core/Src/neopixel.c **** {
+ 148              		.loc 1 36 1 is_stmt 1 view -0
+ 149              		.cfi_startproc
+ 150              		@ args = 0, pretend = 0, frame = 0
+ 151              		@ frame_needed = 0, uses_anonymous_args = 0
+ 152              		.loc 1 36 1 is_stmt 0 view .LVU33
+ 153 0000 08B5     		push	{r3, lr}
+ 154              		.cfi_def_cfa_offset 8
+ 155              		.cfi_offset 3, -8
+ 156              		.cfi_offset 14, -4
+  37:Core/Src/neopixel.c ****   HAL_TIM_PWM_Stop_DMA(htim, NEOPIXEL_CH);
+ 157              		.loc 1 37 3 is_stmt 1 view .LVU34
+ 158 0002 0021     		movs	r1, #0
+ 159 0004 FFF7FEFF 		bl	HAL_TIM_PWM_Stop_DMA
+ 160              	.LVL7:
+  38:Core/Src/neopixel.c **** }...
+ 161              		.loc 1 38 1 is_stmt 0 view .LVU35
+ 162 0008 08BD     		pop	{r3, pc}
+ 163              		.cfi_endproc
+ 164              	.LFE241:
+ 166              		.global	dmaBuffer
+ 167              		.section	.bss.dmaBuffer,"aw",%nobits
+ 168              		.align	2
+ 171              	dmaBuffer:
+ 172 0000 00000000 		.space	100
+ 172      00000000 
+ 172      00000000 
+ 172      00000000 
+ 172      00000000 
+ 173              		.global	pixel
+ 174              		.section	.bss.pixel,"aw",%nobits
+ 175              		.align	2
+ 178              	pixel:
+ 179 0000 00000000 		.space	4
+ 180              		.text
+ 181              	.Letext0:
+ 182              		.file 2 "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/arm-none-eabi/include/ma
+ 183              		.file 3 "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/arm-none-eabi/include/sy
+ 184              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h"
+ 185              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 186              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccWHpgLn.s 			page 5
+
+
+ 187              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 188              		.file 8 "Core/Inc/neopixel.h"
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccWHpgLn.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 neopixel.c
+C:\Users\kroko\AppData\Local\Temp\ccWHpgLn.s:21     .text.LED_Update:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccWHpgLn.s:27     .text.LED_Update:00000000 LED_Update
+C:\Users\kroko\AppData\Local\Temp\ccWHpgLn.s:89     .text.LED_Update:00000024 $d
+C:\Users\kroko\AppData\Local\Temp\ccWHpgLn.s:171    .bss.dmaBuffer:00000000 dmaBuffer
+C:\Users\kroko\AppData\Local\Temp\ccWHpgLn.s:178    .bss.pixel:00000000 pixel
+C:\Users\kroko\AppData\Local\Temp\ccWHpgLn.s:97     .text.LED_Set_Color:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccWHpgLn.s:103    .text.LED_Set_Color:00000000 LED_Set_Color
+C:\Users\kroko\AppData\Local\Temp\ccWHpgLn.s:134    .text.LED_Set_Color:0000001c $d
+C:\Users\kroko\AppData\Local\Temp\ccWHpgLn.s:139    .text.HAL_TIM_PWM_PulseFinishedCallback:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccWHpgLn.s:145    .text.HAL_TIM_PWM_PulseFinishedCallback:00000000 HAL_TIM_PWM_PulseFinishedCallback
+C:\Users\kroko\AppData\Local\Temp\ccWHpgLn.s:168    .bss.dmaBuffer:00000000 $d
+C:\Users\kroko\AppData\Local\Temp\ccWHpgLn.s:175    .bss.pixel:00000000 $d
+
+UNDEFINED SYMBOLS
+HAL_TIM_PWM_Stop_DMA
