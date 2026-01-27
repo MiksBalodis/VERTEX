@@ -76,6 +76,8 @@ endif
 # C sources
 C_SOURCES =  \
 Core/Src/25flash.c \
+Core/Src/lsm6dso.c \
+Core/Src/lsm6dso_reg.c \
 Core/Src/main.c \
 Core/Src/neopixel.c \
 Core/Src/stm32f4xx_hal_msp.c \

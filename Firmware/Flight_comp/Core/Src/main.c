@@ -25,6 +25,7 @@
 #include "25flash.h"
 #include "neopixel.h"
 #include "buzzer.h"
+#include "lsm6dso.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -34,7 +35,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define VBAT_DIV_K  2.54
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -63,7 +64,8 @@ DMA_HandleTypeDef hdma_tim3_ch1_trig;
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
-
+float battery_v;
+uint16_t adc_buff;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -828,6 +830,16 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void Get_Vbat(){
+  HAL_ADC_Start_DMA(&hadc1, &adc_buff, 1);
+}
+
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
+{
+  if(hadc->Instance == ADC1){
+    battery_v = (adc_buff * 3.3 / 4095)*VBAT_DIV_K;
+  }
+}
 
 /* USER CODE END 4 */
 

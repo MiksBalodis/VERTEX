@@ -17,7 +17,7 @@
         "STM32F405xx",
         "USE_HAL_DRIVER"
       ],
-      "compilerPath": "C:\\Program Files (x86)\\Arm GNU Toolchain arm-none-eabi\\14.2 rel1\\bin\\arm-none-eabi-gcc.EXE"
+      "compilerPath": "/Users/kroko/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/13.3.1-1.1.1/.content/bin/arm-none-eabi-gcc"
     }
   ],
   "version": 4
