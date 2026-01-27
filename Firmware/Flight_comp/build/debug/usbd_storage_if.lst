@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s 			page 1
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccKji0Jm.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s 			page 1
   28:USB_DEVICE/App/usbd_storage_if.c **** /* Private typedef -----------------------------------------------------------*/
   29:USB_DEVICE/App/usbd_storage_if.c **** /* Private define ------------------------------------------------------------*/
   30:USB_DEVICE/App/usbd_storage_if.c **** /* Private macro -------------------------------------------------------------*/
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s 			page 2
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccKji0Jm.s 			page 2
 
 
   31:USB_DEVICE/App/usbd_storage_if.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s 			page 1
   85:USB_DEVICE/App/usbd_storage_if.c **** 
   86:USB_DEVICE/App/usbd_storage_if.c **** /**
   87:USB_DEVICE/App/usbd_storage_if.c ****   * @}
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s 			page 3
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccKji0Jm.s 			page 3
 
 
   88:USB_DEVICE/App/usbd_storage_if.c ****   */
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s 			page 1
  142:USB_DEVICE/App/usbd_storage_if.c **** 
  143:USB_DEVICE/App/usbd_storage_if.c **** static int8_t STORAGE_Init_FS(uint8_t lun);
  144:USB_DEVICE/App/usbd_storage_if.c **** static int8_t STORAGE_GetCapacity_FS(uint8_t lun, uint32_t *block_num, uint16_t *block_size);
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s 			page 4
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccKji0Jm.s 			page 4
 
 
  145:USB_DEVICE/App/usbd_storage_if.c **** static int8_t STORAGE_IsReady_FS(uint8_t lun);
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s 			page 1
   44              		.section	.text.STORAGE_GetCapacity_FS,"ax",%progbits
   45              		.align	1
   46              		.syntax unified
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s 			page 5
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccKji0Jm.s 			page 5
 
 
   47              		.thumb
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s 			page 1
  204:USB_DEVICE/App/usbd_storage_if.c **** /**
  205:USB_DEVICE/App/usbd_storage_if.c ****   * @brief   Checks whether the medium is ready.
  206:USB_DEVICE/App/usbd_storage_if.c ****   * @param  lun:  Logical unit number.
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s 			page 6
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccKji0Jm.s 			page 6
 
 
  207:USB_DEVICE/App/usbd_storage_if.c ****   * @retval USBD_OK if all operations are OK else USBD_FAIL
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s 			page 1
  117 0000 0020     		movs	r0, #0
  118              	.LVL7:
  119              		.loc 1 230 1 view .LVU23
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s 			page 7
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccKji0Jm.s 			page 7
 
 
  120 0002 7047     		bx	lr
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s 			page 1
  158              	.LVL10:
  159              	.LFB248:
  251:USB_DEVICE/App/usbd_storage_if.c **** 
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s 			page 8
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccKji0Jm.s 			page 8
 
 
  252:USB_DEVICE/App/usbd_storage_if.c **** /**
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s 			page 1
  189              		@ frame_needed = 0, uses_anonymous_args = 0
  190              		@ link register save eliminated.
  279:USB_DEVICE/App/usbd_storage_if.c ****   /* USER CODE BEGIN 8 */
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s 			page 9
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccKji0Jm.s 			page 9
 
 
  280:USB_DEVICE/App/usbd_storage_if.c ****   return (STORAGE_LUN_NBR - 1);
@@ -516,33 +516,33 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s 			page 1
  219      31
  220              		.text
  221              	.Letext0:
- 222              		.file 2 "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/arm-none-eabi/include/ma
- 223              		.file 3 "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/arm-none-eabi/include/sy
+ 222              		.file 2 "/Users/kroko/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@xp
+ 223              		.file 3 "/Users/kroko/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@xp
  224              		.file 4 "Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc/usbd_msc.h"
  225              		.file 5 "USB_DEVICE/App/usbd_storage_if.h"
  226              		.file 6 "Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h"
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s 			page 10
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccKji0Jm.s 			page 10
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 usbd_storage_if.c
-C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s:21     .text.STORAGE_Init_FS:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s:26     .text.STORAGE_Init_FS:00000000 STORAGE_Init_FS
-C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s:45     .text.STORAGE_GetCapacity_FS:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s:50     .text.STORAGE_GetCapacity_FS:00000000 STORAGE_GetCapacity_FS
-C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s:77     .text.STORAGE_IsReady_FS:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s:82     .text.STORAGE_IsReady_FS:00000000 STORAGE_IsReady_FS
-C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s:101    .text.STORAGE_IsWriteProtected_FS:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s:106    .text.STORAGE_IsWriteProtected_FS:00000000 STORAGE_IsWriteProtected_FS
-C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s:125    .text.STORAGE_Read_FS:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s:130    .text.STORAGE_Read_FS:00000000 STORAGE_Read_FS
-C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s:152    .text.STORAGE_Write_FS:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s:157    .text.STORAGE_Write_FS:00000000 STORAGE_Write_FS
-C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s:179    .text.STORAGE_GetMaxLun_FS:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s:184    .text.STORAGE_GetMaxLun_FS:00000000 STORAGE_GetMaxLun_FS
-C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s:203    .data.USBD_Storage_Interface_fops_FS:00000000 USBD_Storage_Interface_fops_FS
-C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s:200    .data.USBD_Storage_Interface_fops_FS:00000000 $d
-C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s:217    .rodata.STORAGE_Inquirydata_FS:00000000 STORAGE_Inquirydata_FS
-C:\Users\kroko\AppData\Local\Temp\ccg4RB0R.s:214    .rodata.STORAGE_Inquirydata_FS:00000000 $d
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccKji0Jm.s:21     .text.STORAGE_Init_FS:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccKji0Jm.s:26     .text.STORAGE_Init_FS:00000000 STORAGE_Init_FS
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccKji0Jm.s:45     .text.STORAGE_GetCapacity_FS:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccKji0Jm.s:50     .text.STORAGE_GetCapacity_FS:00000000 STORAGE_GetCapacity_FS
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccKji0Jm.s:77     .text.STORAGE_IsReady_FS:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccKji0Jm.s:82     .text.STORAGE_IsReady_FS:00000000 STORAGE_IsReady_FS
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccKji0Jm.s:101    .text.STORAGE_IsWriteProtected_FS:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccKji0Jm.s:106    .text.STORAGE_IsWriteProtected_FS:00000000 STORAGE_IsWriteProtected_FS
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccKji0Jm.s:125    .text.STORAGE_Read_FS:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccKji0Jm.s:130    .text.STORAGE_Read_FS:00000000 STORAGE_Read_FS
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccKji0Jm.s:152    .text.STORAGE_Write_FS:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccKji0Jm.s:157    .text.STORAGE_Write_FS:00000000 STORAGE_Write_FS
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccKji0Jm.s:179    .text.STORAGE_GetMaxLun_FS:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccKji0Jm.s:184    .text.STORAGE_GetMaxLun_FS:00000000 STORAGE_GetMaxLun_FS
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccKji0Jm.s:203    .data.USBD_Storage_Interface_fops_FS:00000000 USBD_Storage_Interface_fops_FS
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccKji0Jm.s:200    .data.USBD_Storage_Interface_fops_FS:00000000 $d
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccKji0Jm.s:217    .rodata.STORAGE_Inquirydata_FS:00000000 STORAGE_Inquirydata_FS
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccKji0Jm.s:214    .rodata.STORAGE_Inquirydata_FS:00000000 $d
 
 NO UNDEFINED SYMBOLS

@@ -15,7 +15,7 @@
 
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32l4xx_hal.h"
+#include "stm32f4xx_hal.h"
 
 
 /* Declarations and definitions ----------------------------------------------*/

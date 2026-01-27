@@ -68,7 +68,7 @@ UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
 float battery_v;
-uint16_t adc_buff;
+uint32_t adc_buff[1];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -834,13 +834,13 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 void Get_Vbat(){
-  HAL_ADC_Start_DMA(&hadc1, &adc_buff, 1);
+  HAL_ADC_Start_DMA(&hadc1, adc_buff, 1);
 }
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 {
   if(hadc->Instance == ADC1){
-    battery_v = (adc_buff * 3.3 / 4095)*VBAT_DIV_K;
+    battery_v = (adc_buff[1] * 3.3 / 4095)*VBAT_DIV_K;
   }
 }
 

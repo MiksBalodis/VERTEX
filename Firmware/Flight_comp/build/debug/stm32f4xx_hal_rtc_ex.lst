@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
   27:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****                         ##### How to use this driver #####
   28:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   ==============================================================================
   29:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   [..]
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 2
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 2
 
 
   30:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****     (+) Enable the RTC domain access.
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
   84:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   *** Coarse Digital Calibration configuration ***
   85:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   ================================================
   86:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   [..]
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 3
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 3
 
 
   87:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****     (+) The Coarse Digital Calibration can be used to compensate crystal inaccuracy
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  141:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** /* Private macro -------------------------------------------------------------*/
  142:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** /* Private variables ---------------------------------------------------------*/
  143:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** /* Private function prototypes -----------------------------------------------*/
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 4
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 4
 
 
  144:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** /* Exported functions --------------------------------------------------------*/
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  189:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
  190:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   /* Check the parameters */
  191:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   assert_param(IS_TIMESTAMP_EDGE(RTC_TimeStampEdge));
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 5
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 5
 
 
   39              		.loc 1 191 3 view .LVU3
@@ -263,7 +263,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
   53              		.loc 1 195 3 is_stmt 1 discriminator 2 view .LVU9
   54 000a 0120     		movs	r0, #1
   55 000c 1877     		strb	r0, [r3, #28]
-  56              		.loc 1 195 3 view .LVU10
+  56              		.loc 1 195 3 discriminator 2 view .LVU10
  196:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
  197:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   /* Change RTC state to BUSY */
  198:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   hrtc->State = HAL_RTC_STATE_BUSY;
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
   79              		.loc 1 204 3 is_stmt 1 view .LVU22
   80              		.loc 1 204 27 is_stmt 0 view .LVU23
   81 0024 1C68     		ldr	r4, [r3]
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 6
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 6
 
 
   82              		.loc 1 204 37 view .LVU24
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  121 0056 CA60     		str	r2, [r1, #12]
  220:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
  221:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   /* Enable the Timestamp saving */
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 7
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 7
 
 
  222:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   __HAL_RTC_TIMESTAMP_ENABLE(hrtc);
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  164              	HAL_RTCEx_SetTimeStamp_IT:
  165              	.LVL9:
  166              	.LFB240:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 8
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 8
 
 
  235:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
@@ -478,13 +478,13 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  187              		.cfi_def_cfa_offset 8
  188              		.cfi_offset 4, -8
  189              		.cfi_offset 5, -4
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 9
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 9
 
 
  190              		.loc 1 267 3 is_stmt 1 discriminator 2 view .LVU61
  191 000a 0120     		movs	r0, #1
  192 000c 1877     		strb	r0, [r3, #28]
- 193              		.loc 1 267 3 view .LVU62
+ 193              		.loc 1 267 3 discriminator 2 view .LVU62
  268:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
  269:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   /* Change RTC state to BUSY */
  270:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   hrtc->State = HAL_RTC_STATE_BUSY;
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  229              		.loc 1 282 3 is_stmt 1 view .LVU80
  230              		.loc 1 282 3 view .LVU81
  231 0032 CA21     		movs	r1, #202
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 10
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 10
 
 
  232              	.LVL15:
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  300:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   __HAL_RTC_WRITEPROTECTION_ENABLE(hrtc);
  269              		.loc 1 300 3 view .LVU93
  270              		.loc 1 300 3 view .LVU94
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 11
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 11
 
 
  271 006c 1A68     		ldr	r2, [r3]
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  312              		.section	.text.HAL_RTCEx_DeactivateTimeStamp,"ax",%progbits
  313              		.align	1
  314              		.global	HAL_RTCEx_DeactivateTimeStamp
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 12
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 12
 
 
  315              		.syntax unified
@@ -697,7 +697,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  336              		.loc 1 326 3 discriminator 2 view .LVU112
  337 0008 0121     		movs	r1, #1
  338 000a 0177     		strb	r1, [r0, #28]
- 339              		.loc 1 326 3 view .LVU113
+ 339              		.loc 1 326 3 discriminator 2 view .LVU113
  327:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
  328:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   hrtc->State = HAL_RTC_STATE_BUSY;
  340              		.loc 1 328 3 view .LVU114
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  352 0016 1A68     		ldr	r2, [r3]
  353 0018 5320     		movs	r0, #83
  354 001a 5062     		str	r0, [r2, #36]
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 13
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 13
 
 
  355              		.loc 1 331 3 view .LVU120
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  350:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   return HAL_OK;
  391              		.loc 1 350 3 view .LVU138
  392              		.loc 1 350 10 is_stmt 0 view .LVU139
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 14
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 14
 
 
  393 0040 7047     		bx	lr
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  430              		.loc 1 368 3 view .LVU145
  369:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
  370:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   /* Check the parameters */
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 15
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 15
 
 
  371:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   assert_param(IS_RTC_FORMAT(Format));
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  384:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   /* Fill the Date structure fields with the read parameters */
  385:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   sTimeStampDate->Year    = 0U;
  472              		.loc 1 385 3 is_stmt 1 view .LVU168
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 16
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 16
 
 
  473              		.loc 1 385 27 is_stmt 0 view .LVU169
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  504              		.loc 1 408 1 is_stmt 0 view .LVU183
  505 0050 0020     		movs	r0, #0
  506 0052 70BD     		pop	{r4, r5, r6, pc}
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 17
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 17
 
 
  507              	.LVL35:
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  401:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   }
  545              		.loc 1 401 40 is_stmt 0 view .LVU200
  546 007c 2878     		ldrb	r0, [r5]	@ zero_extendqisi2
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 18
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 18
 
 
  547 007e FFF7FEFF 		bl	RTC_Bcd2ToByte
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  579              		.loc 1 431 3 view .LVU212
  432:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
  433:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   /* Process Locked */
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 19
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 19
 
 
  434:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   __HAL_LOCK(hrtc);
@@ -1097,7 +1097,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  591              		.loc 1 434 3 is_stmt 1 discriminator 2 view .LVU216
  592 000a 0123     		movs	r3, #1
  593 000c 0377     		strb	r3, [r0, #28]
- 594              		.loc 1 434 3 view .LVU217
+ 594              		.loc 1 434 3 discriminator 2 view .LVU217
  435:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
  436:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   hrtc->State = HAL_RTC_STATE_BUSY;
  595              		.loc 1 436 3 view .LVU218
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  450:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   }
  451:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   else
  452:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   {
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 20
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 20
 
 
  453:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****     /* Clear the tamper trigger bit (case of rising edge or low level) */
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  470:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****              (uint32_t)sTamper->PinSelection      | \
  648              		.loc 1 470 51 view .LVU244
  649 003c 0B43     		orrs	r3, r3, r1
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 21
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 21
 
 
  466:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****              (uint32_t)sTamper->SamplingFrequency | \
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  449:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   }
  687              		.loc 1 449 12 view .LVU260
  688 0056 E5E7     		b	.L27
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 22
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 22
 
 
  689              	.LVL54:
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  506:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   assert_param(IS_RTC_TAMPER_PRECHARGE_DURATION(sTamper->PrechargeDuration));
  724              		.loc 1 506 3 view .LVU271
  507:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   assert_param(IS_RTC_TAMPER_PULLUP_STATE(sTamper->TamperPullUp));
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 23
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 23
 
 
  725              		.loc 1 507 3 view .LVU272
@@ -1342,7 +1342,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  738              		.loc 1 511 3 is_stmt 1 discriminator 2 view .LVU277
  739 000a 0123     		movs	r3, #1
  740 000c 0377     		strb	r3, [r0, #28]
- 741              		.loc 1 511 3 view .LVU278
+ 741              		.loc 1 511 3 discriminator 2 view .LVU278
  512:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
  513:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   hrtc->State = HAL_RTC_STATE_BUSY;
  742              		.loc 1 513 3 view .LVU279
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  762 001c 022B     		cmp	r3, #2
  763 001e 21D0     		beq	.L43
  524:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   {
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 24
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 24
 
 
  525:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****     /* Set the tamper trigger bit (case of falling edge or high level) */
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  791 0038 2B43     		orrs	r3, r3, r5
  548:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****              (uint32_t)sTamper->TimeStampOnTamperDetection);
  792              		.loc 1 548 31 view .LVU304
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 25
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 25
 
 
  793 003a C969     		ldr	r1, [r1, #28]
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  828              		.loc 1 565 3 view .LVU319
  566:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** }
  829              		.loc 1 566 1 is_stmt 0 view .LVU320
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 26
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 26
 
 
  830 0060 30BC     		pop	{r4, r5}
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  577:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   *
  578:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   *         (*) value not applicable to all devices.
  579:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   * @retval HAL status
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 27
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 27
 
 
  580:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   */
@@ -1587,7 +1587,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  887              		.loc 1 586 3 is_stmt 1 discriminator 2 view .LVU331
  888 0008 0122     		movs	r2, #1
  889 000a 0277     		strb	r2, [r0, #28]
- 890              		.loc 1 586 3 view .LVU332
+ 890              		.loc 1 586 3 discriminator 2 view .LVU332
  587:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
  588:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   hrtc->State = HAL_RTC_STATE_BUSY;
  891              		.loc 1 588 3 view .LVU333
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  908 001c 0023     		movs	r3, #0
  909 001e 0377     		strb	r3, [r0, #28]
  910              		.loc 1 596 3 view .LVU343
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 28
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 28
 
 
  597:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  623:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** #endif /* USE_HAL_RTC_REGISTER_CALLBACKS */
  624:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
  625:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****       /* Clear the Timestamp interrupt pending bit after returning from callback
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 29
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 29
 
 
  626:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****          as RTC_TSTR and RTC_TSDR registers are cleared when TSF bit is reset */
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  680:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** {
  940              		.loc 1 680 1 is_stmt 1 view -0
  941              		.cfi_startproc
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 30
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 30
 
 
  942              		@ args = 0, pretend = 0, frame = 0
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  976              		.thumb
  977              		.thumb_func
  979              	HAL_RTCEx_Tamper2EventCallback:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 31
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 31
 
 
  980              	.LVL76:
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  1016 000a 5A61     		str	r2, [r3, #20]
  613:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   {
  1017              		.loc 1 613 3 view .LVU361
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 32
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 32
 
 
  613:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   {
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  654:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****     {
  1056              		.loc 1 654 8 view .LVU378
  1057 003c 12F4804F 		tst	r2, #16384
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 33
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 33
 
 
  1058 0040 14D1     		bne	.L63
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  1103 0080 003C0140 		.word	1073822720
  1104              		.cfi_endproc
  1105              	.LFE246:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 34
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 34
 
 
  1107              		.section	.text.HAL_RTCEx_PollForTimeStampEvent,"ax",%progbits
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  739:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****     if (Timeout != HAL_MAX_DELAY)
  740:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****     {
  741:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****       if ((Timeout == 0U) || ((HAL_GetTick() - tickstart) > Timeout))
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 35
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 35
 
 
  742:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****       {
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  744:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****       }
  1179              		.loc 1 744 9 is_stmt 1 view .LVU411
  1180              	.L70:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 36
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 36
 
 
  749:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****     {
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  1211              		.align	1
  1212              		.global	HAL_RTCEx_PollForTamper1Event
  1213              		.syntax unified
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 37
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 37
 
 
  1214              		.thumb
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  783:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****     if (Timeout != HAL_MAX_DELAY)
  1251              		.loc 1 783 5 is_stmt 1 view .LVU432
  1252              		.loc 1 783 8 is_stmt 0 view .LVU433
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 38
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 38
 
 
  1253 0016 B5F1FF3F 		cmp	r5, #-1
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  1290              		.loc 1 800 1 view .LVU449
  1291              		.cfi_endproc
  1292              	.LFE251:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 39
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 39
 
 
  1294              		.section	.text.HAL_RTCEx_PollForTamper2Event,"ax",%progbits
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  1331 000e DA68     		ldr	r2, [r3, #12]
  1332              		.loc 1 818 59 view .LVU459
  1333 0010 12F4804F 		tst	r2, #16384
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 40
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 40
 
 
  1334 0014 0BD1     		bne	.L90
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  1370 003c 0020     		movs	r0, #0
  1371              	.L87:
  837:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** }
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 41
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 41
 
 
  1372              		.loc 1 837 1 view .LVU476
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  1398              		.cfi_offset 6, -12
  1399              		.cfi_offset 7, -8
  1400              		.cfi_offset 14, -4
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 42
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 42
 
 
  868:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   uint32_t tickstart = 0U;
@@ -2484,7 +2484,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  1413              		.loc 1 875 3 discriminator 2 view .LVU485
  1414 000e 0123     		movs	r3, #1
  1415 0010 0377     		strb	r3, [r0, #28]
- 1416              		.loc 1 875 3 view .LVU486
+ 1416              		.loc 1 875 3 discriminator 2 view .LVU486
  876:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
  877:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   hrtc->State = HAL_RTC_STATE_BUSY;
  1417              		.loc 1 877 3 view .LVU487
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  1439 0026 13F4806F 		tst	r3, #1024
  1440 002a 15D0     		beq	.L93
  884:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   {
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 43
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 43
 
 
  885:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****     tickstart = HAL_GetTick();
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  899:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
  900:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****         return HAL_TIMEOUT;
  1481              		.loc 1 900 9 view .LVU517
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 44
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 44
 
 
  1482              		.loc 1 900 16 is_stmt 0 view .LVU518
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  1519 0084 B0F57A7F 		cmp	r0, #1000
  1520 0088 F4D9     		bls	.L96
  918:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****     {
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 45
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 45
 
 
  919:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****       /* Enable the write protection for RTC registers */
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  1555              		.loc 1 938 7 is_stmt 0 view .LVU549
  1556 00aa 2368     		ldr	r3, [r4]
  1557              		.loc 1 938 24 view .LVU550
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 46
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 46
 
 
  1558 00ac 5D61     		str	r5, [r3, #20]
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  1597              		.syntax unified
  1598              		.thumb
  1599              		.thumb_func
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 47
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 47
 
 
  1601              	HAL_RTCEx_SetWakeUpTimer_IT:
@@ -2818,11 +2818,11 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  1636 0022 78D0     		beq	.L108
  1637              		.loc 1 971 3 discriminator 2 view .LVU575
  1638 0024 0123     		movs	r3, #1
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 48
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 48
 
 
  1639 0026 8CF81C30 		strb	r3, [ip, #28]
- 1640              		.loc 1 971 3 view .LVU576
+ 1640              		.loc 1 971 3 discriminator 2 view .LVU576
  972:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
  973:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   hrtc->State = HAL_RTC_STATE_BUSY;
  1641              		.loc 1 973 3 view .LVU577
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  988:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****         __HAL_RTC_WRITEPROTECTION_ENABLE(hrtc);
  989:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
  990:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****         hrtc->State = HAL_RTC_STATE_TIMEOUT;
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 49
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 49
 
 
  991:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  1708              		.loc 1 1013 8 view .LVU607
  1709 0080 002B     		cmp	r3, #0
  1710 0082 3AD0     		beq	.L111
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 50
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 50
 
 
 1014:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****     {
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  1741              		.loc 1 1037 3 is_stmt 0 view .LVU622
  1742 00ac 42F48002 		orr	r2, r2, #4194304
  1743 00b0 1A60     		str	r2, [r3]
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 51
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 51
 
 
 1038:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   __HAL_RTC_WAKEUPTIMER_EXTI_ENABLE_RISING_EDGE();
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  1779              		.loc 1 988 9 view .LVU637
  1780 00e8 FF23     		movs	r3, #255
  1781 00ea 6362     		str	r3, [r4, #36]
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 52
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 52
 
 
  988:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  1817              		.cfi_remember_state
  1818              		.cfi_def_cfa_offset 4
  1819              		@ sp needed
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 53
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 53
 
 
  1820 0110 5DF8044B 		ldr	r4, [sp], #4
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  1862              		.loc 1 1068 3 view .LVU661
  1863              		.loc 1 1068 3 view .LVU662
  1864 0002 037F     		ldrb	r3, [r0, #28]	@ zero_extendqisi2
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 54
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 54
 
 
  1865 0004 012B     		cmp	r3, #1
@@ -3187,7 +3187,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  1868              		.loc 1 1068 3 discriminator 2 view .LVU663
  1869 000a 0123     		movs	r3, #1
  1870 000c 0377     		strb	r3, [r0, #28]
- 1871              		.loc 1 1068 3 view .LVU664
+ 1871              		.loc 1 1068 3 discriminator 2 view .LVU664
 1069:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
 1070:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   hrtc->State = HAL_RTC_STATE_BUSY;
  1872              		.loc 1 1070 3 view .LVU665
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
 1085:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   while (__HAL_RTC_WAKEUPTIMER_GET_FLAG(hrtc, RTC_FLAG_WUTWF) == 0U)
  1903              		.loc 1 1085 3 is_stmt 1 view .LVU676
  1904              	.L116:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 55
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 55
 
 
  1905              		.loc 1 1085 63 view .LVU677
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  1942 005e FF22     		movs	r2, #255
  1943 0060 5A62     		str	r2, [r3, #36]
  1944              		.loc 1 1102 3 view .LVU696
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 56
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 56
 
 
 1103:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  1982              		@ frame_needed = 0, uses_anonymous_args = 0
  1983              		@ link register save eliminated.
 1120:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   /* Get the counter value */
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 57
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 57
 
 
 1121:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   return ((uint32_t)(hrtc->Instance->WUTR & RTC_WUTR_WUT));
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
 1155:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   hrtc->State = HAL_RTC_STATE_READY;
 1156:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** }
 1157:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 58
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 58
 
 
 1158:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** /**
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  2042              		.loc 1 1141 7 is_stmt 0 view .LVU718
  2043 000c 0368     		ldr	r3, [r0]
  2044 000e DA68     		ldr	r2, [r3, #12]
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 59
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 59
 
 
 1141:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   {
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
 1182:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** {
  2085              		.loc 1 1182 1 is_stmt 1 view -0
  2086              		.cfi_startproc
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 60
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 60
 
 
  2087              		@ args = 0, pretend = 0, frame = 0
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  2131              	.L132:
 1193:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****       {
 1194:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****         hrtc->State = HAL_RTC_STATE_TIMEOUT;
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 61
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 61
 
 
  2132              		.loc 1 1194 9 is_stmt 1 view .LVU743
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
 1214:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   * @brief    Extended Peripheral Control functions
 1215:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   *
 1216:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** @verbatim
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 62
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 62
 
 
 1217:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****  ===============================================================================
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  2182              		.loc 1 1257 3 is_stmt 1 view .LVU760
 1258:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
 1259:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   /* Write the specified register */
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 63
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 63
 
 
 1260:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   *(__IO uint32_t *)tmp = (uint32_t)Data;
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  2215              		.loc 1 1283 3 view .LVU771
  2216              		.loc 1 1283 11 is_stmt 0 view .LVU772
  2217 0004 53F82100 		ldr	r0, [r3, r1, lsl #2]
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 64
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 64
 
 
  2218              	.LVL143:
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  2245 0004 26D0     		beq	.L142
 1304:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   HAL_StatusTypeDef status;
  2246              		.loc 1 1304 1 is_stmt 0 view .LVU780
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 65
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 65
 
 
  2247 0006 70B5     		push	{r4, r5, r6, lr}
@@ -3853,7 +3853,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  2256              		.loc 1 1312 3 is_stmt 1 discriminator 2 view .LVU781
  2257 000e 0123     		movs	r3, #1
  2258 0010 0377     		strb	r3, [r0, #28]
- 2259              		.loc 1 1312 3 view .LVU782
+ 2259              		.loc 1 1312 3 discriminator 2 view .LVU782
 1313:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
 1314:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   hrtc->State = HAL_RTC_STATE_BUSY;
  2260              		.loc 1 1314 3 view .LVU783
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
 1329:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
 1330:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****     /* Exit Initialization mode */
 1331:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****     status = RTC_ExitInitMode(hrtc);
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 66
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 66
 
 
 1332:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   }
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  2317              	.LVL150:
 1331:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   }
  2318              		.loc 1 1331 14 view .LVU809
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 67
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 67
 
 
  2319 0046 FFF7FEFF 		bl	RTC_ExitInitMode
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
 1357:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
 1358:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   /* Process Locked */
 1359:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   __HAL_LOCK(hrtc);
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 68
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 68
 
 
  2360              		.loc 1 1359 3 view .LVU818
@@ -4036,7 +4036,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  2371              		.loc 1 1359 3 is_stmt 1 discriminator 2 view .LVU821
  2372 000a 0123     		movs	r3, #1
  2373 000c 0377     		strb	r3, [r0, #28]
- 2374              		.loc 1 1359 3 view .LVU822
+ 2374              		.loc 1 1359 3 discriminator 2 view .LVU822
 1360:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
 1361:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   hrtc->State = HAL_RTC_STATE_BUSY;
  2375              		.loc 1 1361 3 view .LVU823
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
 1375:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****     status = RTC_ExitInitMode(hrtc);
 1376:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   }
 1377:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 69
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 69
 
 
 1378:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   if (status == HAL_OK)
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  2431              		.loc 1 1380 17 is_stmt 0 view .LVU848
  2432 0044 0123     		movs	r3, #1
  2433 0046 6377     		strb	r3, [r4, #29]
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 70
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 70
 
 
  2434 0048 ECE7     		b	.L150
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  2466              		.cfi_offset 5, -20
  2467              		.cfi_offset 6, -16
  2468              		.cfi_offset 7, -12
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 71
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 71
 
 
  2469              		.cfi_offset 8, -8
@@ -4231,7 +4231,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  2487              		.loc 1 1422 3 is_stmt 1 discriminator 2 view .LVU860
  2488 0012 0123     		movs	r3, #1
  2489 0014 0377     		strb	r3, [r0, #28]
- 2490              		.loc 1 1422 3 view .LVU861
+ 2490              		.loc 1 1422 3 discriminator 2 view .LVU861
 1423:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
 1424:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   hrtc->State = HAL_RTC_STATE_BUSY;
  2491              		.loc 1 1424 3 view .LVU862
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
 1430:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   if ((hrtc->Instance->ISR & RTC_ISR_RECALPF) != 0U)
  2507              		.loc 1 1430 3 view .LVU869
  2508              		.loc 1 1430 12 is_stmt 0 view .LVU870
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 72
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 72
 
 
  2509 0026 0368     		ldr	r3, [r0]
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
 1461:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
 1462:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   /* Change RTC state */
 1463:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   hrtc->State = HAL_RTC_STATE_READY;
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 73
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 73
 
 
  2533              		.loc 1 1463 3 view .LVU881
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  2570              		.loc 1 1438 26 discriminator 1 view .LVU898
  2571 005e A0EB0800 		sub	r0, r0, r8
 1438:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****       {
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 74
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 74
 
 
  2572              		.loc 1 1438 10 discriminator 1 view .LVU899
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
 1473:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   * @note   When REFCKON is set, firmware must not write to Shift control register.
 1474:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   * @param  hrtc pointer to a RTC_HandleTypeDef structure that contains
 1475:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   *                the configuration information for RTC.
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 75
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 75
 
 
 1476:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   * @param  ShiftAdd1S Select to add or not 1 second to the time calendar.
@@ -4487,7 +4487,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  2637              		.loc 1 1493 3 is_stmt 1 discriminator 2 view .LVU919
  2638 0010 0123     		movs	r3, #1
  2639 0012 0377     		strb	r3, [r0, #28]
- 2640              		.loc 1 1493 3 view .LVU920
+ 2640              		.loc 1 1493 3 discriminator 2 view .LVU920
 1494:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
 1495:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   hrtc->State = HAL_RTC_STATE_BUSY;
  2641              		.loc 1 1495 3 view .LVU921
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
 1497:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   /* Disable the write protection for RTC registers */
 1498:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   __HAL_RTC_WRITEPROTECTION_DISABLE(hrtc);
  2645              		.loc 1 1498 3 is_stmt 1 view .LVU923
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 76
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 76
 
 
  2646              		.loc 1 1498 3 view .LVU924
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
 1510:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
 1511:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****       hrtc->State = HAL_RTC_STATE_TIMEOUT;
  2689              		.loc 1 1511 7 view .LVU943
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 77
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 77
 
 
  2690              		.loc 1 1511 19 is_stmt 0 view .LVU944
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
 1555:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   }
 1556:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
 1557:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   /* Enable the write protection for RTC registers */
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 78
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 78
 
 
 1558:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   __HAL_RTC_WRITEPROTECTION_ENABLE(hrtc);
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
 1561:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
  2732              		.loc 1 1561 3 view .LVU963
 1561:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 79
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 79
 
 
  2733              		.loc 1 1561 15 is_stmt 0 view .LVU964
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  2769              		.loc 1 1539 16 is_stmt 0 view .LVU982
  2770 0092 0120     		movs	r0, #1
  2771 0094 DBE7     		b	.L166
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 80
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 80
 
 
  2772              	.LVL184:
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  2817              	.LVL187:
  2818              	.LFB266:
 1568:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 81
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 81
 
 
 1569:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** /**
@@ -4840,7 +4840,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  2837              	.LVL188:
  2838              		.loc 1 1585 3 is_stmt 0 discriminator 2 view .LVU1001
  2839 000c 1877     		strb	r0, [r3, #28]
- 2840              		.loc 1 1585 3 is_stmt 1 view .LVU1002
+ 2840              		.loc 1 1585 3 is_stmt 1 discriminator 2 view .LVU1002
 1586:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
 1587:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   hrtc->State = HAL_RTC_STATE_BUSY;
  2841              		.loc 1 1587 3 view .LVU1003
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  2850              		.loc 1 1590 3 view .LVU1007
  2851 0018 1A68     		ldr	r2, [r3]
  2852 001a 5324     		movs	r4, #83
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 82
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 82
 
 
  2853 001c 5462     		str	r4, [r2, #36]
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  2890 0044 1877     		strb	r0, [r3, #28]
  2891              		.loc 1 1607 3 view .LVU1026
 1608:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 83
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 83
 
 
 1609:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   return HAL_OK;
@@ -4972,13 +4972,13 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  2928              		.loc 1 1621 3 discriminator 2 view .LVU1034
  2929 0006 0122     		movs	r2, #1
  2930 0008 0277     		strb	r2, [r0, #28]
- 2931              		.loc 1 1621 3 view .LVU1035
+ 2931              		.loc 1 1621 3 discriminator 2 view .LVU1035
 1622:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
 1623:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   hrtc->State = HAL_RTC_STATE_BUSY;
  2932              		.loc 1 1623 3 view .LVU1036
  2933              		.loc 1 1623 15 is_stmt 0 view .LVU1037
  2934 000a 0223     		movs	r3, #2
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 84
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 84
 
 
  2935 000c 4377     		strb	r3, [r0, #29]
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
 1621:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
  2973              		.loc 1 1621 3 discriminator 1 view .LVU1054
  2974 0034 0220     		movs	r0, #2
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 85
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 85
 
 
  2975              	.LVL195:
@@ -5089,7 +5089,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  3007              		.loc 1 1653 3 is_stmt 1 discriminator 2 view .LVU1061
  3008 000a 0123     		movs	r3, #1
  3009 000c 0377     		strb	r3, [r0, #28]
- 3010              		.loc 1 1653 3 view .LVU1062
+ 3010              		.loc 1 1653 3 discriminator 2 view .LVU1062
 1654:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
 1655:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   hrtc->State = HAL_RTC_STATE_BUSY;
  3011              		.loc 1 1655 3 view .LVU1063
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  3014 0010 4377     		strb	r3, [r0, #29]
 1656:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
 1657:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   /* Disable the write protection for RTC registers */
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 86
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 86
 
 
 1658:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   __HAL_RTC_WRITEPROTECTION_DISABLE(hrtc);
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
 1682:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
 1683:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   return status;
  3045              		.loc 1 1683 3 view .LVU1079
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 87
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 87
 
 
 1684:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** }
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  3092              	.LVL204:
  3093              	.LFB269:
 1685:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 88
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 88
 
 
 1686:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** /**
@@ -5253,7 +5253,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  3110              		.loc 1 1697 3 is_stmt 1 discriminator 2 view .LVU1096
  3111 000a 0123     		movs	r3, #1
  3112 000c 0377     		strb	r3, [r0, #28]
- 3113              		.loc 1 1697 3 view .LVU1097
+ 3113              		.loc 1 1697 3 discriminator 2 view .LVU1097
 1698:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
 1699:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   hrtc->State = HAL_RTC_STATE_BUSY;
  3114              		.loc 1 1699 3 view .LVU1098
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
 1705:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   status = RTC_EnterInitMode(hrtc);
  3128              		.loc 1 1705 3 view .LVU1104
  3129              		.loc 1 1705 12 is_stmt 0 view .LVU1105
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 89
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 89
 
 
  3130 001e FFF7FEFF 		bl	RTC_EnterInitMode
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
 1713:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   }
  3159              		.loc 1 1713 14 is_stmt 0 view .LVU1118
  3160 003a 2046     		mov	r0, r4
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 90
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 90
 
 
  3161              	.LVL208:
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  3200              		@ frame_needed = 0, uses_anonymous_args = 0
  3201              		@ link register save eliminated.
 1740:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   /* Process Locked */
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 91
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 91
 
 
 1741:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   __HAL_LOCK(hrtc);
@@ -5410,7 +5410,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  3207              		.loc 1 1741 3 discriminator 2 view .LVU1129
  3208 0006 0122     		movs	r2, #1
  3209 0008 0277     		strb	r2, [r0, #28]
- 3210              		.loc 1 1741 3 view .LVU1130
+ 3210              		.loc 1 1741 3 discriminator 2 view .LVU1130
 1742:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
 1743:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   hrtc->State = HAL_RTC_STATE_BUSY;
  3211              		.loc 1 1743 3 view .LVU1131
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  3241 002a 4277     		strb	r2, [r0, #29]
 1756:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
 1757:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   /* Process Unlocked */
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 92
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 92
 
 
 1758:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   __HAL_UNLOCK(hrtc);
@@ -5518,13 +5518,13 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  3280 0000 037F     		ldrb	r3, [r0, #28]	@ zero_extendqisi2
  3281 0002 012B     		cmp	r3, #1
  3282 0004 16D0     		beq	.L211
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 93
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 93
 
 
  3283              		.loc 1 1774 3 discriminator 2 view .LVU1157
  3284 0006 0122     		movs	r2, #1
  3285 0008 0277     		strb	r2, [r0, #28]
- 3286              		.loc 1 1774 3 view .LVU1158
+ 3286              		.loc 1 1774 3 discriminator 2 view .LVU1158
 1775:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
 1776:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c ****   hrtc->State = HAL_RTC_STATE_BUSY;
  3287              		.loc 1 1776 3 view .LVU1159
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  3320 002c 0023     		movs	r3, #0
  3321 002e 0377     		strb	r3, [r0, #28]
  3322              		.loc 1 1791 3 view .LVU1176
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 94
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 94
 
 
 1792:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** 
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
 1821:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** __weak void HAL_RTCEx_AlarmBEventCallback(RTC_HandleTypeDef *hrtc)
 1822:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c **** {
  3349              		.loc 1 1822 1 is_stmt 1 view -0
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 95
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 95
 
 
  3350              		.cfi_startproc
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  3385              		.loc 1 1843 3 view .LVU1188
  3386              		.loc 1 1843 15 is_stmt 0 view .LVU1189
  3387 0006 FFF7FEFF 		bl	HAL_GetTick
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 96
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 96
 
 
  3388              	.LVL223:
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  3426 002e DA68     		ldr	r2, [r3, #12]
  3427 0030 D2B2     		uxtb	r2, r2
  3428 0032 62F42072 		orn	r2, r2, #640
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 97
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 97
 
 
  3429 0036 DA60     		str	r2, [r3, #12]
@@ -5783,97 +5783,97 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 1
  3442              	.LFE273:
  3444              		.text
  3445              	.Letext0:
- 3446              		.file 2 "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/arm-none-eabi/include/ma
- 3447              		.file 3 "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/arm-none-eabi/include/sy
+ 3446              		.file 2 "/Users/kroko/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@xp
+ 3447              		.file 3 "/Users/kroko/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@xp
  3448              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h"
  3449              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
  3450              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc.h"
  3451              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc_ex.h"
  3452              		.file 8 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
  3453              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 98
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 98
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f4xx_hal_rtc_ex.c
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:21     .text.HAL_RTCEx_SetTimeStamp:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:27     .text.HAL_RTCEx_SetTimeStamp:00000000 HAL_RTCEx_SetTimeStamp
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:158    .text.HAL_RTCEx_SetTimeStamp_IT:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:164    .text.HAL_RTCEx_SetTimeStamp_IT:00000000 HAL_RTCEx_SetTimeStamp_IT
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:308    .text.HAL_RTCEx_SetTimeStamp_IT:00000094 $d
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:313    .text.HAL_RTCEx_DeactivateTimeStamp:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:319    .text.HAL_RTCEx_DeactivateTimeStamp:00000000 HAL_RTCEx_DeactivateTimeStamp
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:405    .text.HAL_RTCEx_GetTimeStamp:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:411    .text.HAL_RTCEx_GetTimeStamp:00000000 HAL_RTCEx_GetTimeStamp
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:556    .text.HAL_RTCEx_SetTamper:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:562    .text.HAL_RTCEx_SetTamper:00000000 HAL_RTCEx_SetTamper
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:703    .text.HAL_RTCEx_SetTamper_IT:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:709    .text.HAL_RTCEx_SetTamper_IT:00000000 HAL_RTCEx_SetTamper_IT
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:858    .text.HAL_RTCEx_SetTamper_IT:00000070 $d
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:863    .text.HAL_RTCEx_DeactivateTamper:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:869    .text.HAL_RTCEx_DeactivateTamper:00000000 HAL_RTCEx_DeactivateTamper
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:931    .text.HAL_RTCEx_TimeStampEventCallback:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:937    .text.HAL_RTCEx_TimeStampEventCallback:00000000 HAL_RTCEx_TimeStampEventCallback
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:952    .text.HAL_RTCEx_Tamper1EventCallback:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:958    .text.HAL_RTCEx_Tamper1EventCallback:00000000 HAL_RTCEx_Tamper1EventCallback
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:973    .text.HAL_RTCEx_Tamper2EventCallback:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:979    .text.HAL_RTCEx_Tamper2EventCallback:00000000 HAL_RTCEx_Tamper2EventCallback
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:994    .text.HAL_RTCEx_TamperTimeStampIRQHandler:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:1000   .text.HAL_RTCEx_TamperTimeStampIRQHandler:00000000 HAL_RTCEx_TamperTimeStampIRQHandler
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:1103   .text.HAL_RTCEx_TamperTimeStampIRQHandler:00000080 $d
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:1108   .text.HAL_RTCEx_PollForTimeStampEvent:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:1114   .text.HAL_RTCEx_PollForTimeStampEvent:00000000 HAL_RTCEx_PollForTimeStampEvent
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:1211   .text.HAL_RTCEx_PollForTamper1Event:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:1217   .text.HAL_RTCEx_PollForTamper1Event:00000000 HAL_RTCEx_PollForTamper1Event
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:1295   .text.HAL_RTCEx_PollForTamper2Event:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:1301   .text.HAL_RTCEx_PollForTamper2Event:00000000 HAL_RTCEx_PollForTamper2Event
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:1379   .text.HAL_RTCEx_SetWakeUpTimer:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:1385   .text.HAL_RTCEx_SetWakeUpTimer:00000000 HAL_RTCEx_SetWakeUpTimer
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:1595   .text.HAL_RTCEx_SetWakeUpTimer_IT:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:1601   .text.HAL_RTCEx_SetWakeUpTimer_IT:00000000 HAL_RTCEx_SetWakeUpTimer_IT
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:1833   .text.HAL_RTCEx_SetWakeUpTimer_IT:0000011c $d
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:1840   .text.HAL_RTCEx_DeactivateWakeUpTimer:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:1846   .text.HAL_RTCEx_DeactivateWakeUpTimer:00000000 HAL_RTCEx_DeactivateWakeUpTimer
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:1970   .text.HAL_RTCEx_GetWakeUpTimer:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:1976   .text.HAL_RTCEx_GetWakeUpTimer:00000000 HAL_RTCEx_GetWakeUpTimer
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:1997   .text.HAL_RTCEx_WakeUpTimerEventCallback:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:2003   .text.HAL_RTCEx_WakeUpTimerEventCallback:00000000 HAL_RTCEx_WakeUpTimerEventCallback
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:2018   .text.HAL_RTCEx_WakeUpTimerIRQHandler:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:2024   .text.HAL_RTCEx_WakeUpTimerIRQHandler:00000000 HAL_RTCEx_WakeUpTimerIRQHandler
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:2071   .text.HAL_RTCEx_WakeUpTimerIRQHandler:0000002c $d
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:2076   .text.HAL_RTCEx_PollForWakeUpTimerEvent:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:2082   .text.HAL_RTCEx_PollForWakeUpTimerEvent:00000000 HAL_RTCEx_PollForWakeUpTimerEvent
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:2160   .text.HAL_RTCEx_BKUPWrite:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:2166   .text.HAL_RTCEx_BKUPWrite:00000000 HAL_RTCEx_BKUPWrite
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:2192   .text.HAL_RTCEx_BKUPRead:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:2198   .text.HAL_RTCEx_BKUPRead:00000000 HAL_RTCEx_BKUPRead
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:2225   .text.HAL_RTCEx_SetCoarseCalib:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:2231   .text.HAL_RTCEx_SetCoarseCalib:00000000 HAL_RTCEx_SetCoarseCalib
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:2346   .text.HAL_RTCEx_DeactivateCoarseCalib:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:2352   .text.HAL_RTCEx_DeactivateCoarseCalib:00000000 HAL_RTCEx_DeactivateCoarseCalib
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s 			page 99
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:21     .text.HAL_RTCEx_SetTimeStamp:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:27     .text.HAL_RTCEx_SetTimeStamp:00000000 HAL_RTCEx_SetTimeStamp
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:158    .text.HAL_RTCEx_SetTimeStamp_IT:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:164    .text.HAL_RTCEx_SetTimeStamp_IT:00000000 HAL_RTCEx_SetTimeStamp_IT
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:308    .text.HAL_RTCEx_SetTimeStamp_IT:00000094 $d
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:313    .text.HAL_RTCEx_DeactivateTimeStamp:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:319    .text.HAL_RTCEx_DeactivateTimeStamp:00000000 HAL_RTCEx_DeactivateTimeStamp
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:405    .text.HAL_RTCEx_GetTimeStamp:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:411    .text.HAL_RTCEx_GetTimeStamp:00000000 HAL_RTCEx_GetTimeStamp
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:556    .text.HAL_RTCEx_SetTamper:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:562    .text.HAL_RTCEx_SetTamper:00000000 HAL_RTCEx_SetTamper
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:703    .text.HAL_RTCEx_SetTamper_IT:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:709    .text.HAL_RTCEx_SetTamper_IT:00000000 HAL_RTCEx_SetTamper_IT
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:858    .text.HAL_RTCEx_SetTamper_IT:00000070 $d
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:863    .text.HAL_RTCEx_DeactivateTamper:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:869    .text.HAL_RTCEx_DeactivateTamper:00000000 HAL_RTCEx_DeactivateTamper
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:931    .text.HAL_RTCEx_TimeStampEventCallback:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:937    .text.HAL_RTCEx_TimeStampEventCallback:00000000 HAL_RTCEx_TimeStampEventCallback
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:952    .text.HAL_RTCEx_Tamper1EventCallback:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:958    .text.HAL_RTCEx_Tamper1EventCallback:00000000 HAL_RTCEx_Tamper1EventCallback
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:973    .text.HAL_RTCEx_Tamper2EventCallback:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:979    .text.HAL_RTCEx_Tamper2EventCallback:00000000 HAL_RTCEx_Tamper2EventCallback
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:994    .text.HAL_RTCEx_TamperTimeStampIRQHandler:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:1000   .text.HAL_RTCEx_TamperTimeStampIRQHandler:00000000 HAL_RTCEx_TamperTimeStampIRQHandler
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:1103   .text.HAL_RTCEx_TamperTimeStampIRQHandler:00000080 $d
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:1108   .text.HAL_RTCEx_PollForTimeStampEvent:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:1114   .text.HAL_RTCEx_PollForTimeStampEvent:00000000 HAL_RTCEx_PollForTimeStampEvent
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:1211   .text.HAL_RTCEx_PollForTamper1Event:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:1217   .text.HAL_RTCEx_PollForTamper1Event:00000000 HAL_RTCEx_PollForTamper1Event
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:1295   .text.HAL_RTCEx_PollForTamper2Event:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:1301   .text.HAL_RTCEx_PollForTamper2Event:00000000 HAL_RTCEx_PollForTamper2Event
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:1379   .text.HAL_RTCEx_SetWakeUpTimer:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:1385   .text.HAL_RTCEx_SetWakeUpTimer:00000000 HAL_RTCEx_SetWakeUpTimer
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:1595   .text.HAL_RTCEx_SetWakeUpTimer_IT:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:1601   .text.HAL_RTCEx_SetWakeUpTimer_IT:00000000 HAL_RTCEx_SetWakeUpTimer_IT
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:1833   .text.HAL_RTCEx_SetWakeUpTimer_IT:0000011c $d
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:1840   .text.HAL_RTCEx_DeactivateWakeUpTimer:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:1846   .text.HAL_RTCEx_DeactivateWakeUpTimer:00000000 HAL_RTCEx_DeactivateWakeUpTimer
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:1970   .text.HAL_RTCEx_GetWakeUpTimer:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:1976   .text.HAL_RTCEx_GetWakeUpTimer:00000000 HAL_RTCEx_GetWakeUpTimer
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:1997   .text.HAL_RTCEx_WakeUpTimerEventCallback:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:2003   .text.HAL_RTCEx_WakeUpTimerEventCallback:00000000 HAL_RTCEx_WakeUpTimerEventCallback
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:2018   .text.HAL_RTCEx_WakeUpTimerIRQHandler:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:2024   .text.HAL_RTCEx_WakeUpTimerIRQHandler:00000000 HAL_RTCEx_WakeUpTimerIRQHandler
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:2071   .text.HAL_RTCEx_WakeUpTimerIRQHandler:0000002c $d
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:2076   .text.HAL_RTCEx_PollForWakeUpTimerEvent:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:2082   .text.HAL_RTCEx_PollForWakeUpTimerEvent:00000000 HAL_RTCEx_PollForWakeUpTimerEvent
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:2160   .text.HAL_RTCEx_BKUPWrite:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:2166   .text.HAL_RTCEx_BKUPWrite:00000000 HAL_RTCEx_BKUPWrite
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:2192   .text.HAL_RTCEx_BKUPRead:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:2198   .text.HAL_RTCEx_BKUPRead:00000000 HAL_RTCEx_BKUPRead
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:2225   .text.HAL_RTCEx_SetCoarseCalib:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:2231   .text.HAL_RTCEx_SetCoarseCalib:00000000 HAL_RTCEx_SetCoarseCalib
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:2346   .text.HAL_RTCEx_DeactivateCoarseCalib:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:2352   .text.HAL_RTCEx_DeactivateCoarseCalib:00000000 HAL_RTCEx_DeactivateCoarseCalib
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s 			page 99
 
 
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:2449   .text.HAL_RTCEx_SetSmoothCalib:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:2455   .text.HAL_RTCEx_SetSmoothCalib:00000000 HAL_RTCEx_SetSmoothCalib
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:2604   .text.HAL_RTCEx_SetSynchroShift:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:2610   .text.HAL_RTCEx_SetSynchroShift:00000000 HAL_RTCEx_SetSynchroShift
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:2810   .text.HAL_RTCEx_SetCalibrationOutPut:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:2816   .text.HAL_RTCEx_SetCalibrationOutPut:00000000 HAL_RTCEx_SetCalibrationOutPut
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:2909   .text.HAL_RTCEx_DeactivateCalibrationOutPut:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:2915   .text.HAL_RTCEx_DeactivateCalibrationOutPut:00000000 HAL_RTCEx_DeactivateCalibrationOutPut
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:2982   .text.HAL_RTCEx_SetRefClock:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:2988   .text.HAL_RTCEx_SetRefClock:00000000 HAL_RTCEx_SetRefClock
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:3085   .text.HAL_RTCEx_DeactivateRefClock:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:3091   .text.HAL_RTCEx_DeactivateRefClock:00000000 HAL_RTCEx_DeactivateRefClock
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:3188   .text.HAL_RTCEx_EnableBypassShadow:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:3194   .text.HAL_RTCEx_EnableBypassShadow:00000000 HAL_RTCEx_EnableBypassShadow
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:3264   .text.HAL_RTCEx_DisableBypassShadow:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:3270   .text.HAL_RTCEx_DisableBypassShadow:00000000 HAL_RTCEx_DisableBypassShadow
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:3340   .text.HAL_RTCEx_AlarmBEventCallback:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:3346   .text.HAL_RTCEx_AlarmBEventCallback:00000000 HAL_RTCEx_AlarmBEventCallback
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:3361   .text.HAL_RTCEx_PollForAlarmBEvent:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccv8Werv.s:3367   .text.HAL_RTCEx_PollForAlarmBEvent:00000000 HAL_RTCEx_PollForAlarmBEvent
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:2449   .text.HAL_RTCEx_SetSmoothCalib:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:2455   .text.HAL_RTCEx_SetSmoothCalib:00000000 HAL_RTCEx_SetSmoothCalib
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:2604   .text.HAL_RTCEx_SetSynchroShift:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:2610   .text.HAL_RTCEx_SetSynchroShift:00000000 HAL_RTCEx_SetSynchroShift
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:2810   .text.HAL_RTCEx_SetCalibrationOutPut:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:2816   .text.HAL_RTCEx_SetCalibrationOutPut:00000000 HAL_RTCEx_SetCalibrationOutPut
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:2909   .text.HAL_RTCEx_DeactivateCalibrationOutPut:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:2915   .text.HAL_RTCEx_DeactivateCalibrationOutPut:00000000 HAL_RTCEx_DeactivateCalibrationOutPut
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:2982   .text.HAL_RTCEx_SetRefClock:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:2988   .text.HAL_RTCEx_SetRefClock:00000000 HAL_RTCEx_SetRefClock
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:3085   .text.HAL_RTCEx_DeactivateRefClock:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:3091   .text.HAL_RTCEx_DeactivateRefClock:00000000 HAL_RTCEx_DeactivateRefClock
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:3188   .text.HAL_RTCEx_EnableBypassShadow:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:3194   .text.HAL_RTCEx_EnableBypassShadow:00000000 HAL_RTCEx_EnableBypassShadow
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:3264   .text.HAL_RTCEx_DisableBypassShadow:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:3270   .text.HAL_RTCEx_DisableBypassShadow:00000000 HAL_RTCEx_DisableBypassShadow
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:3340   .text.HAL_RTCEx_AlarmBEventCallback:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:3346   .text.HAL_RTCEx_AlarmBEventCallback:00000000 HAL_RTCEx_AlarmBEventCallback
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:3361   .text.HAL_RTCEx_PollForAlarmBEvent:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccn2TWyw.s:3367   .text.HAL_RTCEx_PollForAlarmBEvent:00000000 HAL_RTCEx_PollForAlarmBEvent
 
 UNDEFINED SYMBOLS
 RTC_Bcd2ToByte

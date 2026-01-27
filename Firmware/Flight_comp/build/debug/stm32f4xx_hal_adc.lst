@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
   28:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   (#) Interrupt generation at the end of conversion, end of injected conversion,
   29:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       and in case of analog watchdog or overrun events
   30:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   (#) Single and continuous conversion modes.
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 2
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 2
 
 
   31:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   (#) Scan mode for automatic conversion of channel 0 to channel x.
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
   85:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
   86:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   (#) Optionally, configure the analog watchdog parameters (channels
   87:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       monitored, thresholds, ...) using function HAL_ADC_AnalogWDGConfig().
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 3
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 3
 
 
   88:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  142:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
  143:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****      [..]
  144:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****        (@) You can refer to the ADC HAL driver header file for more useful macros
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 4
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 4
 
 
  145:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  199:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     [..]
  200:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
  201:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****      HAL_ADC_UnRegisterCallback takes as parameters the HAL peripheral handle,
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 5
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 5
 
 
  202:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****      and the Callback ID.
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  256:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   * @{
  257:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   */
  258:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 6
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 6
 
 
  259:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** #ifdef HAL_ADC_MODULE_ENABLED
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  313:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   HAL_StatusTypeDef tmp_hal_status = HAL_OK;
  314:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
  315:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Check ADC handle */
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 7
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 7
 
 
  316:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   if (hadc == NULL)
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  370:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
  371:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     /* Set ADC state */
  372:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     ADC_STATE_CLR_SET(hadc->State,
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 8
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 8
 
 
  373:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****                       HAL_ADC_STATE_REG_BUSY | HAL_ADC_STATE_INJ_BUSY,
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  427:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   if (HAL_IS_BIT_CLR(hadc->Instance->CR2, ADC_CR2_ADON))
  428:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
  429:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** #if (USE_HAL_ADC_REGISTER_CALLBACKS == 1)
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 9
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 9
 
 
  430:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     if (hadc->MspDeInitCallback == NULL)
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  484:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
  485:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
  486:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   if ((hadc->State & HAL_ADC_STATE_READY) != 0UL)
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 10
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 10
 
 
  487:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  541:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****         hadc->ErrorCode |= HAL_ADC_ERROR_INVALID_CALLBACK;
  542:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
  543:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****         /* Return error status */
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 11
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 11
 
 
  544:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****         status = HAL_ERROR;
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  598:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****         break;
  599:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
  600:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       case HAL_ADC_INJ_CONVERSION_COMPLETE_CB_ID :
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 12
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 12
 
 
  601:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****         hadc->InjectedConvCpltCallback = HAL_ADCEx_InjectedConvCpltCallback;
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  655:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
  656:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** /**
  657:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   * @brief  Initializes the ADC MSP.
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 13
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 13
 
 
  658:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   * @param  hadc pointer to a ADC_HandleTypeDef structure that contains
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  712:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   * @param  hadc pointer to a ADC_HandleTypeDef structure that contains
  713:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   *         the configuration information for the specified ADC.
  714:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   * @retval HAL status
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 14
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 14
 
 
  715:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   */
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  769:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
  770:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       /* Reset ADC all error code fields */
  771:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       ADC_CLEAR_ERRORCODE(hadc);
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 15
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 15
 
 
  772:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     }
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  826:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   return HAL_OK;
  827:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** }
  828:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 16
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 16
 
 
  829:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** /**
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  883:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** {
  884:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   uint32_t tickstart = 0U;
  885:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 17
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 17
 
 
  886:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Verification that ADC configuration is compliant with polling for      */
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  940:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /*       sequence disabled or with end of conversion flag set to            */
  941:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /*       of end of sequence.                                                */
  942:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   if (ADC_IS_SOFTWARE_START_REGULAR(hadc)                   &&
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 18
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 18
 
 
  943:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       (hadc->Init.ContinuousConvMode == DISABLE)            &&
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  997:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****           __HAL_UNLOCK(hadc);
  998:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
  999:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****           return HAL_TIMEOUT;
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 19
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 19
 
 
 1000:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****         }
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
 1054:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     /* Enable the Peripheral */
 1055:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     __HAL_ADC_ENABLE(hadc);
 1056:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 20
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 20
 
 
 1057:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     /* Delay for ADC stabilization time */
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
 1111:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
 1112:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     /* Check if Multimode enabled */
 1113:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     if (HAL_IS_BIT_CLR(tmpADC_Common->CCR, ADC_CCR_MULTI))
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 21
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 21
 
 
 1114:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
 1168:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   __HAL_LOCK(hadc);
 1169:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
 1170:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Stop potential conversion on going, on regular and injected groups */
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 22
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 22
 
 
 1171:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Disable ADC peripheral */
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
 1225:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     /* Note: On STM32F4, there is no independent flag of end of sequence.   */
 1226:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     /*       The test of scan sequence on going is done either with scan    */
 1227:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     /*       sequence disabled or with end of conversion flag set to        */
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 23
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 23
 
 
 1228:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     /*       of end of sequence.                                            */
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
 1282:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
 1283:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       /* Disable ADC end of single conversion interrupt on group injected */
 1284:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       __HAL_ADC_DISABLE_IT(hadc, ADC_IT_JEOC);
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 24
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 24
 
 
 1285:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
 1339:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     SET_BIT(hadc->ErrorCode, HAL_ADC_ERROR_OVR);
 1340:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
 1341:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     /* Clear ADC overrun flag */
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 25
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 25
 
 
 1342:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     __HAL_ADC_CLEAR_FLAG(hadc, ADC_FLAG_OVR);
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
 1396:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
 1397:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     CLEAR_BIT(hadc->Instance->CR2, ADC_CR2_DMA);
 1398:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 26
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 26
 
 
 1399:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
 1453:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     /* (To ensure of no unknown state from potential previous ADC operations) */
 1454:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     __HAL_ADC_CLEAR_FLAG(hadc, ADC_FLAG_EOC | ADC_FLAG_OVR);
 1455:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 27
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 27
 
 
 1456:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     /* Enable ADC overrun interrupt */
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
 1510:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   * @retval HAL status
 1511:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   */
 1512:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** HAL_StatusTypeDef HAL_ADC_Stop_DMA(ADC_HandleTypeDef *hadc)
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 28
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 28
 
 
 1513:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** {
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
 1567:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   */
 1568:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** uint32_t HAL_ADC_GetValue(ADC_HandleTypeDef *hadc)
 1569:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** {
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 29
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 29
 
 
 1570:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Return the selected ADC converted value */
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
 1624:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   *         - If needed, restart a new ADC conversion using function
 1625:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   *           "HAL_ADC_Start_DMA()"
 1626:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   *           (this function is also clearing overrun flag)
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 30
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 30
 
 
 1627:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   * @param  hadc pointer to a ADC_HandleTypeDef structure that contains
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
 1681:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
 1682:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* if ADC_Channel_10 ... ADC_Channel_18 is selected */
 1683:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   if (sConfig->Channel > ADC_CHANNEL_9)
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 31
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 31
 
 
 1684:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
 1738:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
 1739:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       tmpADC_Common->CCR &= ~ADC_CCR_TSVREFE;
 1740:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     }
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 32
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 32
 
 
 1741:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     /* Enable the VBAT channel*/
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
 1795:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   uint32_t tmp = 0U;
 1796:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** #endif /* USE_FULL_ASSERT  */
 1797:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 33
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 33
 
 
 1798:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Check the parameters */
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
 1852:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** /** @defgroup ADC_Exported_Functions_Group4 ADC Peripheral State functions
 1853:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****  *  @brief   ADC Peripheral State functions
 1854:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****  *
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 34
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 34
 
 
 1855:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** @verbatim
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
   30              		.cfi_startproc
   31              		@ args = 0, pretend = 0, frame = 0
   32              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 35
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 35
 
 
   33              		@ link register save eliminated.
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
   69              		.loc 1 1925 3 is_stmt 1 view .LVU19
   70              		.loc 1 1925 7 is_stmt 0 view .LVU20
   71 0028 0268     		ldr	r2, [r0]
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 36
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 36
 
 
   72              		.loc 1 1925 17 view .LVU21
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
 1940:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     hadc->Instance->CR2 &= ~(ADC_CR2_EXTSEL);
  112              		.loc 1 1940 5 is_stmt 1 view .LVU40
  113              		.loc 1 1940 9 is_stmt 0 view .LVU41
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 37
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 37
 
 
  114 0058 0268     		ldr	r2, [r0]
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  153 0082 9368     		ldr	r3, [r2, #8]
  154              		.loc 1 1955 23 view .LVU61
  155 0084 23F00203 		bic	r3, r3, #2
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 38
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 38
 
 
  156 0088 9360     		str	r3, [r2, #8]
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  198              		.loc 1 1967 25 view .LVU83
  199 00ba 43EA4233 		orr	r3, r3, r2, lsl #13
  200 00be 4B60     		str	r3, [r1, #4]
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 39
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 39
 
 
  201              	.L5:
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
 1984:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   hadc->Instance->CR2 &= ~(ADC_CR2_EOCS);
  239              		.loc 1 1984 3 is_stmt 1 view .LVU102
  240              		.loc 1 1984 7 is_stmt 0 view .LVU103
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 40
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 40
 
 
  241 00f0 0268     		ldr	r2, [r0]
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  282 0120 5368     		ldr	r3, [r2, #4]
 1972:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
  283              		.loc 1 1972 25 view .LVU123
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 41
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 41
 
 
  284 0122 23F40063 		bic	r3, r3, #2048
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  334              		.loc 1 312 1 view .LVU131
  335 0002 10B5     		push	{r4, lr}
  336              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 42
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 42
 
 
  337              		.cfi_offset 4, -8
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  370              		.loc 1 393 3 is_stmt 1 view .LVU152
  393:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
  371              		.loc 1 393 3 view .LVU153
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 43
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 43
 
 
  372 0014 0023     		movs	r3, #0
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  318:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
  415              		.loc 1 318 12 is_stmt 0 view .LVU165
  416 0052 0120     		movs	r0, #1
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 44
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 44
 
 
  417              	.LVL9:
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  466              		.cfi_offset 14, -4
  467 0004 0446     		mov	r4, r0
  416:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 45
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 45
 
 
  468              		.loc 1 416 3 is_stmt 1 view .LVU175
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  508              	.L25:
  509              		.cfi_def_cfa_offset 0
  510              		.cfi_restore 4
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 46
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 46
 
 
  511              		.cfi_restore 14
@@ -2754,11 +2754,11 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  551 0010 0123     		movs	r3, #1
  552 0012 80F83C30 		strb	r3, [r0, #60]
  726:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 553              		.loc 1 726 3 view .LVU202
+ 553              		.loc 1 726 3 discriminator 2 view .LVU202
  731:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
  554              		.loc 1 731 3 view .LVU203
  731:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 47
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 47
 
 
  555              		.loc 1 731 12 is_stmt 0 view .LVU204
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  595 004a 9368     		ldr	r3, [r2, #8]
  746:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
  596              		.loc 1 746 6 view .LVU219
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 48
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 48
 
 
  597 004c 13F0010F 		tst	r3, #1
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  637 0090 1360     		str	r3, [r2]
  789:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
  638              		.loc 1 789 5 view .LVU234
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 49
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 49
 
 
  789:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  797:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****         {
  681              		.loc 1 797 9 is_stmt 1 view .LVU247
  797:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****         {
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 50
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 50
 
 
  682              		.loc 1 797 28 is_stmt 0 view .LVU248
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  722              	.LVL26:
  826:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** }
  723              		.loc 1 826 10 view .LVU263
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 51
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 51
 
 
  724 00f6 12E0     		b	.L32
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  766              		.loc 1 726 3 discriminator 1 view .LVU275
  767 0122 0220     		movs	r0, #2
  768              	.LVL32:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 52
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 52
 
 
  726:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
@@ -3118,13 +3118,13 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  816 0006 19D0     		beq	.L58
  845:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
  817              		.loc 1 845 3 discriminator 2 view .LVU285
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 53
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 53
 
 
  818 0008 0123     		movs	r3, #1
  819 000a 80F83C30 		strb	r3, [r0, #60]
  845:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 820              		.loc 1 845 3 view .LVU286
+ 820              		.loc 1 845 3 discriminator 2 view .LVU286
  849:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
  821              		.loc 1 849 3 view .LVU287
  822 000e 0268     		ldr	r2, [r0]
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  858              		.cfi_endproc
  859              	.LFE244:
  861              		.section	.text.HAL_ADC_PollForConversion,"ax",%progbits
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 54
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 54
 
 
  862              		.align	1
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  908:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
  906              		.loc 1 908 3 is_stmt 1 view .LVU311
  907              	.L63:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 55
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 55
 
 
  908:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  945              		.loc 1 896 5 is_stmt 1 view .LVU328
  946 004c 036C     		ldr	r3, [r0, #64]
  947 004e 43F02003 		orr	r3, r3, #32
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 56
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 56
 
 
  948 0052 0364     		str	r3, [r0, #64]
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  987 0082 207E     		ldrb	r0, [r4, #24]	@ zero_extendqisi2
  942:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       (hadc->Init.ContinuousConvMode == DISABLE)            &&
  988              		.loc 1 942 61 discriminator 1 view .LVU344
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 57
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 57
 
 
  989 0084 B0B9     		cbnz	r0, .L69
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  1032              		.align	1
  1033              		.global	HAL_ADC_PollForEvent
  1034              		.syntax unified
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 58
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 58
 
 
  1035              		.thumb
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  1077              		.loc 1 986 5 is_stmt 1 view .LVU369
  986:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
  1078              		.loc 1 986 8 is_stmt 0 view .LVU370
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 59
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 59
 
 
  1079 001a B7F1FF3F 		cmp	r7, #-1
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  1117              		.loc 1 1006 6 is_stmt 0 view .LVU386
  1118 004c 012E     		cmp	r6, #1
  1119 004e 0DD0     		beq	.L85
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 60
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 60
 
 
 1018:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     /* Set ADC error code to overrun */
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  1166              		.loc 1 1038 1 is_stmt 0 view .LVU396
  1167 0000 82B0     		sub	sp, sp, #8
  1168              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 61
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 61
 
 
 1039:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   ADC_Common_TypeDef *tmpADC_Common;
@@ -3625,7 +3625,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  1182 0010 0123     		movs	r3, #1
  1183 0012 80F83C30 		strb	r3, [r0, #60]
 1047:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 1184              		.loc 1 1047 3 view .LVU405
+ 1184              		.loc 1 1047 3 discriminator 2 view .LVU405
 1052:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
  1185              		.loc 1 1052 3 view .LVU406
 1052:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
 1059:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     while (counter != 0U)
  1206              		.loc 1 1059 13 view .LVU414
  1207 0038 0193     		str	r3, [sp, #4]
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 62
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 62
 
 
 1060:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  1248              		.loc 1 1084 5 view .LVU428
 1084:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
  1249              		.loc 1 1084 9 is_stmt 0 view .LVU429
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 63
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 63
 
 
  1250 0076 036C     		ldr	r3, [r0, #64]
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  1289              		.loc 1 1116 36 discriminator 1 view .LVU444
  1290 00b2 02F58072 		add	r2, r2, #256
  1291 00b6 9342     		cmp	r3, r2
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 64
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 64
 
 
  1292 00b8 07D0     		beq	.L105
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
 1150:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** }
  1333              		.loc 1 1150 10 view .LVU458
  1334 00e8 20E0     		b	.L87
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 65
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 65
 
 
  1335              	.LVL63:
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
 1150:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** }
  1375              		.loc 1 1150 10 view .LVU473
  1376 0116 0020     		movs	r0, #0
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 66
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 66
 
 
  1377              	.LVL68:
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  1420              		.loc 1 1150 10 view .LVU484
  1421 013a F7E7     		b	.L87
  1422              	.L109:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 67
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 67
 
 
  1423              		.align	2
@@ -3999,7 +3999,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  1455 0008 0123     		movs	r3, #1
  1456 000a 80F83C30 		strb	r3, [r0, #60]
 1168:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 1457              		.loc 1 1168 3 view .LVU490
+ 1457              		.loc 1 1168 3 discriminator 2 view .LVU490
 1172:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
  1458              		.loc 1 1172 3 view .LVU491
  1459 000e 0268     		ldr	r2, [r0]
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  1469 0020 0DD1     		bne	.L112
 1178:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
  1470              		.loc 1 1178 5 is_stmt 1 view .LVU495
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 68
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 68
 
 
  1471 0022 5A68     		ldr	r2, [r3, #4]
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
 1365:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   __IO uint32_t counter = 0U;
  1517              		.loc 1 1365 1 is_stmt 0 view .LVU506
  1518 0000 10B5     		push	{r4, lr}
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 69
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 69
 
 
  1519              		.cfi_def_cfa_offset 8
@@ -4118,7 +4118,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  1543 0016 0122     		movs	r2, #1
  1544 0018 80F83C20 		strb	r2, [r0, #60]
 1374:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 1545              		.loc 1 1374 3 view .LVU517
+ 1545              		.loc 1 1374 3 discriminator 2 view .LVU517
 1379:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
  1546              		.loc 1 1379 3 view .LVU518
 1379:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  1557 0028 40F00100 		orr	r0, r0, #1
  1558 002c 9060     		str	r0, [r2, #8]
 1386:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     while (counter != 0U)
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 70
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 70
 
 
  1559              		.loc 1 1386 5 view .LVU523
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
 1401:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
  1599              		.loc 1 1401 7 is_stmt 0 view .LVU538
  1600 0060 2268     		ldr	r2, [r4]
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 71
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 71
 
 
  1601 0062 9068     		ldr	r0, [r2, #8]
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
 1440:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
  1641              		.loc 1 1440 5 view .LVU553
 1440:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 72
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 72
 
 
  1642              		.loc 1 1440 9 is_stmt 0 view .LVU554
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  1680 00d4 0A46     		mov	r2, r1
  1681 00d6 00F14C01 		add	r1, r0, #76
  1682              	.LVL86:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 73
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 73
 
 
 1463:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
 1469:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****           || ((hadc->Instance == ADC3) && ((ADC->CCR & ADC_CCR_MULTI_Msk) < ADC_CCR_MULTI_4)))
  1725              		.loc 1 1469 73 is_stmt 0 discriminator 2 view .LVU583
  1726 0114 02F50072 		add	r2, r2, #512
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 74
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 74
 
 
  1727 0118 5268     		ldr	r2, [r2, #4]
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  1766              	.L120:
 1496:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
  1767              		.loc 1 1496 5 is_stmt 1 view .LVU599
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 75
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 75
 
 
  1768 014c 236C     		ldr	r3, [r4, #64]
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  1818              	.LFB251:
 1513:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   HAL_StatusTypeDef tmp_hal_status = HAL_OK;
  1819              		.loc 1 1513 1 is_stmt 1 view -0
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 76
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 76
 
 
  1820              		.cfi_startproc
@@ -4514,7 +4514,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  1826              		.loc 1 1520 3 view .LVU610
  1827 0000 90F83C30 		ldrb	r3, [r0, #60]	@ zero_extendqisi2
  1828 0004 012B     		cmp	r3, #1
- 1829 0006 34D0     		beq	.L136
+ 1829 0006 35D0     		beq	.L136
 1513:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   HAL_StatusTypeDef tmp_hal_status = HAL_OK;
  1830              		.loc 1 1513 1 is_stmt 0 view .LVU611
  1831 0008 10B5     		push	{r4, lr}
@@ -4527,7 +4527,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
  1837 000c 0123     		movs	r3, #1
  1838 000e 80F83C30 		strb	r3, [r0, #60]
 1520:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 1839              		.loc 1 1520 3 view .LVU613
+ 1839              		.loc 1 1520 3 discriminator 2 view .LVU613
 1524:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
  1840              		.loc 1 1524 3 view .LVU614
  1841 0012 0268     		ldr	r2, [r0]
@@ -4543,7 +4543,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
 1527:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
  1849              		.loc 1 1527 6 view .LVU617
  1850 0020 12F0010F 		tst	r2, #1
- 1851 0024 23D1     		bne	.L137
+ 1851 0024 21D1     		bne	.L137
 1530:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
  1852              		.loc 1 1530 5 is_stmt 1 view .LVU618
 1530:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
@@ -4558,191 +4558,189 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
 1534:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
  1859              		.loc 1 1534 13 is_stmt 0 view .LVU622
  1860 002e 806B     		ldr	r0, [r0, #56]
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 77
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 77
 
 
  1861              	.LVL96:
 1534:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
  1862              		.loc 1 1534 25 view .LVU623
  1863 0030 90F83530 		ldrb	r3, [r0, #53]	@ zero_extendqisi2
+ 1864 0034 DBB2     		uxtb	r3, r3
 1534:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
- 1864              		.loc 1 1534 8 view .LVU624
- 1865 0034 022B     		cmp	r3, #2
- 1866 0036 11D0     		beq	.L143
+ 1865              		.loc 1 1534 8 view .LVU624
+ 1866 0036 022B     		cmp	r3, #2
+ 1867 0038 0ED0     		beq	.L143
 1514:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 1867              		.loc 1 1514 21 view .LVU625
- 1868 0038 0020     		movs	r0, #0
- 1869              	.LVL97:
- 1870              	.L135:
+ 1868              		.loc 1 1514 21 view .LVU625
+ 1869 003a 0020     		movs	r0, #0
+ 1870              	.LVL97:
+ 1871              	.L135:
 1547:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 1871              		.loc 1 1547 5 is_stmt 1 view .LVU626
- 1872 003a 2268     		ldr	r2, [r4]
- 1873 003c 5368     		ldr	r3, [r2, #4]
- 1874 003e 23F08063 		bic	r3, r3, #67108864
- 1875 0042 5360     		str	r3, [r2, #4]
+ 1872              		.loc 1 1547 5 is_stmt 1 view .LVU626
+ 1873 003c 2268     		ldr	r2, [r4]
+ 1874 003e 5368     		ldr	r3, [r2, #4]
+ 1875 0040 23F08063 		bic	r3, r3, #67108864
+ 1876 0044 5360     		str	r3, [r2, #4]
 1550:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****                       HAL_ADC_STATE_REG_BUSY | HAL_ADC_STATE_INJ_BUSY,
- 1876              		.loc 1 1550 5 view .LVU627
- 1877 0044 236C     		ldr	r3, [r4, #64]
- 1878 0046 23F48853 		bic	r3, r3, #4352
- 1879 004a 23F00103 		bic	r3, r3, #1
- 1880 004e 43F00103 		orr	r3, r3, #1
- 1881 0052 2364     		str	r3, [r4, #64]
- 1882              	.LVL98:
- 1883              	.L134:
-1556:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 1884              		.loc 1 1556 3 view .LVU628
-1556:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 1885              		.loc 1 1556 3 view .LVU629
- 1886 0054 0023     		movs	r3, #0
- 1887 0056 84F83C30 		strb	r3, [r4, #60]
-1556:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 1888              		.loc 1 1556 3 view .LVU630
-1559:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** }
- 1889              		.loc 1 1559 3 view .LVU631
-1560:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 1890              		.loc 1 1560 1 is_stmt 0 view .LVU632
- 1891 005a 10BD     		pop	{r4, pc}
- 1892              	.LVL99:
- 1893              	.L143:
+ 1877              		.loc 1 1550 5 view .LVU627
+ 1878 0046 236C     		ldr	r3, [r4, #64]
+ 1879 0048 23F48853 		bic	r3, r3, #4352
+ 1880 004c 23F00103 		bic	r3, r3, #1
+ 1881 0050 43F00103 		orr	r3, r3, #1
+ 1882 0054 2364     		str	r3, [r4, #64]
+ 1883 0056 09E0     		b	.L134
+ 1884              	.LVL98:
+ 1885              	.L143:
 1536:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 1894              		.loc 1 1536 7 is_stmt 1 view .LVU633
+ 1886              		.loc 1 1536 7 view .LVU628
 1536:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 1895              		.loc 1 1536 24 is_stmt 0 view .LVU634
- 1896 005c FFF7FEFF 		bl	HAL_DMA_Abort
- 1897              	.LVL100:
+ 1887              		.loc 1 1536 24 is_stmt 0 view .LVU629
+ 1888 0058 FFF7FEFF 		bl	HAL_DMA_Abort
+ 1889              	.LVL99:
 1539:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       {
- 1898              		.loc 1 1539 7 is_stmt 1 view .LVU635
+ 1890              		.loc 1 1539 7 is_stmt 1 view .LVU630
 1539:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       {
- 1899              		.loc 1 1539 10 is_stmt 0 view .LVU636
- 1900 0060 0028     		cmp	r0, #0
- 1901 0062 EAD0     		beq	.L135
+ 1891              		.loc 1 1539 10 is_stmt 0 view .LVU631
+ 1892 005c 0028     		cmp	r0, #0
+ 1893 005e EDD0     		beq	.L135
 1542:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       }
- 1902              		.loc 1 1542 9 is_stmt 1 view .LVU637
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 78
+ 1894              		.loc 1 1542 9 is_stmt 1 view .LVU632
+ 1895 0060 236C     		ldr	r3, [r4, #64]
+ 1896 0062 43F04003 		orr	r3, r3, #64
+ 1897 0066 2364     		str	r3, [r4, #64]
+ 1898 0068 E8E7     		b	.L135
+ 1899              	.LVL100:
+ 1900              	.L137:
+1514:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
+ 1901              		.loc 1 1514 21 is_stmt 0 view .LVU633
+ 1902 006a 0020     		movs	r0, #0
+ 1903              	.LVL101:
+ 1904              	.L134:
+1556:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
+ 1905              		.loc 1 1556 3 is_stmt 1 view .LVU634
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 78
 
 
- 1903 0064 236C     		ldr	r3, [r4, #64]
- 1904 0066 43F04003 		orr	r3, r3, #64
- 1905 006a 2364     		str	r3, [r4, #64]
- 1906 006c E5E7     		b	.L135
- 1907              	.LVL101:
- 1908              	.L137:
-1514:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 1909              		.loc 1 1514 21 is_stmt 0 view .LVU638
- 1910 006e 0020     		movs	r0, #0
- 1911              	.LVL102:
-1514:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 1912              		.loc 1 1514 21 view .LVU639
- 1913 0070 F0E7     		b	.L134
- 1914              	.LVL103:
- 1915              	.L136:
- 1916              		.cfi_def_cfa_offset 0
- 1917              		.cfi_restore 4
- 1918              		.cfi_restore 14
-1520:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 1919              		.loc 1 1520 3 discriminator 1 view .LVU640
- 1920 0072 0220     		movs	r0, #2
- 1921              	.LVL104:
+1556:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
+ 1906              		.loc 1 1556 3 view .LVU635
+ 1907 006c 0023     		movs	r3, #0
+ 1908 006e 84F83C30 		strb	r3, [r4, #60]
+1556:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
+ 1909              		.loc 1 1556 3 view .LVU636
+1559:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** }
+ 1910              		.loc 1 1559 3 view .LVU637
 1560:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 1922              		.loc 1 1560 1 view .LVU641
- 1923 0074 7047     		bx	lr
- 1924              		.cfi_endproc
- 1925              	.LFE251:
- 1927              		.section	.text.HAL_ADC_GetValue,"ax",%progbits
- 1928              		.align	1
- 1929              		.global	HAL_ADC_GetValue
- 1930              		.syntax unified
- 1931              		.thumb
- 1932              		.thumb_func
- 1934              	HAL_ADC_GetValue:
- 1935              	.LVL105:
- 1936              	.LFB252:
+ 1911              		.loc 1 1560 1 is_stmt 0 view .LVU638
+ 1912 0072 10BD     		pop	{r4, pc}
+ 1913              	.LVL102:
+ 1914              	.L136:
+ 1915              		.cfi_def_cfa_offset 0
+ 1916              		.cfi_restore 4
+ 1917              		.cfi_restore 14
+1520:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
+ 1918              		.loc 1 1520 3 discriminator 1 view .LVU639
+ 1919 0074 0220     		movs	r0, #2
+ 1920              	.LVL103:
+1560:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
+ 1921              		.loc 1 1560 1 view .LVU640
+ 1922 0076 7047     		bx	lr
+ 1923              		.cfi_endproc
+ 1924              	.LFE251:
+ 1926              		.section	.text.HAL_ADC_GetValue,"ax",%progbits
+ 1927              		.align	1
+ 1928              		.global	HAL_ADC_GetValue
+ 1929              		.syntax unified
+ 1930              		.thumb
+ 1931              		.thumb_func
+ 1933              	HAL_ADC_GetValue:
+ 1934              	.LVL104:
+ 1935              	.LFB252:
 1569:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Return the selected ADC converted value */
- 1937              		.loc 1 1569 1 is_stmt 1 view -0
- 1938              		.cfi_startproc
- 1939              		@ args = 0, pretend = 0, frame = 0
- 1940              		@ frame_needed = 0, uses_anonymous_args = 0
- 1941              		@ link register save eliminated.
+ 1936              		.loc 1 1569 1 is_stmt 1 view -0
+ 1937              		.cfi_startproc
+ 1938              		@ args = 0, pretend = 0, frame = 0
+ 1939              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1940              		@ link register save eliminated.
 1571:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** }
- 1942              		.loc 1 1571 3 view .LVU643
+ 1941              		.loc 1 1571 3 view .LVU642
 1571:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** }
- 1943              		.loc 1 1571 14 is_stmt 0 view .LVU644
- 1944 0000 0368     		ldr	r3, [r0]
+ 1942              		.loc 1 1571 14 is_stmt 0 view .LVU643
+ 1943 0000 0368     		ldr	r3, [r0]
 1571:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** }
- 1945              		.loc 1 1571 24 view .LVU645
- 1946 0002 D86C     		ldr	r0, [r3, #76]
- 1947              	.LVL106:
+ 1944              		.loc 1 1571 24 view .LVU644
+ 1945 0002 D86C     		ldr	r0, [r3, #76]
+ 1946              	.LVL105:
 1572:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 1948              		.loc 1 1572 1 view .LVU646
- 1949 0004 7047     		bx	lr
- 1950              		.cfi_endproc
- 1951              	.LFE252:
- 1953              		.section	.text.HAL_ADC_ConvCpltCallback,"ax",%progbits
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 79
+ 1947              		.loc 1 1572 1 view .LVU645
+ 1948 0004 7047     		bx	lr
+ 1949              		.cfi_endproc
+ 1950              	.LFE252:
+ 1952              		.section	.text.HAL_ADC_ConvCpltCallback,"ax",%progbits
+ 1953              		.align	1
+ 1954              		.weak	HAL_ADC_ConvCpltCallback
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 79
 
 
- 1954              		.align	1
- 1955              		.weak	HAL_ADC_ConvCpltCallback
- 1956              		.syntax unified
- 1957              		.thumb
- 1958              		.thumb_func
- 1960              	HAL_ADC_ConvCpltCallback:
- 1961              	.LVL107:
- 1962              	.LFB253:
+ 1955              		.syntax unified
+ 1956              		.thumb
+ 1957              		.thumb_func
+ 1959              	HAL_ADC_ConvCpltCallback:
+ 1960              	.LVL106:
+ 1961              	.LFB253:
 1581:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Prevent unused argument(s) compilation warning */
- 1963              		.loc 1 1581 1 is_stmt 1 view -0
- 1964              		.cfi_startproc
- 1965              		@ args = 0, pretend = 0, frame = 0
- 1966              		@ frame_needed = 0, uses_anonymous_args = 0
- 1967              		@ link register save eliminated.
+ 1962              		.loc 1 1581 1 is_stmt 1 view -0
+ 1963              		.cfi_startproc
+ 1964              		@ args = 0, pretend = 0, frame = 0
+ 1965              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1966              		@ link register save eliminated.
 1583:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* NOTE : This function Should not be modified, when the callback is needed,
- 1968              		.loc 1 1583 3 view .LVU648
+ 1967              		.loc 1 1583 3 view .LVU647
 1587:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 1969              		.loc 1 1587 1 is_stmt 0 view .LVU649
- 1970 0000 7047     		bx	lr
- 1971              		.cfi_endproc
- 1972              	.LFE253:
- 1974              		.section	.text.HAL_ADC_ConvHalfCpltCallback,"ax",%progbits
- 1975              		.align	1
- 1976              		.weak	HAL_ADC_ConvHalfCpltCallback
- 1977              		.syntax unified
- 1978              		.thumb
- 1979              		.thumb_func
- 1981              	HAL_ADC_ConvHalfCpltCallback:
- 1982              	.LVL108:
- 1983              	.LFB254:
+ 1968              		.loc 1 1587 1 is_stmt 0 view .LVU648
+ 1969 0000 7047     		bx	lr
+ 1970              		.cfi_endproc
+ 1971              	.LFE253:
+ 1973              		.section	.text.HAL_ADC_ConvHalfCpltCallback,"ax",%progbits
+ 1974              		.align	1
+ 1975              		.weak	HAL_ADC_ConvHalfCpltCallback
+ 1976              		.syntax unified
+ 1977              		.thumb
+ 1978              		.thumb_func
+ 1980              	HAL_ADC_ConvHalfCpltCallback:
+ 1981              	.LVL107:
+ 1982              	.LFB254:
 1596:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Prevent unused argument(s) compilation warning */
- 1984              		.loc 1 1596 1 is_stmt 1 view -0
- 1985              		.cfi_startproc
- 1986              		@ args = 0, pretend = 0, frame = 0
- 1987              		@ frame_needed = 0, uses_anonymous_args = 0
- 1988              		@ link register save eliminated.
+ 1983              		.loc 1 1596 1 is_stmt 1 view -0
+ 1984              		.cfi_startproc
+ 1985              		@ args = 0, pretend = 0, frame = 0
+ 1986              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1987              		@ link register save eliminated.
 1598:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* NOTE : This function Should not be modified, when the callback is needed,
- 1989              		.loc 1 1598 3 view .LVU651
+ 1988              		.loc 1 1598 3 view .LVU650
 1602:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 1990              		.loc 1 1602 1 is_stmt 0 view .LVU652
- 1991 0000 7047     		bx	lr
- 1992              		.cfi_endproc
- 1993              	.LFE254:
- 1995              		.section	.text.ADC_DMAHalfConvCplt,"ax",%progbits
- 1996              		.align	1
- 1997              		.syntax unified
- 1998              		.thumb
- 1999              		.thumb_func
- 2001              	ADC_DMAHalfConvCplt:
- 2002              	.LVL109:
- 2003              	.LFB263:
+ 1989              		.loc 1 1602 1 is_stmt 0 view .LVU651
+ 1990 0000 7047     		bx	lr
+ 1991              		.cfi_endproc
+ 1992              	.LFE254:
+ 1994              		.section	.text.ADC_DMAHalfConvCplt,"ax",%progbits
+ 1995              		.align	1
+ 1996              		.syntax unified
+ 1997              		.thumb
+ 1998              		.thumb_func
+ 2000              	ADC_DMAHalfConvCplt:
+ 2001              	.LVL108:
+ 2002              	.LFB263:
 1987:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
 1988:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** /**
 1989:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   * @brief  DMA transfer complete callback.
 1990:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   * @param  hdma pointer to a DMA_HandleTypeDef structure that contains
 1991:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   *                the configuration information for the specified DMA module.
 1992:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   * @retval None
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 80
-
-
 1993:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   */
 1994:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** static void ADC_DMAConvCplt(DMA_HandleTypeDef *hdma)
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 80
+
+
 1995:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** {
 1996:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Retrieve ADC handle corresponding to current DMA handle */
 1997:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   ADC_HandleTypeDef *hadc = (ADC_HandleTypeDef *)((DMA_HandleTypeDef *)hdma)->Parent;
@@ -4798,11 +4796,11 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
 2047:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** #endif /* USE_HAL_ADC_REGISTER_CALLBACKS */
 2048:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     }
 2049:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     else
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 81
-
-
 2050:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
 2051:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       /* Call DMA error callback */
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 81
+
+
 2052:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       hadc->DMA_Handle->XferErrorCallback(hdma);
 2053:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     }
 2054:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
@@ -4816,476 +4814,476 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
 2062:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   */
 2063:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** static void ADC_DMAHalfConvCplt(DMA_HandleTypeDef *hdma)
 2064:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** {
- 2004              		.loc 1 2064 1 is_stmt 1 view -0
- 2005              		.cfi_startproc
- 2006              		@ args = 0, pretend = 0, frame = 0
- 2007              		@ frame_needed = 0, uses_anonymous_args = 0
- 2008              		.loc 1 2064 1 is_stmt 0 view .LVU654
- 2009 0000 08B5     		push	{r3, lr}
- 2010              		.cfi_def_cfa_offset 8
- 2011              		.cfi_offset 3, -8
- 2012              		.cfi_offset 14, -4
+ 2003              		.loc 1 2064 1 is_stmt 1 view -0
+ 2004              		.cfi_startproc
+ 2005              		@ args = 0, pretend = 0, frame = 0
+ 2006              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2007              		.loc 1 2064 1 is_stmt 0 view .LVU653
+ 2008 0000 08B5     		push	{r3, lr}
+ 2009              		.cfi_def_cfa_offset 8
+ 2010              		.cfi_offset 3, -8
+ 2011              		.cfi_offset 14, -4
 2065:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   ADC_HandleTypeDef *hadc = (ADC_HandleTypeDef *)((DMA_HandleTypeDef *)hdma)->Parent;
- 2013              		.loc 1 2065 3 is_stmt 1 view .LVU655
- 2014              	.LVL110:
+ 2012              		.loc 1 2065 3 is_stmt 1 view .LVU654
+ 2013              	.LVL109:
 2066:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Half conversion callback */
 2067:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** #if (USE_HAL_ADC_REGISTER_CALLBACKS == 1)
 2068:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   hadc->ConvHalfCpltCallback(hadc);
 2069:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** #else
 2070:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   HAL_ADC_ConvHalfCpltCallback(hadc);
- 2015              		.loc 1 2070 3 view .LVU656
- 2016 0002 806B     		ldr	r0, [r0, #56]
- 2017              	.LVL111:
- 2018              		.loc 1 2070 3 is_stmt 0 view .LVU657
- 2019 0004 FFF7FEFF 		bl	HAL_ADC_ConvHalfCpltCallback
- 2020              	.LVL112:
+ 2014              		.loc 1 2070 3 view .LVU655
+ 2015 0002 806B     		ldr	r0, [r0, #56]
+ 2016              	.LVL110:
+ 2017              		.loc 1 2070 3 is_stmt 0 view .LVU656
+ 2018 0004 FFF7FEFF 		bl	HAL_ADC_ConvHalfCpltCallback
+ 2019              	.LVL111:
 2071:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** #endif /* USE_HAL_ADC_REGISTER_CALLBACKS */
 2072:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** }
- 2021              		.loc 1 2072 1 view .LVU658
- 2022 0008 08BD     		pop	{r3, pc}
- 2023              		.cfi_endproc
- 2024              	.LFE263:
- 2026              		.section	.text.HAL_ADC_LevelOutOfWindowCallback,"ax",%progbits
- 2027              		.align	1
- 2028              		.weak	HAL_ADC_LevelOutOfWindowCallback
- 2029              		.syntax unified
- 2030              		.thumb
- 2031              		.thumb_func
- 2033              	HAL_ADC_LevelOutOfWindowCallback:
- 2034              	.LVL113:
- 2035              	.LFB255:
+ 2020              		.loc 1 2072 1 view .LVU657
+ 2021 0008 08BD     		pop	{r3, pc}
+ 2022              		.cfi_endproc
+ 2023              	.LFE263:
+ 2025              		.section	.text.HAL_ADC_LevelOutOfWindowCallback,"ax",%progbits
+ 2026              		.align	1
+ 2027              		.weak	HAL_ADC_LevelOutOfWindowCallback
+ 2028              		.syntax unified
+ 2029              		.thumb
+ 2030              		.thumb_func
+ 2032              	HAL_ADC_LevelOutOfWindowCallback:
+ 2033              	.LVL112:
+ 2034              	.LFB255:
 1611:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Prevent unused argument(s) compilation warning */
- 2036              		.loc 1 1611 1 is_stmt 1 view -0
- 2037              		.cfi_startproc
- 2038              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 82
+ 2035              		.loc 1 1611 1 is_stmt 1 view -0
+ 2036              		.cfi_startproc
+ 2037              		@ args = 0, pretend = 0, frame = 0
+ 2038              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2039              		@ link register save eliminated.
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 82
 
 
- 2039              		@ frame_needed = 0, uses_anonymous_args = 0
- 2040              		@ link register save eliminated.
 1613:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* NOTE : This function Should not be modified, when the callback is needed,
- 2041              		.loc 1 1613 3 view .LVU660
+ 2040              		.loc 1 1613 3 view .LVU659
 1617:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2042              		.loc 1 1617 1 is_stmt 0 view .LVU661
- 2043 0000 7047     		bx	lr
- 2044              		.cfi_endproc
- 2045              	.LFE255:
- 2047              		.section	.text.HAL_ADC_ErrorCallback,"ax",%progbits
- 2048              		.align	1
- 2049              		.weak	HAL_ADC_ErrorCallback
- 2050              		.syntax unified
- 2051              		.thumb
- 2052              		.thumb_func
- 2054              	HAL_ADC_ErrorCallback:
- 2055              	.LVL114:
- 2056              	.LFB256:
+ 2041              		.loc 1 1617 1 is_stmt 0 view .LVU660
+ 2042 0000 7047     		bx	lr
+ 2043              		.cfi_endproc
+ 2044              	.LFE255:
+ 2046              		.section	.text.HAL_ADC_ErrorCallback,"ax",%progbits
+ 2047              		.align	1
+ 2048              		.weak	HAL_ADC_ErrorCallback
+ 2049              		.syntax unified
+ 2050              		.thumb
+ 2051              		.thumb_func
+ 2053              	HAL_ADC_ErrorCallback:
+ 2054              	.LVL113:
+ 2055              	.LFB256:
 1632:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Prevent unused argument(s) compilation warning */
- 2057              		.loc 1 1632 1 is_stmt 1 view -0
- 2058              		.cfi_startproc
- 2059              		@ args = 0, pretend = 0, frame = 0
- 2060              		@ frame_needed = 0, uses_anonymous_args = 0
- 2061              		@ link register save eliminated.
+ 2056              		.loc 1 1632 1 is_stmt 1 view -0
+ 2057              		.cfi_startproc
+ 2058              		@ args = 0, pretend = 0, frame = 0
+ 2059              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2060              		@ link register save eliminated.
 1634:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* NOTE : This function Should not be modified, when the callback is needed,
- 2062              		.loc 1 1634 3 view .LVU663
+ 2061              		.loc 1 1634 3 view .LVU662
 1638:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2063              		.loc 1 1638 1 is_stmt 0 view .LVU664
- 2064 0000 7047     		bx	lr
- 2065              		.cfi_endproc
- 2066              	.LFE256:
- 2068              		.section	.text.HAL_ADC_IRQHandler,"ax",%progbits
- 2069              		.align	1
- 2070              		.global	HAL_ADC_IRQHandler
- 2071              		.syntax unified
- 2072              		.thumb
- 2073              		.thumb_func
- 2075              	HAL_ADC_IRQHandler:
- 2076              	.LVL115:
- 2077              	.LFB249:
+ 2062              		.loc 1 1638 1 is_stmt 0 view .LVU663
+ 2063 0000 7047     		bx	lr
+ 2064              		.cfi_endproc
+ 2065              	.LFE256:
+ 2067              		.section	.text.HAL_ADC_IRQHandler,"ax",%progbits
+ 2068              		.align	1
+ 2069              		.global	HAL_ADC_IRQHandler
+ 2070              		.syntax unified
+ 2071              		.thumb
+ 2072              		.thumb_func
+ 2074              	HAL_ADC_IRQHandler:
+ 2075              	.LVL114:
+ 2076              	.LFB249:
 1200:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   uint32_t tmp1 = 0U, tmp2 = 0U;
- 2078              		.loc 1 1200 1 is_stmt 1 view -0
- 2079              		.cfi_startproc
- 2080              		@ args = 0, pretend = 0, frame = 0
- 2081              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2077              		.loc 1 1200 1 is_stmt 1 view -0
+ 2078              		.cfi_startproc
+ 2079              		@ args = 0, pretend = 0, frame = 0
+ 2080              		@ frame_needed = 0, uses_anonymous_args = 0
 1200:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   uint32_t tmp1 = 0U, tmp2 = 0U;
- 2082              		.loc 1 1200 1 is_stmt 0 view .LVU666
- 2083 0000 70B5     		push	{r4, r5, r6, lr}
- 2084              		.cfi_def_cfa_offset 16
- 2085              		.cfi_offset 4, -16
- 2086              		.cfi_offset 5, -12
- 2087              		.cfi_offset 6, -8
- 2088              		.cfi_offset 14, -4
- 2089 0002 0446     		mov	r4, r0
+ 2081              		.loc 1 1200 1 is_stmt 0 view .LVU665
+ 2082 0000 70B5     		push	{r4, r5, r6, lr}
+ 2083              		.cfi_def_cfa_offset 16
+ 2084              		.cfi_offset 4, -16
+ 2085              		.cfi_offset 5, -12
+ 2086              		.cfi_offset 6, -8
+ 2087              		.cfi_offset 14, -4
+ 2088 0002 0446     		mov	r4, r0
 1201:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2090              		.loc 1 1201 3 is_stmt 1 view .LVU667
- 2091              	.LVL116:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 83
+ 2089              		.loc 1 1201 3 is_stmt 1 view .LVU666
+ 2090              	.LVL115:
+1203:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   uint32_t tmp_cr1 = hadc->Instance->CR1;
+ 2091              		.loc 1 1203 3 view .LVU667
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 83
 
 
 1203:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   uint32_t tmp_cr1 = hadc->Instance->CR1;
- 2092              		.loc 1 1203 3 view .LVU668
+ 2092              		.loc 1 1203 25 is_stmt 0 view .LVU668
+ 2093 0004 0368     		ldr	r3, [r0]
 1203:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   uint32_t tmp_cr1 = hadc->Instance->CR1;
- 2093              		.loc 1 1203 25 is_stmt 0 view .LVU669
- 2094 0004 0368     		ldr	r3, [r0]
-1203:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   uint32_t tmp_cr1 = hadc->Instance->CR1;
- 2095              		.loc 1 1203 12 view .LVU670
- 2096 0006 1E68     		ldr	r6, [r3]
- 2097              	.LVL117:
+ 2094              		.loc 1 1203 12 view .LVU669
+ 2095 0006 1E68     		ldr	r6, [r3]
+ 2096              	.LVL116:
 1204:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2098              		.loc 1 1204 3 is_stmt 1 view .LVU671
+ 2097              		.loc 1 1204 3 is_stmt 1 view .LVU670
 1204:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2099              		.loc 1 1204 12 is_stmt 0 view .LVU672
- 2100 0008 5D68     		ldr	r5, [r3, #4]
- 2101              	.LVL118:
+ 2098              		.loc 1 1204 12 is_stmt 0 view .LVU671
+ 2099 0008 5D68     		ldr	r5, [r3, #4]
+ 2100              	.LVL117:
 1207:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   assert_param(IS_ADC_REGULAR_LENGTH(hadc->Init.NbrOfConversion));
- 2102              		.loc 1 1207 3 is_stmt 1 view .LVU673
+ 2101              		.loc 1 1207 3 is_stmt 1 view .LVU672
 1208:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   assert_param(IS_ADC_EOCSelection(hadc->Init.EOCSelection));
- 2103              		.loc 1 1208 3 view .LVU674
+ 2102              		.loc 1 1208 3 view .LVU673
 1209:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2104              		.loc 1 1209 3 view .LVU675
+ 2103              		.loc 1 1209 3 view .LVU674
 1211:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   tmp2 = tmp_cr1 & ADC_IT_EOC;
- 2105              		.loc 1 1211 3 view .LVU676
+ 2104              		.loc 1 1211 3 view .LVU675
 1212:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Check End of conversion flag for regular channels */
- 2106              		.loc 1 1212 3 view .LVU677
+ 2105              		.loc 1 1212 3 view .LVU676
 1214:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2107              		.loc 1 1214 3 view .LVU678
+ 2106              		.loc 1 1214 3 view .LVU677
 1214:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2108              		.loc 1 1214 6 is_stmt 0 view .LVU679
- 2109 000a 16F0020F 		tst	r6, #2
- 2110 000e 2FD0     		beq	.L152
- 2111 0010 05F02002 		and	r2, r5, #32
- 2112              	.LVL119:
+ 2107              		.loc 1 1214 6 is_stmt 0 view .LVU678
+ 2108 000a 16F0020F 		tst	r6, #2
+ 2109 000e 2FD0     		beq	.L152
+ 2110 0010 05F02002 		and	r2, r5, #32
+ 2111              	.LVL118:
 1214:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2113              		.loc 1 1214 12 discriminator 1 view .LVU680
- 2114 0014 62B3     		cbz	r2, .L152
+ 2112              		.loc 1 1214 12 discriminator 1 view .LVU679
+ 2113 0014 62B3     		cbz	r2, .L152
 1217:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
- 2115              		.loc 1 1217 5 is_stmt 1 view .LVU681
+ 2114              		.loc 1 1217 5 is_stmt 1 view .LVU680
 1217:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
- 2116              		.loc 1 1217 9 is_stmt 0 view .LVU682
- 2117 0016 026C     		ldr	r2, [r0, #64]
- 2118              	.LVL120:
+ 2115              		.loc 1 1217 9 is_stmt 0 view .LVU681
+ 2116 0016 026C     		ldr	r2, [r0, #64]
+ 2117              	.LVL119:
 1217:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
- 2119              		.loc 1 1217 8 view .LVU683
- 2120 0018 12F0100F 		tst	r2, #16
- 2121 001c 03D1     		bne	.L153
+ 2118              		.loc 1 1217 8 view .LVU682
+ 2119 0018 12F0100F 		tst	r2, #16
+ 2120 001c 03D1     		bne	.L153
 1220:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     }
- 2122              		.loc 1 1220 7 is_stmt 1 view .LVU684
- 2123 001e 026C     		ldr	r2, [r0, #64]
- 2124 0020 42F40072 		orr	r2, r2, #512
- 2125 0024 0264     		str	r2, [r0, #64]
- 2126              	.L153:
+ 2121              		.loc 1 1220 7 is_stmt 1 view .LVU683
+ 2122 001e 026C     		ldr	r2, [r0, #64]
+ 2123 0020 42F40072 		orr	r2, r2, #512
+ 2124 0024 0264     		str	r2, [r0, #64]
+ 2125              	.L153:
 1229:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****         (hadc->Init.ContinuousConvMode == DISABLE)            &&
- 2127              		.loc 1 1229 5 view .LVU685
+ 2126              		.loc 1 1229 5 view .LVU684
 1229:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****         (hadc->Init.ContinuousConvMode == DISABLE)            &&
- 2128              		.loc 1 1229 9 is_stmt 0 view .LVU686
- 2129 0026 9A68     		ldr	r2, [r3, #8]
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 84
+ 2127              		.loc 1 1229 9 is_stmt 0 view .LVU685
+ 2128 0026 9A68     		ldr	r2, [r3, #8]
+1229:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****         (hadc->Init.ContinuousConvMode == DISABLE)            &&
+ 2129              		.loc 1 1229 8 view .LVU686
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 84
 
 
-1229:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****         (hadc->Init.ContinuousConvMode == DISABLE)            &&
- 2130              		.loc 1 1229 8 view .LVU687
- 2131 0028 12F0405F 		tst	r2, #805306368
- 2132 002c 19D1     		bne	.L154
+ 2130 0028 12F0405F 		tst	r2, #805306368
+ 2131 002c 19D1     		bne	.L154
 1230:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****         (HAL_IS_BIT_CLR(hadc->Instance->SQR1, ADC_SQR1_L) ||
- 2133              		.loc 1 1230 20 view .LVU688
- 2134 002e 227E     		ldrb	r2, [r4, #24]	@ zero_extendqisi2
+ 2132              		.loc 1 1230 20 view .LVU687
+ 2133 002e 227E     		ldrb	r2, [r4, #24]	@ zero_extendqisi2
 1229:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****         (hadc->Init.ContinuousConvMode == DISABLE)            &&
- 2135              		.loc 1 1229 63 discriminator 1 view .LVU689
- 2136 0030 BAB9     		cbnz	r2, .L154
+ 2134              		.loc 1 1229 63 discriminator 1 view .LVU688
+ 2135 0030 BAB9     		cbnz	r2, .L154
 1231:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****          HAL_IS_BIT_CLR(hadc->Instance->CR2, ADC_CR2_EOCS)))
- 2137              		.loc 1 1231 10 view .LVU690
- 2138 0032 DA6A     		ldr	r2, [r3, #44]
+ 2136              		.loc 1 1231 10 view .LVU689
+ 2137 0032 DA6A     		ldr	r2, [r3, #44]
 1230:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****         (HAL_IS_BIT_CLR(hadc->Instance->SQR1, ADC_SQR1_L) ||
- 2139              		.loc 1 1230 63 view .LVU691
- 2140 0034 12F4700F 		tst	r2, #15728640
- 2141 0038 03D0     		beq	.L155
+ 2138              		.loc 1 1230 63 view .LVU690
+ 2139 0034 12F4700F 		tst	r2, #15728640
+ 2140 0038 03D0     		beq	.L155
 1232:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
- 2142              		.loc 1 1232 10 view .LVU692
- 2143 003a 9A68     		ldr	r2, [r3, #8]
+ 2141              		.loc 1 1232 10 view .LVU691
+ 2142 003a 9A68     		ldr	r2, [r3, #8]
 1231:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****          HAL_IS_BIT_CLR(hadc->Instance->CR2, ADC_CR2_EOCS)))
- 2144              		.loc 1 1231 59 view .LVU693
- 2145 003c 12F4806F 		tst	r2, #1024
- 2146 0040 0FD1     		bne	.L154
- 2147              	.L155:
+ 2143              		.loc 1 1231 59 view .LVU692
+ 2144 003c 12F4806F 		tst	r2, #1024
+ 2145 0040 0FD1     		bne	.L154
+ 2146              	.L155:
 1238:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2148              		.loc 1 1238 7 is_stmt 1 view .LVU694
- 2149 0042 5A68     		ldr	r2, [r3, #4]
- 2150 0044 22F02002 		bic	r2, r2, #32
- 2151 0048 5A60     		str	r2, [r3, #4]
+ 2147              		.loc 1 1238 7 is_stmt 1 view .LVU693
+ 2148 0042 5A68     		ldr	r2, [r3, #4]
+ 2149 0044 22F02002 		bic	r2, r2, #32
+ 2150 0048 5A60     		str	r2, [r3, #4]
 1241:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2152              		.loc 1 1241 7 view .LVU695
- 2153 004a 236C     		ldr	r3, [r4, #64]
- 2154 004c 23F48073 		bic	r3, r3, #256
- 2155 0050 2364     		str	r3, [r4, #64]
+ 2151              		.loc 1 1241 7 view .LVU694
+ 2152 004a 236C     		ldr	r3, [r4, #64]
+ 2153 004c 23F48073 		bic	r3, r3, #256
+ 2154 0050 2364     		str	r3, [r4, #64]
 1243:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       {
- 2156              		.loc 1 1243 7 view .LVU696
+ 2155              		.loc 1 1243 7 view .LVU695
 1243:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       {
- 2157              		.loc 1 1243 11 is_stmt 0 view .LVU697
- 2158 0052 236C     		ldr	r3, [r4, #64]
+ 2156              		.loc 1 1243 11 is_stmt 0 view .LVU696
+ 2157 0052 236C     		ldr	r3, [r4, #64]
 1243:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       {
- 2159              		.loc 1 1243 10 view .LVU698
- 2160 0054 13F4805F 		tst	r3, #4096
- 2161 0058 03D1     		bne	.L154
+ 2158              		.loc 1 1243 10 view .LVU697
+ 2159 0054 13F4805F 		tst	r3, #4096
+ 2160 0058 03D1     		bne	.L154
 1245:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       }
- 2162              		.loc 1 1245 9 is_stmt 1 view .LVU699
- 2163 005a 236C     		ldr	r3, [r4, #64]
- 2164 005c 43F00103 		orr	r3, r3, #1
- 2165 0060 2364     		str	r3, [r4, #64]
- 2166              	.L154:
+ 2161              		.loc 1 1245 9 is_stmt 1 view .LVU698
+ 2162 005a 236C     		ldr	r3, [r4, #64]
+ 2163 005c 43F00103 		orr	r3, r3, #1
+ 2164 0060 2364     		str	r3, [r4, #64]
+ 2165              	.L154:
 1253:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** #endif /* USE_HAL_ADC_REGISTER_CALLBACKS */
- 2167              		.loc 1 1253 5 view .LVU700
- 2168 0062 2046     		mov	r0, r4
- 2169              	.LVL121:
+ 2166              		.loc 1 1253 5 view .LVU699
+ 2167 0062 2046     		mov	r0, r4
+ 2168              	.LVL120:
 1253:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** #endif /* USE_HAL_ADC_REGISTER_CALLBACKS */
- 2170              		.loc 1 1253 5 is_stmt 0 view .LVU701
- 2171 0064 FFF7FEFF 		bl	HAL_ADC_ConvCpltCallback
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 85
-
-
- 2172              	.LVL122:
+ 2169              		.loc 1 1253 5 is_stmt 0 view .LVU700
+ 2170 0064 FFF7FEFF 		bl	HAL_ADC_ConvCpltCallback
+ 2171              	.LVL121:
 1257:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2173              		.loc 1 1257 5 is_stmt 1 view .LVU702
- 2174 0068 2368     		ldr	r3, [r4]
- 2175 006a 6FF01202 		mvn	r2, #18
- 2176 006e 1A60     		str	r2, [r3]
- 2177              	.L152:
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 85
+
+
+ 2172              		.loc 1 1257 5 is_stmt 1 view .LVU701
+ 2173 0068 2368     		ldr	r3, [r4]
+ 2174 006a 6FF01202 		mvn	r2, #18
+ 2175 006e 1A60     		str	r2, [r3]
+ 2176              	.L152:
 1260:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   tmp2 = tmp_cr1 & ADC_IT_JEOC;
- 2178              		.loc 1 1260 3 view .LVU703
- 2179              	.LVL123:
+ 2177              		.loc 1 1260 3 view .LVU702
+ 2178              	.LVL122:
 1261:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Check End of conversion flag for injected channels */
- 2180              		.loc 1 1261 3 view .LVU704
+ 2179              		.loc 1 1261 3 view .LVU703
 1261:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Check End of conversion flag for injected channels */
- 2181              		.loc 1 1261 8 is_stmt 0 view .LVU705
- 2182 0070 05F08003 		and	r3, r5, #128
- 2183              	.LVL124:
+ 2180              		.loc 1 1261 8 is_stmt 0 view .LVU704
+ 2181 0070 05F08003 		and	r3, r5, #128
+ 2182              	.LVL123:
 1263:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2184              		.loc 1 1263 3 is_stmt 1 view .LVU706
+ 2183              		.loc 1 1263 3 is_stmt 1 view .LVU705
 1263:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2185              		.loc 1 1263 6 is_stmt 0 view .LVU707
- 2186 0074 16F0040F 		tst	r6, #4
- 2187 0078 37D0     		beq	.L156
+ 2184              		.loc 1 1263 6 is_stmt 0 view .LVU706
+ 2185 0074 16F0040F 		tst	r6, #4
+ 2186 0078 37D0     		beq	.L156
 1263:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2188              		.loc 1 1263 12 discriminator 1 view .LVU708
- 2189 007a 002B     		cmp	r3, #0
- 2190 007c 35D0     		beq	.L156
+ 2187              		.loc 1 1263 12 discriminator 1 view .LVU707
+ 2188 007a 002B     		cmp	r3, #0
+ 2189 007c 35D0     		beq	.L156
 1266:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
- 2191              		.loc 1 1266 5 is_stmt 1 view .LVU709
+ 2190              		.loc 1 1266 5 is_stmt 1 view .LVU708
 1266:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
- 2192              		.loc 1 1266 9 is_stmt 0 view .LVU710
- 2193 007e 236C     		ldr	r3, [r4, #64]
- 2194              	.LVL125:
+ 2191              		.loc 1 1266 9 is_stmt 0 view .LVU709
+ 2192 007e 236C     		ldr	r3, [r4, #64]
+ 2193              	.LVL124:
 1266:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
- 2195              		.loc 1 1266 8 view .LVU711
- 2196 0080 13F0100F 		tst	r3, #16
- 2197 0084 03D1     		bne	.L157
+ 2194              		.loc 1 1266 8 view .LVU710
+ 2195 0080 13F0100F 		tst	r3, #16
+ 2196 0084 03D1     		bne	.L157
 1269:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     }
- 2198              		.loc 1 1269 7 is_stmt 1 view .LVU712
- 2199 0086 236C     		ldr	r3, [r4, #64]
- 2200 0088 43F40053 		orr	r3, r3, #8192
- 2201 008c 2364     		str	r3, [r4, #64]
- 2202              	.L157:
+ 2197              		.loc 1 1269 7 is_stmt 1 view .LVU711
+ 2198 0086 236C     		ldr	r3, [r4, #64]
+ 2199 0088 43F40053 		orr	r3, r3, #8192
+ 2200 008c 2364     		str	r3, [r4, #64]
+ 2201              	.L157:
 1276:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****         (HAL_IS_BIT_CLR(hadc->Instance->JSQR, ADC_JSQR_JL)  ||
- 2203              		.loc 1 1276 5 view .LVU713
+ 2202              		.loc 1 1276 5 view .LVU712
 1276:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****         (HAL_IS_BIT_CLR(hadc->Instance->JSQR, ADC_JSQR_JL)  ||
- 2204              		.loc 1 1276 9 is_stmt 0 view .LVU714
- 2205 008e 2368     		ldr	r3, [r4]
- 2206 0090 9A68     		ldr	r2, [r3, #8]
+ 2203              		.loc 1 1276 9 is_stmt 0 view .LVU713
+ 2204 008e 2368     		ldr	r3, [r4]
+ 2205 0090 9A68     		ldr	r2, [r3, #8]
 1276:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****         (HAL_IS_BIT_CLR(hadc->Instance->JSQR, ADC_JSQR_JL)  ||
- 2207              		.loc 1 1276 8 view .LVU715
- 2208 0092 12F4401F 		tst	r2, #3145728
- 2209 0096 21D1     		bne	.L158
+ 2206              		.loc 1 1276 8 view .LVU714
+ 2207 0092 12F4401F 		tst	r2, #3145728
+ 2208 0096 21D1     		bne	.L158
 1277:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****          HAL_IS_BIT_CLR(hadc->Instance->CR2, ADC_CR2_EOCS)) &&
- 2210              		.loc 1 1277 10 view .LVU716
- 2211 0098 9A6B     		ldr	r2, [r3, #56]
+ 2209              		.loc 1 1277 10 view .LVU715
+ 2210 0098 9A6B     		ldr	r2, [r3, #56]
 1276:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****         (HAL_IS_BIT_CLR(hadc->Instance->JSQR, ADC_JSQR_JL)  ||
- 2212              		.loc 1 1276 65 discriminator 1 view .LVU717
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 86
+ 2211              		.loc 1 1276 65 discriminator 1 view .LVU716
+ 2212 009a 12F4401F 		tst	r2, #3145728
+ 2213 009e 03D0     		beq	.L159
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 86
 
 
- 2213 009a 12F4401F 		tst	r2, #3145728
- 2214 009e 03D0     		beq	.L159
 1278:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****         (HAL_IS_BIT_CLR(hadc->Instance->CR1, ADC_CR1_JAUTO) &&
- 2215              		.loc 1 1278 10 view .LVU718
- 2216 00a0 9A68     		ldr	r2, [r3, #8]
+ 2214              		.loc 1 1278 10 view .LVU717
+ 2215 00a0 9A68     		ldr	r2, [r3, #8]
 1277:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****          HAL_IS_BIT_CLR(hadc->Instance->CR2, ADC_CR2_EOCS)) &&
- 2217              		.loc 1 1277 61 view .LVU719
- 2218 00a2 12F4806F 		tst	r2, #1024
- 2219 00a6 19D1     		bne	.L158
- 2220              	.L159:
+ 2216              		.loc 1 1277 61 view .LVU718
+ 2217 00a2 12F4806F 		tst	r2, #1024
+ 2218 00a6 19D1     		bne	.L158
+ 2219              	.L159:
 1279:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****          (ADC_IS_SOFTWARE_START_REGULAR(hadc)       &&
- 2221              		.loc 1 1279 10 view .LVU720
- 2222 00a8 5A68     		ldr	r2, [r3, #4]
+ 2220              		.loc 1 1279 10 view .LVU719
+ 2221 00a8 5A68     		ldr	r2, [r3, #4]
 1278:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****         (HAL_IS_BIT_CLR(hadc->Instance->CR1, ADC_CR1_JAUTO) &&
- 2223              		.loc 1 1278 61 view .LVU721
- 2224 00aa 12F4806F 		tst	r2, #1024
- 2225 00ae 15D1     		bne	.L158
+ 2222              		.loc 1 1278 61 view .LVU720
+ 2223 00aa 12F4806F 		tst	r2, #1024
+ 2224 00ae 15D1     		bne	.L158
 1280:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****           (hadc->Init.ContinuousConvMode == DISABLE))))
- 2226              		.loc 1 1280 11 view .LVU722
- 2227 00b0 9A68     		ldr	r2, [r3, #8]
+ 2225              		.loc 1 1280 11 view .LVU721
+ 2226 00b0 9A68     		ldr	r2, [r3, #8]
 1279:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****          (ADC_IS_SOFTWARE_START_REGULAR(hadc)       &&
- 2228              		.loc 1 1279 61 view .LVU723
- 2229 00b2 12F0405F 		tst	r2, #805306368
- 2230 00b6 11D1     		bne	.L158
+ 2227              		.loc 1 1279 61 view .LVU722
+ 2228 00b2 12F0405F 		tst	r2, #805306368
+ 2229 00b6 11D1     		bne	.L158
 1281:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
- 2231              		.loc 1 1281 22 view .LVU724
- 2232 00b8 227E     		ldrb	r2, [r4, #24]	@ zero_extendqisi2
+ 2230              		.loc 1 1281 22 view .LVU723
+ 2231 00b8 227E     		ldrb	r2, [r4, #24]	@ zero_extendqisi2
 1280:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****           (hadc->Init.ContinuousConvMode == DISABLE))))
- 2233              		.loc 1 1280 53 view .LVU725
- 2234 00ba 7AB9     		cbnz	r2, .L158
+ 2232              		.loc 1 1280 53 view .LVU724
+ 2233 00ba 7AB9     		cbnz	r2, .L158
 1284:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2235              		.loc 1 1284 7 is_stmt 1 view .LVU726
- 2236 00bc 5A68     		ldr	r2, [r3, #4]
- 2237 00be 22F08002 		bic	r2, r2, #128
- 2238 00c2 5A60     		str	r2, [r3, #4]
+ 2234              		.loc 1 1284 7 is_stmt 1 view .LVU725
+ 2235 00bc 5A68     		ldr	r2, [r3, #4]
+ 2236 00be 22F08002 		bic	r2, r2, #128
+ 2237 00c2 5A60     		str	r2, [r3, #4]
 1287:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2239              		.loc 1 1287 7 view .LVU727
- 2240 00c4 236C     		ldr	r3, [r4, #64]
- 2241 00c6 23F48053 		bic	r3, r3, #4096
- 2242 00ca 2364     		str	r3, [r4, #64]
+ 2238              		.loc 1 1287 7 view .LVU726
+ 2239 00c4 236C     		ldr	r3, [r4, #64]
+ 2240 00c6 23F48053 		bic	r3, r3, #4096
+ 2241 00ca 2364     		str	r3, [r4, #64]
 1289:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       {
- 2243              		.loc 1 1289 7 view .LVU728
+ 2242              		.loc 1 1289 7 view .LVU727
 1289:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       {
- 2244              		.loc 1 1289 11 is_stmt 0 view .LVU729
- 2245 00cc 236C     		ldr	r3, [r4, #64]
+ 2243              		.loc 1 1289 11 is_stmt 0 view .LVU728
+ 2244 00cc 236C     		ldr	r3, [r4, #64]
 1289:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       {
- 2246              		.loc 1 1289 10 view .LVU730
- 2247 00ce 13F4807F 		tst	r3, #256
- 2248 00d2 03D1     		bne	.L158
+ 2245              		.loc 1 1289 10 view .LVU729
+ 2246 00ce 13F4807F 		tst	r3, #256
+ 2247 00d2 03D1     		bne	.L158
 1291:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       }
- 2249              		.loc 1 1291 9 is_stmt 1 view .LVU731
- 2250 00d4 236C     		ldr	r3, [r4, #64]
- 2251 00d6 43F00103 		orr	r3, r3, #1
- 2252 00da 2364     		str	r3, [r4, #64]
- 2253              	.L158:
+ 2248              		.loc 1 1291 9 is_stmt 1 view .LVU730
+ 2249 00d4 236C     		ldr	r3, [r4, #64]
+ 2250 00d6 43F00103 		orr	r3, r3, #1
+ 2251 00da 2364     		str	r3, [r4, #64]
+ 2252              	.L158:
 1300:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** #endif /* USE_HAL_ADC_REGISTER_CALLBACKS */
- 2254              		.loc 1 1300 5 view .LVU732
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 87
+ 2253              		.loc 1 1300 5 view .LVU731
+ 2254 00dc 2046     		mov	r0, r4
+ 2255 00de FFF7FEFF 		bl	HAL_ADCEx_InjectedConvCpltCallback
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 87
 
 
- 2255 00dc 2046     		mov	r0, r4
- 2256 00de FFF7FEFF 		bl	HAL_ADCEx_InjectedConvCpltCallback
- 2257              	.LVL126:
+ 2256              	.LVL125:
 1304:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2258              		.loc 1 1304 5 view .LVU733
- 2259 00e2 2368     		ldr	r3, [r4]
- 2260 00e4 6FF00C02 		mvn	r2, #12
- 2261 00e8 1A60     		str	r2, [r3]
- 2262              	.L156:
+ 2257              		.loc 1 1304 5 view .LVU732
+ 2258 00e2 2368     		ldr	r3, [r4]
+ 2259 00e4 6FF00C02 		mvn	r2, #12
+ 2260 00e8 1A60     		str	r2, [r3]
+ 2261              	.L156:
 1307:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   tmp2 = tmp_cr1 & ADC_IT_AWD;
- 2263              		.loc 1 1307 3 view .LVU734
- 2264              	.LVL127:
+ 2262              		.loc 1 1307 3 view .LVU733
+ 2263              	.LVL126:
 1308:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Check Analog watchdog flag */
- 2265              		.loc 1 1308 3 view .LVU735
+ 2264              		.loc 1 1308 3 view .LVU734
 1308:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Check Analog watchdog flag */
- 2266              		.loc 1 1308 8 is_stmt 0 view .LVU736
- 2267 00ea 05F04003 		and	r3, r5, #64
- 2268              	.LVL128:
+ 2265              		.loc 1 1308 8 is_stmt 0 view .LVU735
+ 2266 00ea 05F04003 		and	r3, r5, #64
+ 2267              	.LVL127:
 1310:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2269              		.loc 1 1310 3 is_stmt 1 view .LVU737
+ 2268              		.loc 1 1310 3 is_stmt 1 view .LVU736
 1310:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2270              		.loc 1 1310 6 is_stmt 0 view .LVU738
- 2271 00ee 16F0010F 		tst	r6, #1
- 2272 00f2 05D0     		beq	.L160
+ 2269              		.loc 1 1310 6 is_stmt 0 view .LVU737
+ 2270 00ee 16F0010F 		tst	r6, #1
+ 2271 00f2 05D0     		beq	.L160
 1310:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2273              		.loc 1 1310 12 discriminator 1 view .LVU739
- 2274 00f4 23B1     		cbz	r3, .L160
+ 2272              		.loc 1 1310 12 discriminator 1 view .LVU738
+ 2273 00f4 23B1     		cbz	r3, .L160
 1312:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
- 2275              		.loc 1 1312 5 is_stmt 1 view .LVU740
+ 2274              		.loc 1 1312 5 is_stmt 1 view .LVU739
 1312:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
- 2276              		.loc 1 1312 9 is_stmt 0 view .LVU741
- 2277 00f6 2368     		ldr	r3, [r4]
- 2278              	.LVL129:
+ 2275              		.loc 1 1312 9 is_stmt 0 view .LVU740
+ 2276 00f6 2368     		ldr	r3, [r4]
+ 2277              	.LVL128:
 1312:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
- 2279              		.loc 1 1312 9 view .LVU742
- 2280 00f8 1B68     		ldr	r3, [r3]
+ 2278              		.loc 1 1312 9 view .LVU741
+ 2279 00f8 1B68     		ldr	r3, [r3]
 1312:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
- 2281              		.loc 1 1312 8 view .LVU743
- 2282 00fa 13F0010F 		tst	r3, #1
- 2283 00fe 06D1     		bne	.L163
- 2284              	.L160:
+ 2280              		.loc 1 1312 8 view .LVU742
+ 2281 00fa 13F0010F 		tst	r3, #1
+ 2282 00fe 06D1     		bne	.L163
+ 2283              	.L160:
 1329:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   tmp2 = tmp_cr1 & ADC_IT_OVR;
- 2285              		.loc 1 1329 3 is_stmt 1 view .LVU744
- 2286              	.LVL130:
+ 2284              		.loc 1 1329 3 is_stmt 1 view .LVU743
+ 2285              	.LVL129:
 1330:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Check Overrun flag */
- 2287              		.loc 1 1330 3 view .LVU745
+ 2286              		.loc 1 1330 3 view .LVU744
 1330:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Check Overrun flag */
- 2288              		.loc 1 1330 8 is_stmt 0 view .LVU746
- 2289 0100 05F08065 		and	r5, r5, #67108864
- 2290              	.LVL131:
+ 2287              		.loc 1 1330 8 is_stmt 0 view .LVU745
+ 2288 0100 05F08065 		and	r5, r5, #67108864
+ 2289              	.LVL130:
 1332:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2291              		.loc 1 1332 3 is_stmt 1 view .LVU747
+ 2290              		.loc 1 1332 3 is_stmt 1 view .LVU746
 1332:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2292              		.loc 1 1332 6 is_stmt 0 view .LVU748
- 2293 0104 16F0200F 		tst	r6, #32
- 2294 0108 00D0     		beq	.L151
+ 2291              		.loc 1 1332 6 is_stmt 0 view .LVU747
+ 2292 0104 16F0200F 		tst	r6, #32
+ 2293 0108 00D0     		beq	.L151
 1332:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 88
+ 2294              		.loc 1 1332 12 discriminator 1 view .LVU748
+ 2295 010a 65B9     		cbnz	r5, .L164
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 88
 
 
- 2295              		.loc 1 1332 12 discriminator 1 view .LVU749
- 2296 010a 65B9     		cbnz	r5, .L164
- 2297              	.LVL132:
- 2298              	.L151:
+ 2296              	.LVL131:
+ 2297              	.L151:
 1354:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2299              		.loc 1 1354 1 view .LVU750
- 2300 010c 70BD     		pop	{r4, r5, r6, pc}
- 2301              	.LVL133:
- 2302              	.L163:
+ 2298              		.loc 1 1354 1 view .LVU749
+ 2299 010c 70BD     		pop	{r4, r5, r6, pc}
+ 2300              	.LVL132:
+ 2301              	.L163:
 1315:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2303              		.loc 1 1315 7 is_stmt 1 view .LVU751
- 2304 010e 236C     		ldr	r3, [r4, #64]
- 2305 0110 43F48033 		orr	r3, r3, #65536
- 2306 0114 2364     		str	r3, [r4, #64]
+ 2302              		.loc 1 1315 7 is_stmt 1 view .LVU750
+ 2303 010e 236C     		ldr	r3, [r4, #64]
+ 2304 0110 43F48033 		orr	r3, r3, #65536
+ 2305 0114 2364     		str	r3, [r4, #64]
 1321:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** #endif /* USE_HAL_ADC_REGISTER_CALLBACKS */
- 2307              		.loc 1 1321 7 view .LVU752
- 2308 0116 2046     		mov	r0, r4
- 2309 0118 FFF7FEFF 		bl	HAL_ADC_LevelOutOfWindowCallback
- 2310              	.LVL134:
+ 2306              		.loc 1 1321 7 view .LVU751
+ 2307 0116 2046     		mov	r0, r4
+ 2308 0118 FFF7FEFF 		bl	HAL_ADC_LevelOutOfWindowCallback
+ 2309              	.LVL133:
 1325:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     }
- 2311              		.loc 1 1325 7 view .LVU753
- 2312 011c 2368     		ldr	r3, [r4]
- 2313 011e 6FF00102 		mvn	r2, #1
- 2314 0122 1A60     		str	r2, [r3]
- 2315 0124 ECE7     		b	.L160
- 2316              	.LVL135:
- 2317              	.L164:
+ 2310              		.loc 1 1325 7 view .LVU752
+ 2311 011c 2368     		ldr	r3, [r4]
+ 2312 011e 6FF00102 		mvn	r2, #1
+ 2313 0122 1A60     		str	r2, [r3]
+ 2314 0124 ECE7     		b	.L160
+ 2315              	.LVL134:
+ 2316              	.L164:
 1339:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2318              		.loc 1 1339 5 view .LVU754
- 2319 0126 636C     		ldr	r3, [r4, #68]
- 2320 0128 43F00203 		orr	r3, r3, #2
- 2321 012c 6364     		str	r3, [r4, #68]
+ 2317              		.loc 1 1339 5 view .LVU753
+ 2318 0126 636C     		ldr	r3, [r4, #68]
+ 2319 0128 43F00203 		orr	r3, r3, #2
+ 2320 012c 6364     		str	r3, [r4, #68]
 1342:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2322              		.loc 1 1342 5 view .LVU755
- 2323 012e 2368     		ldr	r3, [r4]
- 2324 0130 6FF02005 		mvn	r5, #32
- 2325              	.LVL136:
+ 2321              		.loc 1 1342 5 view .LVU754
+ 2322 012e 2368     		ldr	r3, [r4]
+ 2323 0130 6FF02005 		mvn	r5, #32
+ 2324              	.LVL135:
 1342:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2326              		.loc 1 1342 5 is_stmt 0 view .LVU756
- 2327 0134 1D60     		str	r5, [r3]
+ 2325              		.loc 1 1342 5 is_stmt 0 view .LVU755
+ 2326 0134 1D60     		str	r5, [r3]
 1348:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** #endif /* USE_HAL_ADC_REGISTER_CALLBACKS */
- 2328              		.loc 1 1348 5 is_stmt 1 view .LVU757
- 2329 0136 2046     		mov	r0, r4
- 2330 0138 FFF7FEFF 		bl	HAL_ADC_ErrorCallback
- 2331              	.LVL137:
+ 2327              		.loc 1 1348 5 is_stmt 1 view .LVU756
+ 2328 0136 2046     		mov	r0, r4
+ 2329 0138 FFF7FEFF 		bl	HAL_ADC_ErrorCallback
+ 2330              	.LVL136:
 1352:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2332              		.loc 1 1352 5 view .LVU758
- 2333 013c 2368     		ldr	r3, [r4]
- 2334 013e 1D60     		str	r5, [r3]
+ 2331              		.loc 1 1352 5 view .LVU757
+ 2332 013c 2368     		ldr	r3, [r4]
+ 2333 013e 1D60     		str	r5, [r3]
 1354:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2335              		.loc 1 1354 1 is_stmt 0 view .LVU759
- 2336 0140 E4E7     		b	.L151
- 2337              		.cfi_endproc
- 2338              	.LFE249:
- 2340              		.section	.text.ADC_DMAError,"ax",%progbits
- 2341              		.align	1
- 2342              		.syntax unified
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 89
+ 2334              		.loc 1 1354 1 is_stmt 0 view .LVU758
+ 2335 0140 E4E7     		b	.L151
+ 2336              		.cfi_endproc
+ 2337              	.LFE249:
+ 2339              		.section	.text.ADC_DMAError,"ax",%progbits
+ 2340              		.align	1
+ 2341              		.syntax unified
+ 2342              		.thumb
+ 2343              		.thumb_func
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 89
 
 
- 2343              		.thumb
- 2344              		.thumb_func
- 2346              	ADC_DMAError:
- 2347              	.LVL138:
- 2348              	.LFB264:
+ 2345              	ADC_DMAError:
+ 2346              	.LVL137:
+ 2347              	.LFB264:
 2073:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
 2074:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** /**
 2075:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   * @brief  DMA error callback
@@ -5295,978 +5293,978 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 1
 2079:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   */
 2080:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** static void ADC_DMAError(DMA_HandleTypeDef *hdma)
 2081:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** {
- 2349              		.loc 1 2081 1 is_stmt 1 view -0
- 2350              		.cfi_startproc
- 2351              		@ args = 0, pretend = 0, frame = 0
- 2352              		@ frame_needed = 0, uses_anonymous_args = 0
- 2353              		.loc 1 2081 1 is_stmt 0 view .LVU761
- 2354 0000 08B5     		push	{r3, lr}
- 2355              		.cfi_def_cfa_offset 8
- 2356              		.cfi_offset 3, -8
- 2357              		.cfi_offset 14, -4
+ 2348              		.loc 1 2081 1 is_stmt 1 view -0
+ 2349              		.cfi_startproc
+ 2350              		@ args = 0, pretend = 0, frame = 0
+ 2351              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2352              		.loc 1 2081 1 is_stmt 0 view .LVU760
+ 2353 0000 08B5     		push	{r3, lr}
+ 2354              		.cfi_def_cfa_offset 8
+ 2355              		.cfi_offset 3, -8
+ 2356              		.cfi_offset 14, -4
 2082:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   ADC_HandleTypeDef *hadc = (ADC_HandleTypeDef *)((DMA_HandleTypeDef *)hdma)->Parent;
- 2358              		.loc 1 2082 3 is_stmt 1 view .LVU762
- 2359              		.loc 1 2082 22 is_stmt 0 view .LVU763
- 2360 0002 806B     		ldr	r0, [r0, #56]
- 2361              	.LVL139:
+ 2357              		.loc 1 2082 3 is_stmt 1 view .LVU761
+ 2358              		.loc 1 2082 22 is_stmt 0 view .LVU762
+ 2359 0002 806B     		ldr	r0, [r0, #56]
+ 2360              	.LVL138:
 2083:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   hadc->State = HAL_ADC_STATE_ERROR_DMA;
- 2362              		.loc 1 2083 3 is_stmt 1 view .LVU764
- 2363              		.loc 1 2083 15 is_stmt 0 view .LVU765
- 2364 0004 4023     		movs	r3, #64
- 2365 0006 0364     		str	r3, [r0, #64]
+ 2361              		.loc 1 2083 3 is_stmt 1 view .LVU763
+ 2362              		.loc 1 2083 15 is_stmt 0 view .LVU764
+ 2363 0004 4023     		movs	r3, #64
+ 2364 0006 0364     		str	r3, [r0, #64]
 2084:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Set ADC error code to DMA error */
 2085:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   hadc->ErrorCode |= HAL_ADC_ERROR_DMA;
- 2366              		.loc 1 2085 3 is_stmt 1 view .LVU766
- 2367              		.loc 1 2085 7 is_stmt 0 view .LVU767
- 2368 0008 436C     		ldr	r3, [r0, #68]
- 2369              		.loc 1 2085 19 view .LVU768
- 2370 000a 43F00403 		orr	r3, r3, #4
- 2371 000e 4364     		str	r3, [r0, #68]
+ 2365              		.loc 1 2085 3 is_stmt 1 view .LVU765
+ 2366              		.loc 1 2085 7 is_stmt 0 view .LVU766
+ 2367 0008 436C     		ldr	r3, [r0, #68]
+ 2368              		.loc 1 2085 19 view .LVU767
+ 2369 000a 43F00403 		orr	r3, r3, #4
+ 2370 000e 4364     		str	r3, [r0, #68]
 2086:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Error callback */
 2087:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** #if (USE_HAL_ADC_REGISTER_CALLBACKS == 1)
 2088:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   hadc->ErrorCallback(hadc);
 2089:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** #else
 2090:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   HAL_ADC_ErrorCallback(hadc);
- 2372              		.loc 1 2090 3 is_stmt 1 view .LVU769
- 2373 0010 FFF7FEFF 		bl	HAL_ADC_ErrorCallback
- 2374              	.LVL140:
+ 2371              		.loc 1 2090 3 is_stmt 1 view .LVU768
+ 2372 0010 FFF7FEFF 		bl	HAL_ADC_ErrorCallback
+ 2373              	.LVL139:
 2091:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** #endif /* USE_HAL_ADC_REGISTER_CALLBACKS */
 2092:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** }
- 2375              		.loc 1 2092 1 is_stmt 0 view .LVU770
- 2376 0014 08BD     		pop	{r3, pc}
- 2377              		.cfi_endproc
- 2378              	.LFE264:
- 2380              		.section	.text.ADC_DMAConvCplt,"ax",%progbits
- 2381              		.align	1
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 90
+ 2374              		.loc 1 2092 1 is_stmt 0 view .LVU769
+ 2375 0014 08BD     		pop	{r3, pc}
+ 2376              		.cfi_endproc
+ 2377              	.LFE264:
+ 2379              		.section	.text.ADC_DMAConvCplt,"ax",%progbits
+ 2380              		.align	1
+ 2381              		.syntax unified
+ 2382              		.thumb
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 90
 
 
- 2382              		.syntax unified
- 2383              		.thumb
- 2384              		.thumb_func
- 2386              	ADC_DMAConvCplt:
- 2387              	.LVL141:
- 2388              	.LFB262:
+ 2383              		.thumb_func
+ 2385              	ADC_DMAConvCplt:
+ 2386              	.LVL140:
+ 2387              	.LFB262:
 1995:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Retrieve ADC handle corresponding to current DMA handle */
- 2389              		.loc 1 1995 1 is_stmt 1 view -0
- 2390              		.cfi_startproc
- 2391              		@ args = 0, pretend = 0, frame = 0
- 2392              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2388              		.loc 1 1995 1 is_stmt 1 view -0
+ 2389              		.cfi_startproc
+ 2390              		@ args = 0, pretend = 0, frame = 0
+ 2391              		@ frame_needed = 0, uses_anonymous_args = 0
 1995:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Retrieve ADC handle corresponding to current DMA handle */
- 2393              		.loc 1 1995 1 is_stmt 0 view .LVU772
- 2394 0000 08B5     		push	{r3, lr}
- 2395              		.cfi_def_cfa_offset 8
- 2396              		.cfi_offset 3, -8
- 2397              		.cfi_offset 14, -4
- 2398 0002 0346     		mov	r3, r0
+ 2392              		.loc 1 1995 1 is_stmt 0 view .LVU771
+ 2393 0000 08B5     		push	{r3, lr}
+ 2394              		.cfi_def_cfa_offset 8
+ 2395              		.cfi_offset 3, -8
+ 2396              		.cfi_offset 14, -4
+ 2397 0002 0346     		mov	r3, r0
 1997:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2399              		.loc 1 1997 3 is_stmt 1 view .LVU773
+ 2398              		.loc 1 1997 3 is_stmt 1 view .LVU772
 1997:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2400              		.loc 1 1997 22 is_stmt 0 view .LVU774
- 2401 0004 806B     		ldr	r0, [r0, #56]
- 2402              	.LVL142:
+ 2399              		.loc 1 1997 22 is_stmt 0 view .LVU773
+ 2400 0004 806B     		ldr	r0, [r0, #56]
+ 2401              	.LVL141:
 2000:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2403              		.loc 1 2000 3 is_stmt 1 view .LVU775
+ 2402              		.loc 1 2000 3 is_stmt 1 view .LVU774
 2000:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2404              		.loc 1 2000 7 is_stmt 0 view .LVU776
- 2405 0006 026C     		ldr	r2, [r0, #64]
+ 2403              		.loc 1 2000 7 is_stmt 0 view .LVU775
+ 2404 0006 026C     		ldr	r2, [r0, #64]
 2000:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2406              		.loc 1 2000 6 view .LVU777
- 2407 0008 12F0500F 		tst	r2, #80
- 2408 000c 25D1     		bne	.L168
+ 2405              		.loc 1 2000 6 view .LVU776
+ 2406 0008 12F0500F 		tst	r2, #80
+ 2407 000c 25D1     		bne	.L168
 2003:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2409              		.loc 1 2003 5 is_stmt 1 view .LVU778
- 2410 000e 036C     		ldr	r3, [r0, #64]
- 2411              	.LVL143:
+ 2408              		.loc 1 2003 5 is_stmt 1 view .LVU777
+ 2409 000e 036C     		ldr	r3, [r0, #64]
+ 2410              	.LVL142:
 2003:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2412              		.loc 1 2003 5 is_stmt 0 view .LVU779
- 2413 0010 43F40073 		orr	r3, r3, #512
- 2414 0014 0364     		str	r3, [r0, #64]
+ 2411              		.loc 1 2003 5 is_stmt 0 view .LVU778
+ 2412 0010 43F40073 		orr	r3, r3, #512
+ 2413 0014 0364     		str	r3, [r0, #64]
 2011:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****         (hadc->Init.ContinuousConvMode == DISABLE)            &&
- 2415              		.loc 1 2011 5 is_stmt 1 view .LVU780
+ 2414              		.loc 1 2011 5 is_stmt 1 view .LVU779
 2011:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****         (hadc->Init.ContinuousConvMode == DISABLE)            &&
- 2416              		.loc 1 2011 9 is_stmt 0 view .LVU781
- 2417 0016 0368     		ldr	r3, [r0]
- 2418 0018 9A68     		ldr	r2, [r3, #8]
+ 2415              		.loc 1 2011 9 is_stmt 0 view .LVU780
+ 2416 0016 0368     		ldr	r3, [r0]
+ 2417 0018 9A68     		ldr	r2, [r3, #8]
 2011:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****         (hadc->Init.ContinuousConvMode == DISABLE)            &&
- 2419              		.loc 1 2011 8 view .LVU782
- 2420 001a 12F0405F 		tst	r2, #805306368
- 2421 001e 19D1     		bne	.L169
+ 2418              		.loc 1 2011 8 view .LVU781
+ 2419 001a 12F0405F 		tst	r2, #805306368
+ 2420 001e 19D1     		bne	.L169
 2012:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****         (HAL_IS_BIT_CLR(hadc->Instance->SQR1, ADC_SQR1_L) ||
- 2422              		.loc 1 2012 20 view .LVU783
- 2423 0020 027E     		ldrb	r2, [r0, #24]	@ zero_extendqisi2
+ 2421              		.loc 1 2012 20 view .LVU782
+ 2422 0020 027E     		ldrb	r2, [r0, #24]	@ zero_extendqisi2
 2011:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****         (hadc->Init.ContinuousConvMode == DISABLE)            &&
- 2424              		.loc 1 2011 63 discriminator 1 view .LVU784
- 2425 0022 BAB9     		cbnz	r2, .L169
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 91
-
-
+ 2423              		.loc 1 2011 63 discriminator 1 view .LVU783
+ 2424 0022 BAB9     		cbnz	r2, .L169
 2013:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****          HAL_IS_BIT_CLR(hadc->Instance->CR2, ADC_CR2_EOCS)))
- 2426              		.loc 1 2013 10 view .LVU785
- 2427 0024 DA6A     		ldr	r2, [r3, #44]
+ 2425              		.loc 1 2013 10 view .LVU784
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 91
+
+
+ 2426 0024 DA6A     		ldr	r2, [r3, #44]
 2012:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****         (HAL_IS_BIT_CLR(hadc->Instance->SQR1, ADC_SQR1_L) ||
- 2428              		.loc 1 2012 63 view .LVU786
- 2429 0026 12F4700F 		tst	r2, #15728640
- 2430 002a 03D0     		beq	.L170
+ 2427              		.loc 1 2012 63 view .LVU785
+ 2428 0026 12F4700F 		tst	r2, #15728640
+ 2429 002a 03D0     		beq	.L170
 2014:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
- 2431              		.loc 1 2014 10 view .LVU787
- 2432 002c 9A68     		ldr	r2, [r3, #8]
+ 2430              		.loc 1 2014 10 view .LVU786
+ 2431 002c 9A68     		ldr	r2, [r3, #8]
 2013:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****          HAL_IS_BIT_CLR(hadc->Instance->CR2, ADC_CR2_EOCS)))
- 2433              		.loc 1 2013 59 view .LVU788
- 2434 002e 12F4806F 		tst	r2, #1024
- 2435 0032 0FD1     		bne	.L169
- 2436              	.L170:
+ 2432              		.loc 1 2013 59 view .LVU787
+ 2433 002e 12F4806F 		tst	r2, #1024
+ 2434 0032 0FD1     		bne	.L169
+ 2435              	.L170:
 2020:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2437              		.loc 1 2020 7 is_stmt 1 view .LVU789
- 2438 0034 5A68     		ldr	r2, [r3, #4]
- 2439 0036 22F02002 		bic	r2, r2, #32
- 2440 003a 5A60     		str	r2, [r3, #4]
+ 2436              		.loc 1 2020 7 is_stmt 1 view .LVU788
+ 2437 0034 5A68     		ldr	r2, [r3, #4]
+ 2438 0036 22F02002 		bic	r2, r2, #32
+ 2439 003a 5A60     		str	r2, [r3, #4]
 2023:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2441              		.loc 1 2023 7 view .LVU790
- 2442 003c 036C     		ldr	r3, [r0, #64]
- 2443 003e 23F48073 		bic	r3, r3, #256
- 2444 0042 0364     		str	r3, [r0, #64]
+ 2440              		.loc 1 2023 7 view .LVU789
+ 2441 003c 036C     		ldr	r3, [r0, #64]
+ 2442 003e 23F48073 		bic	r3, r3, #256
+ 2443 0042 0364     		str	r3, [r0, #64]
 2025:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       {
- 2445              		.loc 1 2025 7 view .LVU791
+ 2444              		.loc 1 2025 7 view .LVU790
 2025:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       {
- 2446              		.loc 1 2025 11 is_stmt 0 view .LVU792
- 2447 0044 036C     		ldr	r3, [r0, #64]
+ 2445              		.loc 1 2025 11 is_stmt 0 view .LVU791
+ 2446 0044 036C     		ldr	r3, [r0, #64]
 2025:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       {
- 2448              		.loc 1 2025 10 view .LVU793
- 2449 0046 13F4805F 		tst	r3, #4096
- 2450 004a 03D1     		bne	.L169
+ 2447              		.loc 1 2025 10 view .LVU792
+ 2448 0046 13F4805F 		tst	r3, #4096
+ 2449 004a 03D1     		bne	.L169
 2027:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       }
- 2451              		.loc 1 2027 9 is_stmt 1 view .LVU794
- 2452 004c 036C     		ldr	r3, [r0, #64]
- 2453 004e 43F00103 		orr	r3, r3, #1
- 2454 0052 0364     		str	r3, [r0, #64]
- 2455              	.L169:
+ 2450              		.loc 1 2027 9 is_stmt 1 view .LVU793
+ 2451 004c 036C     		ldr	r3, [r0, #64]
+ 2452 004e 43F00103 		orr	r3, r3, #1
+ 2453 0052 0364     		str	r3, [r0, #64]
+ 2454              	.L169:
 2035:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** #endif /* USE_HAL_ADC_REGISTER_CALLBACKS */
- 2456              		.loc 1 2035 5 view .LVU795
- 2457 0054 FFF7FEFF 		bl	HAL_ADC_ConvCpltCallback
- 2458              	.LVL144:
- 2459              	.L167:
+ 2455              		.loc 1 2035 5 view .LVU794
+ 2456 0054 FFF7FEFF 		bl	HAL_ADC_ConvCpltCallback
+ 2457              	.LVL143:
+ 2458              	.L167:
 2055:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2460              		.loc 1 2055 1 is_stmt 0 view .LVU796
- 2461 0058 08BD     		pop	{r3, pc}
- 2462              	.LVL145:
- 2463              	.L168:
+ 2459              		.loc 1 2055 1 is_stmt 0 view .LVU795
+ 2460 0058 08BD     		pop	{r3, pc}
+ 2461              	.LVL144:
+ 2462              	.L168:
 2040:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
- 2464              		.loc 1 2040 5 is_stmt 1 view .LVU797
+ 2463              		.loc 1 2040 5 is_stmt 1 view .LVU796
 2040:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
- 2465              		.loc 1 2040 14 is_stmt 0 view .LVU798
- 2466 005a 026C     		ldr	r2, [r0, #64]
+ 2464              		.loc 1 2040 14 is_stmt 0 view .LVU797
+ 2465 005a 026C     		ldr	r2, [r0, #64]
 2040:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
- 2467              		.loc 1 2040 8 view .LVU799
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 92
+ 2466              		.loc 1 2040 8 view .LVU798
+ 2467 005c 12F0100F 		tst	r2, #16
+ 2468 0060 04D1     		bne	.L174
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 92
 
 
- 2468 005c 12F0100F 		tst	r2, #16
- 2469 0060 04D1     		bne	.L174
 2052:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     }
- 2470              		.loc 1 2052 7 is_stmt 1 view .LVU800
+ 2469              		.loc 1 2052 7 is_stmt 1 view .LVU799
 2052:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     }
- 2471              		.loc 1 2052 11 is_stmt 0 view .LVU801
- 2472 0062 826B     		ldr	r2, [r0, #56]
+ 2470              		.loc 1 2052 11 is_stmt 0 view .LVU800
+ 2471 0062 826B     		ldr	r2, [r0, #56]
 2052:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     }
- 2473              		.loc 1 2052 23 view .LVU802
- 2474 0064 D26C     		ldr	r2, [r2, #76]
+ 2472              		.loc 1 2052 23 view .LVU801
+ 2473 0064 D26C     		ldr	r2, [r2, #76]
 2052:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     }
- 2475              		.loc 1 2052 7 view .LVU803
- 2476 0066 1846     		mov	r0, r3
- 2477              	.LVL146:
+ 2474              		.loc 1 2052 7 view .LVU802
+ 2475 0066 1846     		mov	r0, r3
+ 2476              	.LVL145:
 2052:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     }
- 2478              		.loc 1 2052 7 view .LVU804
- 2479 0068 9047     		blx	r2
- 2480              	.LVL147:
+ 2477              		.loc 1 2052 7 view .LVU803
+ 2478 0068 9047     		blx	r2
+ 2479              	.LVL146:
 2055:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2481              		.loc 1 2055 1 view .LVU805
- 2482 006a F5E7     		b	.L167
- 2483              	.LVL148:
- 2484              	.L174:
+ 2480              		.loc 1 2055 1 view .LVU804
+ 2481 006a F5E7     		b	.L167
+ 2482              	.LVL147:
+ 2483              	.L174:
 2046:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** #endif /* USE_HAL_ADC_REGISTER_CALLBACKS */
- 2485              		.loc 1 2046 7 is_stmt 1 view .LVU806
- 2486 006c FFF7FEFF 		bl	HAL_ADC_ErrorCallback
- 2487              	.LVL149:
+ 2484              		.loc 1 2046 7 is_stmt 1 view .LVU805
+ 2485 006c FFF7FEFF 		bl	HAL_ADC_ErrorCallback
+ 2486              	.LVL148:
 2046:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** #endif /* USE_HAL_ADC_REGISTER_CALLBACKS */
- 2488              		.loc 1 2046 7 is_stmt 0 view .LVU807
- 2489 0070 F2E7     		b	.L167
- 2490              		.cfi_endproc
- 2491              	.LFE262:
- 2493              		.section	.text.HAL_ADC_ConfigChannel,"ax",%progbits
- 2494              		.align	1
- 2495              		.global	HAL_ADC_ConfigChannel
- 2496              		.syntax unified
- 2497              		.thumb
- 2498              		.thumb_func
- 2500              	HAL_ADC_ConfigChannel:
- 2501              	.LVL150:
- 2502              	.LFB257:
+ 2487              		.loc 1 2046 7 is_stmt 0 view .LVU806
+ 2488 0070 F2E7     		b	.L167
+ 2489              		.cfi_endproc
+ 2490              	.LFE262:
+ 2492              		.section	.text.HAL_ADC_ConfigChannel,"ax",%progbits
+ 2493              		.align	1
+ 2494              		.global	HAL_ADC_ConfigChannel
+ 2495              		.syntax unified
+ 2496              		.thumb
+ 2497              		.thumb_func
+ 2499              	HAL_ADC_ConfigChannel:
+ 2500              	.LVL149:
+ 2501              	.LFB257:
 1670:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   __IO uint32_t counter = 0U;
- 2503              		.loc 1 1670 1 is_stmt 1 view -0
- 2504              		.cfi_startproc
- 2505              		@ args = 0, pretend = 0, frame = 8
- 2506              		@ frame_needed = 0, uses_anonymous_args = 0
- 2507              		@ link register save eliminated.
+ 2502              		.loc 1 1670 1 is_stmt 1 view -0
+ 2503              		.cfi_startproc
+ 2504              		@ args = 0, pretend = 0, frame = 8
+ 2505              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2506              		@ link register save eliminated.
 1670:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   __IO uint32_t counter = 0U;
- 2508              		.loc 1 1670 1 is_stmt 0 view .LVU809
- 2509 0000 30B4     		push	{r4, r5}
- 2510              		.cfi_def_cfa_offset 8
- 2511              		.cfi_offset 4, -8
- 2512              		.cfi_offset 5, -4
- 2513 0002 82B0     		sub	sp, sp, #8
- 2514              		.cfi_def_cfa_offset 16
+ 2507              		.loc 1 1670 1 is_stmt 0 view .LVU808
+ 2508 0000 30B4     		push	{r4, r5}
+ 2509              		.cfi_def_cfa_offset 8
+ 2510              		.cfi_offset 4, -8
+ 2511              		.cfi_offset 5, -4
+ 2512 0002 82B0     		sub	sp, sp, #8
+ 2513              		.cfi_def_cfa_offset 16
 1671:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   ADC_Common_TypeDef *tmpADC_Common;
- 2515              		.loc 1 1671 3 is_stmt 1 view .LVU810
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 93
+ 2514              		.loc 1 1671 3 is_stmt 1 view .LVU809
+1671:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   ADC_Common_TypeDef *tmpADC_Common;
+ 2515              		.loc 1 1671 17 is_stmt 0 view .LVU810
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 93
 
 
-1671:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   ADC_Common_TypeDef *tmpADC_Common;
- 2516              		.loc 1 1671 17 is_stmt 0 view .LVU811
- 2517 0004 0022     		movs	r2, #0
- 2518 0006 0192     		str	r2, [sp, #4]
+ 2516 0004 0022     		movs	r2, #0
+ 2517 0006 0192     		str	r2, [sp, #4]
 1672:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2519              		.loc 1 1672 3 is_stmt 1 view .LVU812
+ 2518              		.loc 1 1672 3 is_stmt 1 view .LVU811
 1675:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   assert_param(IS_ADC_REGULAR_RANK(sConfig->Rank));
- 2520              		.loc 1 1675 3 view .LVU813
+ 2519              		.loc 1 1675 3 view .LVU812
 1676:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   assert_param(IS_ADC_SAMPLE_TIME(sConfig->SamplingTime));
- 2521              		.loc 1 1676 3 view .LVU814
+ 2520              		.loc 1 1676 3 view .LVU813
 1677:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2522              		.loc 1 1677 3 view .LVU815
+ 2521              		.loc 1 1677 3 view .LVU814
+1680:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
+ 2522              		.loc 1 1680 3 view .LVU815
 1680:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
  2523              		.loc 1 1680 3 view .LVU816
+ 2524 0008 90F83C20 		ldrb	r2, [r0, #60]	@ zero_extendqisi2
+ 2525 000c 012A     		cmp	r2, #1
+ 2526 000e 00F0B680 		beq	.L186
+ 2527 0012 0346     		mov	r3, r0
 1680:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2524              		.loc 1 1680 3 view .LVU817
- 2525 0008 90F83C20 		ldrb	r2, [r0, #60]	@ zero_extendqisi2
- 2526 000c 012A     		cmp	r2, #1
- 2527 000e 00F0B680 		beq	.L186
- 2528 0012 0346     		mov	r3, r0
+ 2528              		.loc 1 1680 3 discriminator 2 view .LVU817
+ 2529 0014 0122     		movs	r2, #1
+ 2530 0016 80F83C20 		strb	r2, [r0, #60]
 1680:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2529              		.loc 1 1680 3 discriminator 2 view .LVU818
- 2530 0014 0122     		movs	r2, #1
- 2531 0016 80F83C20 		strb	r2, [r0, #60]
-1680:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2532              		.loc 1 1680 3 view .LVU819
+ 2531              		.loc 1 1680 3 discriminator 2 view .LVU818
 1683:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2533              		.loc 1 1683 3 view .LVU820
+ 2532              		.loc 1 1683 3 view .LVU819
 1683:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2534              		.loc 1 1683 14 is_stmt 0 view .LVU821
- 2535 001a 0A68     		ldr	r2, [r1]
+ 2533              		.loc 1 1683 14 is_stmt 0 view .LVU820
+ 2534 001a 0A68     		ldr	r2, [r1]
 1683:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2536              		.loc 1 1683 6 view .LVU822
- 2537 001c 092A     		cmp	r2, #9
- 2538 001e 40D9     		bls	.L177
+ 2535              		.loc 1 1683 6 view .LVU821
+ 2536 001c 092A     		cmp	r2, #9
+ 2537 001e 40D9     		bls	.L177
 1686:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2539              		.loc 1 1686 5 is_stmt 1 view .LVU823
+ 2538              		.loc 1 1686 5 is_stmt 1 view .LVU822
 1686:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2540              		.loc 1 1686 9 is_stmt 0 view .LVU824
- 2541 0020 0468     		ldr	r4, [r0]
+ 2539              		.loc 1 1686 9 is_stmt 0 view .LVU823
+ 2540 0020 0468     		ldr	r4, [r0]
 1686:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2542              		.loc 1 1686 19 view .LVU825
- 2543 0022 E068     		ldr	r0, [r4, #12]
- 2544              	.LVL151:
+ 2541              		.loc 1 1686 19 view .LVU824
+ 2542 0022 E068     		ldr	r0, [r4, #12]
+ 2543              	.LVL150:
 1686:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2545              		.loc 1 1686 31 view .LVU826
- 2546 0024 92B2     		uxth	r2, r2
- 2547 0026 02EB4202 		add	r2, r2, r2, lsl #1
- 2548 002a 1E3A     		subs	r2, r2, #30
- 2549 002c 4FF0070C 		mov	ip, #7
- 2550 0030 0CFA02F2 		lsl	r2, ip, r2
+ 2544              		.loc 1 1686 31 view .LVU825
+ 2545 0024 92B2     		uxth	r2, r2
+ 2546 0026 02EB4202 		add	r2, r2, r2, lsl #1
+ 2547 002a 1E3A     		subs	r2, r2, #30
+ 2548 002c 4FF0070C 		mov	ip, #7
+ 2549 0030 0CFA02F2 		lsl	r2, ip, r2
 1686:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2551              		.loc 1 1686 27 view .LVU827
- 2552 0034 20EA0202 		bic	r2, r0, r2
- 2553 0038 E260     		str	r2, [r4, #12]
+ 2550              		.loc 1 1686 27 view .LVU826
+ 2551 0034 20EA0202 		bic	r2, r0, r2
+ 2552 0038 E260     		str	r2, [r4, #12]
 1689:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2554              		.loc 1 1689 5 is_stmt 1 view .LVU828
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 94
+ 2553              		.loc 1 1689 5 is_stmt 1 view .LVU827
+1689:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
+ 2554              		.loc 1 1689 9 is_stmt 0 view .LVU828
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 94
 
 
+ 2555 003a 1C68     		ldr	r4, [r3]
 1689:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2555              		.loc 1 1689 9 is_stmt 0 view .LVU829
- 2556 003a 1C68     		ldr	r4, [r3]
+ 2556              		.loc 1 1689 19 view .LVU829
+ 2557 003c E068     		ldr	r0, [r4, #12]
 1689:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2557              		.loc 1 1689 19 view .LVU830
- 2558 003c E068     		ldr	r0, [r4, #12]
+ 2558              		.loc 1 1689 30 view .LVU830
+ 2559 003e 0A88     		ldrh	r2, [r1]
+ 2560 0040 02EB4202 		add	r2, r2, r2, lsl #1
+ 2561 0044 1E3A     		subs	r2, r2, #30
+ 2562 0046 8D68     		ldr	r5, [r1, #8]
+ 2563 0048 05FA02F2 		lsl	r2, r5, r2
 1689:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2559              		.loc 1 1689 30 view .LVU831
- 2560 003e 0A88     		ldrh	r2, [r1]
- 2561 0040 02EB4202 		add	r2, r2, r2, lsl #1
- 2562 0044 1E3A     		subs	r2, r2, #30
- 2563 0046 8D68     		ldr	r5, [r1, #8]
- 2564 0048 05FA02F2 		lsl	r2, r5, r2
-1689:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2565              		.loc 1 1689 27 view .LVU832
- 2566 004c 0243     		orrs	r2, r2, r0
- 2567 004e E260     		str	r2, [r4, #12]
- 2568              	.L178:
+ 2564              		.loc 1 1689 27 view .LVU831
+ 2565 004c 0243     		orrs	r2, r2, r0
+ 2566 004e E260     		str	r2, [r4, #12]
+ 2567              	.L178:
 1701:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2569              		.loc 1 1701 3 is_stmt 1 view .LVU833
+ 2568              		.loc 1 1701 3 is_stmt 1 view .LVU832
 1701:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2570              		.loc 1 1701 14 is_stmt 0 view .LVU834
- 2571 0050 4A68     		ldr	r2, [r1, #4]
+ 2569              		.loc 1 1701 14 is_stmt 0 view .LVU833
+ 2570 0050 4A68     		ldr	r2, [r1, #4]
 1701:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2572              		.loc 1 1701 6 view .LVU835
- 2573 0052 062A     		cmp	r2, #6
- 2574 0054 3CD8     		bhi	.L179
+ 2571              		.loc 1 1701 6 view .LVU834
+ 2572 0052 062A     		cmp	r2, #6
+ 2573 0054 3CD8     		bhi	.L179
 1704:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2575              		.loc 1 1704 5 is_stmt 1 view .LVU836
+ 2574              		.loc 1 1704 5 is_stmt 1 view .LVU835
 1704:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2576              		.loc 1 1704 9 is_stmt 0 view .LVU837
- 2577 0056 1C68     		ldr	r4, [r3]
+ 2575              		.loc 1 1704 9 is_stmt 0 view .LVU836
+ 2576 0056 1C68     		ldr	r4, [r3]
 1704:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2578              		.loc 1 1704 19 view .LVU838
- 2579 0058 606B     		ldr	r0, [r4, #52]
+ 2577              		.loc 1 1704 19 view .LVU837
+ 2578 0058 606B     		ldr	r0, [r4, #52]
 1704:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2580              		.loc 1 1704 30 view .LVU839
- 2581 005a 02EB8202 		add	r2, r2, r2, lsl #2
- 2582 005e 053A     		subs	r2, r2, #5
- 2583 0060 4FF01F0C 		mov	ip, #31
- 2584 0064 0CFA02F2 		lsl	r2, ip, r2
+ 2579              		.loc 1 1704 30 view .LVU838
+ 2580 005a 02EB8202 		add	r2, r2, r2, lsl #2
+ 2581 005e 053A     		subs	r2, r2, #5
+ 2582 0060 4FF01F0C 		mov	ip, #31
+ 2583 0064 0CFA02F2 		lsl	r2, ip, r2
 1704:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2585              		.loc 1 1704 26 view .LVU840
- 2586 0068 20EA0202 		bic	r2, r0, r2
- 2587 006c 6263     		str	r2, [r4, #52]
+ 2584              		.loc 1 1704 26 view .LVU839
+ 2585 0068 20EA0202 		bic	r2, r0, r2
+ 2586 006c 6263     		str	r2, [r4, #52]
 1707:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2588              		.loc 1 1707 5 is_stmt 1 view .LVU841
+ 2587              		.loc 1 1707 5 is_stmt 1 view .LVU840
 1707:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2589              		.loc 1 1707 9 is_stmt 0 view .LVU842
- 2590 006e 1C68     		ldr	r4, [r3]
+ 2588              		.loc 1 1707 9 is_stmt 0 view .LVU841
+ 2589 006e 1C68     		ldr	r4, [r3]
 1707:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2591              		.loc 1 1707 19 view .LVU843
- 2592 0070 606B     		ldr	r0, [r4, #52]
+ 2590              		.loc 1 1707 19 view .LVU842
+ 2591 0070 606B     		ldr	r0, [r4, #52]
 1707:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2593              		.loc 1 1707 29 view .LVU844
- 2594 0072 4A68     		ldr	r2, [r1, #4]
- 2595 0074 02EB8202 		add	r2, r2, r2, lsl #2
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 95
+ 2592              		.loc 1 1707 29 view .LVU843
+ 2593 0072 4A68     		ldr	r2, [r1, #4]
+ 2594 0074 02EB8202 		add	r2, r2, r2, lsl #2
+ 2595 0078 053A     		subs	r2, r2, #5
+ 2596 007a B1F800C0 		ldrh	ip, [r1]
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 95
 
 
- 2596 0078 053A     		subs	r2, r2, #5
- 2597 007a B1F800C0 		ldrh	ip, [r1]
- 2598 007e 0CFA02F2 		lsl	r2, ip, r2
+ 2597 007e 0CFA02F2 		lsl	r2, ip, r2
 1707:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2599              		.loc 1 1707 26 view .LVU845
- 2600 0082 0243     		orrs	r2, r2, r0
- 2601 0084 6263     		str	r2, [r4, #52]
- 2602              	.L180:
+ 2598              		.loc 1 1707 26 view .LVU844
+ 2599 0082 0243     		orrs	r2, r2, r0
+ 2600 0084 6263     		str	r2, [r4, #52]
+ 2601              	.L180:
 1731:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2603              		.loc 1 1731 3 is_stmt 1 view .LVU846
- 2604              	.LVL152:
+ 2602              		.loc 1 1731 3 is_stmt 1 view .LVU845
+ 2603              	.LVL151:
 1734:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2605              		.loc 1 1734 3 view .LVU847
+ 2604              		.loc 1 1734 3 view .LVU846
 1734:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2606              		.loc 1 1734 12 is_stmt 0 view .LVU848
- 2607 0086 1868     		ldr	r0, [r3]
+ 2605              		.loc 1 1734 12 is_stmt 0 view .LVU847
+ 2606 0086 1868     		ldr	r0, [r3]
 1734:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2608              		.loc 1 1734 6 view .LVU849
- 2609 0088 3E4A     		ldr	r2, .L190
- 2610 008a 9042     		cmp	r0, r2
- 2611 008c 50D0     		beq	.L188
- 2612              	.L182:
+ 2607              		.loc 1 1734 6 view .LVU848
+ 2608 0088 3E4A     		ldr	r2, .L190
+ 2609 008a 9042     		cmp	r0, r2
+ 2610 008c 50D0     		beq	.L188
+ 2611              	.L182:
 1747:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2613              		.loc 1 1747 3 is_stmt 1 view .LVU850
+ 2612              		.loc 1 1747 3 is_stmt 1 view .LVU849
 1747:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2614              		.loc 1 1747 12 is_stmt 0 view .LVU851
- 2615 008e 1868     		ldr	r0, [r3]
+ 2613              		.loc 1 1747 12 is_stmt 0 view .LVU850
+ 2614 008e 1868     		ldr	r0, [r3]
 1747:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2616              		.loc 1 1747 6 view .LVU852
- 2617 0090 3C4A     		ldr	r2, .L190
- 2618 0092 9042     		cmp	r0, r2
- 2619 0094 55D0     		beq	.L189
- 2620              	.LVL153:
- 2621              	.L183:
+ 2615              		.loc 1 1747 6 view .LVU851
+ 2616 0090 3C4A     		ldr	r2, .L190
+ 2617 0092 9042     		cmp	r0, r2
+ 2618 0094 55D0     		beq	.L189
+ 2619              	.LVL152:
+ 2620              	.L183:
 1770:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2622              		.loc 1 1770 3 is_stmt 1 view .LVU853
+ 2621              		.loc 1 1770 3 is_stmt 1 view .LVU852
 1770:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2623              		.loc 1 1770 3 view .LVU854
- 2624 0096 0020     		movs	r0, #0
- 2625 0098 83F83C00 		strb	r0, [r3, #60]
+ 2622              		.loc 1 1770 3 view .LVU853
+ 2623 0096 0020     		movs	r0, #0
+ 2624 0098 83F83C00 		strb	r0, [r3, #60]
 1770:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2626              		.loc 1 1770 3 view .LVU855
+ 2625              		.loc 1 1770 3 view .LVU854
 1773:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** }
- 2627              		.loc 1 1773 3 view .LVU856
- 2628              	.LVL154:
- 2629              	.L176:
+ 2626              		.loc 1 1773 3 view .LVU855
+ 2627              	.LVL153:
+ 2628              	.L176:
 1774:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2630              		.loc 1 1774 1 is_stmt 0 view .LVU857
- 2631 009c 02B0     		add	sp, sp, #8
- 2632              		.cfi_remember_state
- 2633              		.cfi_def_cfa_offset 8
- 2634              		@ sp needed
- 2635 009e 30BC     		pop	{r4, r5}
- 2636              		.cfi_restore 5
- 2637              		.cfi_restore 4
- 2638              		.cfi_def_cfa_offset 0
- 2639 00a0 7047     		bx	lr
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 96
+ 2629              		.loc 1 1774 1 is_stmt 0 view .LVU856
+ 2630 009c 02B0     		add	sp, sp, #8
+ 2631              		.cfi_remember_state
+ 2632              		.cfi_def_cfa_offset 8
+ 2633              		@ sp needed
+ 2634 009e 30BC     		pop	{r4, r5}
+ 2635              		.cfi_restore 5
+ 2636              		.cfi_restore 4
+ 2637              		.cfi_def_cfa_offset 0
+ 2638 00a0 7047     		bx	lr
+ 2639              	.LVL154:
+ 2640              	.L177:
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 96
 
 
- 2640              	.LVL155:
- 2641              	.L177:
- 2642              		.cfi_restore_state
+ 2641              		.cfi_restore_state
 1694:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2643              		.loc 1 1694 5 is_stmt 1 view .LVU858
+ 2642              		.loc 1 1694 5 is_stmt 1 view .LVU857
 1694:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2644              		.loc 1 1694 9 is_stmt 0 view .LVU859
- 2645 00a2 0468     		ldr	r4, [r0]
+ 2643              		.loc 1 1694 9 is_stmt 0 view .LVU858
+ 2644 00a2 0468     		ldr	r4, [r0]
 1694:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2646              		.loc 1 1694 19 view .LVU860
- 2647 00a4 2069     		ldr	r0, [r4, #16]
- 2648              	.LVL156:
+ 2645              		.loc 1 1694 19 view .LVU859
+ 2646 00a4 2069     		ldr	r0, [r4, #16]
+ 2647              	.LVL155:
 1694:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2649              		.loc 1 1694 31 view .LVU861
- 2650 00a6 92B2     		uxth	r2, r2
- 2651 00a8 02EB4202 		add	r2, r2, r2, lsl #1
- 2652 00ac 4FF0070C 		mov	ip, #7
- 2653 00b0 0CFA02F2 		lsl	r2, ip, r2
+ 2648              		.loc 1 1694 31 view .LVU860
+ 2649 00a6 92B2     		uxth	r2, r2
+ 2650 00a8 02EB4202 		add	r2, r2, r2, lsl #1
+ 2651 00ac 4FF0070C 		mov	ip, #7
+ 2652 00b0 0CFA02F2 		lsl	r2, ip, r2
 1694:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2654              		.loc 1 1694 27 view .LVU862
- 2655 00b4 20EA0202 		bic	r2, r0, r2
- 2656 00b8 2261     		str	r2, [r4, #16]
+ 2653              		.loc 1 1694 27 view .LVU861
+ 2654 00b4 20EA0202 		bic	r2, r0, r2
+ 2655 00b8 2261     		str	r2, [r4, #16]
 1697:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2657              		.loc 1 1697 5 is_stmt 1 view .LVU863
+ 2656              		.loc 1 1697 5 is_stmt 1 view .LVU862
 1697:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2658              		.loc 1 1697 9 is_stmt 0 view .LVU864
- 2659 00ba 1C68     		ldr	r4, [r3]
+ 2657              		.loc 1 1697 9 is_stmt 0 view .LVU863
+ 2658 00ba 1C68     		ldr	r4, [r3]
 1697:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2660              		.loc 1 1697 19 view .LVU865
- 2661 00bc 2069     		ldr	r0, [r4, #16]
+ 2659              		.loc 1 1697 19 view .LVU864
+ 2660 00bc 2069     		ldr	r0, [r4, #16]
 1697:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2662              		.loc 1 1697 30 view .LVU866
- 2663 00be 0A88     		ldrh	r2, [r1]
- 2664 00c0 02EB4202 		add	r2, r2, r2, lsl #1
- 2665 00c4 8D68     		ldr	r5, [r1, #8]
- 2666 00c6 05FA02F2 		lsl	r2, r5, r2
+ 2661              		.loc 1 1697 30 view .LVU865
+ 2662 00be 0A88     		ldrh	r2, [r1]
+ 2663 00c0 02EB4202 		add	r2, r2, r2, lsl #1
+ 2664 00c4 8D68     		ldr	r5, [r1, #8]
+ 2665 00c6 05FA02F2 		lsl	r2, r5, r2
 1697:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2667              		.loc 1 1697 27 view .LVU867
- 2668 00ca 0243     		orrs	r2, r2, r0
- 2669 00cc 2261     		str	r2, [r4, #16]
- 2670 00ce BFE7     		b	.L178
- 2671              	.L179:
+ 2666              		.loc 1 1697 27 view .LVU866
+ 2667 00ca 0243     		orrs	r2, r2, r0
+ 2668 00cc 2261     		str	r2, [r4, #16]
+ 2669 00ce BFE7     		b	.L178
+ 2670              	.L179:
 1710:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2672              		.loc 1 1710 8 is_stmt 1 view .LVU868
+ 2671              		.loc 1 1710 8 is_stmt 1 view .LVU867
 1710:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2673              		.loc 1 1710 11 is_stmt 0 view .LVU869
- 2674 00d0 0C2A     		cmp	r2, #12
- 2675 00d2 16D8     		bhi	.L181
+ 2672              		.loc 1 1710 11 is_stmt 0 view .LVU868
+ 2673 00d0 0C2A     		cmp	r2, #12
+ 2674 00d2 16D8     		bhi	.L181
 1713:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2676              		.loc 1 1713 5 is_stmt 1 view .LVU870
+ 2675              		.loc 1 1713 5 is_stmt 1 view .LVU869
 1713:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2677              		.loc 1 1713 9 is_stmt 0 view .LVU871
- 2678 00d4 1D68     		ldr	r5, [r3]
+ 2676              		.loc 1 1713 9 is_stmt 0 view .LVU870
+ 2677 00d4 1D68     		ldr	r5, [r3]
 1713:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2679              		.loc 1 1713 19 view .LVU872
- 2680 00d6 286B     		ldr	r0, [r5, #48]
+ 2678              		.loc 1 1713 19 view .LVU871
+ 2679 00d6 286B     		ldr	r0, [r5, #48]
 1713:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 97
+ 2680              		.loc 1 1713 30 view .LVU872
+ 2681 00d8 02EB8202 		add	r2, r2, r2, lsl #2
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 97
 
 
- 2681              		.loc 1 1713 30 view .LVU873
- 2682 00d8 02EB8202 		add	r2, r2, r2, lsl #2
- 2683 00dc 233A     		subs	r2, r2, #35
- 2684 00de 1F24     		movs	r4, #31
- 2685 00e0 04FA02F2 		lsl	r2, r4, r2
+ 2682 00dc 233A     		subs	r2, r2, #35
+ 2683 00de 1F24     		movs	r4, #31
+ 2684 00e0 04FA02F2 		lsl	r2, r4, r2
 1713:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2686              		.loc 1 1713 26 view .LVU874
- 2687 00e4 20EA0202 		bic	r2, r0, r2
- 2688 00e8 2A63     		str	r2, [r5, #48]
+ 2685              		.loc 1 1713 26 view .LVU873
+ 2686 00e4 20EA0202 		bic	r2, r0, r2
+ 2687 00e8 2A63     		str	r2, [r5, #48]
 1716:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2689              		.loc 1 1716 5 is_stmt 1 view .LVU875
+ 2688              		.loc 1 1716 5 is_stmt 1 view .LVU874
 1716:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2690              		.loc 1 1716 9 is_stmt 0 view .LVU876
- 2691 00ea 1D68     		ldr	r5, [r3]
+ 2689              		.loc 1 1716 9 is_stmt 0 view .LVU875
+ 2690 00ea 1D68     		ldr	r5, [r3]
 1716:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2692              		.loc 1 1716 19 view .LVU877
- 2693 00ec 286B     		ldr	r0, [r5, #48]
+ 2691              		.loc 1 1716 19 view .LVU876
+ 2692 00ec 286B     		ldr	r0, [r5, #48]
 1716:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2694              		.loc 1 1716 29 view .LVU878
- 2695 00ee 4A68     		ldr	r2, [r1, #4]
- 2696 00f0 02EB8202 		add	r2, r2, r2, lsl #2
- 2697 00f4 233A     		subs	r2, r2, #35
- 2698 00f6 0C88     		ldrh	r4, [r1]
- 2699 00f8 04FA02F2 		lsl	r2, r4, r2
+ 2693              		.loc 1 1716 29 view .LVU877
+ 2694 00ee 4A68     		ldr	r2, [r1, #4]
+ 2695 00f0 02EB8202 		add	r2, r2, r2, lsl #2
+ 2696 00f4 233A     		subs	r2, r2, #35
+ 2697 00f6 0C88     		ldrh	r4, [r1]
+ 2698 00f8 04FA02F2 		lsl	r2, r4, r2
 1716:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2700              		.loc 1 1716 26 view .LVU879
- 2701 00fc 0243     		orrs	r2, r2, r0
- 2702 00fe 2A63     		str	r2, [r5, #48]
- 2703 0100 C1E7     		b	.L180
- 2704              	.L181:
+ 2699              		.loc 1 1716 26 view .LVU878
+ 2700 00fc 0243     		orrs	r2, r2, r0
+ 2701 00fe 2A63     		str	r2, [r5, #48]
+ 2702 0100 C1E7     		b	.L180
+ 2703              	.L181:
 1722:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2705              		.loc 1 1722 5 is_stmt 1 view .LVU880
+ 2704              		.loc 1 1722 5 is_stmt 1 view .LVU879
 1722:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2706              		.loc 1 1722 9 is_stmt 0 view .LVU881
- 2707 0102 1D68     		ldr	r5, [r3]
+ 2705              		.loc 1 1722 9 is_stmt 0 view .LVU880
+ 2706 0102 1D68     		ldr	r5, [r3]
 1722:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2708              		.loc 1 1722 19 view .LVU882
- 2709 0104 E86A     		ldr	r0, [r5, #44]
+ 2707              		.loc 1 1722 19 view .LVU881
+ 2708 0104 E86A     		ldr	r0, [r5, #44]
 1722:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2710              		.loc 1 1722 30 view .LVU883
- 2711 0106 02EB8202 		add	r2, r2, r2, lsl #2
- 2712 010a 413A     		subs	r2, r2, #65
- 2713 010c 1F24     		movs	r4, #31
- 2714 010e 04FA02F2 		lsl	r2, r4, r2
+ 2709              		.loc 1 1722 30 view .LVU882
+ 2710 0106 02EB8202 		add	r2, r2, r2, lsl #2
+ 2711 010a 413A     		subs	r2, r2, #65
+ 2712 010c 1F24     		movs	r4, #31
+ 2713 010e 04FA02F2 		lsl	r2, r4, r2
 1722:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2715              		.loc 1 1722 26 view .LVU884
- 2716 0112 20EA0202 		bic	r2, r0, r2
- 2717 0116 EA62     		str	r2, [r5, #44]
+ 2714              		.loc 1 1722 26 view .LVU883
+ 2715 0112 20EA0202 		bic	r2, r0, r2
+ 2716 0116 EA62     		str	r2, [r5, #44]
 1725:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2718              		.loc 1 1725 5 is_stmt 1 view .LVU885
+ 2717              		.loc 1 1725 5 is_stmt 1 view .LVU884
 1725:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2719              		.loc 1 1725 9 is_stmt 0 view .LVU886
- 2720 0118 1D68     		ldr	r5, [r3]
+ 2718              		.loc 1 1725 9 is_stmt 0 view .LVU885
+ 2719 0118 1D68     		ldr	r5, [r3]
 1725:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2721              		.loc 1 1725 19 view .LVU887
- 2722 011a E86A     		ldr	r0, [r5, #44]
+ 2720              		.loc 1 1725 19 view .LVU886
+ 2721 011a E86A     		ldr	r0, [r5, #44]
 1725:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 98
+ 2722              		.loc 1 1725 29 view .LVU887
+ 2723 011c 4A68     		ldr	r2, [r1, #4]
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 98
 
 
- 2723              		.loc 1 1725 29 view .LVU888
- 2724 011c 4A68     		ldr	r2, [r1, #4]
- 2725 011e 02EB8202 		add	r2, r2, r2, lsl #2
- 2726 0122 413A     		subs	r2, r2, #65
- 2727 0124 0C88     		ldrh	r4, [r1]
- 2728 0126 04FA02F2 		lsl	r2, r4, r2
+ 2724 011e 02EB8202 		add	r2, r2, r2, lsl #2
+ 2725 0122 413A     		subs	r2, r2, #65
+ 2726 0124 0C88     		ldrh	r4, [r1]
+ 2727 0126 04FA02F2 		lsl	r2, r4, r2
 1725:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2729              		.loc 1 1725 26 view .LVU889
- 2730 012a 0243     		orrs	r2, r2, r0
- 2731 012c EA62     		str	r2, [r5, #44]
- 2732 012e AAE7     		b	.L180
- 2733              	.LVL157:
- 2734              	.L188:
+ 2728              		.loc 1 1725 26 view .LVU888
+ 2729 012a 0243     		orrs	r2, r2, r0
+ 2730 012c EA62     		str	r2, [r5, #44]
+ 2731 012e AAE7     		b	.L180
+ 2732              	.LVL156:
+ 2733              	.L188:
 1734:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2735              		.loc 1 1734 43 discriminator 1 view .LVU890
- 2736 0130 0A68     		ldr	r2, [r1]
+ 2734              		.loc 1 1734 43 discriminator 1 view .LVU889
+ 2735 0130 0A68     		ldr	r2, [r1]
 1734:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2737              		.loc 1 1734 32 discriminator 1 view .LVU891
- 2738 0132 122A     		cmp	r2, #18
- 2739 0134 ABD1     		bne	.L182
+ 2736              		.loc 1 1734 32 discriminator 1 view .LVU890
+ 2737 0132 122A     		cmp	r2, #18
+ 2738 0134 ABD1     		bne	.L182
 1737:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
- 2740              		.loc 1 1737 5 is_stmt 1 view .LVU892
+ 2739              		.loc 1 1737 5 is_stmt 1 view .LVU891
 1742:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2741              		.loc 1 1742 5 view .LVU893
+ 2740              		.loc 1 1742 5 view .LVU892
 1742:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2742              		.loc 1 1742 18 is_stmt 0 view .LVU894
- 2743 0136 1448     		ldr	r0, .L190+4
- 2744 0138 4268     		ldr	r2, [r0, #4]
+ 2741              		.loc 1 1742 18 is_stmt 0 view .LVU893
+ 2742 0136 1448     		ldr	r0, .L190+4
+ 2743 0138 4268     		ldr	r2, [r0, #4]
 1742:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2745              		.loc 1 1742 24 view .LVU895
- 2746 013a 42F48002 		orr	r2, r2, #4194304
- 2747 013e 4260     		str	r2, [r0, #4]
- 2748 0140 A5E7     		b	.L182
- 2749              	.L189:
+ 2744              		.loc 1 1742 24 view .LVU894
+ 2745 013a 42F48002 		orr	r2, r2, #4194304
+ 2746 013e 4260     		str	r2, [r0, #4]
+ 2747 0140 A5E7     		b	.L182
+ 2748              	.L189:
 1747:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2750              		.loc 1 1747 44 discriminator 1 view .LVU896
- 2751 0142 0A68     		ldr	r2, [r1]
+ 2749              		.loc 1 1747 44 discriminator 1 view .LVU895
+ 2750 0142 0A68     		ldr	r2, [r1]
 1747:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2752              		.loc 1 1747 81 discriminator 1 view .LVU897
- 2753 0144 103A     		subs	r2, r2, #16
+ 2751              		.loc 1 1747 81 discriminator 1 view .LVU896
+ 2752 0144 103A     		subs	r2, r2, #16
 1747:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2754              		.loc 1 1747 32 discriminator 1 view .LVU898
- 2755 0146 012A     		cmp	r2, #1
- 2756 0148 A5D8     		bhi	.L183
+ 2753              		.loc 1 1747 32 discriminator 1 view .LVU897
+ 2754 0146 012A     		cmp	r2, #1
+ 2755 0148 A5D8     		bhi	.L183
 1750:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
- 2757              		.loc 1 1750 5 is_stmt 1 view .LVU899
+ 2756              		.loc 1 1750 5 is_stmt 1 view .LVU898
 1755:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2758              		.loc 1 1755 5 view .LVU900
+ 2757              		.loc 1 1755 5 view .LVU899
 1755:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2759              		.loc 1 1755 18 is_stmt 0 view .LVU901
- 2760 014a 0F48     		ldr	r0, .L190+4
- 2761 014c 4268     		ldr	r2, [r0, #4]
+ 2758              		.loc 1 1755 18 is_stmt 0 view .LVU900
+ 2759 014a 0F48     		ldr	r0, .L190+4
+ 2760 014c 4268     		ldr	r2, [r0, #4]
 1755:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2762              		.loc 1 1755 24 view .LVU902
- 2763 014e 42F40002 		orr	r2, r2, #8388608
- 2764 0152 4260     		str	r2, [r0, #4]
+ 2761              		.loc 1 1755 24 view .LVU901
+ 2762 014e 42F40002 		orr	r2, r2, #8388608
+ 2763 0152 4260     		str	r2, [r0, #4]
 1757:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 99
+ 2764              		.loc 1 1757 5 is_stmt 1 view .LVU902
+1757:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 99
 
 
- 2765              		.loc 1 1757 5 is_stmt 1 view .LVU903
+ 2765              		.loc 1 1757 16 is_stmt 0 view .LVU903
+ 2766 0154 0A68     		ldr	r2, [r1]
 1757:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
- 2766              		.loc 1 1757 16 is_stmt 0 view .LVU904
- 2767 0154 0A68     		ldr	r2, [r1]
-1757:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****     {
- 2768              		.loc 1 1757 8 view .LVU905
- 2769 0156 102A     		cmp	r2, #16
- 2770 0158 9DD1     		bne	.L183
+ 2767              		.loc 1 1757 8 view .LVU904
+ 2768 0156 102A     		cmp	r2, #16
+ 2769 0158 9DD1     		bne	.L183
 1761:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       while (counter != 0U)
- 2771              		.loc 1 1761 7 is_stmt 1 view .LVU906
+ 2770              		.loc 1 1761 7 is_stmt 1 view .LVU905
 1761:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       while (counter != 0U)
- 2772              		.loc 1 1761 61 is_stmt 0 view .LVU907
- 2773 015a 0C4A     		ldr	r2, .L190+8
- 2774 015c 1268     		ldr	r2, [r2]
- 2775 015e 0C49     		ldr	r1, .L190+12
- 2776              	.LVL158:
+ 2771              		.loc 1 1761 61 is_stmt 0 view .LVU906
+ 2772 015a 0C4A     		ldr	r2, .L190+8
+ 2773 015c 1268     		ldr	r2, [r2]
+ 2774 015e 0C49     		ldr	r1, .L190+12
+ 2775              	.LVL157:
 1761:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       while (counter != 0U)
- 2777              		.loc 1 1761 61 view .LVU908
- 2778 0160 A1FB0212 		umull	r1, r2, r1, r2
- 2779 0164 920C     		lsrs	r2, r2, #18
+ 2776              		.loc 1 1761 61 view .LVU907
+ 2777 0160 A1FB0212 		umull	r1, r2, r1, r2
+ 2778 0164 920C     		lsrs	r2, r2, #18
 1761:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       while (counter != 0U)
- 2780              		.loc 1 1761 42 view .LVU909
- 2781 0166 02EB8202 		add	r2, r2, r2, lsl #2
- 2782 016a 5200     		lsls	r2, r2, #1
+ 2779              		.loc 1 1761 42 view .LVU908
+ 2780 0166 02EB8202 		add	r2, r2, r2, lsl #2
+ 2781 016a 5200     		lsls	r2, r2, #1
 1761:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       while (counter != 0U)
- 2783              		.loc 1 1761 15 view .LVU910
- 2784 016c 0192     		str	r2, [sp, #4]
+ 2782              		.loc 1 1761 15 view .LVU909
+ 2783 016c 0192     		str	r2, [sp, #4]
 1762:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       {
- 2785              		.loc 1 1762 7 is_stmt 1 view .LVU911
+ 2784              		.loc 1 1762 7 is_stmt 1 view .LVU910
 1762:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       {
- 2786              		.loc 1 1762 13 is_stmt 0 view .LVU912
- 2787 016e 02E0     		b	.L184
- 2788              	.L185:
+ 2785              		.loc 1 1762 13 is_stmt 0 view .LVU911
+ 2786 016e 02E0     		b	.L184
+ 2787              	.L185:
 1764:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       }
- 2789              		.loc 1 1764 9 is_stmt 1 view .LVU913
+ 2788              		.loc 1 1764 9 is_stmt 1 view .LVU912
 1764:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       }
- 2790              		.loc 1 1764 16 is_stmt 0 view .LVU914
- 2791 0170 019A     		ldr	r2, [sp, #4]
- 2792 0172 013A     		subs	r2, r2, #1
- 2793 0174 0192     		str	r2, [sp, #4]
- 2794              	.L184:
+ 2789              		.loc 1 1764 16 is_stmt 0 view .LVU913
+ 2790 0170 019A     		ldr	r2, [sp, #4]
+ 2791 0172 013A     		subs	r2, r2, #1
+ 2792 0174 0192     		str	r2, [sp, #4]
+ 2793              	.L184:
 1762:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****       {
- 2795              		.loc 1 1762 22 is_stmt 1 view .LVU915
- 2796 0176 019A     		ldr	r2, [sp, #4]
- 2797 0178 002A     		cmp	r2, #0
- 2798 017a F9D1     		bne	.L185
- 2799 017c 8BE7     		b	.L183
- 2800              	.LVL159:
- 2801              	.L186:
+ 2794              		.loc 1 1762 22 is_stmt 1 view .LVU914
+ 2795 0176 019A     		ldr	r2, [sp, #4]
+ 2796 0178 002A     		cmp	r2, #0
+ 2797 017a F9D1     		bne	.L185
+ 2798 017c 8BE7     		b	.L183
+ 2799              	.LVL158:
+ 2800              	.L186:
 1680:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2802              		.loc 1 1680 3 is_stmt 0 discriminator 1 view .LVU916
- 2803 017e 0220     		movs	r0, #2
- 2804              	.LVL160:
+ 2801              		.loc 1 1680 3 is_stmt 0 discriminator 1 view .LVU915
+ 2802 017e 0220     		movs	r0, #2
+ 2803              	.LVL159:
 1680:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2805              		.loc 1 1680 3 discriminator 1 view .LVU917
- 2806 0180 8CE7     		b	.L176
- 2807              	.L191:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 100
+ 2804              		.loc 1 1680 3 discriminator 1 view .LVU916
+ 2805 0180 8CE7     		b	.L176
+ 2806              	.L191:
+ 2807 0182 00BF     		.align	2
+ 2808              	.L190:
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 100
 
 
- 2808 0182 00BF     		.align	2
- 2809              	.L190:
- 2810 0184 00200140 		.word	1073815552
- 2811 0188 00230140 		.word	1073816320
- 2812 018c 00000000 		.word	SystemCoreClock
- 2813 0190 83DE1B43 		.word	1125899907
- 2814              		.cfi_endproc
- 2815              	.LFE257:
- 2817              		.section	.text.HAL_ADC_AnalogWDGConfig,"ax",%progbits
- 2818              		.align	1
- 2819              		.global	HAL_ADC_AnalogWDGConfig
- 2820              		.syntax unified
- 2821              		.thumb
- 2822              		.thumb_func
- 2824              	HAL_ADC_AnalogWDGConfig:
- 2825              	.LVL161:
- 2826              	.LFB258:
+ 2809 0184 00200140 		.word	1073815552
+ 2810 0188 00230140 		.word	1073816320
+ 2811 018c 00000000 		.word	SystemCoreClock
+ 2812 0190 83DE1B43 		.word	1125899907
+ 2813              		.cfi_endproc
+ 2814              	.LFE257:
+ 2816              		.section	.text.HAL_ADC_AnalogWDGConfig,"ax",%progbits
+ 2817              		.align	1
+ 2818              		.global	HAL_ADC_AnalogWDGConfig
+ 2819              		.syntax unified
+ 2820              		.thumb
+ 2821              		.thumb_func
+ 2823              	HAL_ADC_AnalogWDGConfig:
+ 2824              	.LVL160:
+ 2825              	.LFB258:
 1793:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** #ifdef USE_FULL_ASSERT
- 2827              		.loc 1 1793 1 is_stmt 1 view -0
- 2828              		.cfi_startproc
- 2829              		@ args = 0, pretend = 0, frame = 0
- 2830              		@ frame_needed = 0, uses_anonymous_args = 0
- 2831              		@ link register save eliminated.
+ 2826              		.loc 1 1793 1 is_stmt 1 view -0
+ 2827              		.cfi_startproc
+ 2828              		@ args = 0, pretend = 0, frame = 0
+ 2829              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2830              		@ link register save eliminated.
 1799:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   assert_param(IS_ADC_CHANNEL(AnalogWDGConfig->Channel));
- 2832              		.loc 1 1799 3 view .LVU919
+ 2831              		.loc 1 1799 3 view .LVU918
 1800:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   assert_param(IS_FUNCTIONAL_STATE(AnalogWDGConfig->ITMode));
- 2833              		.loc 1 1800 3 view .LVU920
+ 2832              		.loc 1 1800 3 view .LVU919
 1801:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2834              		.loc 1 1801 3 view .LVU921
+ 2833              		.loc 1 1801 3 view .LVU920
+1810:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
+ 2834              		.loc 1 1810 3 view .LVU921
 1810:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
  2835              		.loc 1 1810 3 view .LVU922
-1810:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2836              		.loc 1 1810 3 view .LVU923
- 2837 0000 90F83C20 		ldrb	r2, [r0, #60]	@ zero_extendqisi2
- 2838 0004 012A     		cmp	r2, #1
- 2839 0006 34D0     		beq	.L196
+ 2836 0000 90F83C20 		ldrb	r2, [r0, #60]	@ zero_extendqisi2
+ 2837 0004 012A     		cmp	r2, #1
+ 2838 0006 34D0     		beq	.L196
 1793:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** #ifdef USE_FULL_ASSERT
- 2840              		.loc 1 1793 1 is_stmt 0 view .LVU924
- 2841 0008 10B4     		push	{r4}
- 2842              		.cfi_def_cfa_offset 4
- 2843              		.cfi_offset 4, -4
- 2844 000a 0346     		mov	r3, r0
+ 2839              		.loc 1 1793 1 is_stmt 0 view .LVU923
+ 2840 0008 10B4     		push	{r4}
+ 2841              		.cfi_def_cfa_offset 4
+ 2842              		.cfi_offset 4, -4
+ 2843 000a 0346     		mov	r3, r0
 1810:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2845              		.loc 1 1810 3 is_stmt 1 discriminator 2 view .LVU925
- 2846 000c 0122     		movs	r2, #1
- 2847 000e 80F83C20 		strb	r2, [r0, #60]
+ 2844              		.loc 1 1810 3 is_stmt 1 discriminator 2 view .LVU924
+ 2845 000c 0122     		movs	r2, #1
+ 2846 000e 80F83C20 		strb	r2, [r0, #60]
 1810:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2848              		.loc 1 1810 3 view .LVU926
+ 2847              		.loc 1 1810 3 discriminator 2 view .LVU925
 1812:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2849              		.loc 1 1812 3 view .LVU927
+ 2848              		.loc 1 1812 3 view .LVU926
 1812:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2850              		.loc 1 1812 22 is_stmt 0 view .LVU928
- 2851 0012 0A7C     		ldrb	r2, [r1, #16]	@ zero_extendqisi2
+ 2849              		.loc 1 1812 22 is_stmt 0 view .LVU927
+ 2850 0012 0A7C     		ldrb	r2, [r1, #16]	@ zero_extendqisi2
 1812:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   {
- 2852              		.loc 1 1812 6 view .LVU929
- 2853 0014 012A     		cmp	r2, #1
- 2854 0016 26D0     		beq	.L201
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 101
-
-
+ 2851              		.loc 1 1812 6 view .LVU928
+ 2852 0014 012A     		cmp	r2, #1
+ 2853 0016 26D0     		beq	.L201
 1820:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2855              		.loc 1 1820 5 is_stmt 1 view .LVU930
- 2856 0018 0068     		ldr	r0, [r0]
- 2857              	.LVL162:
+ 2854              		.loc 1 1820 5 is_stmt 1 view .LVU929
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 101
+
+
+ 2855 0018 0068     		ldr	r0, [r0]
+ 2856              	.LVL161:
 1820:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2858              		.loc 1 1820 5 is_stmt 0 view .LVU931
- 2859 001a 4268     		ldr	r2, [r0, #4]
- 2860 001c 22F04002 		bic	r2, r2, #64
- 2861 0020 4260     		str	r2, [r0, #4]
- 2862              	.L195:
+ 2857              		.loc 1 1820 5 is_stmt 0 view .LVU930
+ 2858 001a 4268     		ldr	r2, [r0, #4]
+ 2859 001c 22F04002 		bic	r2, r2, #64
+ 2860 0020 4260     		str	r2, [r0, #4]
+ 2861              	.L195:
 1824:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2863              		.loc 1 1824 3 is_stmt 1 view .LVU932
+ 2862              		.loc 1 1824 3 is_stmt 1 view .LVU931
 1824:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2864              		.loc 1 1824 7 is_stmt 0 view .LVU933
- 2865 0022 1868     		ldr	r0, [r3]
+ 2863              		.loc 1 1824 7 is_stmt 0 view .LVU932
+ 2864 0022 1868     		ldr	r0, [r3]
 1824:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2866              		.loc 1 1824 17 view .LVU934
- 2867 0024 4268     		ldr	r2, [r0, #4]
+ 2865              		.loc 1 1824 17 view .LVU933
+ 2866 0024 4268     		ldr	r2, [r0, #4]
 1824:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2868              		.loc 1 1824 23 view .LVU935
- 2869 0026 22F44002 		bic	r2, r2, #12582912
- 2870 002a 22F40072 		bic	r2, r2, #512
- 2871 002e 4260     		str	r2, [r0, #4]
+ 2867              		.loc 1 1824 23 view .LVU934
+ 2868 0026 22F44002 		bic	r2, r2, #12582912
+ 2869 002a 22F40072 		bic	r2, r2, #512
+ 2870 002e 4260     		str	r2, [r0, #4]
 1827:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2872              		.loc 1 1827 3 is_stmt 1 view .LVU936
+ 2871              		.loc 1 1827 3 is_stmt 1 view .LVU935
 1827:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2873              		.loc 1 1827 7 is_stmt 0 view .LVU937
- 2874 0030 1868     		ldr	r0, [r3]
+ 2872              		.loc 1 1827 7 is_stmt 0 view .LVU936
+ 2873 0030 1868     		ldr	r0, [r3]
 1827:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2875              		.loc 1 1827 17 view .LVU938
- 2876 0032 4268     		ldr	r2, [r0, #4]
+ 2874              		.loc 1 1827 17 view .LVU937
+ 2875 0032 4268     		ldr	r2, [r0, #4]
 1827:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2877              		.loc 1 1827 41 view .LVU939
- 2878 0034 0C68     		ldr	r4, [r1]
+ 2876              		.loc 1 1827 41 view .LVU938
+ 2877 0034 0C68     		ldr	r4, [r1]
 1827:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2879              		.loc 1 1827 23 view .LVU940
- 2880 0036 2243     		orrs	r2, r2, r4
- 2881 0038 4260     		str	r2, [r0, #4]
+ 2878              		.loc 1 1827 23 view .LVU939
+ 2879 0036 2243     		orrs	r2, r2, r4
+ 2880 0038 4260     		str	r2, [r0, #4]
 1830:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2882              		.loc 1 1830 3 is_stmt 1 view .LVU941
+ 2881              		.loc 1 1830 3 is_stmt 1 view .LVU940
 1830:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2883              		.loc 1 1830 7 is_stmt 0 view .LVU942
- 2884 003a 1A68     		ldr	r2, [r3]
+ 2882              		.loc 1 1830 7 is_stmt 0 view .LVU941
+ 2883 003a 1A68     		ldr	r2, [r3]
 1830:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2885              		.loc 1 1830 40 view .LVU943
- 2886 003c 4868     		ldr	r0, [r1, #4]
+ 2884              		.loc 1 1830 40 view .LVU942
+ 2885 003c 4868     		ldr	r0, [r1, #4]
 1830:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2887              		.loc 1 1830 23 view .LVU944
- 2888 003e 5062     		str	r0, [r2, #36]
+ 2886              		.loc 1 1830 23 view .LVU943
+ 2887 003e 5062     		str	r0, [r2, #36]
 1833:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2889              		.loc 1 1833 3 is_stmt 1 view .LVU945
+ 2888              		.loc 1 1833 3 is_stmt 1 view .LVU944
 1833:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2890              		.loc 1 1833 7 is_stmt 0 view .LVU946
- 2891 0040 1A68     		ldr	r2, [r3]
+ 2889              		.loc 1 1833 7 is_stmt 0 view .LVU945
+ 2890 0040 1A68     		ldr	r2, [r3]
 1833:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2892              		.loc 1 1833 40 view .LVU947
- 2893 0042 8868     		ldr	r0, [r1, #8]
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 102
+ 2891              		.loc 1 1833 40 view .LVU946
+ 2892 0042 8868     		ldr	r0, [r1, #8]
+1833:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
+ 2893              		.loc 1 1833 23 view .LVU947
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 102
 
 
-1833:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2894              		.loc 1 1833 23 view .LVU948
- 2895 0044 9062     		str	r0, [r2, #40]
+ 2894 0044 9062     		str	r0, [r2, #40]
 1836:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2896              		.loc 1 1836 3 is_stmt 1 view .LVU949
+ 2895              		.loc 1 1836 3 is_stmt 1 view .LVU948
 1836:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2897              		.loc 1 1836 7 is_stmt 0 view .LVU950
- 2898 0046 1868     		ldr	r0, [r3]
+ 2896              		.loc 1 1836 7 is_stmt 0 view .LVU949
+ 2897 0046 1868     		ldr	r0, [r3]
 1836:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2899              		.loc 1 1836 17 view .LVU951
- 2900 0048 4268     		ldr	r2, [r0, #4]
+ 2898              		.loc 1 1836 17 view .LVU950
+ 2899 0048 4268     		ldr	r2, [r0, #4]
 1836:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2901              		.loc 1 1836 23 view .LVU952
- 2902 004a 22F01F02 		bic	r2, r2, #31
- 2903 004e 4260     		str	r2, [r0, #4]
+ 2900              		.loc 1 1836 23 view .LVU951
+ 2901 004a 22F01F02 		bic	r2, r2, #31
+ 2902 004e 4260     		str	r2, [r0, #4]
 1839:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2904              		.loc 1 1839 3 is_stmt 1 view .LVU953
+ 2903              		.loc 1 1839 3 is_stmt 1 view .LVU952
 1839:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2905              		.loc 1 1839 7 is_stmt 0 view .LVU954
- 2906 0050 1868     		ldr	r0, [r3]
+ 2904              		.loc 1 1839 7 is_stmt 0 view .LVU953
+ 2905 0050 1868     		ldr	r0, [r3]
 1839:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2907              		.loc 1 1839 17 view .LVU955
- 2908 0052 4468     		ldr	r4, [r0, #4]
+ 2906              		.loc 1 1839 17 view .LVU954
+ 2907 0052 4468     		ldr	r4, [r0, #4]
 1839:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2909              		.loc 1 1839 23 view .LVU956
- 2910 0054 8A89     		ldrh	r2, [r1, #12]
- 2911 0056 2243     		orrs	r2, r2, r4
- 2912 0058 4260     		str	r2, [r0, #4]
+ 2908              		.loc 1 1839 23 view .LVU955
+ 2909 0054 8A89     		ldrh	r2, [r1, #12]
+ 2910 0056 2243     		orrs	r2, r2, r4
+ 2911 0058 4260     		str	r2, [r0, #4]
 1842:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2913              		.loc 1 1842 3 is_stmt 1 view .LVU957
+ 2912              		.loc 1 1842 3 is_stmt 1 view .LVU956
 1842:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2914              		.loc 1 1842 3 view .LVU958
- 2915 005a 0020     		movs	r0, #0
- 2916 005c 83F83C00 		strb	r0, [r3, #60]
+ 2913              		.loc 1 1842 3 view .LVU957
+ 2914 005a 0020     		movs	r0, #0
+ 2915 005c 83F83C00 		strb	r0, [r3, #60]
 1842:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2917              		.loc 1 1842 3 view .LVU959
+ 2916              		.loc 1 1842 3 view .LVU958
 1845:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** }
- 2918              		.loc 1 1845 3 view .LVU960
+ 2917              		.loc 1 1845 3 view .LVU959
 1846:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2919              		.loc 1 1846 1 is_stmt 0 view .LVU961
- 2920 0060 5DF8044B 		ldr	r4, [sp], #4
- 2921              		.cfi_remember_state
- 2922              		.cfi_restore 4
- 2923              		.cfi_def_cfa_offset 0
- 2924 0064 7047     		bx	lr
- 2925              	.LVL163:
- 2926              	.L201:
- 2927              		.cfi_restore_state
+ 2918              		.loc 1 1846 1 is_stmt 0 view .LVU960
+ 2919 0060 5DF8044B 		ldr	r4, [sp], #4
+ 2920              		.cfi_remember_state
+ 2921              		.cfi_restore 4
+ 2922              		.cfi_def_cfa_offset 0
+ 2923 0064 7047     		bx	lr
+ 2924              	.LVL162:
+ 2925              	.L201:
+ 2926              		.cfi_restore_state
 1815:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2928              		.loc 1 1815 5 is_stmt 1 view .LVU962
- 2929 0066 0068     		ldr	r0, [r0]
- 2930              	.LVL164:
+ 2927              		.loc 1 1815 5 is_stmt 1 view .LVU961
+ 2928 0066 0068     		ldr	r0, [r0]
+ 2929              	.LVL163:
 1815:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   }
- 2931              		.loc 1 1815 5 is_stmt 0 view .LVU963
- 2932 0068 4268     		ldr	r2, [r0, #4]
- 2933 006a 42F04002 		orr	r2, r2, #64
- 2934 006e 4260     		str	r2, [r0, #4]
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 103
+ 2930              		.loc 1 1815 5 is_stmt 0 view .LVU962
+ 2931 0068 4268     		ldr	r2, [r0, #4]
+ 2932 006a 42F04002 		orr	r2, r2, #64
+ 2933 006e 4260     		str	r2, [r0, #4]
+ 2934 0070 D7E7     		b	.L195
+ 2935              	.LVL164:
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 103
 
 
- 2935 0070 D7E7     		b	.L195
- 2936              	.LVL165:
- 2937              	.L196:
- 2938              		.cfi_def_cfa_offset 0
- 2939              		.cfi_restore 4
+ 2936              	.L196:
+ 2937              		.cfi_def_cfa_offset 0
+ 2938              		.cfi_restore 4
 1810:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2940              		.loc 1 1810 3 discriminator 1 view .LVU964
- 2941 0072 0220     		movs	r0, #2
- 2942              	.LVL166:
+ 2939              		.loc 1 1810 3 discriminator 1 view .LVU963
+ 2940 0072 0220     		movs	r0, #2
+ 2941              	.LVL165:
 1846:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2943              		.loc 1 1846 1 view .LVU965
- 2944 0074 7047     		bx	lr
- 2945              		.cfi_endproc
- 2946              	.LFE258:
- 2948              		.section	.text.HAL_ADC_GetState,"ax",%progbits
- 2949              		.align	1
- 2950              		.global	HAL_ADC_GetState
- 2951              		.syntax unified
- 2952              		.thumb
- 2953              		.thumb_func
- 2955              	HAL_ADC_GetState:
- 2956              	.LVL167:
- 2957              	.LFB259:
+ 2942              		.loc 1 1846 1 view .LVU964
+ 2943 0074 7047     		bx	lr
+ 2944              		.cfi_endproc
+ 2945              	.LFE258:
+ 2947              		.section	.text.HAL_ADC_GetState,"ax",%progbits
+ 2948              		.align	1
+ 2949              		.global	HAL_ADC_GetState
+ 2950              		.syntax unified
+ 2951              		.thumb
+ 2952              		.thumb_func
+ 2954              	HAL_ADC_GetState:
+ 2955              	.LVL166:
+ 2956              	.LFB259:
 1875:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   /* Return ADC state */
- 2958              		.loc 1 1875 1 is_stmt 1 view -0
- 2959              		.cfi_startproc
- 2960              		@ args = 0, pretend = 0, frame = 0
- 2961              		@ frame_needed = 0, uses_anonymous_args = 0
- 2962              		@ link register save eliminated.
+ 2957              		.loc 1 1875 1 is_stmt 1 view -0
+ 2958              		.cfi_startproc
+ 2959              		@ args = 0, pretend = 0, frame = 0
+ 2960              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2961              		@ link register save eliminated.
 1877:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** }
- 2963              		.loc 1 1877 3 view .LVU967
+ 2962              		.loc 1 1877 3 view .LVU966
 1877:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** }
- 2964              		.loc 1 1877 14 is_stmt 0 view .LVU968
- 2965 0000 006C     		ldr	r0, [r0, #64]
- 2966              	.LVL168:
+ 2963              		.loc 1 1877 14 is_stmt 0 view .LVU967
+ 2964 0000 006C     		ldr	r0, [r0, #64]
+ 2965              	.LVL167:
 1878:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2967              		.loc 1 1878 1 view .LVU969
- 2968 0002 7047     		bx	lr
- 2969              		.cfi_endproc
- 2970              	.LFE259:
- 2972              		.section	.text.HAL_ADC_GetError,"ax",%progbits
- 2973              		.align	1
- 2974              		.global	HAL_ADC_GetError
- 2975              		.syntax unified
- 2976              		.thumb
- 2977              		.thumb_func
- 2979              	HAL_ADC_GetError:
- 2980              	.LVL169:
- 2981              	.LFB260:
+ 2966              		.loc 1 1878 1 view .LVU968
+ 2967 0002 7047     		bx	lr
+ 2968              		.cfi_endproc
+ 2969              	.LFE259:
+ 2971              		.section	.text.HAL_ADC_GetError,"ax",%progbits
+ 2972              		.align	1
+ 2973              		.global	HAL_ADC_GetError
+ 2974              		.syntax unified
+ 2975              		.thumb
+ 2976              		.thumb_func
+ 2978              	HAL_ADC_GetError:
+ 2979              	.LVL168:
+ 2980              	.LFB260:
 1887:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c ****   return hadc->ErrorCode;
- 2982              		.loc 1 1887 1 is_stmt 1 view -0
- 2983              		.cfi_startproc
- 2984              		@ args = 0, pretend = 0, frame = 0
- 2985              		@ frame_needed = 0, uses_anonymous_args = 0
- 2986              		@ link register save eliminated.
+ 2981              		.loc 1 1887 1 is_stmt 1 view -0
+ 2982              		.cfi_startproc
+ 2983              		@ args = 0, pretend = 0, frame = 0
+ 2984              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2985              		@ link register save eliminated.
 1888:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** }
- 2987              		.loc 1 1888 3 view .LVU971
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 104
+ 2986              		.loc 1 1888 3 view .LVU970
+1888:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** }
+ 2987              		.loc 1 1888 14 is_stmt 0 view .LVU971
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 104
 
 
-1888:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** }
- 2988              		.loc 1 1888 14 is_stmt 0 view .LVU972
- 2989 0000 406C     		ldr	r0, [r0, #68]
- 2990              	.LVL170:
+ 2988 0000 406C     		ldr	r0, [r0, #68]
+ 2989              	.LVL169:
 1889:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c **** 
- 2991              		.loc 1 1889 1 view .LVU973
- 2992 0002 7047     		bx	lr
- 2993              		.cfi_endproc
- 2994              	.LFE260:
- 2996              		.text
- 2997              	.Letext0:
- 2998              		.file 2 "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/arm-none-eabi/include/ma
- 2999              		.file 3 "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/arm-none-eabi/include/sy
- 3000              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h"
- 3001              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
- 3002              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 3003              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 3004              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h"
- 3005              		.file 9 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 3006              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc_ex.h"
- 3007              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 105
+ 2990              		.loc 1 1889 1 view .LVU972
+ 2991 0002 7047     		bx	lr
+ 2992              		.cfi_endproc
+ 2993              	.LFE260:
+ 2995              		.text
+ 2996              	.Letext0:
+ 2997              		.file 2 "/Users/kroko/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@xp
+ 2998              		.file 3 "/Users/kroko/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@xp
+ 2999              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h"
+ 3000              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
+ 3001              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 3002              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 3003              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h"
+ 3004              		.file 9 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 3005              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc_ex.h"
+ 3006              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 105
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f4xx_hal_adc.c
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:21     .text.ADC_Init:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:26     .text.ADC_Init:00000000 ADC_Init
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:290    .text.ADC_Init:0000012c $d
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:296    .text.HAL_ADC_MspInit:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:302    .text.HAL_ADC_MspInit:00000000 HAL_ADC_MspInit
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:317    .text.HAL_ADC_Init:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:323    .text.HAL_ADC_Init:00000000 HAL_ADC_Init
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:424    .text.HAL_ADC_MspDeInit:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:430    .text.HAL_ADC_MspDeInit:00000000 HAL_ADC_MspDeInit
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:445    .text.HAL_ADC_DeInit:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:451    .text.HAL_ADC_DeInit:00000000 HAL_ADC_DeInit
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:521    .text.HAL_ADC_Start:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:527    .text.HAL_ADC_Start:00000000 HAL_ADC_Start
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:788    .text.HAL_ADC_Start:00000130 $d
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:797    .text.HAL_ADC_Stop:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:803    .text.HAL_ADC_Stop:00000000 HAL_ADC_Stop
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:862    .text.HAL_ADC_PollForConversion:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:868    .text.HAL_ADC_PollForConversion:00000000 HAL_ADC_PollForConversion
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:1032   .text.HAL_ADC_PollForEvent:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:1038   .text.HAL_ADC_PollForEvent:00000000 HAL_ADC_PollForEvent
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:1152   .text.HAL_ADC_Start_IT:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:1158   .text.HAL_ADC_Start_IT:00000000 HAL_ADC_Start_IT
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:1425   .text.HAL_ADC_Start_IT:0000013c $d
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:1434   .text.HAL_ADC_Stop_IT:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:1440   .text.HAL_ADC_Stop_IT:00000000 HAL_ADC_Stop_IT
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:1504   .text.HAL_ADC_Start_DMA:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:1510   .text.HAL_ADC_Start_DMA:00000000 HAL_ADC_Start_DMA
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:1798   .text.HAL_ADC_Start_DMA:00000168 $d
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:2386   .text.ADC_DMAConvCplt:00000000 ADC_DMAConvCplt
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:2001   .text.ADC_DMAHalfConvCplt:00000000 ADC_DMAHalfConvCplt
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:2346   .text.ADC_DMAError:00000000 ADC_DMAError
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:1810   .text.HAL_ADC_Stop_DMA:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:1816   .text.HAL_ADC_Stop_DMA:00000000 HAL_ADC_Stop_DMA
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:1928   .text.HAL_ADC_GetValue:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:1934   .text.HAL_ADC_GetValue:00000000 HAL_ADC_GetValue
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:1954   .text.HAL_ADC_ConvCpltCallback:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:1960   .text.HAL_ADC_ConvCpltCallback:00000000 HAL_ADC_ConvCpltCallback
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:1975   .text.HAL_ADC_ConvHalfCpltCallback:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:1981   .text.HAL_ADC_ConvHalfCpltCallback:00000000 HAL_ADC_ConvHalfCpltCallback
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:1996   .text.ADC_DMAHalfConvCplt:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:2027   .text.HAL_ADC_LevelOutOfWindowCallback:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:2033   .text.HAL_ADC_LevelOutOfWindowCallback:00000000 HAL_ADC_LevelOutOfWindowCallback
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:2048   .text.HAL_ADC_ErrorCallback:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:2054   .text.HAL_ADC_ErrorCallback:00000000 HAL_ADC_ErrorCallback
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:2069   .text.HAL_ADC_IRQHandler:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:2075   .text.HAL_ADC_IRQHandler:00000000 HAL_ADC_IRQHandler
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:2341   .text.ADC_DMAError:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:2381   .text.ADC_DMAConvCplt:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:2494   .text.HAL_ADC_ConfigChannel:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:2500   .text.HAL_ADC_ConfigChannel:00000000 HAL_ADC_ConfigChannel
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:2810   .text.HAL_ADC_ConfigChannel:00000184 $d
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:2818   .text.HAL_ADC_AnalogWDGConfig:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:2824   .text.HAL_ADC_AnalogWDGConfig:00000000 HAL_ADC_AnalogWDGConfig
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:2949   .text.HAL_ADC_GetState:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:2955   .text.HAL_ADC_GetState:00000000 HAL_ADC_GetState
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s 			page 106
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:21     .text.ADC_Init:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:26     .text.ADC_Init:00000000 ADC_Init
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:290    .text.ADC_Init:0000012c $d
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:296    .text.HAL_ADC_MspInit:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:302    .text.HAL_ADC_MspInit:00000000 HAL_ADC_MspInit
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:317    .text.HAL_ADC_Init:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:323    .text.HAL_ADC_Init:00000000 HAL_ADC_Init
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:424    .text.HAL_ADC_MspDeInit:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:430    .text.HAL_ADC_MspDeInit:00000000 HAL_ADC_MspDeInit
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:445    .text.HAL_ADC_DeInit:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:451    .text.HAL_ADC_DeInit:00000000 HAL_ADC_DeInit
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:521    .text.HAL_ADC_Start:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:527    .text.HAL_ADC_Start:00000000 HAL_ADC_Start
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:788    .text.HAL_ADC_Start:00000130 $d
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:797    .text.HAL_ADC_Stop:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:803    .text.HAL_ADC_Stop:00000000 HAL_ADC_Stop
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:862    .text.HAL_ADC_PollForConversion:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:868    .text.HAL_ADC_PollForConversion:00000000 HAL_ADC_PollForConversion
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:1032   .text.HAL_ADC_PollForEvent:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:1038   .text.HAL_ADC_PollForEvent:00000000 HAL_ADC_PollForEvent
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:1152   .text.HAL_ADC_Start_IT:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:1158   .text.HAL_ADC_Start_IT:00000000 HAL_ADC_Start_IT
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:1425   .text.HAL_ADC_Start_IT:0000013c $d
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:1434   .text.HAL_ADC_Stop_IT:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:1440   .text.HAL_ADC_Stop_IT:00000000 HAL_ADC_Stop_IT
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:1504   .text.HAL_ADC_Start_DMA:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:1510   .text.HAL_ADC_Start_DMA:00000000 HAL_ADC_Start_DMA
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:1798   .text.HAL_ADC_Start_DMA:00000168 $d
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:2385   .text.ADC_DMAConvCplt:00000000 ADC_DMAConvCplt
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:2000   .text.ADC_DMAHalfConvCplt:00000000 ADC_DMAHalfConvCplt
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:2345   .text.ADC_DMAError:00000000 ADC_DMAError
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:1810   .text.HAL_ADC_Stop_DMA:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:1816   .text.HAL_ADC_Stop_DMA:00000000 HAL_ADC_Stop_DMA
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:1927   .text.HAL_ADC_GetValue:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:1933   .text.HAL_ADC_GetValue:00000000 HAL_ADC_GetValue
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:1953   .text.HAL_ADC_ConvCpltCallback:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:1959   .text.HAL_ADC_ConvCpltCallback:00000000 HAL_ADC_ConvCpltCallback
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:1974   .text.HAL_ADC_ConvHalfCpltCallback:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:1980   .text.HAL_ADC_ConvHalfCpltCallback:00000000 HAL_ADC_ConvHalfCpltCallback
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:1995   .text.ADC_DMAHalfConvCplt:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:2026   .text.HAL_ADC_LevelOutOfWindowCallback:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:2032   .text.HAL_ADC_LevelOutOfWindowCallback:00000000 HAL_ADC_LevelOutOfWindowCallback
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:2047   .text.HAL_ADC_ErrorCallback:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:2053   .text.HAL_ADC_ErrorCallback:00000000 HAL_ADC_ErrorCallback
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:2068   .text.HAL_ADC_IRQHandler:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:2074   .text.HAL_ADC_IRQHandler:00000000 HAL_ADC_IRQHandler
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:2340   .text.ADC_DMAError:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:2380   .text.ADC_DMAConvCplt:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:2493   .text.HAL_ADC_ConfigChannel:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:2499   .text.HAL_ADC_ConfigChannel:00000000 HAL_ADC_ConfigChannel
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:2809   .text.HAL_ADC_ConfigChannel:00000184 $d
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:2817   .text.HAL_ADC_AnalogWDGConfig:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:2823   .text.HAL_ADC_AnalogWDGConfig:00000000 HAL_ADC_AnalogWDGConfig
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:2948   .text.HAL_ADC_GetState:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:2954   .text.HAL_ADC_GetState:00000000 HAL_ADC_GetState
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s 			page 106
 
 
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:2973   .text.HAL_ADC_GetError:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccsIAGDy.s:2979   .text.HAL_ADC_GetError:00000000 HAL_ADC_GetError
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:2972   .text.HAL_ADC_GetError:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccVHihwW.s:2978   .text.HAL_ADC_GetError:00000000 HAL_ADC_GetError
 
 UNDEFINED SYMBOLS
 SystemCoreClock

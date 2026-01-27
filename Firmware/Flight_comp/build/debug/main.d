@@ -39,7 +39,9 @@ build/debug/main.o: Core/Src/main.c Core/Inc/main.h \
  USB_DEVICE/App/usb_device.h \
  Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h \
  USB_DEVICE/Target/usbd_conf.h Core/Inc/25flash.h Core/Inc/main.h \
- Core/Inc/neopixel.h Core/Inc/buzzer.h
+ Core/Inc/neopixel.h Core/Inc/buzzer.h Core/Inc/lsm6dso.h \
+ Core/Inc/lsm6dso_reg.h Core/Inc/BMP388.h Core/Inc/ee24.h \
+ Core/Inc/NimaLTD.I-CUBE-EE24_conf.h Core/Inc/servo.h
 Core/Inc/main.h:
 Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 Core/Inc/stm32f4xx_hal_conf.h:
@@ -87,3 +89,9 @@ Core/Inc/25flash.h:
 Core/Inc/main.h:
 Core/Inc/neopixel.h:
 Core/Inc/buzzer.h:
+Core/Inc/lsm6dso.h:
+Core/Inc/lsm6dso_reg.h:
+Core/Inc/BMP388.h:
+Core/Inc/ee24.h:
+Core/Inc/NimaLTD.I-CUBE-EE24_conf.h:
+Core/Inc/servo.h:

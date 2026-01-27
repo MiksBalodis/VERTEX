@@ -76,10 +76,13 @@ endif
 # C sources
 C_SOURCES =  \
 Core/Src/25flash.c \
+Core/Src/BMP388.c \
+Core/Src/ee24.c \
 Core/Src/lsm6dso.c \
 Core/Src/lsm6dso_reg.c \
 Core/Src/main.c \
 Core/Src/neopixel.c \
+Core/Src/servo.c \
 Core/Src/stm32f4xx_hal_msp.c \
 Core/Src/stm32f4xx_it.c \
 Core/Src/syscalls.c \

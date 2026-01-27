@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s 			page 1
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s 			page 1
   51 0010 08BD     		pop	{r3, pc}
   52              	.L4:
   53 0012 00BF     		.align	2
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s 			page 2
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s 			page 2
 
 
   54              	.L3:
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s 			page 1
   11:Core/Src/25flash.c **** void FLASH_Reset(void){
  107              		.loc 1 11 23 is_stmt 1 view -0
  108              		.cfi_startproc
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s 			page 3
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s 			page 3
 
 
  109              		@ args = 0, pretend = 0, frame = 8
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s 			page 1
  154              		.align	2
  155              	.L11:
  156 0038 00080240 		.word	1073874944
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s 			page 4
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s 			page 4
 
 
  157              		.cfi_endproc
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s 			page 1
  205 002e FFF7FEFF 		bl	HAL_GPIO_WritePin
  206              	.LVL15:
   29:Core/Src/25flash.c **** 	return ((rData[0]<<16)|(rData[1]<<8)|rData[2]); // MFN ID : MEM ID : CAPACITY ID
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s 			page 5
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s 			page 5
 
 
  207              		.loc 1 29 2 view .LVU31
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s 			page 1
  257              		.loc 1 35 5 is_stmt 1 view .LVU43
  258              		.loc 1 35 25 is_stmt 0 view .LVU44
  259 000a 030C     		lsrs	r3, r0, #16
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s 			page 6
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s 			page 6
 
 
  260              		.loc 1 35 14 view .LVU45
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s 			page 1
  305              	.L19:
  306 004c 00080240 		.word	1073874944
  307              		.cfi_endproc
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s 			page 7
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s 			page 7
 
 
  308              	.LFE243:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s 			page 1
  344              	.LVL23:
   65:Core/Src/25flash.c ****     FLASH_CS_HIGH();
  345              		.loc 1 65 5 view .LVU64
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s 			page 8
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s 			page 8
 
 
  346 0020 0122     		movs	r2, #1
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s 			page 1
  383              		.loc 1 84 5 view .LVU67
  384              		.loc 1 84 13 is_stmt 0 view .LVU68
  385 0004 0523     		movs	r3, #5
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s 			page 9
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s 			page 9
 
 
  386 0006 8DF80730 		strb	r3, [sp, #7]
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s 			page 1
  429              		.loc 1 95 21 is_stmt 0 view .LVU82
  430 0046 9DF80630 		ldrb	r3, [sp, #6]	@ zero_extendqisi2
  431              		.loc 1 95 14 view .LVU83
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s 			page 10
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s 			page 10
 
 
  432 004a 13F0010F 		tst	r3, #1
@@ -574,256 +574,255 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s 			page 1
  462              		@ frame_needed = 0, uses_anonymous_args = 0
   46:Core/Src/25flash.c **** void FLASH_Program_Page(uint16_t page, uint8_t data[256]){
  463              		.loc 1 46 58 is_stmt 0 view .LVU87
- 464 0000 70B5     		push	{r4, r5, r6, lr}
- 465              		.cfi_def_cfa_offset 16
- 466              		.cfi_offset 4, -16
- 467              		.cfi_offset 5, -12
- 468              		.cfi_offset 6, -8
- 469              		.cfi_offset 14, -4
- 470 0002 C2B0     		sub	sp, sp, #264
- 471              		.cfi_def_cfa_offset 280
- 472 0004 0546     		mov	r5, r0
- 473 0006 0E46     		mov	r6, r1
+ 464 0000 30B5     		push	{r4, r5, lr}
+ 465              		.cfi_def_cfa_offset 12
+ 466              		.cfi_offset 4, -12
+ 467              		.cfi_offset 5, -8
+ 468              		.cfi_offset 14, -4
+ 469 0002 C3B0     		sub	sp, sp, #268
+ 470              		.cfi_def_cfa_offset 280
+ 471 0004 0446     		mov	r4, r0
+ 472 0006 0D46     		mov	r5, r1
   47:Core/Src/25flash.c **** 	FLASH_WE();
- 474              		.loc 1 47 2 is_stmt 1 view .LVU88
- 475 0008 FFF7FEFF 		bl	FLASH_WE
- 476              	.LVL34:
+ 473              		.loc 1 47 2 is_stmt 1 view .LVU88
+ 474 0008 FFF7FEFF 		bl	FLASH_WE
+ 475              	.LVL34:
   48:Core/Src/25flash.c ****     uint8_t tData[260];
- 477              		.loc 1 48 5 view .LVU89
+ 476              		.loc 1 48 5 view .LVU89
   49:Core/Src/25flash.c **** 	uint32_t address = page * 0x100;
- 478              		.loc 1 49 2 view .LVU90
+ 477              		.loc 1 49 2 view .LVU90
   49:Core/Src/25flash.c **** 	uint32_t address = page * 0x100;
- 479              		.loc 1 49 26 is_stmt 0 view .LVU91
- 480 000c 2B02     		lsls	r3, r5, #8
- 481              	.LVL35:
+ 478              		.loc 1 49 26 is_stmt 0 view .LVU91
+ 479 000c 2302     		lsls	r3, r4, #8
+ 480              	.LVL35:
   50:Core/Src/25flash.c **** 	tData[0] = 0x02;
- 482              		.loc 1 50 2 is_stmt 1 view .LVU92
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s 			page 11
+ 481              		.loc 1 50 2 is_stmt 1 view .LVU92
+  50:Core/Src/25flash.c **** 	tData[0] = 0x02;
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s 			page 11
 
 
-  50:Core/Src/25flash.c **** 	tData[0] = 0x02;
- 483              		.loc 1 50 11 is_stmt 0 view .LVU93
- 484 000e 01AC     		add	r4, sp, #4
- 485 0010 0222     		movs	r2, #2
- 486 0012 8DF80420 		strb	r2, [sp, #4]
+ 482              		.loc 1 50 11 is_stmt 0 view .LVU93
+ 483 000e 0222     		movs	r2, #2
+ 484 0010 8DF80420 		strb	r2, [sp, #4]
   51:Core/Src/25flash.c ****     tData[1] = (address >> 16) & 0xFF;  // Most significant byte
- 487              		.loc 1 51 5 is_stmt 1 view .LVU94
+ 485              		.loc 1 51 5 is_stmt 1 view .LVU94
   51:Core/Src/25flash.c ****     tData[1] = (address >> 16) & 0xFF;  // Most significant byte
- 488              		.loc 1 51 25 is_stmt 0 view .LVU95
- 489 0016 2A0A     		lsrs	r2, r5, #8
+ 486              		.loc 1 51 25 is_stmt 0 view .LVU95
+ 487 0014 220A     		lsrs	r2, r4, #8
   51:Core/Src/25flash.c ****     tData[1] = (address >> 16) & 0xFF;  // Most significant byte
- 490              		.loc 1 51 14 view .LVU96
- 491 0018 8DF80520 		strb	r2, [sp, #5]
+ 488              		.loc 1 51 14 view .LVU96
+ 489 0016 8DF80520 		strb	r2, [sp, #5]
   52:Core/Src/25flash.c ****     tData[2] = (address >> 8) & 0xFF;
- 492              		.loc 1 52 5 is_stmt 1 view .LVU97
+ 490              		.loc 1 52 5 is_stmt 1 view .LVU97
   52:Core/Src/25flash.c ****     tData[2] = (address >> 8) & 0xFF;
- 493              		.loc 1 52 14 is_stmt 0 view .LVU98
- 494 001c 8DF80650 		strb	r5, [sp, #6]
+ 491              		.loc 1 52 14 is_stmt 0 view .LVU98
+ 492 001a 8DF80640 		strb	r4, [sp, #6]
   53:Core/Src/25flash.c ****     tData[3] = address & 0xFF;          // Least significant byte
- 495              		.loc 1 53 5 is_stmt 1 view .LVU99
+ 493              		.loc 1 53 5 is_stmt 1 view .LVU99
   53:Core/Src/25flash.c ****     tData[3] = address & 0xFF;          // Least significant byte
- 496              		.loc 1 53 14 is_stmt 0 view .LVU100
- 497 0020 8DF80730 		strb	r3, [sp, #7]
+ 494              		.loc 1 53 14 is_stmt 0 view .LVU100
+ 495 001e 8DF80730 		strb	r3, [sp, #7]
   54:Core/Src/25flash.c **** 	memcpy(&tData[4], data, 256); 
- 498              		.loc 1 54 2 is_stmt 1 view .LVU101
- 499 0024 4FF48072 		mov	r2, #256
- 500 0028 3146     		mov	r1, r6
- 501 002a 02A8     		add	r0, sp, #8
- 502 002c FFF7FEFF 		bl	memcpy
- 503              	.LVL36:
+ 496              		.loc 1 54 2 is_stmt 1 view .LVU101
+ 497 0022 4FF48072 		mov	r2, #256
+ 498 0026 2946     		mov	r1, r5
+ 499 0028 02A8     		add	r0, sp, #8
+ 500 002a FFF7FEFF 		bl	memcpy
+ 501              	.LVL36:
   55:Core/Src/25flash.c **** 	FLASH_CS_LOW();  // pull the CS LOW
- 504              		.loc 1 55 2 view .LVU102
- 505 0030 094D     		ldr	r5, .L34
- 506              	.LVL37:
+ 502              		.loc 1 55 2 view .LVU102
+ 503 002e 0A4C     		ldr	r4, .L34
+ 504              	.LVL37:
   55:Core/Src/25flash.c **** 	FLASH_CS_LOW();  // pull the CS LOW
- 507              		.loc 1 55 2 is_stmt 0 view .LVU103
- 508 0032 0022     		movs	r2, #0
- 509 0034 1021     		movs	r1, #16
- 510 0036 2846     		mov	r0, r5
- 511 0038 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 512              	.LVL38:
+ 505              		.loc 1 55 2 is_stmt 0 view .LVU103
+ 506 0030 0022     		movs	r2, #0
+ 507 0032 1021     		movs	r1, #16
+ 508 0034 2046     		mov	r0, r4
+ 509 0036 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 510              	.LVL38:
   56:Core/Src/25flash.c ****     FLASH_SPI_Write(tData, 260);
- 513              		.loc 1 56 5 is_stmt 1 view .LVU104
- 514 003c 4FF48271 		mov	r1, #260
- 515 0040 2046     		mov	r0, r4
- 516 0042 FFF7FEFF 		bl	FLASH_SPI_Write
- 517              	.LVL39:
+ 511              		.loc 1 56 5 is_stmt 1 view .LVU104
+ 512 003a 4FF48271 		mov	r1, #260
+ 513 003e 01A8     		add	r0, sp, #4
+ 514 0040 FFF7FEFF 		bl	FLASH_SPI_Write
+ 515              	.LVL39:
   57:Core/Src/25flash.c **** 	FLASH_CS_HIGH();  // pull the HIGH
- 518              		.loc 1 57 2 view .LVU105
- 519 0046 0122     		movs	r2, #1
- 520 0048 1021     		movs	r1, #16
- 521 004a 2846     		mov	r0, r5
- 522 004c FFF7FEFF 		bl	HAL_GPIO_WritePin
- 523              	.LVL40:
+ 516              		.loc 1 57 2 view .LVU105
+ 517 0044 0122     		movs	r2, #1
+ 518 0046 1021     		movs	r1, #16
+ 519 0048 2046     		mov	r0, r4
+ 520 004a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 521              	.LVL40:
   58:Core/Src/25flash.c **** 	FLASH_WFE();
- 524              		.loc 1 58 2 view .LVU106
- 525 0050 FFF7FEFF 		bl	FLASH_WFE
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s 			page 12
+ 522              		.loc 1 58 2 view .LVU106
+ 523 004e FFF7FEFF 		bl	FLASH_WFE
+ 524              	.LVL41:
+  59:Core/Src/25flash.c **** }
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s 			page 12
 
 
- 526              	.LVL41:
+ 525              		.loc 1 59 1 is_stmt 0 view .LVU107
+ 526 0052 43B0     		add	sp, sp, #268
+ 527              		.cfi_def_cfa_offset 12
+ 528              		@ sp needed
+ 529 0054 30BD     		pop	{r4, r5, pc}
+ 530              	.LVL42:
+ 531              	.L35:
   59:Core/Src/25flash.c **** }
- 527              		.loc 1 59 1 is_stmt 0 view .LVU107
- 528 0054 42B0     		add	sp, sp, #264
- 529              		.cfi_def_cfa_offset 16
- 530              		@ sp needed
- 531 0056 70BD     		pop	{r4, r5, r6, pc}
- 532              	.LVL42:
- 533              	.L35:
-  59:Core/Src/25flash.c **** }
- 534              		.loc 1 59 1 view .LVU108
- 535              		.align	2
- 536              	.L34:
- 537 0058 00080240 		.word	1073874944
- 538              		.cfi_endproc
- 539              	.LFE244:
- 541              		.section	.text.FLASH_Sector_Erase,"ax",%progbits
- 542              		.align	1
- 543              		.global	FLASH_Sector_Erase
- 544              		.syntax unified
- 545              		.thumb
- 546              		.thumb_func
- 548              	FLASH_Sector_Erase:
- 549              	.LVL43:
- 550              	.LFB246:
+ 532              		.loc 1 59 1 view .LVU108
+ 533 0056 00BF     		.align	2
+ 534              	.L34:
+ 535 0058 00080240 		.word	1073874944
+ 536              		.cfi_endproc
+ 537              	.LFE244:
+ 539              		.section	.text.FLASH_Sector_Erase,"ax",%progbits
+ 540              		.align	1
+ 541              		.global	FLASH_Sector_Erase
+ 542              		.syntax unified
+ 543              		.thumb
+ 544              		.thumb_func
+ 546              	FLASH_Sector_Erase:
+ 547              	.LVL43:
+ 548              	.LFB246:
   68:Core/Src/25flash.c **** void FLASH_Sector_Erase(uint32_t sector){
- 551              		.loc 1 68 41 is_stmt 1 view -0
- 552              		.cfi_startproc
- 553              		@ args = 0, pretend = 0, frame = 8
- 554              		@ frame_needed = 0, uses_anonymous_args = 0
+ 549              		.loc 1 68 41 is_stmt 1 view -0
+ 550              		.cfi_startproc
+ 551              		@ args = 0, pretend = 0, frame = 8
+ 552              		@ frame_needed = 0, uses_anonymous_args = 0
   68:Core/Src/25flash.c **** void FLASH_Sector_Erase(uint32_t sector){
- 555              		.loc 1 68 41 is_stmt 0 view .LVU110
- 556 0000 10B5     		push	{r4, lr}
- 557              		.cfi_def_cfa_offset 8
- 558              		.cfi_offset 4, -8
- 559              		.cfi_offset 14, -4
- 560 0002 82B0     		sub	sp, sp, #8
- 561              		.cfi_def_cfa_offset 16
- 562 0004 0446     		mov	r4, r0
+ 553              		.loc 1 68 41 is_stmt 0 view .LVU110
+ 554 0000 10B5     		push	{r4, lr}
+ 555              		.cfi_def_cfa_offset 8
+ 556              		.cfi_offset 4, -8
+ 557              		.cfi_offset 14, -4
+ 558 0002 82B0     		sub	sp, sp, #8
+ 559              		.cfi_def_cfa_offset 16
+ 560 0004 0446     		mov	r4, r0
   69:Core/Src/25flash.c **** 	FLASH_WE();
- 563              		.loc 1 69 2 is_stmt 1 view .LVU111
- 564 0006 FFF7FEFF 		bl	FLASH_WE
- 565              	.LVL44:
+ 561              		.loc 1 69 2 is_stmt 1 view .LVU111
+ 562 0006 FFF7FEFF 		bl	FLASH_WE
+ 563              	.LVL44:
   70:Core/Src/25flash.c ****     uint8_t cmd[4];
- 566              		.loc 1 70 5 view .LVU112
+ 564              		.loc 1 70 5 view .LVU112
   71:Core/Src/25flash.c ****     cmd[0] = 0x20;  // 4KB Sector Erase
- 567              		.loc 1 71 5 view .LVU113
+ 565              		.loc 1 71 5 view .LVU113
   71:Core/Src/25flash.c ****     cmd[0] = 0x20;  // 4KB Sector Erase
- 568              		.loc 1 71 12 is_stmt 0 view .LVU114
- 569 000a 2023     		movs	r3, #32
- 570 000c 8DF80430 		strb	r3, [sp, #4]
+ 566              		.loc 1 71 12 is_stmt 0 view .LVU114
+ 567 000a 2023     		movs	r3, #32
+ 568 000c 8DF80430 		strb	r3, [sp, #4]
   72:Core/Src/25flash.c ****     cmd[1] = (sector >> 16) & 0xFF;
- 571              		.loc 1 72 5 is_stmt 1 view .LVU115
+ 569              		.loc 1 72 5 is_stmt 1 view .LVU115
   72:Core/Src/25flash.c ****     cmd[1] = (sector >> 16) & 0xFF;
- 572              		.loc 1 72 22 is_stmt 0 view .LVU116
- 573 0010 230C     		lsrs	r3, r4, #16
+ 570              		.loc 1 72 22 is_stmt 0 view .LVU116
+ 571 0010 230C     		lsrs	r3, r4, #16
   72:Core/Src/25flash.c ****     cmd[1] = (sector >> 16) & 0xFF;
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s 			page 13
+ 572              		.loc 1 72 12 view .LVU117
+ 573 0012 8DF80530 		strb	r3, [sp, #5]
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s 			page 13
 
 
- 574              		.loc 1 72 12 view .LVU117
- 575 0012 8DF80530 		strb	r3, [sp, #5]
   73:Core/Src/25flash.c ****     cmd[2] = (sector >> 8) & 0xFF;
- 576              		.loc 1 73 5 is_stmt 1 view .LVU118
+ 574              		.loc 1 73 5 is_stmt 1 view .LVU118
   73:Core/Src/25flash.c ****     cmd[2] = (sector >> 8) & 0xFF;
- 577              		.loc 1 73 22 is_stmt 0 view .LVU119
- 578 0016 230A     		lsrs	r3, r4, #8
+ 575              		.loc 1 73 22 is_stmt 0 view .LVU119
+ 576 0016 230A     		lsrs	r3, r4, #8
   73:Core/Src/25flash.c ****     cmd[2] = (sector >> 8) & 0xFF;
- 579              		.loc 1 73 12 view .LVU120
- 580 0018 8DF80630 		strb	r3, [sp, #6]
+ 577              		.loc 1 73 12 view .LVU120
+ 578 0018 8DF80630 		strb	r3, [sp, #6]
   74:Core/Src/25flash.c ****     cmd[3] = sector & 0xFF;
- 581              		.loc 1 74 5 is_stmt 1 view .LVU121
+ 579              		.loc 1 74 5 is_stmt 1 view .LVU121
   74:Core/Src/25flash.c ****     cmd[3] = sector & 0xFF;
- 582              		.loc 1 74 12 is_stmt 0 view .LVU122
- 583 001c 8DF80740 		strb	r4, [sp, #7]
+ 580              		.loc 1 74 12 is_stmt 0 view .LVU122
+ 581 001c 8DF80740 		strb	r4, [sp, #7]
   76:Core/Src/25flash.c ****     FLASH_CS_LOW();
- 584              		.loc 1 76 5 is_stmt 1 view .LVU123
- 585 0020 094C     		ldr	r4, .L38
- 586              	.LVL45:
+ 582              		.loc 1 76 5 is_stmt 1 view .LVU123
+ 583 0020 094C     		ldr	r4, .L38
+ 584              	.LVL45:
   76:Core/Src/25flash.c ****     FLASH_CS_LOW();
- 587              		.loc 1 76 5 is_stmt 0 view .LVU124
- 588 0022 0022     		movs	r2, #0
- 589 0024 1021     		movs	r1, #16
- 590 0026 2046     		mov	r0, r4
- 591 0028 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 592              	.LVL46:
+ 585              		.loc 1 76 5 is_stmt 0 view .LVU124
+ 586 0022 0022     		movs	r2, #0
+ 587 0024 1021     		movs	r1, #16
+ 588 0026 2046     		mov	r0, r4
+ 589 0028 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 590              	.LVL46:
   77:Core/Src/25flash.c ****     FLASH_SPI_Write(cmd, 4);
- 593              		.loc 1 77 5 is_stmt 1 view .LVU125
- 594 002c 0421     		movs	r1, #4
- 595 002e 0DEB0100 		add	r0, sp, r1
- 596 0032 FFF7FEFF 		bl	FLASH_SPI_Write
- 597              	.LVL47:
+ 591              		.loc 1 77 5 is_stmt 1 view .LVU125
+ 592 002c 0421     		movs	r1, #4
+ 593 002e 0DEB0100 		add	r0, sp, r1
+ 594 0032 FFF7FEFF 		bl	FLASH_SPI_Write
+ 595              	.LVL47:
   78:Core/Src/25flash.c ****     FLASH_CS_HIGH();
- 598              		.loc 1 78 5 view .LVU126
- 599 0036 0122     		movs	r2, #1
- 600 0038 1021     		movs	r1, #16
- 601 003a 2046     		mov	r0, r4
- 602 003c FFF7FEFF 		bl	HAL_GPIO_WritePin
- 603              	.LVL48:
+ 596              		.loc 1 78 5 view .LVU126
+ 597 0036 0122     		movs	r2, #1
+ 598 0038 1021     		movs	r1, #16
+ 599 003a 2046     		mov	r0, r4
+ 600 003c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 601              	.LVL48:
   79:Core/Src/25flash.c **** 	FLASH_WFE();
- 604              		.loc 1 79 2 view .LVU127
- 605 0040 FFF7FEFF 		bl	FLASH_WFE
- 606              	.LVL49:
+ 602              		.loc 1 79 2 view .LVU127
+ 603 0040 FFF7FEFF 		bl	FLASH_WFE
+ 604              	.LVL49:
   80:Core/Src/25flash.c **** }
- 607              		.loc 1 80 1 is_stmt 0 view .LVU128
- 608 0044 02B0     		add	sp, sp, #8
- 609              		.cfi_def_cfa_offset 8
- 610              		@ sp needed
- 611 0046 10BD     		pop	{r4, pc}
- 612              	.L39:
- 613              		.align	2
- 614              	.L38:
- 615 0048 00080240 		.word	1073874944
- 616              		.cfi_endproc
- 617              	.LFE246:
- 619              		.text
- 620              	.Letext0:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s 			page 14
+ 605              		.loc 1 80 1 is_stmt 0 view .LVU128
+ 606 0044 02B0     		add	sp, sp, #8
+ 607              		.cfi_def_cfa_offset 8
+ 608              		@ sp needed
+ 609 0046 10BD     		pop	{r4, pc}
+ 610              	.L39:
+ 611              		.align	2
+ 612              	.L38:
+ 613 0048 00080240 		.word	1073874944
+ 614              		.cfi_endproc
+ 615              	.LFE246:
+ 617              		.text
+ 618              	.Letext0:
+ 619              		.file 2 "/Users/kroko/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@xp
+ 620              		.file 3 "/Users/kroko/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@xp
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s 			page 14
 
 
- 621              		.file 2 "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/arm-none-eabi/include/ma
- 622              		.file 3 "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/arm-none-eabi/include/sy
- 623              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h"
- 624              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 625              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
- 626              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 627              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
- 628              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
- 629              		.file 10 "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/arm-none-eabi/include/s
- 630              		.file 11 "Core/Inc/25flash.h"
- 631              		.file 12 "<built-in>"
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s 			page 15
+ 621              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h"
+ 622              		.file 5 "/Users/kroko/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@xp
+ 623              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 624              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 625              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 626              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
+ 627              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 628              		.file 11 "/Users/kroko/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@x
+ 629              		.file 12 "Core/Inc/25flash.h"
+ 630              		.file 13 "<built-in>"
+ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s 			page 15
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 25flash.c
-C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s:21     .text.FLASH_SPI_Write:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s:27     .text.FLASH_SPI_Write:00000000 FLASH_SPI_Write
-C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s:55     .text.FLASH_SPI_Write:00000014 $d
-C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s:60     .text.FLASH_SPI_Read:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s:66     .text.FLASH_SPI_Read:00000000 FLASH_SPI_Read
-C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s:94     .text.FLASH_SPI_Read:00000014 $d
-C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s:99     .text.FLASH_Reset:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s:105    .text.FLASH_Reset:00000000 FLASH_Reset
-C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s:156    .text.FLASH_Reset:00000038 $d
-C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s:161    .text.FLASH_ReadID:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s:167    .text.FLASH_ReadID:00000000 FLASH_ReadID
-C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s:227    .text.FLASH_ReadID:0000004c $d
-C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s:232    .text.FLASH_Read:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s:238    .text.FLASH_Read:00000000 FLASH_Read
-C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s:306    .text.FLASH_Read:0000004c $d
-C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s:311    .text.FLASH_WE:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s:317    .text.FLASH_WE:00000000 FLASH_WE
-C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s:359    .text.FLASH_WE:00000030 $d
-C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s:364    .text.FLASH_WFE:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s:370    .text.FLASH_WFE:00000000 FLASH_WFE
-C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s:445    .text.FLASH_WFE:00000054 $d
-C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s:450    .text.FLASH_Program_Page:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s:456    .text.FLASH_Program_Page:00000000 FLASH_Program_Page
-C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s:537    .text.FLASH_Program_Page:00000058 $d
-C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s:542    .text.FLASH_Sector_Erase:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s:548    .text.FLASH_Sector_Erase:00000000 FLASH_Sector_Erase
-C:\Users\kroko\AppData\Local\Temp\cc5uzONb.s:615    .text.FLASH_Sector_Erase:00000048 $d
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s:21     .text.FLASH_SPI_Write:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s:27     .text.FLASH_SPI_Write:00000000 FLASH_SPI_Write
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s:55     .text.FLASH_SPI_Write:00000014 $d
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s:60     .text.FLASH_SPI_Read:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s:66     .text.FLASH_SPI_Read:00000000 FLASH_SPI_Read
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s:94     .text.FLASH_SPI_Read:00000014 $d
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s:99     .text.FLASH_Reset:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s:105    .text.FLASH_Reset:00000000 FLASH_Reset
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s:156    .text.FLASH_Reset:00000038 $d
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s:161    .text.FLASH_ReadID:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s:167    .text.FLASH_ReadID:00000000 FLASH_ReadID
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s:227    .text.FLASH_ReadID:0000004c $d
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s:232    .text.FLASH_Read:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s:238    .text.FLASH_Read:00000000 FLASH_Read
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s:306    .text.FLASH_Read:0000004c $d
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s:311    .text.FLASH_WE:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s:317    .text.FLASH_WE:00000000 FLASH_WE
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s:359    .text.FLASH_WE:00000030 $d
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s:364    .text.FLASH_WFE:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s:370    .text.FLASH_WFE:00000000 FLASH_WFE
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s:445    .text.FLASH_WFE:00000054 $d
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s:450    .text.FLASH_Program_Page:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s:456    .text.FLASH_Program_Page:00000000 FLASH_Program_Page
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s:535    .text.FLASH_Program_Page:00000058 $d
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s:540    .text.FLASH_Sector_Erase:00000000 $t
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s:546    .text.FLASH_Sector_Erase:00000000 FLASH_Sector_Erase
+/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccUSpyVs.s:613    .text.FLASH_Sector_Erase:00000048 $d
 
 UNDEFINED SYMBOLS
 HAL_SPI_Transmit
