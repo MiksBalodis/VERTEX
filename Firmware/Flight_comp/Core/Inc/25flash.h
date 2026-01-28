@@ -21,8 +21,10 @@ void FLASH_SPI_Read(uint8_t *data, uint16_t len);
 void FLASH_Reset(void);
 uint32_t FLASH_ReadID(void);
 uint8_t FLASH_Read(uint32_t address);
+void FLASH_Read_Sector(uint32_t sector, uint8_t *data[4096]);
 void FLASH_Program_Page(uint16_t page, uint8_t data[256]);
 void FLASH_Sector_Erase(uint32_t sector);
+void FLASH_Program_Sector(uint32_t sector, uint8_t data[4096]);
 
 void FLASH_WFE(void);
 void FLASH_WE(void);

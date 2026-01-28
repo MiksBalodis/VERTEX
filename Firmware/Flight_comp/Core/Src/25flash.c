@@ -79,6 +79,29 @@ void FLASH_Sector_Erase(uint32_t sector){
 	FLASH_WFE();
 }
 
+void FLASH_Program_Sector(uint32_t sector, uint8_t data[4096]){
+    FLASH_WE();
+    for (uint8_t pg = 0; pg < 16; pg++){
+        uint8_t tData[260];
+        uint32_t address = sector*0x1000 + pg * 0x100;
+        tData[0] = 0x02;
+        tData[1] = (address >> 16) & 0xFF;  // Most significant byte
+        tData[2] = (address >> 8) & 0xFF;
+        tData[3] = address & 0xFF;          // Least significant byte
+        memcpy(&tData[4], &data[pg*256], 256); 
+        FLASH_CS_LOW();  // pull the CS LOW
+        FLASH_SPI_Write(tData, 260);
+        FLASH_CS_HIGH();  // pull the HIGH
+    }
+    FLASH_WFE();
+}
+
+void FLASH_Read_Sector(uint32_t sector, uint8_t *data[4096]){
+    for (uint32_t addr = 0; addr < 4096; addr++){
+        data[addr] = FLASH_Read(sector*0x1000+addr);
+    }
+}
+
 
 void FLASH_WFE(void){
     uint8_t cmd = 0x05;
