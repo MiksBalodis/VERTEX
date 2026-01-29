@@ -19,7 +19,7 @@
 
 
 /* Declarations and definitions ----------------------------------------------*/
-#define BMP3_ADDR                                       0x76
+#define BMP3_ADDR                                       0x77
 
 #define BMP3_CHIP_ID                                    0x50
 

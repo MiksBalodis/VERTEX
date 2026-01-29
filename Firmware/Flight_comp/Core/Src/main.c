@@ -75,6 +75,8 @@ UART_HandleTypeDef huart1;
 /* USER CODE BEGIN PV */
 LSM6DSO_Object_t lsm6dso1;
 
+BMP388_HandleTypeDef hbmp388;
+
 float battery_v;
 uint32_t adc_buff[1];
 /* USER CODE END PV */
@@ -150,13 +152,30 @@ int main(void)
   MX_USB_DEVICE_Init();
   MX_CRC_Init();
   /* USER CODE BEGIN 2 */
-  LSM6DSO_Init(&lsm6dso1);
+  // LSM6DSO_Init(&lsm6dso1);
+
+  HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_SET);
+
+  hbmp388.hi2c = &hi2c2;
+  uint32_t rprs, rtemp, time;
+  float prs, temp;
+  if(BMP388_Init(&hbmp388) == HAL_OK){
+    HAL_Delay(5);
+    BMP388_SetTempOS(&hbmp388, BMP388_OVERSAMPLING_8X);
+    BMP388_SetPressOS(&hbmp388, BMP388_OVERSAMPLING_8X);
+    BMP388_SetIIRFilterCoeff(&hbmp388, BMP3_IIR_FILTER_COEFF_3);
+    BMP388_SetOutputDataRate(&hbmp388, BMP3_ODR_50_HZ);
+    BMP388_ReadRawPressTempTime(&hbmp388, &rprs, &rtemp, &time);  // DUMMY
+  }
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    HAL_Delay(100);  // wait for conversion
+    BMP388_ReadRawPressTempTime(&hbmp388, &rprs, &rtemp, &time);
+    BMP388_CompensateRawPressTemp(&hbmp388, rprs, rtemp, &prs, &temp);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

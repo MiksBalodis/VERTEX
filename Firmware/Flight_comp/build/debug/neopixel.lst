@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//cclw49V6.s 			page 1
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccppBk71.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,30 +58,30 @@ ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//cclw49V6.s 			page 1
   45 0000 1723     		movs	r3, #23
   46              	.LBE3:
   47              	.LBE2:
-ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//cclw49V6.s 			page 2
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccppBk71.s 			page 2
 
 
    8:Core/Src/neopixel.c ****     for (uint8_t i = 0; i < NUM_PX; i++)
   48              		.loc 1 8 11 view .LVU9
-  49 0002 0849     		ldr	r1, .L6
+  49 0002 0849     		ldr	r1, .L5
   50 0004 04E0     		b	.L4
   51              	.LVL1:
-  52              	.L5:
+  52              	.L2:
   53              	.LBB5:
   54              	.LBB4:
   12:Core/Src/neopixel.c ****        {
   13:Core/Src/neopixel.c ****          if ((pixel[i].data >> j) & 0x01)
   14:Core/Src/neopixel.c ****          {
   15:Core/Src/neopixel.c ****            *pBuff = NEOPIXEL_1;
-  55              		.loc 1 15 12 is_stmt 1 view .LVU10
-  56              		.loc 1 15 19 is_stmt 0 view .LVU11
-  57 0006 3C22     		movs	r2, #60
-  58 0008 0A60     		str	r2, [r1]
-  59              	.L3:
   16:Core/Src/neopixel.c ****          }
   17:Core/Src/neopixel.c ****          else
   18:Core/Src/neopixel.c ****          {
   19:Core/Src/neopixel.c ****            *pBuff = NEOPIXEL_0;
+  55              		.loc 1 19 12 is_stmt 1 view .LVU10
+  56              		.loc 1 19 19 is_stmt 0 view .LVU11
+  57 0006 1E22     		movs	r2, #30
+  58 0008 0A60     		str	r2, [r1]
+  59              	.L3:
   20:Core/Src/neopixel.c ****          }
   21:Core/Src/neopixel.c ****          pBuff++;
   60              		.loc 1 21 10 is_stmt 1 view .LVU12
@@ -103,7 +103,7 @@ ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//cclw49V6.s 			page 1
   72              		.loc 1 13 10 view .LVU17
   13:Core/Src/neopixel.c ****          {
   73              		.loc 1 13 23 is_stmt 0 view .LVU18
-  74 0010 054A     		ldr	r2, .L6+4
+  74 0010 054A     		ldr	r2, .L5+4
   75 0012 1268     		ldr	r2, [r2]
   13:Core/Src/neopixel.c ****          {
   76              		.loc 1 13 29 view .LVU19
@@ -111,20 +111,20 @@ ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//cclw49V6.s 			page 1
   13:Core/Src/neopixel.c ****          {
   78              		.loc 1 13 13 view .LVU20
   79 0016 12F0010F 		tst	r2, #1
-  80 001a F4D1     		bne	.L5
-  19:Core/Src/neopixel.c ****          }
-  81              		.loc 1 19 12 is_stmt 1 view .LVU21
-  19:Core/Src/neopixel.c ****          }
-  82              		.loc 1 19 19 is_stmt 0 view .LVU22
-  83 001c 1E22     		movs	r2, #30
+  80 001a F4D0     		beq	.L2
+  15:Core/Src/neopixel.c ****          }
+  81              		.loc 1 15 12 is_stmt 1 view .LVU21
+  15:Core/Src/neopixel.c ****          }
+  82              		.loc 1 15 19 is_stmt 0 view .LVU22
+  83 001c 3C22     		movs	r2, #60
   84 001e 0A60     		str	r2, [r1]
-ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//cclw49V6.s 			page 3
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccppBk71.s 			page 3
 
 
   85 0020 F3E7     		b	.L3
-  86              	.L7:
+  86              	.L6:
   87 0022 00BF     		.align	2
-  88              	.L6:
+  88              	.L5:
   89 0024 00000000 		.word	dmaBuffer
   90 0028 00000000 		.word	pixel
   91              	.LBE4:
@@ -160,7 +160,7 @@ ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//cclw49V6.s 			page 1
   30:Core/Src/neopixel.c ****     pixel[led].color.r = r;
  115              		.loc 1 30 5 is_stmt 1 view .LVU25
  116              		.loc 1 30 24 is_stmt 0 view .LVU26
- 117 0002 064C     		ldr	r4, .L10
+ 117 0002 064C     		ldr	r4, .L9
  118 0004 04EB800C 		add	ip, r4, r0, lsl #2
  119 0008 8CF80110 		strb	r1, [ip, #1]
   31:Core/Src/neopixel.c ****     pixel[led].color.b = b;
@@ -177,12 +177,12 @@ ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//cclw49V6.s 			page 1
  128              		.cfi_restore 4
  129              		.cfi_def_cfa_offset 0
  130 0018 7047     		bx	lr
- 131              	.L11:
-ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//cclw49V6.s 			page 4
+ 131              	.L10:
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccppBk71.s 			page 4
 
 
  132 001a 00BF     		.align	2
- 133              	.L10:
+ 133              	.L9:
  134 001c 00000000 		.word	pixel
  135              		.cfi_endproc
  136              	.LFE240:
@@ -233,33 +233,33 @@ ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//cclw49V6.s 			page 1
  179 0000 00000000 		.space	4
  180              		.text
  181              	.Letext0:
- 182              		.file 2 "/Users/kroko/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@xp
- 183              		.file 3 "/Users/kroko/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@xp
+ 182              		.file 2 "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/arm-none-eabi/include/ma
+ 183              		.file 3 "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/arm-none-eabi/include/sy
  184              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h"
  185              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
  186              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
-ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//cclw49V6.s 			page 5
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccppBk71.s 			page 5
 
 
  187              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
  188              		.file 8 "Core/Inc/neopixel.h"
-ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//cclw49V6.s 			page 6
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccppBk71.s 			page 6
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 neopixel.c
-/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//cclw49V6.s:21     .text.LED_Update:00000000 $t
-/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//cclw49V6.s:27     .text.LED_Update:00000000 LED_Update
-/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//cclw49V6.s:89     .text.LED_Update:00000024 $d
-/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//cclw49V6.s:171    .bss.dmaBuffer:00000000 dmaBuffer
-/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//cclw49V6.s:178    .bss.pixel:00000000 pixel
-/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//cclw49V6.s:97     .text.LED_Set_Color:00000000 $t
-/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//cclw49V6.s:103    .text.LED_Set_Color:00000000 LED_Set_Color
-/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//cclw49V6.s:134    .text.LED_Set_Color:0000001c $d
-/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//cclw49V6.s:139    .text.HAL_TIM_PWM_PulseFinishedCallback:00000000 $t
-/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//cclw49V6.s:145    .text.HAL_TIM_PWM_PulseFinishedCallback:00000000 HAL_TIM_PWM_PulseFinishedCallback
-/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//cclw49V6.s:168    .bss.dmaBuffer:00000000 $d
-/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//cclw49V6.s:175    .bss.pixel:00000000 $d
+C:\Users\kroko\AppData\Local\Temp\ccppBk71.s:21     .text.LED_Update:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccppBk71.s:27     .text.LED_Update:00000000 LED_Update
+C:\Users\kroko\AppData\Local\Temp\ccppBk71.s:89     .text.LED_Update:00000024 $d
+C:\Users\kroko\AppData\Local\Temp\ccppBk71.s:171    .bss.dmaBuffer:00000000 dmaBuffer
+C:\Users\kroko\AppData\Local\Temp\ccppBk71.s:178    .bss.pixel:00000000 pixel
+C:\Users\kroko\AppData\Local\Temp\ccppBk71.s:97     .text.LED_Set_Color:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccppBk71.s:103    .text.LED_Set_Color:00000000 LED_Set_Color
+C:\Users\kroko\AppData\Local\Temp\ccppBk71.s:134    .text.LED_Set_Color:0000001c $d
+C:\Users\kroko\AppData\Local\Temp\ccppBk71.s:139    .text.HAL_TIM_PWM_PulseFinishedCallback:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccppBk71.s:145    .text.HAL_TIM_PWM_PulseFinishedCallback:00000000 HAL_TIM_PWM_PulseFinishedCallback
+C:\Users\kroko\AppData\Local\Temp\ccppBk71.s:168    .bss.dmaBuffer:00000000 $d
+C:\Users\kroko\AppData\Local\Temp\ccppBk71.s:175    .bss.pixel:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_TIM_PWM_Stop_DMA

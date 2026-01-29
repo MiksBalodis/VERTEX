@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s 			page 1
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccTSeZIZ.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s 			page 1
   28:USB_DEVICE/App/usbd_storage_if.c **** /* Private typedef -----------------------------------------------------------*/
   29:USB_DEVICE/App/usbd_storage_if.c **** /* Private define ------------------------------------------------------------*/
   30:USB_DEVICE/App/usbd_storage_if.c **** /* Private macro -------------------------------------------------------------*/
-ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s 			page 2
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccTSeZIZ.s 			page 2
 
 
   31:USB_DEVICE/App/usbd_storage_if.c **** 
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s 			page 1
   85:USB_DEVICE/App/usbd_storage_if.c **** 
   86:USB_DEVICE/App/usbd_storage_if.c **** /**
   87:USB_DEVICE/App/usbd_storage_if.c ****   * @}
-ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s 			page 3
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccTSeZIZ.s 			page 3
 
 
   88:USB_DEVICE/App/usbd_storage_if.c ****   */
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s 			page 1
  142:USB_DEVICE/App/usbd_storage_if.c **** 
  143:USB_DEVICE/App/usbd_storage_if.c **** static int8_t STORAGE_Init_FS(uint8_t lun);
  144:USB_DEVICE/App/usbd_storage_if.c **** static int8_t STORAGE_GetCapacity_FS(uint8_t lun, uint32_t *block_num, uint16_t *block_size);
-ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s 			page 4
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccTSeZIZ.s 			page 4
 
 
  145:USB_DEVICE/App/usbd_storage_if.c **** static int8_t STORAGE_IsReady_FS(uint8_t lun);
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s 			page 1
   44              		.section	.text.STORAGE_GetCapacity_FS,"ax",%progbits
   45              		.align	1
   46              		.syntax unified
-ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s 			page 5
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccTSeZIZ.s 			page 5
 
 
   47              		.thumb
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s 			page 1
  204:USB_DEVICE/App/usbd_storage_if.c **** /**
  205:USB_DEVICE/App/usbd_storage_if.c ****   * @brief   Checks whether the medium is ready.
  206:USB_DEVICE/App/usbd_storage_if.c ****   * @param  lun:  Logical unit number.
-ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s 			page 6
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccTSeZIZ.s 			page 6
 
 
  207:USB_DEVICE/App/usbd_storage_if.c ****   * @retval USBD_OK if all operations are OK else USBD_FAIL
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s 			page 1
  117 0000 0020     		movs	r0, #0
  118              	.LVL7:
  119              		.loc 1 230 1 view .LVU23
-ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s 			page 7
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccTSeZIZ.s 			page 7
 
 
  120 0002 7047     		bx	lr
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s 			page 1
  275:USB_DEVICE/App/usbd_storage_if.c **** }
  276:USB_DEVICE/App/usbd_storage_if.c **** 
  277:USB_DEVICE/App/usbd_storage_if.c **** /**
-ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s 			page 8
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccTSeZIZ.s 			page 8
 
 
  278:USB_DEVICE/App/usbd_storage_if.c ****   * @brief  Returns the Max Supported LUNs.
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s 			page 1
  270:USB_DEVICE/App/usbd_storage_if.c ****   if (MX25FLASH_Program_Sector(blk_addr, buf) == 1) return (USBD_FAIL);
  172              		.loc 1 270 7 view .LVU33
  173 0008 FFF7FEFF 		bl	MX25FLASH_Sector_Erase
-ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s 			page 9
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccTSeZIZ.s 			page 9
 
 
  174              	.LVL10:
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s 			page 1
  220              		.cfi_offset 3, -8
  221              		.cfi_offset 14, -4
  243:USB_DEVICE/App/usbd_storage_if.c ****   // UNUSED(buf);
-ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s 			page 10
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccTSeZIZ.s 			page 10
 
 
  222              		.loc 1 243 3 is_stmt 1 view .LVU44
@@ -586,35 +586,35 @@ ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s 			page 1
  258      31
  259              		.text
  260              	.Letext0:
- 261              		.file 2 "/Users/kroko/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@xp
- 262              		.file 3 "/Users/kroko/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@xp
+ 261              		.file 2 "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/arm-none-eabi/include/ma
+ 262              		.file 3 "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/arm-none-eabi/include/sy
  263              		.file 4 "Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc/usbd_msc.h"
  264              		.file 5 "USB_DEVICE/App/usbd_storage_if.h"
  265              		.file 6 "Core/Inc/25flash.h"
  266              		.file 7 "Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h"
-ARM GAS  /var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s 			page 11
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccTSeZIZ.s 			page 11
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 usbd_storage_if.c
-/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s:21     .text.STORAGE_Init_FS:00000000 $t
-/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s:26     .text.STORAGE_Init_FS:00000000 STORAGE_Init_FS
-/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s:45     .text.STORAGE_GetCapacity_FS:00000000 $t
-/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s:50     .text.STORAGE_GetCapacity_FS:00000000 STORAGE_GetCapacity_FS
-/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s:77     .text.STORAGE_IsReady_FS:00000000 $t
-/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s:82     .text.STORAGE_IsReady_FS:00000000 STORAGE_IsReady_FS
-/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s:101    .text.STORAGE_IsWriteProtected_FS:00000000 $t
-/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s:106    .text.STORAGE_IsWriteProtected_FS:00000000 STORAGE_IsWriteProtected_FS
-/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s:125    .text.STORAGE_GetMaxLun_FS:00000000 $t
-/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s:130    .text.STORAGE_GetMaxLun_FS:00000000 STORAGE_GetMaxLun_FS
-/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s:145    .text.STORAGE_Write_FS:00000000 $t
-/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s:150    .text.STORAGE_Write_FS:00000000 STORAGE_Write_FS
-/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s:205    .text.STORAGE_Read_FS:00000000 $t
-/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s:210    .text.STORAGE_Read_FS:00000000 STORAGE_Read_FS
-/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s:242    .data.USBD_Storage_Interface_fops_FS:00000000 USBD_Storage_Interface_fops_FS
-/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s:239    .data.USBD_Storage_Interface_fops_FS:00000000 $d
-/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s:256    .rodata.STORAGE_Inquirydata_FS:00000000 STORAGE_Inquirydata_FS
-/var/folders/t4/6192qx0n3zgdnvcwt906k_mw0000gn/T//ccdtjCr6.s:253    .rodata.STORAGE_Inquirydata_FS:00000000 $d
+C:\Users\kroko\AppData\Local\Temp\ccTSeZIZ.s:21     .text.STORAGE_Init_FS:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccTSeZIZ.s:26     .text.STORAGE_Init_FS:00000000 STORAGE_Init_FS
+C:\Users\kroko\AppData\Local\Temp\ccTSeZIZ.s:45     .text.STORAGE_GetCapacity_FS:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccTSeZIZ.s:50     .text.STORAGE_GetCapacity_FS:00000000 STORAGE_GetCapacity_FS
+C:\Users\kroko\AppData\Local\Temp\ccTSeZIZ.s:77     .text.STORAGE_IsReady_FS:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccTSeZIZ.s:82     .text.STORAGE_IsReady_FS:00000000 STORAGE_IsReady_FS
+C:\Users\kroko\AppData\Local\Temp\ccTSeZIZ.s:101    .text.STORAGE_IsWriteProtected_FS:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccTSeZIZ.s:106    .text.STORAGE_IsWriteProtected_FS:00000000 STORAGE_IsWriteProtected_FS
+C:\Users\kroko\AppData\Local\Temp\ccTSeZIZ.s:125    .text.STORAGE_GetMaxLun_FS:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccTSeZIZ.s:130    .text.STORAGE_GetMaxLun_FS:00000000 STORAGE_GetMaxLun_FS
+C:\Users\kroko\AppData\Local\Temp\ccTSeZIZ.s:145    .text.STORAGE_Write_FS:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccTSeZIZ.s:150    .text.STORAGE_Write_FS:00000000 STORAGE_Write_FS
+C:\Users\kroko\AppData\Local\Temp\ccTSeZIZ.s:205    .text.STORAGE_Read_FS:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccTSeZIZ.s:210    .text.STORAGE_Read_FS:00000000 STORAGE_Read_FS
+C:\Users\kroko\AppData\Local\Temp\ccTSeZIZ.s:242    .data.USBD_Storage_Interface_fops_FS:00000000 USBD_Storage_Interface_fops_FS
+C:\Users\kroko\AppData\Local\Temp\ccTSeZIZ.s:239    .data.USBD_Storage_Interface_fops_FS:00000000 $d
+C:\Users\kroko\AppData\Local\Temp\ccTSeZIZ.s:256    .rodata.STORAGE_Inquirydata_FS:00000000 STORAGE_Inquirydata_FS
+C:\Users\kroko\AppData\Local\Temp\ccTSeZIZ.s:253    .rodata.STORAGE_Inquirydata_FS:00000000 $d
 
 UNDEFINED SYMBOLS
 MX25FLASH_Sector_Erase
