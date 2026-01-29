@@ -261,6 +261,12 @@ Pilnībā sagatavots projekts demonstrācijai un prezentācijai.
 
 ---
 
+## Projekta izstrādes grafiks
+
+![Projekta izstrādes Gantt diagramma](docs/gantt_diagramm.png)
+
+---
+
 ## Licence
 Licence tiks noteikta projekta vēlākā izstrādes posmā.
 
