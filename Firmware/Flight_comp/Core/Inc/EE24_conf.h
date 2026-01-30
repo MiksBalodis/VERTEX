@@ -44,13 +44,13 @@
 	MiddleWare fileName : ./NimaLTD.I-CUBE-EE24_conf.h
 */
 /*---------- EE24_SIZE  -----------*/
-#define EE24_SIZE      EE24_1KBIT
+#define EE24_SIZE      EE24_64KBIT
 
 /*---------- EE24_RTOS  -----------*/
 #define EE24_RTOS      EE24_RTOS_DISABLE
 
 /*---------- EE24_USE_WP_PIN  -----------*/
-#define EE24_USE_WP_PIN      false
+#define EE24_USE_WP_PIN      true
 
 #ifdef __cplusplus
 }

@@ -73,9 +73,11 @@ DMA_HandleTypeDef hdma_tim3_ch1_trig;
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
-LSM6DSO_Object_t lsm6dso1;
+LSM6DSO_Object_t hlsm6dso1;
 
 BMP388_HandleTypeDef hbmp388;
+
+EE24_HandleTypeDef h24lc64;
 
 float battery_v;
 uint32_t adc_buff[1];
@@ -152,8 +154,6 @@ int main(void)
   MX_USB_DEVICE_Init();
   MX_CRC_Init();
   /* USER CODE BEGIN 2 */
-  // LSM6DSO_Init(&lsm6dso1);
-
   HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_SET);
 
   hbmp388.hi2c = &hi2c2;
@@ -167,6 +167,20 @@ int main(void)
     BMP388_SetOutputDataRate(&hbmp388, BMP3_ODR_50_HZ);
     BMP388_ReadRawPressTempTime(&hbmp388, &rprs, &rtemp, &time);  // DUMMY
   }
+
+  LSM6DSO_Axes_t acc;
+  uint8_t ID;
+  if(LSM6DSO_Init(&hlsm6dso1) == HAL_OK){
+    LSM6DSO_ACC_GetAxes(&hlsm6dso1, &acc);
+    LSM6DSO_ReadID(&hlsm6dso1, &ID);
+  }
+
+  uint8_t data[2];
+  if(EE24_Init(&h24lc64, &hi2c1, EE24_ADDRESS_DEFAULT, EEP_WP_GPIO_Port, EEP_WP_Pin) == 1){
+    data[0] = 0xAA;
+    data[1] = 0x55;
+    // EE24_Write(&h24lc64, 0, data, 2, 100); // Avoid unnecessary damage
+  }
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -174,8 +188,13 @@ int main(void)
   while (1)
   {
     HAL_Delay(100);  // wait for conversion
+
     BMP388_ReadRawPressTempTime(&hbmp388, &rprs, &rtemp, &time);
     BMP388_CompensateRawPressTemp(&hbmp388, rprs, rtemp, &prs, &temp);
+
+    LSM6DSO_ACC_GetAxes(&hlsm6dso1, &acc);
+
+    EE24_Read(&h24lc64, 0, data, 2, 100);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -850,12 +869,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : LORA_DIO1_Pin EEP_WP_Pin */
-  GPIO_InitStruct.Pin = LORA_DIO1_Pin|EEP_WP_Pin;
+  /*Configure GPIO pin : LORA_DIO1_Pin */
+  GPIO_InitStruct.Pin = LORA_DIO1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+  HAL_GPIO_Init(LORA_DIO1_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : LORA_IO0_Pin */
   GPIO_InitStruct.Pin = LORA_IO0_Pin;
@@ -882,6 +901,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LORA_NRST_GPIO_Port, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : EEP_WP_Pin */
+  GPIO_InitStruct.Pin = EEP_WP_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+  HAL_GPIO_Init(EEP_WP_GPIO_Port, &GPIO_InitStruct);
+
   /* USER CODE BEGIN MX_GPIO_Init_2 */
 
   /* USER CODE END MX_GPIO_Init_2 */
@@ -900,28 +926,32 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 }
 
 
-int32_t platform_write(void *handle, uint8_t reg, const uint8_t *bufp, uint16_t len)
-{
-    HAL_I2C_Mem_Write(handle,
-                      LSM6DSO_I2C_ADDR,
-                      reg,
-                      I2C_MEMADD_SIZE_8BIT,
-                      (uint8_t *)bufp,
-                      len,
-                      HAL_MAX_DELAY);
-    return 0;
+int32_t lsm6dso_write_reg(stmdev_ctx_t *ctx, uint8_t reg,
+                                 uint8_t *data,
+                                 uint16_t len){
+  // // HAL_GPIO_WritePin(IMU_NSS_GPIO_Port, IMU_NSS_Pin, GPIO_PIN_RESET);
+  // reg &= 0x7F; // MSB=0 for write
+  // HAL_SPI_Transmit(&hspi2, &reg, 1, HAL_MAX_DELAY);
+  // HAL_SPI_Transmit(&hspi2, (uint8_t *)data, len, HAL_MAX_DELAY);
+  // // HAL_GPIO_WritePin(IMU_NSS_GPIO_Port, IMU_NSS_Pin, GPIO_PIN_SET);
+
+      uint8_t buf[len + 1];
+    buf[0] = reg & 0x7F;  // write
+    memcpy(&buf[1], data, len);
+
+    HAL_SPI_Transmit(&hspi2, buf, len + 1, HAL_MAX_DELAY);
+  return 0;
 }
 
-int32_t platform_read(void *handle, uint8_t reg, uint8_t *bufp, uint16_t len)
-{
-    HAL_I2C_Mem_Read(handle,
-                     LSM6DSO_I2C_ADDR,
-                     reg,
-                     I2C_MEMADD_SIZE_8BIT,
-                     bufp,
-                     len,
-                     HAL_MAX_DELAY);
-    return 0;
+int32_t lsm6dso_read_reg(stmdev_ctx_t *ctx, uint8_t reg,
+                                uint8_t *data,
+                                uint16_t len){
+  // HAL_GPIO_WritePin(IMU_NSS_GPIO_Port, IMU_NSS_Pin, GPIO_PIN_RESET);
+  reg |= 0x80; // MSB=1 for read
+  HAL_SPI_Transmit(&hspi2, &reg, 1, HAL_MAX_DELAY);
+  HAL_SPI_Receive(&hspi2, data, len, HAL_MAX_DELAY);
+  // HAL_GPIO_WritePin(IMU_NSS_GPIO_Port, IMU_NSS_Pin, GPIO_PIN_SET);
+  return 0;
 }
 
 void platform_delay(uint32_t ms)

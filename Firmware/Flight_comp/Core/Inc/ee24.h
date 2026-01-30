@@ -39,7 +39,7 @@ extern "C"
 
 #include <stdbool.h>
 #include "main.h"
-#include "NimaLTD.I-CUBE-EE24_conf.h"
+#include "EE24_conf.h"
 
 /************************************************************************************************************
 **************    Public Definitions
