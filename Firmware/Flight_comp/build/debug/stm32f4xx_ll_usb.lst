@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
   28:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   ==============================================================================
   29:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     [..]
   30:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       (#) Fill parameters of Init structure in USB_CfgTypeDef structure.
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 2
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 2
 
 
   31:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
   85:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   HAL_StatusTypeDef ret;
   86:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   if (cfg.phy_itface == USB_OTG_ULPI_PHY)
   87:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   {
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 3
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 3
 
 
   88:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     USBx->GCCFG &= ~(USB_OTG_GCCFG_PWRDWN);
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  142:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   uint32_t UsbTrd;
  143:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
  144:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   /* The USBTRD is configured according to the tables below, depending on AHB frequency
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 4
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 4
 
 
  145:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   used by application. In the low AHB frequency range it is used to stretch enough the USB response
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  199:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     }
  200:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   }
  201:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   else if (speed == USBD_HS_SPEED)
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 5
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 5
 
 
  202:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   {
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  256:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   {
  257:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     USBx->GUSBCFG |= USB_OTG_GUSBCFG_FHMOD;
  258:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 6
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 6
 
 
  259:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     do
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  313:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     USBx_DEVICE->DCTL |= USB_OTG_DCTL_SDIS;
  314:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
  315:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     /* Deactivate VBUS Sensing B */
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 7
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 7
 
 
  316:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     USBx->GCCFG &= ~USB_OTG_GCCFG_VBDEN;
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  370:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   }
  371:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
  372:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   /* Flush the FIFOs */
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 8
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 8
 
 
  373:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   if (USB_FlushTxFifo(USBx, 0x10U) != HAL_OK) /* all Tx FIFOs */
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  427:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
  428:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     USBx_OUTEP(i)->DOEPTSIZ = 0U;
  429:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     USBx_OUTEP(i)->DOEPINT  = 0xFB7FU;
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 9
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 9
 
 
  430:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   }
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  484:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       return HAL_TIMEOUT;
  485:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     }
  486:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   } while ((USBx->GRSTCTL & USB_OTG_GRSTCTL_AHBIDL) == 0U);
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 10
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 10
 
 
  487:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  541:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
  542:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** /**
  543:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @brief  USB_SetDevSpeed  Initializes the DevSpd field of DCFG register
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 11
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 11
 
 
  544:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   *         depending the PHY type and the enumeration speed of the device.
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  598:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** HAL_StatusTypeDef USB_ActivateEndpoint(const USB_OTG_GlobalTypeDef *USBx, const USB_OTG_EPTypeDef *
  599:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** {
  600:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   uint32_t USBx_BASE = (uint32_t)USBx;
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 12
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 12
 
 
  601:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   uint32_t epnum = (uint32_t)ep->num;
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  655:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   {
  656:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     if (((USBx_OUTEP(epnum)->DOEPCTL) & USB_OTG_DOEPCTL_USBAEP) == 0U)
  657:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     {
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 13
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 13
 
 
  658:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       USBx_OUTEP(epnum)->DOEPCTL |= (ep->maxpacket & USB_OTG_DOEPCTL_MPSIZ) |
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  712:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
  713:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   return HAL_OK;
  714:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** }
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 14
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 14
 
 
  715:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  769:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
  770:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   /* IN endpoint */
  771:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   if (ep->is_in == 1U)
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 15
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 15
 
 
  772:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   {
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  826:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****         }
  827:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****         else
  828:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****         {
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 16
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 16
 
 
  829:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****           USBx_INEP(epnum)->DIEPCTL |= USB_OTG_DIEPCTL_SD0PID_SEVNFRM;
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  883:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       USBx_OUTEP(epnum)->DOEPTSIZ |= (USB_OTG_DOEPTSIZ_XFRSIZ & ep->xfer_size);
  884:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       USBx_OUTEP(epnum)->DOEPTSIZ |= (USB_OTG_DOEPTSIZ_PKTCNT & (1U << 19));
  885:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     }
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 17
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 17
 
 
  886:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     else
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  940:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   uint32_t USBx_BASE = (uint32_t)USBx;
  941:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
  942:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   /* IN endpoint */
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 18
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 18
 
 
  943:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   if (ep->is_in == 1U)
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  997:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   *           1 : DMA feature used
  998:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @retval HAL status
  999:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   */
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 19
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 19
 
 
 1000:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** HAL_StatusTypeDef USB_WritePacket(const USB_OTG_GlobalTypeDef *USBx, uint8_t *src,
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 1054:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
 1055:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     do
 1056:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     {
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 20
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 20
 
 
 1057:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       *(uint8_t *)pDest = (uint8_t)(pData >> (8U * (uint8_t)(i)));
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 1111:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     USBx_INEP(epnum)->DIEPCTL &= ~USB_OTG_DIEPCTL_STALL;
 1112:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     if ((ep->type == EP_TYPE_INTR) || (ep->type == EP_TYPE_BULK))
 1113:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     {
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 21
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 21
 
 
 1114:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       USBx_INEP(epnum)->DIEPCTL |= USB_OTG_DIEPCTL_SD0PID_SEVNFRM; /* DATA0 */
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 1168:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @brief  USB_SetDevAddress : Stop the usb device mode
 1169:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @param  USBx  Selected device
 1170:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @param  address  new device address to be assigned
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 22
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 22
 
 
 1171:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   *          This parameter can be a value from 0 to 255
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 1225:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   uint32_t tmpreg;
 1226:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
 1227:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   tmpreg = USBx->GINTSTS;
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 23
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 23
 
 
 1228:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   tmpreg &= USBx->GINTMSK;
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 1282:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** /**
 1283:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @brief  Returns Device OUT EP Interrupt register
 1284:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @param  USBx  Selected device
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 24
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 24
 
 
 1285:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @param  epnum  endpoint number
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 1339:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   *           0 : Device
 1340:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   */
 1341:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** uint32_t USB_GetMode(const USB_OTG_GlobalTypeDef *USBx)
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 25
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 25
 
 
 1342:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** {
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 1396:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   }
 1397:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
 1398:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   return HAL_OK;
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 26
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 26
 
 
 1399:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** }
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
   60              		.loc 1 1421 3 is_stmt 1 view .LVU13
   61              		.loc 1 1421 9 is_stmt 0 view .LVU14
   62 001a 0A23     		movs	r3, #10
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 27
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 27
 
 
   63 001c 0193     		str	r3, [sp, #4]
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
   97              		.loc 1 1440 52 is_stmt 1 view .LVU29
   98              		.loc 1 1440 17 is_stmt 0 view .LVU30
   99 0042 0369     		ldr	r3, [r0, #16]
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 28
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 28
 
 
  100              		.loc 1 1440 52 view .LVU31
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  148 0002 10B5     		push	{r4, lr}
  149              		.cfi_def_cfa_offset 24
  150              		.cfi_offset 4, -24
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 29
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 29
 
 
  151              		.cfi_offset 14, -20
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  188 0036 0AD0     		beq	.L17
  189              	.L12:
  101:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   }
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 30
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 30
 
 
  190              		.loc 1 101 5 is_stmt 1 view .LVU57
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  231 005e E360     		str	r3, [r4, #12]
  109:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
  232              		.loc 1 109 5 is_stmt 1 view .LVU71
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 31
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 31
 
 
  109:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  271              		.cfi_endproc
  272              	.LFE239:
  274              		.section	.text.USB_SetTurnaroundTime,"ax",%progbits
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 32
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 32
 
 
  275              		.align	1
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  316              	.LVL15:
  317              	.L31:
  150:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     {
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 33
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 33
 
 
  318              		.loc 1 150 5 is_stmt 1 view .LVU102
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  357 004e 1D4A     		ldr	r2, .L32+28
  358 0050 9342     		cmp	r3, r2
  359 0052 1FD9     		bls	.L26
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 34
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 34
 
 
  175:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     {
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  158:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     }
  400              		.loc 1 158 14 view .LVU132
  401 0088 0E22     		movs	r2, #14
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 35
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 35
 
 
  402 008a BCE7     		b	.L20
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  449              		.cfi_endproc
  450              	.LFE240:
  452              		.section	.text.USB_EnableGlobalInt,"ax",%progbits
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 36
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 36
 
 
  453              		.align	1
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  236:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   return HAL_OK;
  500              		.loc 1 236 17 view .LVU150
  501 0002 23F00103 		bic	r3, r3, #1
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 37
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 37
 
 
  502 0006 8360     		str	r3, [r0, #8]
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  545 000e B3F1706F 		cmp	r3, #251658240
  546 0012 15D8     		bhi	.L40
  486:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 38
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 38
 
 
  547              		.loc 1 486 53 is_stmt 1 view .LVU164
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  502:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** }
  584              		.loc 1 502 10 view .LVU182
  585 003c 0020     		movs	r0, #0
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 39
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 39
 
 
  586              	.LVL23:
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  633 0004 0193     		str	r3, [sp, #4]
  634              	.L45:
  515:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   {
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 40
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 40
 
 
  635              		.loc 1 515 3 is_stmt 1 view .LVU192
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  671              		.loc 1 533 8 view .LVU210
  672 002a B3F1706F 		cmp	r3, #251658240
  673 002e 08D8     		bhi	.L48
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 41
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 41
 
 
  537:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  720              		@ args = 0, pretend = 0, frame = 0
  721              		@ frame_needed = 0, uses_anonymous_args = 0
  722              		@ link register save eliminated.
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 42
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 42
 
 
  555:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  297:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   HAL_StatusTypeDef ret = HAL_OK;
  769              		.loc 1 297 1 view .LVU231
  770 0008 80E80E00 		stm	r0, {r1, r2, r3}
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 43
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 43
 
 
  298:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   uint32_t USBx_BASE = (uint32_t)USBx;
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  336:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     USBx->GCCFG &= ~USB_OTG_GCCFG_VBUSBSEN;
  808              		.loc 1 336 9 is_stmt 0 view .LVU249
  809 0034 A36B     		ldr	r3, [r4, #56]
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 44
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 44
 
 
  336:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     USBx->GCCFG &= ~USB_OTG_GCCFG_VBUSBSEN;
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  847 0068 11E0     		b	.L58
  848              	.LVL44:
  849              	.L54:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 45
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 45
 
 
  343:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     USBx->GCCFG |= USB_OTG_GCCFG_VBUSBSEN;
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  890 009a 0125     		movs	r5, #1
  891              	.L59:
  892              	.LVL49:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 46
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 46
 
 
  378:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   {
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  931              	.L64:
  406:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     USBx_INEP(i)->DIEPINT  = 0xFB7FU;
  932              		.loc 1 406 5 is_stmt 1 view .LVU297
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 47
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 47
 
 
  406:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     USBx_INEP(i)->DIEPINT  = 0xFB7FU;
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  971              	.LVL55:
  410:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   {
  972              		.loc 1 410 10 view .LVU314
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 48
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 48
 
 
  973 00fe 0AE0     		b	.L66
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  1011 012c C2F8007B 		str	r7, [r2, #2816]
  1012 0130 EBE7     		b	.L69
  1013              	.L78:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 49
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 49
 
 
  416:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       }
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  1050              		.loc 1 447 17 view .LVU348
  1051 0162 0C4B     		ldr	r3, .L82
  1052 0164 1343     		orrs	r3, r3, r2
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 50
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 50
 
 
  1053 0166 A361     		str	r3, [r4, #24]
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  459:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   }
  1094              		.loc 1 459 19 view .LVU362
  1095 0186 43F08043 		orr	r3, r3, #1073741824
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 51
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 51
 
 
  1096 018a 43F00403 		orr	r3, r3, #4
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  1142              		.loc 1 573 12 view .LVU372
  1143 0016 0220     		movs	r0, #2
  1144              	.LVL65:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 52
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 52
 
 
  573:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  603:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   {
  1190              		.loc 1 603 3 is_stmt 1 view .LVU384
  603:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   {
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 53
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 53
 
 
  1191              		.loc 1 603 9 is_stmt 0 view .LVU385
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  621:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****                                     ((uint32_t)ep->type << 18) |
  1229              		.loc 1 621 34 view .LVU402
  1230 0042 1343     		orrs	r3, r3, r2
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 54
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 54
 
 
  1231 0044 43F08053 		orr	r3, r3, #268435456
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  1269 007c C2F30A02 		ubfx	r2, r2, #0, #11
  610:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****                                    USB_OTG_DIEPCTL_SD0PID_SEVNFRM |
  1270              		.loc 1 610 49 view .LVU419
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 55
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 55
 
 
  1271 0080 0979     		ldrb	r1, [r1, #4]	@ zero_extendqisi2
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  1316 0008 23D0     		beq	.L100
  656:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     {
  1317              		.loc 1 656 5 is_stmt 1 view .LVU431
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 56
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 56
 
 
  656:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     {
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  1355 0044 8A40     		lsls	r2, r2, r1
  663:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   }
  1356              		.loc 1 663 27 view .LVU449
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 57
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 57
 
 
  1357 0046 43EA0243 		orr	r3, r3, r2, lsl #16
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  1395              		.loc 1 652 5 is_stmt 1 view .LVU465
  652:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   }
  1396              		.loc 1 652 16 is_stmt 0 view .LVU466
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 58
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 58
 
 
  1397 0084 D0F83C28 		ldr	r2, [r0, #2108]
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  1442              		.loc 1 681 3 is_stmt 1 view .LVU477
  681:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   {
  1443              		.loc 1 681 9 is_stmt 0 view .LVU478
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 59
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 59
 
 
  1444 0004 4A78     		ldrb	r2, [r1, #1]	@ zero_extendqisi2
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  706:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     USBx_OUTEP(epnum)->DOEPCTL &= ~(USB_OTG_DOEPCTL_USBAEP |
  1482              		.loc 1 706 27 view .LVU495
  1483 003e 22EA0C42 		bic	r2, r2, ip, lsl #16
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 60
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 60
 
 
  1484 0042 C0F81C28 		str	r2, [r0, #2076]
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  1524 006a 02F00F02 		and	r2, r2, #15
  689:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     USBx_DEVICE->DAINTMSK &= ~(USB_OTG_DAINTMSK_IEPM & (uint32_t)(1UL << (ep->num & EP_ADDR_MSK)));
  1525              		.loc 1 689 56 view .LVU510
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 61
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 61
 
 
  1526 006e 0124     		movs	r4, #1
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  686:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     }
  1565              		.loc 1 686 7 is_stmt 1 view .LVU526
  686:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     }
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 62
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 62
 
 
  1566              		.loc 1 686 23 is_stmt 0 view .LVU527
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  1612              		.loc 1 725 3 view .LVU537
  725:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
  1613              		.loc 1 725 32 is_stmt 0 view .LVU538
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 63
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 63
 
 
  1614 0000 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  1652 0032 C0F81C38 		str	r3, [r0, #2076]
  1653              	.L115:
  751:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** }
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 64
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 64
 
 
  1654              		.loc 1 751 3 is_stmt 1 view .LVU555
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  1692              		.loc 1 737 27 view .LVU571
  1693 0062 22EA0303 		bic	r3, r2, r3
  1694 0066 C0F81C38 		str	r3, [r0, #2076]
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 65
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 65
 
 
  1695 006a E4E7     		b	.L115
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  1739              	.LVL117:
  1740              	.LFB254:
  937:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   __IO uint32_t count = 0U;
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 66
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 66
 
 
  1741              		.loc 1 937 1 is_stmt 1 view -0
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  984:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
  1781              		.loc 1 984 1 is_stmt 0 view .LVU599
  1782 0020 03B0     		add	sp, sp, #12
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 67
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 67
 
 
  1783              		.cfi_remember_state
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  1823              		.loc 1 953 14 is_stmt 0 view .LVU613
  1824 0058 019B     		ldr	r3, [sp, #4]
  1825 005a 0133     		adds	r3, r3, #1
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 68
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 68
 
 
  1826 005c 0193     		str	r3, [sp, #4]
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  972:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
  1864              		.loc 1 972 14 is_stmt 0 view .LVU630
  1865 0098 019B     		ldr	r3, [sp, #4]
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 69
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 69
 
 
  1866 009a 0133     		adds	r3, r3, #1
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  1911              		.cfi_offset 4, -8
  1912              		.cfi_offset 14, -4
  1913 0002 9DF80840 		ldrb	r4, [sp, #8]	@ zero_extendqisi2
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 70
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 70
 
 
 1003:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   uint8_t *pSrc = src;
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 1011:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     {
  1949              		.loc 1 1011 33 discriminator 3 view .LVU661
  1950 0022 0CF1010C 		add	ip, ip, #1
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 71
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 71
 
 
  1951              	.LVL129:
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  1997              	.LVL134:
  768:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
  1998              		.loc 1 768 3 is_stmt 1 view .LVU672
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 72
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 72
 
 
  771:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   {
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  2035              		.loc 1 881 7 is_stmt 1 view .LVU690
  881:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
  2036              		.loc 1 881 25 is_stmt 0 view .LVU691
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 73
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 73
 
 
  2037 0032 8C68     		ldr	r4, [r1, #8]
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  2075              	.L148:
  926:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** }
  2076              		.loc 1 926 3 is_stmt 1 view .LVU708
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 74
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 74
 
 
  927:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  839:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
  2116              		.loc 1 839 7 is_stmt 1 view .LVU724
  839:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 75
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 75
 
 
  2117              		.loc 1 839 23 is_stmt 0 view .LVU725
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  787:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       USBx_INEP(epnum)->DIEPTSIZ &= ~(USB_OTG_DIEPTSIZ_PKTCNT);
  2156              		.loc 1 787 7 is_stmt 1 view .LVU741
  787:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       USBx_INEP(epnum)->DIEPTSIZ &= ~(USB_OTG_DIEPTSIZ_PKTCNT);
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 76
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 76
 
 
  2157              		.loc 1 787 23 is_stmt 0 view .LVU742
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  2194 00f6 1D69     		ldr	r5, [r3, #16]
  811:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     }
  2195              		.loc 1 811 62 view .LVU760
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 77
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 77
 
 
  2196 00f8 0E69     		ldr	r6, [r1, #16]
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  2234 0128 1D69     		ldr	r5, [r3, #16]
  806:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****           USBx_INEP(epnum)->DIEPTSIZ |= (USB_OTG_DIEPTSIZ_MULCNT & ((uint32_t)pktcnt << 29));
  2235              		.loc 1 806 38 view .LVU777
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 78
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 78
 
 
  2236 012a 25F0C045 		bic	r5, r5, #1610612736
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  2274              		.loc 1 834 23 view .LVU793
  2275 0158 D4F80039 		ldr	r3, [r4, #2304]
  834:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     }
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 79
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 79
 
 
  2276              		.loc 1 834 33 view .LVU794
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  853:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****         }
  2316              		.loc 1 853 37 view .LVU809
  2317 01a2 43F00053 		orr	r3, r3, #536870912
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 80
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 80
 
 
  2318 01a6 C4F80039 		str	r3, [r4, #2304]
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  2357 01ce C5F31205 		ubfx	r5, r5, #0, #19
  890:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****         USBx_OUTEP(epnum)->DOEPTSIZ |= (USB_OTG_DOEPTSIZ_PKTCNT & (1U << 19));
  2358              		.loc 1 890 37 view .LVU825
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 81
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 81
 
 
  2359 01d2 2C43     		orrs	r4, r4, r5
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  899:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       }
  2397              		.loc 1 899 26 is_stmt 0 view .LVU842
  2398 01fe 1C69     		ldr	r4, [r3, #16]
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 82
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 82
 
 
  899:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       }
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  2437 0230 DCF8003B 		ldr	r3, [ip, #2816]
  919:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       }
  2438              		.loc 1 919 36 view .LVU859
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 83
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 83
 
 
  2439 0234 43F08053 		orr	r3, r3, #268435456
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 1040:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   {
  2484              		.loc 1 1040 10 is_stmt 0 view .LVU871
  2485 000e 0023     		movs	r3, #0
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 84
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 84
 
 
 1040:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   {
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  2523 002e CBB2     		uxtb	r3, r1
  2524 0030 DB00     		lsls	r3, r3, #3
 1057:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       i++;
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 85
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 85
 
 
  2525              		.loc 1 1057 43 view .LVU889
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 1076:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
  2569              		.loc 1 1076 3 view .LVU902
 1076:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 86
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 86
 
 
  2570              		.loc 1 1076 32 is_stmt 0 view .LVU903
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  2608 002e 0020     		movs	r0, #0
  2609 0030 7047     		bx	lr
  2610              	.LVL182:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 87
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 87
 
 
  2611              	.L178:
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  2655              		@ frame_needed = 0, uses_anonymous_args = 0
  2656              		@ link register save eliminated.
 1106:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   uint32_t epnum = (uint32_t)ep->num;
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 88
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 88
 
 
  2657              		.loc 1 1106 3 view .LVU932
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  2695              		.loc 1 1111 5 is_stmt 1 view .LVU948
 1111:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     if ((ep->type == EP_TYPE_INTR) || (ep->type == EP_TYPE_BULK))
  2696              		.loc 1 1111 21 is_stmt 0 view .LVU949
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 89
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 89
 
 
  2697 0026 00EB4310 		add	r0, r0, r3, lsl #5
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  2741              	.LVL195:
  2742              	.LFB259:
 1134:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   HAL_StatusTypeDef ret;
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 90
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 90
 
 
  2743              		.loc 1 1134 1 is_stmt 1 view -0
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  2782              	.LVL199:
 1147:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   USBx_DEVICE->DOEPMSK  = 0U;
  2783              		.loc 1 1147 25 view .LVU978
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 91
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 91
 
 
  2784 0020 C4F81028 		str	r2, [r4, #2064]
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  2824              		.thumb
  2825              		.thumb_func
  2827              	USB_SetDevAddress:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 92
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 92
 
 
  2828              	.LVL205:
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  2871              	.LFB261:
 1190:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   uint32_t USBx_BASE = (uint32_t)USBx;
  2872              		.loc 1 1190 1 is_stmt 1 view -0
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 93
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 93
 
 
  2873              		.cfi_startproc
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  2916              		.loc 1 1211 16 is_stmt 0 view .LVU1020
  2917 0004 23F00303 		bic	r3, r3, #3
  2918 0008 C0F8003E 		str	r3, [r0, #3584]
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 94
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 94
 
 
 1213:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  2961              	.LVL215:
 1231:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
  2962              		.loc 1 1231 1 view .LVU1035
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 95
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 95
 
 
  2963 0006 7047     		bx	lr
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  3008              		.global	USB_ReadDevAllOutEpInterrupt
  3009              		.syntax unified
  3010              		.thumb
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 96
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 96
 
 
  3011              		.thumb_func
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  3055              		.loc 1 1272 1 is_stmt 1 view -0
  3056              		.cfi_startproc
  3057              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 97
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 97
 
 
  3058              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  3100              		.loc 1 1292 3 view .LVU1074
 1294:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   tmpreg &= USBx_DEVICE->DOEPMSK;
  3101              		.loc 1 1294 3 view .LVU1075
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 98
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 98
 
 
 1294:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   tmpreg &= USBx_DEVICE->DOEPMSK;
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 1314:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   emp = USBx_DEVICE->DIEPEMPMSK;
  3144              		.loc 1 1314 7 is_stmt 0 view .LVU1090
  3145 0000 D0F81028 		ldr	r2, [r0, #2064]
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 99
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 99
 
 
  3146              	.LVL238:
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  3188              	USB_ClearInterrupts:
  3189              	.LVL245:
  3190              	.LFB269:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 100
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 100
 
 
 1329:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   USBx->GINTSTS &= interrupt;
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  3240              	.LVL248:
  3241              	.LFB243:
  250:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   uint32_t ms = 0U;
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 101
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 101
 
 
  3242              		.loc 1 250 1 is_stmt 1 view -0
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  3281 001c 0A20     		movs	r0, #10
  3282 001e FFF7FEFF 		bl	HAL_Delay
  3283              	.LVL251:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 102
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 102
 
 
  272:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     } while ((USB_GetMode(USBx) != (uint32_t)USB_DEVICE_MODE) && (ms < HAL_USB_CURRENT_MODE_MAX_DEL
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  3322              		.loc 1 261 7 view .LVU1145
  3323 0042 0A20     		movs	r0, #10
  3324 0044 FFF7FEFF 		bl	HAL_Delay
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 103
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 103
 
 
  3325              	.LVL257:
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  3371              		@ link register save eliminated.
 1353:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
  3372              		.loc 1 1353 3 view .LVU1156
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 104
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 104
 
 
 1356:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 1376:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
  3416              		.loc 1 1376 12 is_stmt 0 view .LVU1170
  3417 0002 046C     		ldr	r4, [r0, #64]
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 105
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 105
 
 
  3418              	.LVL267:
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 1391:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   {
  3455              		.loc 1 1391 3 is_stmt 1 view .LVU1188
 1391:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   {
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 106
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 106
 
 
  3456              		.loc 1 1391 6 is_stmt 0 view .LVU1189
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 1450:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   *         the configuration information for the specified USBx peripheral.
 1451:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @retval HAL status
 1452:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   */
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 107
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 107
 
 
 1453:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** HAL_StatusTypeDef USB_HostInit(USB_OTG_GlobalTypeDef *USBx, USB_OTG_CfgTypeDef cfg)
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  3532              		.loc 1 1473 7 is_stmt 0 view .LVU1209
  3533 001a A36B     		ldr	r3, [r4, #56]
  3534              		.loc 1 1473 15 view .LVU1210
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 108
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 108
 
 
  3535 001c 23F40023 		bic	r3, r3, #524288
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  3565 0048 D4F80034 		ldr	r3, [r4, #1024]
 1490:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     }
  3566              		.loc 1 1490 23 view .LVU1225
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 109
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 109
 
 
  3567 004c 43F00403 		orr	r3, r3, #4
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 1515:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   /* Clear all pending HC Interrupts */
 1516:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   for (i = 0U; i < cfg.Host_channels; i++)
  3602              		.loc 1 1516 3 is_stmt 1 view .LVU1237
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 110
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 110
 
 
  3603              		.loc 1 1516 10 is_stmt 0 view .LVU1238
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 1529:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   {
 1530:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     /* set Rx FIFO size */
 1531:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     USBx->GRXFSIZ  = 0x200U;
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 111
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 111
 
 
 1532:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     USBx->DIEPTXF0_HNPTXFSIZ = (uint32_t)(((0x100U << 16) & USB_OTG_NPTXFD) | 0x200U);
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 1553:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****                     USB_OTG_GINTMSK_PXFRM_IISOOXFRM  | USB_OTG_GINTMSK_WUIM);
 1554:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
 1555:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   return ret;
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 112
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 112
 
 
  3674              		.loc 1 1555 3 is_stmt 1 view .LVU1269
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  3723              	.LVL283:
  3724              	.LFB275:
 1557:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 113
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 113
 
 
 1558:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** /**
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  3755              		.loc 1 1581 21 is_stmt 0 view .LVU1292
  3756 0026 41F27073 		movw	r3, #6000
  3757 002a CCF80430 		str	r3, [ip, #4]
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 114
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 114
 
 
 1582:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   }
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 1599:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** {
  3794              		.loc 1 1599 1 is_stmt 1 view -0
  3795              		.cfi_startproc
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 115
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 115
 
 
  3796              		@ args = 0, pretend = 0, frame = 8
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  3838 002a 23F48073 		bic	r3, r3, #256
  3839              		.loc 1 1611 14 view .LVU1318
  3840 002e C4F84034 		str	r3, [r4, #1088]
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 116
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 116
 
 
 1612:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   HAL_Delay(10U);
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 1629:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
 1630:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   hprt0 = USBx_HPRT0;
  3880              		.loc 1 1630 3 is_stmt 1 view .LVU1328
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 117
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 117
 
 
  3881              		.loc 1 1630 11 is_stmt 0 view .LVU1329
@@ -7018,7 +7018,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  3921              		.cfi_remember_state
  3922              		.cfi_def_cfa_offset 0
  3923              		@ sp needed
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 118
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 118
 
 
  3924 0038 7047     		bx	lr
@@ -7078,7 +7078,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 1660:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   hprt0 = USBx_HPRT0;
  3962              		.loc 1 1660 3 is_stmt 1 view .LVU1355
  3963              		.loc 1 1660 11 is_stmt 0 view .LVU1356
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 119
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 119
 
 
  3964 0006 D0F84034 		ldr	r3, [r0, #1088]
@@ -7138,7 +7138,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  4006              		.cfi_endproc
  4007              	.LFE279:
  4009              		.section	.text.USB_HC_Init,"ax",%progbits
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 120
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 120
 
 
  4010              		.align	1
@@ -7198,7 +7198,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  4036 0008 9DF82450 		ldrb	r5, [sp, #36]	@ zero_extendqisi2
 1704:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   HAL_StatusTypeDef ret = HAL_OK;
  4037              		.loc 1 1704 3 is_stmt 1 view .LVU1369
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 121
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 121
 
 
  4038              	.LVL305:
@@ -7258,7 +7258,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 1726:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       {
 1727:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****         USBx_HC((uint32_t)ch_num)->HCINTMSK |= USB_OTG_HCINTMSK_BBERRM;
 1728:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       }
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 122
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 122
 
 
 1729:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       else
@@ -7318,7 +7318,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 1773:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
 1774:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   /* Clear Hub Start Split transaction */
 1775:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   USBx_HC((uint32_t)ch_num)->HCSPLT = 0U;
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 123
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 123
 
 
  4080              		.loc 1 1775 3 is_stmt 1 view .LVU1385
@@ -7378,7 +7378,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 1794:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   }
 1795:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
 1796:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   HostCoreSpeed = USB_GetHostSpeed(USBx);
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 124
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 124
 
 
  4116              		.loc 1 1796 3 is_stmt 1 view .LVU1401
@@ -7438,7 +7438,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 1812:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****                                       USB_OTG_HCCHAR_MC_0 | HCcharEpDir | HCcharLowSpeed;
  4152              		.loc 1 1812 59 view .LVU1417
  4153 009c 43EA0803 		orr	r3, r3, r8
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 125
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 125
 
 
  4154              		.loc 1 1812 73 view .LVU1418
@@ -7498,7 +7498,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  4193              		.loc 1 1734 36 is_stmt 0 view .LVU1434
  4194 00d0 DA68     		ldr	r2, [r3, #12]
 1734:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****                                                  USB_OTG_HCINTMSK_ACKM;
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 126
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 126
 
 
  4195              		.loc 1 1734 47 view .LVU1435
@@ -7558,7 +7558,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  4234 0106 98E7     		b	.L253
  4235              	.L276:
 1765:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       }
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 127
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 127
 
 
  4236              		.loc 1 1765 9 is_stmt 1 view .LVU1451
@@ -7618,7 +7618,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 1822:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** /**
 1823:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @brief  Start a transfer over a host channel
 1824:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @param  USBx  Selected device
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 128
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 128
 
 
 1825:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @param  hc  pointer to host channel structure
@@ -7678,7 +7678,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 1879:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       {
 1880:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****         if (hc->xfer_len > ISO_SPLT_MPS)
 1881:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****         {
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 129
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 129
 
 
 1882:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****           /* Isochrone Max Packet Size for Split mode */
@@ -7738,7 +7738,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 1936:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     {
 1937:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       num_packets = 1U;
 1938:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     }
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 130
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 130
 
 
 1939:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
@@ -7798,7 +7798,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 1993:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     {
 1994:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       /* Set data payload position */
 1995:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       switch (hc->iso_splt_xactPos)
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 131
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 131
 
 
 1996:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       {
@@ -7858,7 +7858,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 2050:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   {
 2051:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     switch (hc->ep_type)
 2052:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     {
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 132
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 132
 
 
 2053:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       /* Non periodic transfer */
@@ -7918,7 +7918,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  4290              		.loc 1 2099 12 is_stmt 0 view .LVU1463
  4291 0000 00F58060 		add	r0, r0, #1024
  4292              	.LVL319:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 133
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 133
 
 
  4293              		.loc 1 2099 21 view .LVU1464
@@ -7978,7 +7978,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  4334 0008 00EB4111 		add	r1, r0, r1, lsl #5
  4335              	.LVL323:
  4336              		.loc 1 2114 24 view .LVU1474
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 134
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 134
 
 
  4337 000c 01F5A062 		add	r2, r1, #1280
@@ -8038,7 +8038,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  4376              		.loc 1 2129 6 is_stmt 0 view .LVU1490
  4377 0038 1BB3     		cbz	r3, .L284
  4378              		.loc 1 2129 33 discriminator 1 view .LVU1491
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 135
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 135
 
 
  4379 003a 022B     		cmp	r3, #2
@@ -8098,7 +8098,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  4397              		.loc 1 2165 30 view .LVU1500
  4398 0058 23F00043 		bic	r3, r3, #-2147483648
  4399 005c C1F80035 		str	r3, [r1, #1280]
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 136
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 136
 
 
 2166:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       USBx_HC(hcnum)->HCCHAR |= USB_OTG_HCCHAR_CHENA;
@@ -8158,7 +8158,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  4438              		.loc 1 2133 8 view .LVU1518
  4439 0090 13F0200F 		tst	r3, #32
  4440 0094 21D1     		bne	.L286
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 137
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 137
 
 
 2135:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       {
@@ -8218,7 +8218,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  4477 00c8 F5DB     		blt	.L288
  4478 00ca 0CE0     		b	.L283
  4479              	.L287:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 138
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 138
 
 
 2151:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       }
@@ -8278,7 +8278,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  4516 00f2 43F00043 		orr	r3, r3, #-2147483648
  4517 00f6 C1F80035 		str	r3, [r1, #1280]
  4518 00fa F4E7     		b	.L283
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 139
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 139
 
 
  4519              		.cfi_endproc
@@ -8338,7 +8338,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  4554              	.LVL338:
 2206:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   tmpreg |= USB_OTG_HCCHAR_CHENA;
  4555              		.loc 1 2206 3 is_stmt 1 view .LVU1559
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 140
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 140
 
 
  4556              		.loc 1 2206 10 is_stmt 0 view .LVU1560
@@ -8398,7 +8398,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  4602              		.loc 1 1836 3 is_stmt 1 view .LVU1570
 1837:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   uint16_t len_words;
  4603              		.loc 1 1837 3 view .LVU1571
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 141
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 141
 
 
 1838:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   uint16_t num_packets;
@@ -8458,7 +8458,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  4639 002a BCF5807F 		cmp	ip, #256
  4640 002e 5BD9     		bls	.L308
 1931:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****         hc->XferSize = (uint32_t)num_packets * hc->max_packet;
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 142
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 142
 
 
  4641              		.loc 1 1931 9 is_stmt 1 view .LVU1591
@@ -8518,7 +8518,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  4678              		.loc 1 1848 10 view .LVU1608
  4679 0050 0CB1     		cbz	r4, .L298
 1848:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       {
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 143
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 143
 
 
  4680              		.loc 1 1848 42 discriminator 2 view .LVU1609
@@ -8578,7 +8578,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  4718 007e 012C     		cmp	r4, #1
  4719 0080 06D0     		beq	.L334
 1911:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****         {
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 144
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 144
 
 
  4720              		.loc 1 1911 9 is_stmt 1 view .LVU1626
@@ -8638,7 +8638,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  4756              		.loc 1 1892 13 is_stmt 1 view .LVU1644
 1892:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****           }
  4757              		.loc 1 1892 34 is_stmt 0 view .LVU1645
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 145
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 145
 
 
  4758 00a4 0124     		movs	r4, #1
@@ -8698,7 +8698,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  4796 00ce 4FF0010C 		mov	ip, #1
  4797 00d2 10E0     		b	.L302
  4798              	.L335:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 146
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 146
 
 
 1911:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****         {
@@ -8758,7 +8758,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  4836 00f6 CC69     		ldr	r4, [r1, #28]
 1955:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****                             (((uint32_t)num_packets << 19) & USB_OTG_HCTSIZ_PKTCNT) |
  4837              		.loc 1 1955 43 view .LVU1679
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 147
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 147
 
 
  4838 00f8 C4F31204 		ubfx	r4, r4, #0, #19
@@ -8818,7 +8818,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 1966:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   USBx_HC(ch_num)->HCCHAR |= (uint32_t)is_oddframe << 29;
  4875              		.loc 1 1966 3 is_stmt 1 view .LVU1697
 1966:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   USBx_HC(ch_num)->HCCHAR |= (uint32_t)is_oddframe << 29;
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 148
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 148
 
 
  4876              		.loc 1 1966 18 is_stmt 0 view .LVU1698
@@ -8878,7 +8878,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 2033:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   {
  4914              		.loc 1 2033 9 is_stmt 0 view .LVU1715
  4915 016c CC78     		ldrb	r4, [r1, #3]	@ zero_extendqisi2
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 149
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 149
 
 
 2033:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   {
@@ -8938,7 +8938,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  4954 01a2 40F08180 		bne	.L299
 2051:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     {
  4955              		.loc 1 2051 5 is_stmt 1 view .LVU1732
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 150
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 150
 
 
 2051:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     {
@@ -8998,7 +8998,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  4995 01d4 CC79     		ldrb	r4, [r1, #7]	@ zero_extendqisi2
 1979:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     {
  4996              		.loc 1 1979 8 view .LVU1748
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 151
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 151
 
 
  4997 01d6 012C     		cmp	r4, #1
@@ -9058,7 +9058,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 1979:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     {
  5038              		.loc 1 1979 31 discriminator 1 view .LVU1762
  5039 0202 002C     		cmp	r4, #0
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 152
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 152
 
 
  5040 0204 E9D1     		bne	.L312
@@ -9118,7 +9118,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  5078 0242 CEF80440 		str	r4, [lr, #4]
 2000:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
  5079              		.loc 1 2000 11 is_stmt 1 view .LVU1779
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 153
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 153
 
 
  5080 0246 8AE7     		b	.L315
@@ -9178,7 +9178,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  5120              	.LVL360:
  5121              	.L326:
 2057:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** 
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 154
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 154
 
 
  5122              		.loc 1 2057 9 is_stmt 1 view .LVU1794
@@ -9238,7 +9238,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  5163 02ac 70BD     		pop	{r4, r5, r6, pc}
  5164              	.LVL366:
  5165              	.L324:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 155
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 155
 
 
  5166              		.cfi_restore_state
@@ -9298,7 +9298,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 2218:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** {
  5204              		.loc 1 2218 1 is_stmt 1 view -0
  5205              		.cfi_startproc
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 156
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 156
 
 
  5206              		@ args = 0, pretend = 0, frame = 8
@@ -9358,7 +9358,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  5245 001c 2046     		mov	r0, r4
  5246 001e FFF7FEFF 		bl	USB_FlushRxFifo
  5247              	.LVL375:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 157
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 157
 
 
  5248              		.loc 1 2233 6 discriminator 1 view .LVU1835
@@ -9418,7 +9418,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 2249:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   for (i = 0U; i <= 15U; i++)
  5285              		.loc 1 2249 10 is_stmt 0 view .LVU1851
  5286 0044 0021     		movs	r1, #0
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 158
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 158
 
 
  5287 0046 00E0     		b	.L346
@@ -9478,7 +9478,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 2262:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       {
 2263:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****         break;
 2264:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****       }
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 159
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 159
 
 
 2265:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****     } while ((USBx_HC(i)->HCCHAR & USB_OTG_HCCHAR_CHENA) == USB_OTG_HCCHAR_CHENA);
@@ -9538,7 +9538,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 2279:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @param  USBx Selected device
 2280:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @retval HAL status
 2281:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   */
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 160
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 160
 
 
 2282:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** HAL_StatusTypeDef USB_ActivateRemoteWakeup(const USB_OTG_GlobalTypeDef *USBx)
@@ -9598,7 +9598,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
 2297:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @param  USBx Selected device
 2298:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   * @retval HAL status
 2299:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c ****   */
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 161
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 161
 
 
 2300:Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c **** HAL_StatusTypeDef USB_DeActivateRemoteWakeup(const USB_OTG_GlobalTypeDef *USBx)
@@ -9639,131 +9639,131 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 1
  5439              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
  5440              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h"
  5441              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 162
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 162
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32f4xx_ll_usb.c
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:21     .text.USB_CoreReset:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:26     .text.USB_CoreReset:00000000 USB_CoreReset
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:132    .text.USB_CoreInit:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:138    .text.USB_CoreInit:00000000 USB_CoreInit
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:275    .text.USB_SetTurnaroundTime:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:281    .text.USB_SetTurnaroundTime:00000000 USB_SetTurnaroundTime
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:434    .text.USB_SetTurnaroundTime:000000a8 $d
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:453    .text.USB_EnableGlobalInt:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:459    .text.USB_EnableGlobalInt:00000000 USB_EnableGlobalInt
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:483    .text.USB_DisableGlobalInt:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:489    .text.USB_DisableGlobalInt:00000000 USB_DisableGlobalInt
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:513    .text.USB_FlushTxFifo:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:519    .text.USB_FlushTxFifo:00000000 USB_FlushTxFifo
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:613    .text.USB_FlushRxFifo:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:619    .text.USB_FlushRxFifo:00000000 USB_FlushRxFifo
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:709    .text.USB_SetDevSpeed:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:715    .text.USB_SetDevSpeed:00000000 USB_SetDevSpeed
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:742    .text.USB_DevInit:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:748    .text.USB_DevInit:00000000 USB_DevInit
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:1102   .text.USB_DevInit:00000194 $d
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:1107   .text.USB_GetDevSpeed:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:1113   .text.USB_GetDevSpeed:00000000 USB_GetDevSpeed
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:1166   .text.USB_ActivateEndpoint:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:1172   .text.USB_ActivateEndpoint:00000000 USB_ActivateEndpoint
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:1287   .text.USB_ActivateDedicatedEndpoint:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:1293   .text.USB_ActivateDedicatedEndpoint:00000000 USB_ActivateDedicatedEndpoint
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:1417   .text.USB_DeactivateEndpoint:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:1423   .text.USB_DeactivateEndpoint:00000000 USB_DeactivateEndpoint
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:1591   .text.USB_DeactivateEndpoint:000000d8 $d
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:1597   .text.USB_DeactivateDedicatedEndpoint:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:1603   .text.USB_DeactivateDedicatedEndpoint:00000000 USB_DeactivateDedicatedEndpoint
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:1732   .text.USB_EPStopXfer:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:1738   .text.USB_EPStopXfer:00000000 USB_EPStopXfer
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:1895   .text.USB_WritePacket:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:1901   .text.USB_WritePacket:00000000 USB_WritePacket
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:1969   .text.USB_EPStartXfer:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:1975   .text.USB_EPStartXfer:00000000 USB_EPStartXfer
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:2445   .text.USB_EPStartXfer:00000240 $d
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:2450   .text.USB_ReadPacket:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:2456   .text.USB_ReadPacket:00000000 USB_ReadPacket
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:2554   .text.USB_EPSetStall:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:2560   .text.USB_EPSetStall:00000000 USB_EPSetStall
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:2643   .text.USB_EPClearStall:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:2649   .text.USB_EPClearStall:00000000 USB_EPClearStall
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:2734   .text.USB_StopDevice:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:2740   .text.USB_StopDevice:00000000 USB_StopDevice
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:2821   .text.USB_SetDevAddress:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:2827   .text.USB_SetDevAddress:00000000 USB_SetDevAddress
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:2863   .text.USB_DevConnect:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:2869   .text.USB_DevConnect:00000000 USB_DevConnect
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:2899   .text.USB_DevDisconnect:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:2905   .text.USB_DevDisconnect:00000000 USB_DevDisconnect
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:2935   .text.USB_ReadInterrupts:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:2941   .text.USB_ReadInterrupts:00000000 USB_ReadInterrupts
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:2968   .text.USB_ReadChInterrupts:00000000 $t
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 163
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:21     .text.USB_CoreReset:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:26     .text.USB_CoreReset:00000000 USB_CoreReset
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:132    .text.USB_CoreInit:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:138    .text.USB_CoreInit:00000000 USB_CoreInit
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:275    .text.USB_SetTurnaroundTime:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:281    .text.USB_SetTurnaroundTime:00000000 USB_SetTurnaroundTime
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:434    .text.USB_SetTurnaroundTime:000000a8 $d
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:453    .text.USB_EnableGlobalInt:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:459    .text.USB_EnableGlobalInt:00000000 USB_EnableGlobalInt
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:483    .text.USB_DisableGlobalInt:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:489    .text.USB_DisableGlobalInt:00000000 USB_DisableGlobalInt
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:513    .text.USB_FlushTxFifo:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:519    .text.USB_FlushTxFifo:00000000 USB_FlushTxFifo
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:613    .text.USB_FlushRxFifo:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:619    .text.USB_FlushRxFifo:00000000 USB_FlushRxFifo
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:709    .text.USB_SetDevSpeed:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:715    .text.USB_SetDevSpeed:00000000 USB_SetDevSpeed
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:742    .text.USB_DevInit:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:748    .text.USB_DevInit:00000000 USB_DevInit
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:1102   .text.USB_DevInit:00000194 $d
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:1107   .text.USB_GetDevSpeed:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:1113   .text.USB_GetDevSpeed:00000000 USB_GetDevSpeed
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:1166   .text.USB_ActivateEndpoint:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:1172   .text.USB_ActivateEndpoint:00000000 USB_ActivateEndpoint
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:1287   .text.USB_ActivateDedicatedEndpoint:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:1293   .text.USB_ActivateDedicatedEndpoint:00000000 USB_ActivateDedicatedEndpoint
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:1417   .text.USB_DeactivateEndpoint:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:1423   .text.USB_DeactivateEndpoint:00000000 USB_DeactivateEndpoint
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:1591   .text.USB_DeactivateEndpoint:000000d8 $d
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:1597   .text.USB_DeactivateDedicatedEndpoint:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:1603   .text.USB_DeactivateDedicatedEndpoint:00000000 USB_DeactivateDedicatedEndpoint
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:1732   .text.USB_EPStopXfer:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:1738   .text.USB_EPStopXfer:00000000 USB_EPStopXfer
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:1895   .text.USB_WritePacket:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:1901   .text.USB_WritePacket:00000000 USB_WritePacket
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:1969   .text.USB_EPStartXfer:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:1975   .text.USB_EPStartXfer:00000000 USB_EPStartXfer
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:2445   .text.USB_EPStartXfer:00000240 $d
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:2450   .text.USB_ReadPacket:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:2456   .text.USB_ReadPacket:00000000 USB_ReadPacket
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:2554   .text.USB_EPSetStall:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:2560   .text.USB_EPSetStall:00000000 USB_EPSetStall
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:2643   .text.USB_EPClearStall:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:2649   .text.USB_EPClearStall:00000000 USB_EPClearStall
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:2734   .text.USB_StopDevice:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:2740   .text.USB_StopDevice:00000000 USB_StopDevice
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:2821   .text.USB_SetDevAddress:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:2827   .text.USB_SetDevAddress:00000000 USB_SetDevAddress
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:2863   .text.USB_DevConnect:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:2869   .text.USB_DevConnect:00000000 USB_DevConnect
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:2899   .text.USB_DevDisconnect:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:2905   .text.USB_DevDisconnect:00000000 USB_DevDisconnect
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:2935   .text.USB_ReadInterrupts:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:2941   .text.USB_ReadInterrupts:00000000 USB_ReadInterrupts
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:2968   .text.USB_ReadChInterrupts:00000000 $t
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 163
 
 
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:2974   .text.USB_ReadChInterrupts:00000000 USB_ReadChInterrupts
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:3007   .text.USB_ReadDevAllOutEpInterrupt:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:3013   .text.USB_ReadDevAllOutEpInterrupt:00000000 USB_ReadDevAllOutEpInterrupt
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:3046   .text.USB_ReadDevAllInEpInterrupt:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:3052   .text.USB_ReadDevAllInEpInterrupt:00000000 USB_ReadDevAllInEpInterrupt
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:3085   .text.USB_ReadDevOutEPInterrupt:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:3091   .text.USB_ReadDevOutEPInterrupt:00000000 USB_ReadDevOutEPInterrupt
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:3125   .text.USB_ReadDevInEPInterrupt:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:3131   .text.USB_ReadDevInEPInterrupt:00000000 USB_ReadDevInEPInterrupt
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:3182   .text.USB_ClearInterrupts:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:3188   .text.USB_ClearInterrupts:00000000 USB_ClearInterrupts
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:3208   .text.USB_GetMode:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:3214   .text.USB_GetMode:00000000 USB_GetMode
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:3233   .text.USB_SetCurrentMode:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:3239   .text.USB_SetCurrentMode:00000000 USB_SetCurrentMode
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:3358   .text.USB_ActivateSetup:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:3364   .text.USB_ActivateSetup:00000000 USB_ActivateSetup
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:3395   .text.USB_EP0_OutStart:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:3401   .text.USB_EP0_OutStart:00000000 USB_EP0_OutStart
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:3485   .text.USB_EP0_OutStart:0000005c $d
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:3490   .text.USB_HostInit:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:3496   .text.USB_HostInit:00000000 USB_HostInit
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:3708   .text.USB_HostInit:000000f0 $d
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:3716   .text.USB_InitFSLSPClkSel:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:3722   .text.USB_InitFSLSPClkSel:00000000 USB_InitFSLSPClkSel
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:3785   .text.USB_ResetPort:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:3791   .text.USB_ResetPort:00000000 USB_ResetPort
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:3857   .text.USB_DriveVbus:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:3863   .text.USB_DriveVbus:00000000 USB_DriveVbus
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:3939   .text.USB_GetHostSpeed:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:3945   .text.USB_GetHostSpeed:00000000 USB_GetHostSpeed
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:3981   .text.USB_GetCurrentFrame:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:3987   .text.USB_GetCurrentFrame:00000000 USB_GetCurrentFrame
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:4010   .text.USB_HC_Init:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:4016   .text.USB_HC_Init:00000000 USB_HC_Init
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:4057   .text.USB_HC_Init:00000022 $d
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:4061   .text.USB_HC_Init:00000026 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:4269   .text.USB_HC_Init:0000012c $d
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:4274   .text.USB_HC_ReadInterrupt:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:4280   .text.USB_HC_ReadInterrupt:00000000 USB_HC_ReadInterrupt
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:4303   .text.USB_HC_Halt:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:4309   .text.USB_HC_Halt:00000000 USB_HC_Halt
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:4523   .text.USB_DoPing:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:4529   .text.USB_DoPing:00000000 USB_DoPing
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:4569   .text.USB_DoPing:00000020 $d
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:4574   .text.USB_HC_StartXfer:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:4580   .text.USB_HC_StartXfer:00000000 USB_HC_StartXfer
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:4963   .text.USB_HC_StartXfer:000001b0 $d
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:4968   .text.USB_HC_StartXfer:000001b4 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:5030   .text.USB_HC_StartXfer:000001fc $d
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:5034   .text.USB_HC_StartXfer:00000200 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:5118   .text.USB_HC_StartXfer:0000027c $d
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:5124   .text.USB_HC_StartXfer:00000284 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:5195   .text.USB_StopHost:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:5201   .text.USB_StopHost:00000000 USB_StopHost
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:5362   .text.USB_ActivateRemoteWakeup:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:5368   .text.USB_ActivateRemoteWakeup:00000000 USB_ActivateRemoteWakeup
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s 			page 164
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:2974   .text.USB_ReadChInterrupts:00000000 USB_ReadChInterrupts
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:3007   .text.USB_ReadDevAllOutEpInterrupt:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:3013   .text.USB_ReadDevAllOutEpInterrupt:00000000 USB_ReadDevAllOutEpInterrupt
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:3046   .text.USB_ReadDevAllInEpInterrupt:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:3052   .text.USB_ReadDevAllInEpInterrupt:00000000 USB_ReadDevAllInEpInterrupt
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:3085   .text.USB_ReadDevOutEPInterrupt:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:3091   .text.USB_ReadDevOutEPInterrupt:00000000 USB_ReadDevOutEPInterrupt
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:3125   .text.USB_ReadDevInEPInterrupt:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:3131   .text.USB_ReadDevInEPInterrupt:00000000 USB_ReadDevInEPInterrupt
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:3182   .text.USB_ClearInterrupts:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:3188   .text.USB_ClearInterrupts:00000000 USB_ClearInterrupts
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:3208   .text.USB_GetMode:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:3214   .text.USB_GetMode:00000000 USB_GetMode
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:3233   .text.USB_SetCurrentMode:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:3239   .text.USB_SetCurrentMode:00000000 USB_SetCurrentMode
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:3358   .text.USB_ActivateSetup:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:3364   .text.USB_ActivateSetup:00000000 USB_ActivateSetup
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:3395   .text.USB_EP0_OutStart:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:3401   .text.USB_EP0_OutStart:00000000 USB_EP0_OutStart
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:3485   .text.USB_EP0_OutStart:0000005c $d
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:3490   .text.USB_HostInit:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:3496   .text.USB_HostInit:00000000 USB_HostInit
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:3708   .text.USB_HostInit:000000f0 $d
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:3716   .text.USB_InitFSLSPClkSel:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:3722   .text.USB_InitFSLSPClkSel:00000000 USB_InitFSLSPClkSel
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:3785   .text.USB_ResetPort:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:3791   .text.USB_ResetPort:00000000 USB_ResetPort
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:3857   .text.USB_DriveVbus:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:3863   .text.USB_DriveVbus:00000000 USB_DriveVbus
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:3939   .text.USB_GetHostSpeed:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:3945   .text.USB_GetHostSpeed:00000000 USB_GetHostSpeed
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:3981   .text.USB_GetCurrentFrame:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:3987   .text.USB_GetCurrentFrame:00000000 USB_GetCurrentFrame
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:4010   .text.USB_HC_Init:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:4016   .text.USB_HC_Init:00000000 USB_HC_Init
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:4057   .text.USB_HC_Init:00000022 $d
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:4061   .text.USB_HC_Init:00000026 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:4269   .text.USB_HC_Init:0000012c $d
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:4274   .text.USB_HC_ReadInterrupt:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:4280   .text.USB_HC_ReadInterrupt:00000000 USB_HC_ReadInterrupt
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:4303   .text.USB_HC_Halt:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:4309   .text.USB_HC_Halt:00000000 USB_HC_Halt
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:4523   .text.USB_DoPing:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:4529   .text.USB_DoPing:00000000 USB_DoPing
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:4569   .text.USB_DoPing:00000020 $d
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:4574   .text.USB_HC_StartXfer:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:4580   .text.USB_HC_StartXfer:00000000 USB_HC_StartXfer
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:4963   .text.USB_HC_StartXfer:000001b0 $d
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:4968   .text.USB_HC_StartXfer:000001b4 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:5030   .text.USB_HC_StartXfer:000001fc $d
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:5034   .text.USB_HC_StartXfer:00000200 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:5118   .text.USB_HC_StartXfer:0000027c $d
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:5124   .text.USB_HC_StartXfer:00000284 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:5195   .text.USB_StopHost:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:5201   .text.USB_StopHost:00000000 USB_StopHost
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:5362   .text.USB_ActivateRemoteWakeup:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:5368   .text.USB_ActivateRemoteWakeup:00000000 USB_ActivateRemoteWakeup
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s 			page 164
 
 
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:5403   .text.USB_DeActivateRemoteWakeup:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccJM0m5d.s:5409   .text.USB_DeActivateRemoteWakeup:00000000 USB_DeActivateRemoteWakeup
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:5403   .text.USB_DeActivateRemoteWakeup:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccypLyRc.s:5409   .text.USB_DeActivateRemoteWakeup:00000000 USB_DeActivateRemoteWakeup
 
 UNDEFINED SYMBOLS
 HAL_Delay

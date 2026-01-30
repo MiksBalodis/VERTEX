@@ -28,6 +28,7 @@ void MX25FLASH_Read_Sector(uint32_t sector, uint8_t *data);
 void MX25FLASH_Program_Page(uint16_t page, uint8_t data[256]);
 uint8_t MX25FLASH_Sector_Erase(uint32_t sector);
 uint8_t MX25FLASH_Program_Sector(uint32_t sector, uint8_t *data);
+void MX25FLASH_Read_LogBlock(uint32_t sector, uint8_t *data);
 
 uint8_t MX25FLASH_WFE(void);
 void MX25FLASH_WE(void);

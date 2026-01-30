@@ -96,6 +96,12 @@ uint8_t MX25FLASH_Program_Sector(uint32_t sector, uint8_t *data){
     return MX25FLASH_WFE();
 }
 
+void MX25FLASH_Read_LogBlock(uint32_t sector, uint8_t *data){
+    for (uint32_t addr = 0; addr < 512; addr++){
+        data[addr] = MX25FLASH_Read(sector*0x200+addr);
+    }
+}
+
 void MX25FLASH_Read_Sector(uint32_t sector, uint8_t *data){
     for (uint32_t addr = 0; addr < 4096; addr++){
         data[addr] = MX25FLASH_Read(sector*0x1000+addr);

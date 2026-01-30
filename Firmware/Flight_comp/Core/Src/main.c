@@ -79,6 +79,8 @@ BMP388_HandleTypeDef hbmp388;
 
 EE24_HandleTypeDef h24lc64;
 
+servo_t hservo1;
+
 float battery_v;
 uint32_t adc_buff[1];
 /* USER CODE END PV */
@@ -181,6 +183,9 @@ int main(void)
     data[1] = 0x55;
     // EE24_Write(&h24lc64, 0, data, 2, 100); // Avoid unnecessary damage
   }
+
+  Servo_Init(&hservo1, &htim5, TIM_CHANNEL_1);
+  
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -195,6 +200,8 @@ int main(void)
     LSM6DSO_ACC_GetAxes(&hlsm6dso1, &acc);
 
     EE24_Read(&h24lc64, 0, data, 2, 100);
+
+    Servo_SetAngle(&hservo1, 120);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -656,9 +663,9 @@ static void MX_TIM4_Init(void)
 
   /* USER CODE END TIM4_Init 1 */
   htim4.Instance = TIM4;
-  htim4.Init.Prescaler = 0;
+  htim4.Init.Prescaler = 591;
   htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim4.Init.Period = 65535;
+  htim4.Init.Period = 2430;
   htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim4) != HAL_OK)
@@ -719,9 +726,9 @@ static void MX_TIM5_Init(void)
 
   /* USER CODE END TIM5_Init 1 */
   htim5.Instance = TIM5;
-  htim5.Init.Prescaler = 0;
+  htim5.Init.Prescaler = 591;
   htim5.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim5.Init.Period = 4294967295;
+  htim5.Init.Period = 2430;
   htim5.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim5.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim5) != HAL_OK)

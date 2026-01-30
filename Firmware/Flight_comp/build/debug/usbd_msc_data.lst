@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc5UPspy.s 			page 1
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccCyeEwA.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -54,20 +54,20 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc5UPspy.s 			page 1
   57              		.file 2 "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/arm-none-eabi/include/ma
   58              		.file 3 "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/arm-none-eabi/include/sy
   59              		.file 4 "Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc/usbd_msc_data.h"
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\cc5UPspy.s 			page 2
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccCyeEwA.s 			page 2
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 usbd_msc_data.c
-C:\Users\kroko\AppData\Local\Temp\cc5UPspy.s:25     .bss.MSC_Diagnostic_Data:00000000 MSC_Diagnostic_Data
-C:\Users\kroko\AppData\Local\Temp\cc5UPspy.s:22     .bss.MSC_Diagnostic_Data:00000000 $d
-C:\Users\kroko\AppData\Local\Temp\cc5UPspy.s:32     .data.MSC_Mode_Sense10_data:00000000 MSC_Mode_Sense10_data
-C:\Users\kroko\AppData\Local\Temp\cc5UPspy.s:29     .data.MSC_Mode_Sense10_data:00000000 $d
-C:\Users\kroko\AppData\Local\Temp\cc5UPspy.s:39     .data.MSC_Mode_Sense6_data:00000000 MSC_Mode_Sense6_data
-C:\Users\kroko\AppData\Local\Temp\cc5UPspy.s:36     .data.MSC_Mode_Sense6_data:00000000 $d
-C:\Users\kroko\AppData\Local\Temp\cc5UPspy.s:46     .data.MSC_Page80_Inquiry_Data:00000000 MSC_Page80_Inquiry_Data
-C:\Users\kroko\AppData\Local\Temp\cc5UPspy.s:43     .data.MSC_Page80_Inquiry_Data:00000000 $d
-C:\Users\kroko\AppData\Local\Temp\cc5UPspy.s:53     .data.MSC_Page00_Inquiry_Data:00000000 MSC_Page00_Inquiry_Data
-C:\Users\kroko\AppData\Local\Temp\cc5UPspy.s:50     .data.MSC_Page00_Inquiry_Data:00000000 $d
+C:\Users\kroko\AppData\Local\Temp\ccCyeEwA.s:25     .bss.MSC_Diagnostic_Data:00000000 MSC_Diagnostic_Data
+C:\Users\kroko\AppData\Local\Temp\ccCyeEwA.s:22     .bss.MSC_Diagnostic_Data:00000000 $d
+C:\Users\kroko\AppData\Local\Temp\ccCyeEwA.s:32     .data.MSC_Mode_Sense10_data:00000000 MSC_Mode_Sense10_data
+C:\Users\kroko\AppData\Local\Temp\ccCyeEwA.s:29     .data.MSC_Mode_Sense10_data:00000000 $d
+C:\Users\kroko\AppData\Local\Temp\ccCyeEwA.s:39     .data.MSC_Mode_Sense6_data:00000000 MSC_Mode_Sense6_data
+C:\Users\kroko\AppData\Local\Temp\ccCyeEwA.s:36     .data.MSC_Mode_Sense6_data:00000000 $d
+C:\Users\kroko\AppData\Local\Temp\ccCyeEwA.s:46     .data.MSC_Page80_Inquiry_Data:00000000 MSC_Page80_Inquiry_Data
+C:\Users\kroko\AppData\Local\Temp\ccCyeEwA.s:43     .data.MSC_Page80_Inquiry_Data:00000000 $d
+C:\Users\kroko\AppData\Local\Temp\ccCyeEwA.s:53     .data.MSC_Page00_Inquiry_Data:00000000 MSC_Page00_Inquiry_Data
+C:\Users\kroko\AppData\Local\Temp\ccCyeEwA.s:50     .data.MSC_Page00_Inquiry_Data:00000000 $d
 
 NO UNDEFINED SYMBOLS

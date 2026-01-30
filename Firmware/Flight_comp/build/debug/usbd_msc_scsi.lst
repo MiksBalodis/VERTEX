@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
   28:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** #include "usbd_msc.h"
   29:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** #include "usbd_msc_data.h"
   30:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 2
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 2
 
 
   31:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
   85:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** static int8_t SCSI_RequestSense(USBD_HandleTypeDef *pdev, uint8_t lun, uint8_t *params);
   86:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** static int8_t SCSI_StartStopUnit(USBD_HandleTypeDef *pdev, uint8_t lun, uint8_t *params);
   87:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** static int8_t SCSI_AllowPreventRemovable(USBD_HandleTypeDef *pdev, uint8_t lun, uint8_t *params);
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 3
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 3
 
 
   88:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** static int8_t SCSI_ModeSense6(USBD_HandleTypeDef *pdev, uint8_t lun, uint8_t *params);
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  142:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
  143:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****     case SCSI_INQUIRY:
  144:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****       ret = SCSI_Inquiry(pdev, lun, cmd);
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 4
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 4
 
 
  145:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****       break;
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  199:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****     case SCSI_RECEIVE_DIAGNOSTIC_RESULTS:
  200:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****       ret = SCSI_ReceiveDiagnosticResults(pdev, lun, cmd);
  201:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****       break;
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 5
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 5
 
 
  202:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  256:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
  257:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
  258:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** /**
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 6
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 6
 
 
  259:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   * @brief  SCSI_Inquiry
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  313:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   }
  314:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
  315:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   return 0;
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 7
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 7
 
 
  316:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** }
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  370:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** static int8_t SCSI_ReadCapacity16(USBD_HandleTypeDef *pdev, uint8_t lun, uint8_t *params)
  371:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** {
  372:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   UNUSED(params);
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 8
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 8
 
 
  373:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   uint32_t idx;
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  427:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   */
  428:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** static int8_t SCSI_ReadFormatCapacity(USBD_HandleTypeDef *pdev, uint8_t lun, uint8_t *params)
  429:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** {
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 9
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 9
 
 
  430:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   UNUSED(params);
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  484:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
  485:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   if (hmsc == NULL)
  486:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   {
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 10
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 10
 
 
  487:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****     return -1;
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  541:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****     len = params[8];
  542:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   }
  543:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 11
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 11
 
 
  544:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   (void)SCSI_UpdateBotData(hmsc, MSC_Mode_Sense10_data, len);
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  598:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   {
  599:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****     hmsc->bot_data_length = params[4];
  600:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   }
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 12
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 12
 
 
  601:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  655:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   {
  656:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****     SCSI_SenseCode(pdev, lun, ILLEGAL_REQUEST, INVALID_FIELD_IN_COMMAND);
  657:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 13
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 13
 
 
  658:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****     return -1;
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  696:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   {
  697:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****     return -1;
  698:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   }
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 14
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 14
 
 
  699:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
   83              		.syntax unified
   84              		.thumb
   85              		.thumb_func
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 15
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 15
 
 
   87              	SCSI_UpdateBotData:
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  764:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****     }
  765:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
  766:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****     /* cases 4,5 : Hi <> Dn */
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 16
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 16
 
 
  767:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****     if (hmsc->cbw.dDataLength != (p_scsi_blk->len * p_scsi_blk->size))
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  821:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****                        ((uint32_t)params[4] <<  8) |
  822:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****                        (uint32_t)params[5];
  823:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 17
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 17
 
 
  824:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****     p_scsi_blk->len = ((uint32_t)params[6] << 24) |
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  878:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****     }
  879:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
  880:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****     /* case 8 : Hi <> Do */
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 18
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 18
 
 
  881:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****     if ((hmsc->cbw.bmFlags & 0x80U) == 0x80U)
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  935:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   return 0;
  936:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** }
  937:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 19
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 19
 
 
  938:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  992:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****     p_scsi_blk->addr = ((uint32_t)params[2] << 24) |
  993:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****                        ((uint32_t)params[3] << 16) |
  994:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****                        ((uint32_t)params[4] << 8) |
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 20
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 20
 
 
  995:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****                        (uint32_t)params[5];
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
 1049:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   if ((params[1] & 0x02U) == 0x02U)
 1050:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   {
 1051:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****     SCSI_SenseCode(pdev, lun, ILLEGAL_REQUEST, INVALID_FIELD_IN_COMMAND);
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 21
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 21
 
 
 1052:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****     return -1; /* Error, Verify Mode Not supported*/
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
 1106:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
 1107:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   /* Calculate the total length of the report LUNs buffer */
 1108:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   total_length = lun_list_length + 8U;
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 22
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 22
 
 
 1109:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
 1163:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   if (hmsc == NULL)
 1164:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   {
 1165:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****     return -1;
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 23
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 23
 
 
 1166:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   }
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
 1220:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   {
 1221:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****     hmsc->bot_state = USBD_BOT_LAST_DATA_IN;
 1222:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   }
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 24
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 24
 
 
 1223:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
 1277:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
 1278:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   return 0;
 1279:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** }
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 25
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 25
 
 
 1280:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  118              		.loc 1 1305 25 view .LVU34
  119 000e 0CEB0203 		add	r3, ip, r2
  120 0012 1874     		strb	r0, [r3, #16]
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 26
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 26
 
 
  121              	.L8:
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  165              		.loc 1 482 31 view .LVU44
  166 000a 04F1B001 		add	r1, r4, #176
  167              	.LVL15:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 27
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 27
 
 
  482:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   uint16_t len = MODE_SENSE6_LEN;
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  205              	.L15:
  206              	.LVL19:
  505:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 28
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 28
 
 
  207              		.loc 1 505 3 is_stmt 1 view .LVU62
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  254              		@ args = 0, pretend = 0, frame = 0
  255              		@ frame_needed = 0, uses_anonymous_args = 0
  519:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   UNUSED(lun);
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 29
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 29
 
 
  256              		.loc 1 519 1 is_stmt 0 view .LVU72
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  532:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   }
  295              		.loc 1 532 26 is_stmt 0 view .LVU88
  296 0022 0C4A     		ldr	r2, .L29
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 30
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 30
 
 
  297 0024 D378     		ldrb	r3, [r2, #3]	@ zero_extendqisi2
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  337              		.loc 1 526 12 view .LVU102
  338 004c 4FF0FF30 		mov	r0, #-1
  339 0050 F5E7     		b	.L22
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 31
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 31
 
 
  340              	.L30:
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
 1132:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   {
  384              		.loc 1 1132 6 view .LVU115
  385 0014 05D0     		beq	.L32
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 32
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 32
 
 
 1138:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   {
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  431              		.loc 1 1072 3 is_stmt 1 view .LVU126
 1073:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   uint32_t total_length;
  432              		.loc 1 1073 3 view .LVU127
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 33
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 33
 
 
 1074:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   uint8_t lun_idx;
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  469              		.loc 1 1095 3 is_stmt 1 view .LVU145
 1095:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   lun_report[1] = (uint8_t)(lun_list_length >> 16);
  470              		.loc 1 1095 19 is_stmt 0 view .LVU146
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 34
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 34
 
 
  471 0028 CCF34752 		ubfx	r2, ip, #21, #8
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
 1101:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   {
  508              		.loc 1 1101 37 is_stmt 0 discriminator 1 view .LVU164
  509 004e 0168     		ldr	r1, [r0]
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 35
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 35
 
 
 1101:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   {
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  555              	.LFB252:
  616:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   UNUSED(lun);
  556              		.loc 1 616 1 is_stmt 1 view -0
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 36
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 36
 
 
  557              		.cfi_startproc
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  594 0022 4B1C     		adds	r3, r1, #1
  595 0024 DBB2     		uxtb	r3, r3
  596 0026 80F86132 		strb	r3, [r0, #609]
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 37
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 37
 
 
  597              	.LVL63:
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  641              		.loc 1 223 31 view .LVU205
  642 000a 50F82250 		ldr	r5, [r0, r2, lsl #2]
  643              	.LVL66:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 38
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 38
 
 
  225:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   {
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  681              	.L50:
  255:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
  682              		.loc 1 255 1 is_stmt 0 view .LVU223
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 39
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 39
 
 
  683 0036 70BD     		pop	{r4, r5, r6, pc}
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  724              		.loc 1 250 5 is_stmt 1 view .LVU236
  250:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   }
  725              		.loc 1 250 12 is_stmt 0 view .LVU237
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 40
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 40
 
 
  726 006a 4FF0FF30 		mov	r0, #-1
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  568:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   {
  770              		.loc 1 568 16 is_stmt 0 view .LVU250
  771 0010 D4F81832 		ldr	r3, [r4, #536]
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 41
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 41
 
 
  568:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   {
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  812              	.LVL86:
  579:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   hmsc->bot_data[7] = REQUEST_SENSE_DATA_LEN - 6U;
  813              		.loc 1 579 21 view .LVU265
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 42
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 42
 
 
  814 003c 2374     		strb	r3, [r4, #16]
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  589:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****     {
  850              		.loc 1 589 8 is_stmt 0 view .LVU284
  851 006c 042B     		cmp	r3, #4
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 43
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 43
 
 
  852 006e 07D0     		beq	.L69
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  892              		.cfi_endproc
  893              	.LFE251:
  895              		.section	.text.SCSI_Inquiry,"ax",%progbits
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 44
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 44
 
 
  896              		.align	1
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  936 001a 92F801E0 		ldrb	lr, [r2, #1]	@ zero_extendqisi2
  282:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   {
  937              		.loc 1 282 6 view .LVU314
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 45
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 45
 
 
  938 001e 1EF0010F 		tst	lr, #1
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  977              		.loc 1 279 5 is_stmt 1 view .LVU329
  279:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   }
  978              		.loc 1 279 12 is_stmt 0 view .LVU330
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 46
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 46
 
 
  979 0046 4FF0FF30 		mov	r0, #-1
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  1020 006e 0CEB830C 		add	ip, ip, r3, lsl #2
  1021              	.LVL113:
  303:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****             ->pInquiry[lun * STANDARD_INQUIRY_DATA_LEN];
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 47
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 47
 
 
  1022              		.loc 1 303 66 view .LVU344
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  1062              		.cfi_restore 4
  1063              		.cfi_restore 14
  273:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   }
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 48
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 48
 
 
  1064              		.loc 1 273 12 view .LVU359
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  654:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   {
  1109              		.loc 1 654 6 view .LVU371
  1110 0012 012B     		cmp	r3, #1
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 49
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 49
 
 
  1111 0014 0CD0     		beq	.L94
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  1150 0046 04E0     		b	.L87
  1151              	.LVL127:
  1152              	.L95:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 50
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 50
 
 
  663:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   }
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  1196              		@ args = 0, pretend = 0, frame = 8
  1197              		@ frame_needed = 0, uses_anonymous_args = 0
  429:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   UNUSED(params);
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 51
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 51
 
 
  1198              		.loc 1 429 1 is_stmt 0 view .LVU400
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  442:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
  1237              		.loc 1 442 10 view .LVU416
  1238 0026 3046     		mov	r0, r6
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 52
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 52
 
 
  1239              	.LVL136:
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  1279 0052 9BB2     		uxth	r3, r3
  1280              	.LVL142:
  1281              	.L100:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 53
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 53
 
 
  450:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   {
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  1317 0076 2376     		strb	r3, [r4, #24]
  462:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   hmsc->bot_data[10] = (uint8_t)(blk_size >>  8);
  1318              		.loc 1 462 3 is_stmt 1 view .LVU450
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 54
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 54
 
 
  462:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   hmsc->bot_data[10] = (uint8_t)(blk_size >>  8);
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  1360              		.thumb
  1361              		.thumb_func
  1363              	SCSI_ReadCapacity10:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 55
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 55
 
 
  1364              	.LVL147:
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  1403              	.LVL151:
  338:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****                                                                              &p_scsi_blk->size);
  1404              		.loc 1 338 10 view .LVU480
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 56
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 56
 
 
  1405 001e 04EB0111 		add	r1, r4, r1, lsl #4
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  1442              		.loc 1 349 23 is_stmt 0 view .LVU497
  1443 0048 C3F30723 		ubfx	r3, r3, #8, #8
  349:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   hmsc->bot_data[3] = (uint8_t)(p_scsi_blk->nbr - 1U);
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 57
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 57
 
 
  1444              		.loc 1 349 21 view .LVU498
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  343:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****     return -1;
  1480              		.loc 1 343 5 is_stmt 1 view .LVU517
  1481 0066 3A23     		movs	r3, #58
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 58
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 58
 
 
  1482 0068 0222     		movs	r2, #2
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  1528              		.loc 1 374 3 view .LVU527
  375:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   USBD_MSC_BOT_LUN_TypeDef *p_scsi_blk = &hmsc->scsi_blk[lun];
  1529              		.loc 1 375 3 view .LVU528
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 59
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 59
 
 
  375:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   USBD_MSC_BOT_LUN_TypeDef *p_scsi_blk = &hmsc->scsi_blk[lun];
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  1569 0032 94F86232 		ldrb	r3, [r4, #610]	@ zero_extendqisi2
  386:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   {
  1570              		.loc 1 386 18 discriminator 1 view .LVU544
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 60
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 60
 
 
  1571 0036 022B     		cmp	r3, #2
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  389:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   }
  1610              		.loc 1 389 5 is_stmt 1 view .LVU560
  389:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   }
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 61
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 61
 
 
  1611              		.loc 1 389 12 is_stmt 0 view .LVU561
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  404:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   hmsc->bot_data[7] = (uint8_t)(p_scsi_blk->nbr - 1U);
  1650              		.loc 1 404 23 is_stmt 0 view .LVU577
  1651 0086 C3F30723 		ubfx	r3, r3, #8, #8
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 62
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 62
 
 
  404:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   hmsc->bot_data[7] = (uint8_t)(p_scsi_blk->nbr - 1U);
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  414:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****                           (uint32_t)params[13];
  1686              		.loc 1 414 44 view .LVU598
  1687 00a8 3A7B     		ldrb	r2, [r7, #12]	@ zero_extendqisi2
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 63
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 63
 
 
  413:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****                           ((uint32_t)params[12] <<  8) |
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  1732 0006 B034     		adds	r4, r4, #176
  1733 0008 50F82440 		ldr	r4, [r0, r4, lsl #2]
  1734              	.LVL182:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 64
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 64
 
 
 1161:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  1774 0030 4FF0FF30 		mov	r0, #-1
  1775              	.LVL190:
 1165:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   }
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 65
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 65
 
 
  1776              		.loc 1 1165 12 view .LVU626
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
 1194:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
  1822              		.loc 1 1194 19 is_stmt 0 view .LVU637
  1823 0018 05EB0111 		add	r1, r5, r1, lsl #4
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 66
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 66
 
 
  1824              	.LVL194:
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
 1211:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
  1864              		.loc 1 1211 9 is_stmt 0 view .LVU652
  1865 005c 3346     		mov	r3, r6
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 67
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 67
 
 
  1866 005e 4246     		mov	r2, r8
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  1904              		.loc 1 1221 5 is_stmt 1 view .LVU668
 1221:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   }
  1905              		.loc 1 1221 21 is_stmt 0 view .LVU669
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 68
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 68
 
 
  1906 009a 0323     		movs	r3, #3
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  1954              	.LFB255:
  723:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   USBD_MSC_BOT_HandleTypeDef *hmsc = (USBD_MSC_BOT_HandleTypeDef *)pdev->pClassDataCmsit[pdev->clas
  1955              		.loc 1 723 1 is_stmt 1 view -0
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 69
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 69
 
 
  1956              		.cfi_startproc
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  1996 0022 002A     		cmp	r2, #0
  1997 0024 3FDA     		bge	.L144
  741:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****     {
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 70
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 70
 
 
  1998              		.loc 1 741 5 is_stmt 1 view .LVU693
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  2035              		.loc 1 756 52 view .LVU710
  2036 0052 1A43     		orrs	r2, r2, r3
  754:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****                        ((uint32_t)params[3] << 16) |
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 71
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 71
 
 
  2037              		.loc 1 754 22 view .LVU711
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  2075 0092 0223     		movs	r3, #2
  2076 0094 2372     		strb	r3, [r4, #8]
  2077              	.L136:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 72
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 72
 
 
  775:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  2119 00c8 3146     		mov	r1, r6
  2120 00ca 2846     		mov	r0, r5
  2121 00cc FFF7FEFF 		bl	SCSI_SenseCode
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 73
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 73
 
 
  2122              	.LVL221:
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  2168 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
  2169              		.cfi_def_cfa_offset 24
  2170              		.cfi_offset 3, -24
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 74
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 74
 
 
  2171              		.cfi_offset 4, -20
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  2209              		.loc 1 807 8 view .LVU766
  2210 002a 022A     		cmp	r2, #2
  2211 002c 4AD0     		beq	.L159
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 75
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 75
 
 
  813:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****     {
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  824:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****                       ((uint32_t)params[7] << 16) |
  2249              		.loc 1 824 40 is_stmt 0 view .LVU784
  2250 005c A879     		ldrb	r0, [r5, #6]	@ zero_extendqisi2
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 76
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 76
 
 
  825:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****                       ((uint32_t)params[8] << 8) |
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  2288              		.loc 1 835 8 view .LVU801
  2289 009a 9942     		cmp	r1, r3
  2290 009c 21D1     		bne	.L161
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 77
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 77
 
 
  841:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   }
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  2331 00ca 4FF0FF30 		mov	r0, #-1
  2332 00ce EFE7     		b	.L149
  2333              	.L160:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 78
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 78
 
 
  815:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****       return -1;
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
 1234:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   USBD_MSC_BOT_HandleTypeDef *hmsc = (USBD_MSC_BOT_HandleTypeDef *)pdev->pClassDataCmsit[pdev->clas
  2381              		.loc 1 1234 1 is_stmt 1 view -0
  2382              		.cfi_startproc
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 79
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 79
 
 
  2383              		@ args = 0, pretend = 0, frame = 0
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  2424              	.LVL248:
 1251:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
  2425              		.loc 1 1251 3 is_stmt 1 view .LVU839
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 80
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 80
 
 
 1251:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
 1260:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   p_scsi_blk->len -= (len / p_scsi_blk->size);
  2466              		.loc 1 1260 28 view .LVU854
  2467 006c B6FBF3F0 		udiv	r0, r6, r3
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 81
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 81
 
 
 1260:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   p_scsi_blk->len -= (len / p_scsi_blk->size);
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  2507              		.loc 1 1257 12 is_stmt 0 view .LVU869
  2508 00a6 4FF0FF30 		mov	r0, #-1
  2509 00aa F4E7     		b	.L163
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 82
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 82
 
 
  2510              	.LVL258:
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  2556              		.loc 1 857 1 is_stmt 1 view -0
  2557              		.cfi_startproc
  2558              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 83
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 83
 
 
  2559              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  2598 0028 002A     		cmp	r2, #0
  2599 002a 51D0     		beq	.L182
  881:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****     {
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 84
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 84
 
 
  2600              		.loc 1 881 5 is_stmt 1 view .LVU895
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  2639              		.loc 1 901 5 is_stmt 1 view .LVU910
  901:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****                        ((uint32_t)params[3] << 16) |
  2640              		.loc 1 901 41 is_stmt 0 view .LVU911
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 85
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 85
 
 
  2641 005e BA78     		ldrb	r2, [r7, #2]	@ zero_extendqisi2
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  915:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
  2678              		.loc 1 915 21 is_stmt 0 view .LVU929
  2679 0092 05EB0413 		add	r3, r5, r4, lsl #4
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 86
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 86
 
 
  2680 0096 D3F87032 		ldr	r3, [r3, #624]
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  2719              		.loc 1 936 1 is_stmt 0 view .LVU944
  2720 00ca 4046     		mov	r0, r8
  2721 00cc BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 87
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 87
 
 
  2722              	.LVL278:
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  2764 0106 2723     		movs	r3, #39
  2765 0108 0222     		movs	r2, #2
  2766 010a 2146     		mov	r1, r4
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 88
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 88
 
 
  2767 010c 3046     		mov	r0, r6
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  2810              	.L187:
  2811 0140 00000000 		.word	MSCOutEpAdd
  2812              		.cfi_endproc
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 89
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 89
 
 
  2813              	.LFE257:
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  2857              		.loc 1 961 11 is_stmt 0 view .LVU979
  2858 001c 2A7A     		ldrb	r2, [r5, #8]	@ zero_extendqisi2
  961:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   {
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 90
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 90
 
 
  2859              		.loc 1 961 6 view .LVU980
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  2897              		.loc 1 985 64 view .LVU996
  2898 0052 DB68     		ldr	r3, [r3, #12]
  985:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****     {
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 91
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 91
 
 
  2899              		.loc 1 985 10 view .LVU997
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  2936              		.loc 1 999 40 view .LVU1014
  2937 0084 307A     		ldrb	r0, [r6, #8]	@ zero_extendqisi2
  998:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****                       ((uint32_t)params[8] << 8) |
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 92
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 92
 
 
  2938              		.loc 1 998 51 view .LVU1015
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  2976              		.loc 1 1017 5 is_stmt 1 view .LVU1031
  2977              	.LVL304:
 1020:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****     (void)USBD_LL_PrepareReceive(pdev, MSCOutEpAdd, hmsc->bot_data, len);
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 93
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 93
 
 
  2978              		.loc 1 1020 5 view .LVU1032
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  972:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****       return -1;
  3021              		.loc 1 972 7 is_stmt 0 view .LVU1044
  3022 00f6 FFF7FEFF 		bl	SCSI_SenseCode
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 94
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 94
 
 
  3023              	.LVL312:
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  3064              	.LVL316:
 1013:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****       return -1;
  3065              		.loc 1 1013 7 is_stmt 0 view .LVU1058
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 95
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 95
 
 
  3066 012e 0522     		movs	r2, #5
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
 1040:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   USBD_MSC_BOT_HandleTypeDef *hmsc = (USBD_MSC_BOT_HandleTypeDef *)pdev->pClassDataCmsit[pdev->clas
  3114              		.loc 1 1040 1 is_stmt 0 view .LVU1067
  3115 0000 10B5     		push	{r4, lr}
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 96
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 96
 
 
  3116              		.cfi_def_cfa_offset 8
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
 1063:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
  3154              		.loc 1 1063 1 is_stmt 0 view .LVU1084
  3155 002e 10BD     		pop	{r4, pc}
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 97
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 97
 
 
  3156              	.LVL326:
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  125:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****   USBD_MSC_BOT_HandleTypeDef *hmsc = (USBD_MSC_BOT_HandleTypeDef *)pdev->pClassDataCmsit[pdev->clas
  3203              		.loc 1 125 3 is_stmt 1 view .LVU1094
  126:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 98
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 98
 
 
  3204              		.loc 1 126 3 view .LVU1095
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  3251 0037 71       		.byte	(.L218-.L225)/2
  3252 0038 4D       		.byte	(.L234-.L225)/2
  3253 0039 47       		.byte	(.L233-.L225)/2
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 99
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 99
 
 
  3254 003a 6E       		.byte	(.L232-.L225)/2
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  3308 0070 71       		.byte	(.L218-.L225)/2
  3309 0071 71       		.byte	(.L218-.L225)/2
  3310 0072 71       		.byte	(.L218-.L225)/2
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 100
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 100
 
 
  3311 0073 71       		.byte	(.L218-.L225)/2
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  144:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****       break;
  3359              		.loc 1 144 7 view .LVU1109
  144:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****       break;
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 101
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 101
 
 
  3360              		.loc 1 144 13 is_stmt 0 view .LVU1110
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  164:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****       break;
  3400              		.loc 1 164 13 is_stmt 0 view .LVU1125
  3401 00c4 FFF7FEFF 		bl	SCSI_ReadFormatCapacity
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 102
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 102
 
 
  3402              	.LVL349:
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  3441 00e2 FFF7FEFF 		bl	SCSI_Write10
  3442              	.LVL359:
  185:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c **** 
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 103
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 103
 
 
  3443              		.loc 1 185 7 is_stmt 1 view .LVU1141
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  3483              		.loc 1 204 7 is_stmt 0 view .LVU1155
  3484 0104 FFF7FEFF 		bl	SCSI_SenseCode
  3485              	.LVL370:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 104
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 104
 
 
  205:Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c ****       break;
@@ -6223,77 +6223,77 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 1
  3518              		.file 8 "Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc/usbd_msc_data.h"
  3519              		.file 9 "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/arm-none-eabi/include/st
  3520              		.file 10 "Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h"
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 105
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 105
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 usbd_msc_scsi.c
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:21     .text.SCSI_AllowPreventRemovable:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:26     .text.SCSI_AllowPreventRemovable:00000000 SCSI_AllowPreventRemovable
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:82     .text.SCSI_UpdateBotData:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:87     .text.SCSI_UpdateBotData:00000000 SCSI_UpdateBotData
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:139    .text.SCSI_ModeSense6:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:144    .text.SCSI_ModeSense6:00000000 SCSI_ModeSense6
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:238    .text.SCSI_ModeSense6:00000054 $d
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:244    .text.SCSI_ModeSense10:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:249    .text.SCSI_ModeSense10:00000000 SCSI_ModeSense10
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:343    .text.SCSI_ModeSense10:00000054 $d
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:348    .text.SCSI_ReceiveDiagnosticResults:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:353    .text.SCSI_ReceiveDiagnosticResults:00000000 SCSI_ReceiveDiagnosticResults
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:409    .text.SCSI_ReceiveDiagnosticResults:00000028 $d
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:414    .text.SCSI_ReportLuns:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:419    .text.SCSI_ReportLuns:00000000 SCSI_ReportLuns
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:542    .text.SCSI_ReportLuns:0000006c $d
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:3508   .bss.lun_report.0:00000000 lun_report.0
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:547    .text.SCSI_SenseCode:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:553    .text.SCSI_SenseCode:00000000 SCSI_SenseCode
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:615    .text.SCSI_TestUnitReady:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:620    .text.SCSI_TestUnitReady:00000000 SCSI_TestUnitReady
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:739    .text.SCSI_RequestSense:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:744    .text.SCSI_RequestSense:00000000 SCSI_RequestSense
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:896    .text.SCSI_Inquiry:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:901    .text.SCSI_Inquiry:00000000 SCSI_Inquiry
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:1072   .text.SCSI_Inquiry:0000009c $d
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:1078   .text.SCSI_StartStopUnit:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:1083   .text.SCSI_StartStopUnit:00000000 SCSI_StartStopUnit
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:1186   .text.SCSI_ReadFormatCapacity:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:1191   .text.SCSI_ReadFormatCapacity:00000000 SCSI_ReadFormatCapacity
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:1358   .text.SCSI_ReadCapacity10:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:1363   .text.SCSI_ReadCapacity10:00000000 SCSI_ReadCapacity10
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:1504   .text.SCSI_ReadCapacity16:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:1509   .text.SCSI_ReadCapacity16:00000000 SCSI_ReadCapacity16
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:1711   .text.SCSI_CheckAddressRange:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:1716   .text.SCSI_CheckAddressRange:00000000 SCSI_CheckAddressRange
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:1782   .text.SCSI_ProcessRead:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:1787   .text.SCSI_ProcessRead:00000000 SCSI_ProcessRead
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:1942   .text.SCSI_ProcessRead:000000c0 $d
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:1947   .text.SCSI_Read10:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:1952   .text.SCSI_Read10:00000000 SCSI_Read10
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:2155   .text.SCSI_Read12:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:2160   .text.SCSI_Read12:00000000 SCSI_Read12
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:2373   .text.SCSI_ProcessWrite:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:2378   .text.SCSI_ProcessWrite:00000000 SCSI_ProcessWrite
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:2543   .text.SCSI_ProcessWrite:000000d0 $d
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:2548   .text.SCSI_Write10:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:2553   .text.SCSI_Write10:00000000 SCSI_Write10
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:2811   .text.SCSI_Write10:00000140 $d
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:2816   .text.SCSI_Write12:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:2821   .text.SCSI_Write12:00000000 SCSI_Write12
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:3097   .text.SCSI_Write12:00000154 $d
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:3102   .text.SCSI_Verify10:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:3107   .text.SCSI_Verify10:00000000 SCSI_Verify10
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:3185   .text.SCSI_ProcessCmd:00000000 $t
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s 			page 106
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:21     .text.SCSI_AllowPreventRemovable:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:26     .text.SCSI_AllowPreventRemovable:00000000 SCSI_AllowPreventRemovable
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:82     .text.SCSI_UpdateBotData:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:87     .text.SCSI_UpdateBotData:00000000 SCSI_UpdateBotData
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:139    .text.SCSI_ModeSense6:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:144    .text.SCSI_ModeSense6:00000000 SCSI_ModeSense6
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:238    .text.SCSI_ModeSense6:00000054 $d
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:244    .text.SCSI_ModeSense10:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:249    .text.SCSI_ModeSense10:00000000 SCSI_ModeSense10
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:343    .text.SCSI_ModeSense10:00000054 $d
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:348    .text.SCSI_ReceiveDiagnosticResults:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:353    .text.SCSI_ReceiveDiagnosticResults:00000000 SCSI_ReceiveDiagnosticResults
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:409    .text.SCSI_ReceiveDiagnosticResults:00000028 $d
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:414    .text.SCSI_ReportLuns:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:419    .text.SCSI_ReportLuns:00000000 SCSI_ReportLuns
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:542    .text.SCSI_ReportLuns:0000006c $d
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:3508   .bss.lun_report.0:00000000 lun_report.0
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:547    .text.SCSI_SenseCode:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:553    .text.SCSI_SenseCode:00000000 SCSI_SenseCode
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:615    .text.SCSI_TestUnitReady:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:620    .text.SCSI_TestUnitReady:00000000 SCSI_TestUnitReady
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:739    .text.SCSI_RequestSense:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:744    .text.SCSI_RequestSense:00000000 SCSI_RequestSense
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:896    .text.SCSI_Inquiry:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:901    .text.SCSI_Inquiry:00000000 SCSI_Inquiry
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:1072   .text.SCSI_Inquiry:0000009c $d
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:1078   .text.SCSI_StartStopUnit:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:1083   .text.SCSI_StartStopUnit:00000000 SCSI_StartStopUnit
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:1186   .text.SCSI_ReadFormatCapacity:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:1191   .text.SCSI_ReadFormatCapacity:00000000 SCSI_ReadFormatCapacity
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:1358   .text.SCSI_ReadCapacity10:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:1363   .text.SCSI_ReadCapacity10:00000000 SCSI_ReadCapacity10
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:1504   .text.SCSI_ReadCapacity16:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:1509   .text.SCSI_ReadCapacity16:00000000 SCSI_ReadCapacity16
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:1711   .text.SCSI_CheckAddressRange:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:1716   .text.SCSI_CheckAddressRange:00000000 SCSI_CheckAddressRange
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:1782   .text.SCSI_ProcessRead:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:1787   .text.SCSI_ProcessRead:00000000 SCSI_ProcessRead
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:1942   .text.SCSI_ProcessRead:000000c0 $d
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:1947   .text.SCSI_Read10:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:1952   .text.SCSI_Read10:00000000 SCSI_Read10
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:2155   .text.SCSI_Read12:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:2160   .text.SCSI_Read12:00000000 SCSI_Read12
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:2373   .text.SCSI_ProcessWrite:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:2378   .text.SCSI_ProcessWrite:00000000 SCSI_ProcessWrite
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:2543   .text.SCSI_ProcessWrite:000000d0 $d
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:2548   .text.SCSI_Write10:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:2553   .text.SCSI_Write10:00000000 SCSI_Write10
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:2811   .text.SCSI_Write10:00000140 $d
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:2816   .text.SCSI_Write12:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:2821   .text.SCSI_Write12:00000000 SCSI_Write12
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:3097   .text.SCSI_Write12:00000154 $d
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:3102   .text.SCSI_Verify10:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:3107   .text.SCSI_Verify10:00000000 SCSI_Verify10
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:3185   .text.SCSI_ProcessCmd:00000000 $t
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s 			page 106
 
 
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:3191   .text.SCSI_ProcessCmd:00000000 SCSI_ProcessCmd
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:3226   .text.SCSI_ProcessCmd:0000001e $d
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:3328   .text.SCSI_ProcessCmd:0000008c $d
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:3505   .bss.lun_report.0:00000000 $d
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:3317   .text.SCSI_ProcessCmd:00000079 $d
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:3317   .text.SCSI_ProcessCmd:0000007a $t
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:3341   .text.SCSI_ProcessCmd:00000099 $d
-C:\Users\kroko\AppData\Local\Temp\ccPQqsjD.s:3341   .text.SCSI_ProcessCmd:0000009a $t
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:3191   .text.SCSI_ProcessCmd:00000000 SCSI_ProcessCmd
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:3226   .text.SCSI_ProcessCmd:0000001e $d
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:3328   .text.SCSI_ProcessCmd:0000008c $d
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:3505   .bss.lun_report.0:00000000 $d
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:3317   .text.SCSI_ProcessCmd:00000079 $d
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:3317   .text.SCSI_ProcessCmd:0000007a $t
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:3341   .text.SCSI_ProcessCmd:00000099 $d
+C:\Users\kroko\AppData\Local\Temp\ccqmtYNH.s:3341   .text.SCSI_ProcessCmd:0000009a $t
 
 UNDEFINED SYMBOLS
 MSC_Mode_Sense6_data
