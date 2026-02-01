@@ -79,6 +79,21 @@ uint8_t MX25FLASH_Sector_Erase(uint32_t sector){
 	return MX25FLASH_WFE();
 }
 
+uint8_t _MX25FLASH_Sector_Erase(uint32_t sector){
+	MX25FLASH_WE();
+    uint8_t cmd[4];
+    sector = (sector << 4);
+    cmd[0] = 0x20;  // 4KB Sector Erase
+    cmd[1] = (sector >> 16) & 0xFF;
+    cmd[2] = (sector >> 8) & 0xFF;
+    cmd[3] = sector & 0xFF;
+
+    FLASH_CS_LOW();
+    MX25FLASH_SPI_Write(cmd, 4);
+    FLASH_CS_HIGH();
+	return MX25FLASH_WFE();
+}
+
 uint8_t MX25FLASH_Program_Sector(uint32_t sector, uint8_t *data){
     MX25FLASH_WE();
     for (uint8_t pg = 0; pg < 16; pg++){
@@ -108,6 +123,18 @@ void MX25FLASH_Read_Sector(uint32_t sector, uint8_t *data){
     }
 }
 
+void MX25FLASH_Continious_Read(uint32_t address, uint8_t *data, uint32_t len){
+    uint8_t tData[4];
+    tData[0] = 0x03;
+    tData[1] = (address >> 16) & 0xFF;  // Most significant byte
+    tData[2] = (address >> 8) & 0xFF;
+    tData[3] = address & 0xFF;          // Least significant byte
+	FLASH_CS_LOW();  // pull the CS LOW
+    MX25FLASH_SPI_Write(tData, 4);
+	HAL_SPI_Receive(&FLASH_SPI, data, len, 5000);
+	FLASH_CS_HIGH();  // pull the HIGH
+}
+
 
 uint8_t MX25FLASH_WFE(void){
     uint8_t cmd = 0x05;
@@ -124,3 +151,4 @@ uint8_t MX25FLASH_WFE(void){
     } while (status & 0x01);  // Wait while WIP bit is set
     return FL_OK;
 }
+

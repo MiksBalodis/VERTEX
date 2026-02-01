@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "fatfs.h"
 #include "usb_device.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -80,6 +81,8 @@ BMP388_HandleTypeDef hbmp388;
 EE24_HandleTypeDef h24lc64;
 
 servo_t hservo1;
+
+FATFS fs;
 
 float battery_v;
 uint32_t adc_buff[1];
@@ -155,6 +158,7 @@ int main(void)
   MX_USART1_UART_Init();
   MX_USB_DEVICE_Init();
   MX_CRC_Init();
+  MX_FATFS_Init();
   /* USER CODE BEGIN 2 */
   HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_SET);
 
@@ -185,7 +189,46 @@ int main(void)
   }
 
   Servo_Init(&hservo1, &htim5, TIM_CHANNEL_1);
+  uint8_t servo_angle = 0;
+
+  uint8_t fl_data[512];
+  memset(fl_data, 0, 512);
+  // fl_data[0] = 0xAA;
+  // fl_data[1] = 0x55;
+  // fl_data[2] = 0x14;
+  //MX25FLASH_Sector_Erase(0);
+  // MX25FLASH_Program_Page(0, fl_data);
+  // memset(fl_data, 0, 512);
+
+
+
+//   FRESULT fr;
+//   uint8_t work[4096]; // work buffer = at least one sector size
+
+//   fr = f_mount(&fs, "", 1);  
+//   if (fr == FR_NO_FILESYSTEM)
+// {
+//     fr = f_mkfs("", FM_ANY, 0, work, sizeof work);
+//     if(fr != FR_OK) {
+//         // formatting failed
+//         Error_Handler();
+//     }
+
+//     // mount again
+//     fr = f_mount(&fs, "", 1);
+//         if(fr != FR_OK) {
+//         // formatting failed
+//         Error_Handler();
+//     }
+// }
+//   FIL file;
+//   UINT bw;
   
+//   if(f_open(&file, "test.txt", FA_WRITE | FA_CREATE_ALWAYS) == FR_OK && fr == FR_OK){
+//     f_write(&file, "Hello STM32", 11, &bw);
+//     f_close(&file);
+//   }
+  LED_Set_Color(0, 64, 0);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -201,7 +244,11 @@ int main(void)
 
     EE24_Read(&h24lc64, 0, data, 2, 100);
 
-    Servo_SetAngle(&hservo1, 120);
+    Servo_SetAngle(&hservo1, servo_angle);
+    servo_angle+=10;
+    if(servo_angle > 180) servo_angle = 0;
+
+    // MX25FLASH_Continious_Read(0, fl_data, 2);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -965,6 +1012,8 @@ void platform_delay(uint32_t ms)
 {
     HAL_Delay(ms);
 }
+
+
 /* USER CODE END 4 */
 
 /**

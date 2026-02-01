@@ -31,10 +31,7 @@
 
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
-#define USB_BLOCK_SIZE    512
-#define FLASH_SECTOR_SIZE 4096
-#define BLOCKS_PER_SECTOR (FLASH_SECTOR_SIZE / USB_BLOCK_SIZE) // 8
-#define TOTAL_USB_BLOCKS  0x1000 // 4096 blocks for 2MB
+
 /* USER CODE END PV */
 
 /** @addtogroup STM32_USB_OTG_DEVICE_LIBRARY
@@ -66,7 +63,7 @@
   */
 
 #define STORAGE_LUN_NBR                  1
-#define STORAGE_BLK_NBR                  0x10000
+#define STORAGE_BLK_NBR                  0x1000
 #define STORAGE_BLK_SIZ                  0x200
 
 /* USER CODE BEGIN PRIVATE_DEFINES */
@@ -243,46 +240,14 @@ int8_t STORAGE_IsWriteProtected_FS(uint8_t lun)
 int8_t STORAGE_Read_FS(uint8_t lun, uint8_t *buf, uint32_t blk_addr, uint16_t blk_len)
 {
   /* USER CODE BEGIN 6 */
-  // UNUSED(lun);
-  // // UNUSED(buf);
-  // // UNUSED(blk_addr);
-  // UNUSED(blk_len);
+  UNUSED(lun);
 
-  // MX25FLASH_Read_LogBlock(blk_addr, buf);
+  uint32_t blk_start_addr = blk_addr * STORAGE_BLK_SIZ;
+  uint32_t offset = blk_len * STORAGE_BLK_SIZ;
 
-  // return (USBD_OK);
+  MX25FLASH_Continious_Read(blk_start_addr, buf, offset);
 
-      UNUSED(lun);
-
-    uint8_t temp[FLASH_SECTOR_SIZE];
-
-    #define BLOCKS_PER_SECTOR (FLASH_SECTOR_SIZE / USB_BLOCK_SIZE)
-
-    while (blk_len > 0)
-    {
-        uint32_t sector_num = blk_addr / BLOCKS_PER_SECTOR;
-        uint32_t block_index = blk_addr % BLOCKS_PER_SECTOR;
-
-        // Number of USB blocks to read in this sector
-        uint32_t blocks_to_read = blk_len;
-        if (blocks_to_read > BLOCKS_PER_SECTOR - block_index)
-            blocks_to_read = BLOCKS_PER_SECTOR - block_index;
-
-        uint32_t offset = block_index * USB_BLOCK_SIZE;
-
-        // 1. Read full flash sector
-        MX25FLASH_Read_Sector(sector_num, temp);
-
-        // 2. Copy requested USB blocks to output buffer
-        memcpy(buf, &temp[offset], blocks_to_read * USB_BLOCK_SIZE);
-
-        // Advance pointers/counters
-        buf += blocks_to_read * USB_BLOCK_SIZE;
-        blk_addr += blocks_to_read;
-        blk_len -= blocks_to_read;
-    }
-
-    return USBD_OK;
+  return USBD_OK;
   /* USER CODE END 6 */
 }
 
@@ -298,58 +263,70 @@ int8_t STORAGE_Write_FS(uint8_t lun, uint8_t *buf, uint32_t blk_addr, uint16_t b
 {
   /* USER CODE BEGIN 7 */
   // UNUSED(lun);
-  // // UNUSED(buf);
-  // // UNUSED(blk_addr);
-  // UNUSED(blk_len);
 
-  // uint8_t temp[4096];
-  // uint8_t sector_num = blk_addr / (4096 / blk_len);
-  // uint32_t block_index_in_sector = blk_addr % 8;
-  // uint32_t offset = block_index_in_sector * blk_len;
-  
-  // MX25FLASH_Read_Sector(sector_num, temp);
+  //  static uint8_t current_sector_buf[4096];
+  //  uint16_t current_sector_addr = blk_addr / 8;
+  //  uint16_t startPage = current_sector_addr * 16;
+  //  int offset = 512 * (blk_addr % 8);
 
-  // memcpy(&temp[offset], buf, blk_len);
+  // MX25FLASH_Continious_Read(startPage*0x200, current_sector_buf, 4096);
 
-  // if (MX25FLASH_Sector_Erase(sector_num) == 1) return (USBD_FAIL);
-  // if (MX25FLASH_Program_Sector(sector_num, temp) == 1) return (USBD_FAIL);
 
-  // return (USBD_OK);
+  //  memcpy(current_sector_buf + offset, buf, 512);
 
-      UNUSED(lun);
+  //  _MX25FLASH_Sector_Erase(current_sector_addr);
 
-    uint8_t temp[FLASH_SECTOR_SIZE];
+  //  startPage = current_sector_addr * 16;
 
-    #define BLOCKS_PER_SECTOR (FLASH_SECTOR_SIZE / USB_BLOCK_SIZE)
+  //  for (uint16_t i = 0; i < 16; i++) {
+  //     static uint8_t pbuf[256];
+  //     memcpy(pbuf, current_sector_buf + i * 256, 256);
+  //     MX25FLASH_Program_Page(startPage + i, pbuf);
+  //  }
 
-    while (blk_len > 0)
+  // return USBD_OK;
+  UNUSED(lun);
+
+    /* Constants for clarity */
+    #define BLOCK_SIZE 512
+    #define SECTOR_SIZE 4096
+    #define BLOCKS_PER_SECTOR (SECTOR_SIZE / BLOCK_SIZE)
+    #define PAGE_SIZE 256
+    #define PAGES_PER_SECTOR (SECTOR_SIZE / PAGE_SIZE)
+
+    static uint8_t sector_buf[SECTOR_SIZE];
+
+    uint32_t blocks_written = 0;
+
+    while (blocks_written < blk_len)
     {
-        uint32_t sector_num = blk_addr / BLOCKS_PER_SECTOR;
-        uint32_t block_index = blk_addr % BLOCKS_PER_SECTOR;
-        uint32_t blocks_to_write = blk_len;
+        /* Compute current sector */
+        uint32_t sector = (blk_addr + blocks_written) / BLOCKS_PER_SECTOR;
+        uint32_t sector_start_block = sector * BLOCKS_PER_SECTOR;
+        uint32_t offset_in_sector = (blk_addr + blocks_written - sector_start_block) * BLOCK_SIZE;
 
-        // Limit to current sector
-        if (blocks_to_write > BLOCKS_PER_SECTOR - block_index)
-            blocks_to_write = BLOCKS_PER_SECTOR - block_index;
+        /* How many blocks fit in this sector */
+        uint32_t blocks_in_this_sector = BLOCKS_PER_SECTOR - (blk_addr + blocks_written - sector_start_block);
+        if (blocks_in_this_sector > (blk_len - blocks_written))
+            blocks_in_this_sector = blk_len - blocks_written;
 
-        uint32_t offset = block_index * USB_BLOCK_SIZE;
+        /* Read current sector from flash */
+        MX25FLASH_Continious_Read(sector * SECTOR_SIZE, sector_buf, SECTOR_SIZE);
 
-        // 1. Read full sector
-        MX25FLASH_Read_Sector(sector_num, temp);
+        /* Copy USB blocks into sector buffer */
+        memcpy(sector_buf + offset_in_sector,
+               buf + blocks_written * BLOCK_SIZE,
+               blocks_in_this_sector * BLOCK_SIZE);
 
-        // 2. Copy USB blocks into buffer
-        memcpy(&temp[offset], buf, blocks_to_write * USB_BLOCK_SIZE);
+        /* Erase and program sector page by page */
+        _MX25FLASH_Sector_Erase(sector);
+        for (uint32_t page = 0; page < PAGES_PER_SECTOR; page++)
+        {
+            MX25FLASH_Program_Page(sector * PAGES_PER_SECTOR + page,
+                                   sector_buf + page * PAGE_SIZE);
+        }
 
-        // 3. Erase sector
-        if (MX25FLASH_Sector_Erase(sector_num) != 0) return USBD_FAIL;
-
-        // 4. Program sector
-        if (MX25FLASH_Program_Sector(sector_num, temp) != 0) return USBD_FAIL;
-
-        // Advance
-        buf += blocks_to_write * USB_BLOCK_SIZE;
-        blk_addr += blocks_to_write;
-        blk_len -= blocks_to_write;
+        blocks_written += blocks_in_this_sector;
     }
 
     return USBD_OK;

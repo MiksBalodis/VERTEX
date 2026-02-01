@@ -19,7 +19,7 @@
 //
 //	Servo
 //
-#define TURNIGY_TG9E
+#define SERVO_SG90
 
 //
 //	Defines
@@ -29,6 +29,13 @@
 #ifdef	TURNIGY_TG9E
 #define SERVO_MIN 550
 #define SERVO_MAX 2430
+#define ANGLE_MIN 0
+#define ANGLE_MAX 180
+#endif
+
+#ifdef	SERVO_SG90
+#define SERVO_MIN 61
+#define SERVO_MAX 304
 #define ANGLE_MIN 0
 #define ANGLE_MAX 180
 #endif
