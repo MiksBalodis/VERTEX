@@ -103,6 +103,7 @@ Sistēma sastāv no trim galvenajiem blokiem:
 - Kalmana filtrs stāvokļa novērtēšanai
 
 ![Projekta izstrādes Gantt diagramma](Documents/System_architecture.png)
+![Projekta izstrādes Gantt diagramma](Documents/Arhitektura.png)
 
 ---
 ## Izstrādes plāns (10 nedēļas)
