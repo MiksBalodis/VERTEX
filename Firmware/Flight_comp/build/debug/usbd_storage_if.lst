@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s 			page 1
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s 			page 1
   28:USB_DEVICE/App/usbd_storage_if.c **** /* Private typedef -----------------------------------------------------------*/
   29:USB_DEVICE/App/usbd_storage_if.c **** /* Private define ------------------------------------------------------------*/
   30:USB_DEVICE/App/usbd_storage_if.c **** /* Private macro -------------------------------------------------------------*/
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s 			page 2
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s 			page 2
 
 
   31:USB_DEVICE/App/usbd_storage_if.c **** 
@@ -96,7 +96,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s 			page 1
   63:USB_DEVICE/App/usbd_storage_if.c ****   */
   64:USB_DEVICE/App/usbd_storage_if.c **** 
   65:USB_DEVICE/App/usbd_storage_if.c **** #define STORAGE_LUN_NBR                  1
-  66:USB_DEVICE/App/usbd_storage_if.c **** #define STORAGE_BLK_NBR                  0x1000
+  66:USB_DEVICE/App/usbd_storage_if.c **** #define STORAGE_BLK_NBR                  0x10000
   67:USB_DEVICE/App/usbd_storage_if.c **** #define STORAGE_BLK_SIZ                  0x200
   68:USB_DEVICE/App/usbd_storage_if.c **** 
   69:USB_DEVICE/App/usbd_storage_if.c **** /* USER CODE BEGIN PRIVATE_DEFINES */
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s 			page 1
   85:USB_DEVICE/App/usbd_storage_if.c **** 
   86:USB_DEVICE/App/usbd_storage_if.c **** /**
   87:USB_DEVICE/App/usbd_storage_if.c ****   * @}
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s 			page 3
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s 			page 3
 
 
   88:USB_DEVICE/App/usbd_storage_if.c ****   */
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s 			page 1
  142:USB_DEVICE/App/usbd_storage_if.c **** 
  143:USB_DEVICE/App/usbd_storage_if.c **** static int8_t STORAGE_Init_FS(uint8_t lun);
  144:USB_DEVICE/App/usbd_storage_if.c **** static int8_t STORAGE_GetCapacity_FS(uint8_t lun, uint32_t *block_num, uint16_t *block_size);
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s 			page 4
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s 			page 4
 
 
  145:USB_DEVICE/App/usbd_storage_if.c **** static int8_t STORAGE_IsReady_FS(uint8_t lun);
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s 			page 1
   44              		.section	.text.STORAGE_GetCapacity_FS,"ax",%progbits
   45              		.align	1
   46              		.syntax unified
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s 			page 5
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s 			page 5
 
 
   47              		.thumb
@@ -268,7 +268,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s 			page 1
  198:USB_DEVICE/App/usbd_storage_if.c ****   *block_num  = STORAGE_BLK_NBR;
   59              		.loc 1 198 3 view .LVU7
   60              		.loc 1 198 15 is_stmt 0 view .LVU8
-  61 0000 4FF48053 		mov	r3, #4096
+  61 0000 4FF48033 		mov	r3, #65536
   62 0004 0B60     		str	r3, [r1]
  199:USB_DEVICE/App/usbd_storage_if.c ****   *block_size = STORAGE_BLK_SIZ;
   63              		.loc 1 199 3 is_stmt 1 view .LVU9
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s 			page 1
  204:USB_DEVICE/App/usbd_storage_if.c **** /**
  205:USB_DEVICE/App/usbd_storage_if.c ****   * @brief   Checks whether the medium is ready.
  206:USB_DEVICE/App/usbd_storage_if.c ****   * @param  lun:  Logical unit number.
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s 			page 6
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s 			page 6
 
 
  207:USB_DEVICE/App/usbd_storage_if.c ****   * @retval USBD_OK if all operations are OK else USBD_FAIL
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s 			page 1
  117 0000 0020     		movs	r0, #0
  118              	.LVL7:
  119              		.loc 1 230 1 view .LVU23
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s 			page 7
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s 			page 7
 
 
  120 0002 7047     		bx	lr
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s 			page 1
  275:USB_DEVICE/App/usbd_storage_if.c ****   //  memcpy(current_sector_buf + offset, buf, 512);
  276:USB_DEVICE/App/usbd_storage_if.c **** 
  277:USB_DEVICE/App/usbd_storage_if.c ****   //  _MX25FLASH_Sector_Erase(current_sector_addr);
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s 			page 8
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s 			page 8
 
 
  278:USB_DEVICE/App/usbd_storage_if.c **** 
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s 			page 1
  332:USB_DEVICE/App/usbd_storage_if.c ****     return USBD_OK;
  333:USB_DEVICE/App/usbd_storage_if.c ****   /* USER CODE END 7 */
  334:USB_DEVICE/App/usbd_storage_if.c **** }
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s 			page 9
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s 			page 9
 
 
  335:USB_DEVICE/App/usbd_storage_if.c **** 
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s 			page 1
  248:USB_DEVICE/App/usbd_storage_if.c **** 
  170              		.loc 1 248 3 is_stmt 0 view .LVU33
  171 0006 4002     		lsls	r0, r0, #9
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s 			page 10
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s 			page 10
 
 
  172              	.LVL11:
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s 			page 1
  218 000a 0026     		movs	r6, #0
  301:USB_DEVICE/App/usbd_storage_if.c ****     {
  219              		.loc 1 301 11 view .LVU44
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s 			page 11
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s 			page 11
 
 
  220 000c 00E0     		b	.L9
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s 			page 1
  258              		.loc 1 310 9 is_stmt 1 view .LVU60
  310:USB_DEVICE/App/usbd_storage_if.c ****             blocks_in_this_sector = blk_len - blocks_written;
  259              		.loc 1 310 46 is_stmt 0 view .LVU61
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s 			page 12
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s 			page 12
 
 
  260 0028 A8EB0607 		sub	r7, r8, r6
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s 			page 1
  303              	.LVL28:
  323:USB_DEVICE/App/usbd_storage_if.c ****         {
  304              		.loc 1 323 62 discriminator 3 view .LVU73
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s 			page 13
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s 			page 13
 
 
  305 006c 0134     		adds	r4, r4, #1
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s 			page 1
  353      50726F64 
  354 001b 20202020 		.ascii	"     0.01"
  354      20302E30 
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s 			page 14
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s 			page 14
 
 
  354      31
@@ -792,32 +792,32 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s 			page 1
  362              		.file 7 "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/arm-none-eabi/include/st
  363              		.file 8 "Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h"
  364              		.file 9 "<built-in>"
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s 			page 15
+ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s 			page 15
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 usbd_storage_if.c
-C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s:21     .text.STORAGE_Init_FS:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s:26     .text.STORAGE_Init_FS:00000000 STORAGE_Init_FS
-C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s:45     .text.STORAGE_GetCapacity_FS:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s:50     .text.STORAGE_GetCapacity_FS:00000000 STORAGE_GetCapacity_FS
-C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s:77     .text.STORAGE_IsReady_FS:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s:82     .text.STORAGE_IsReady_FS:00000000 STORAGE_IsReady_FS
-C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s:101    .text.STORAGE_IsWriteProtected_FS:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s:106    .text.STORAGE_IsWriteProtected_FS:00000000 STORAGE_IsWriteProtected_FS
-C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s:125    .text.STORAGE_GetMaxLun_FS:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s:130    .text.STORAGE_GetMaxLun_FS:00000000 STORAGE_GetMaxLun_FS
-C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s:145    .text.STORAGE_Read_FS:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s:150    .text.STORAGE_Read_FS:00000000 STORAGE_Read_FS
-C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s:184    .text.STORAGE_Write_FS:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s:189    .text.STORAGE_Write_FS:00000000 STORAGE_Write_FS
-C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s:323    .text.STORAGE_Write_FS:00000078 $d
-C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s:331    .bss.sector_buf.0:00000000 sector_buf.0
-C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s:328    .bss.sector_buf.0:00000000 $d
-C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s:338    .data.USBD_Storage_Interface_fops_FS:00000000 USBD_Storage_Interface_fops_FS
-C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s:335    .data.USBD_Storage_Interface_fops_FS:00000000 $d
-C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s:352    .rodata.STORAGE_Inquirydata_FS:00000000 STORAGE_Inquirydata_FS
-C:\Users\kroko\AppData\Local\Temp\ccVaLvlR.s:349    .rodata.STORAGE_Inquirydata_FS:00000000 $d
+C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s:21     .text.STORAGE_Init_FS:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s:26     .text.STORAGE_Init_FS:00000000 STORAGE_Init_FS
+C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s:45     .text.STORAGE_GetCapacity_FS:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s:50     .text.STORAGE_GetCapacity_FS:00000000 STORAGE_GetCapacity_FS
+C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s:77     .text.STORAGE_IsReady_FS:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s:82     .text.STORAGE_IsReady_FS:00000000 STORAGE_IsReady_FS
+C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s:101    .text.STORAGE_IsWriteProtected_FS:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s:106    .text.STORAGE_IsWriteProtected_FS:00000000 STORAGE_IsWriteProtected_FS
+C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s:125    .text.STORAGE_GetMaxLun_FS:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s:130    .text.STORAGE_GetMaxLun_FS:00000000 STORAGE_GetMaxLun_FS
+C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s:145    .text.STORAGE_Read_FS:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s:150    .text.STORAGE_Read_FS:00000000 STORAGE_Read_FS
+C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s:184    .text.STORAGE_Write_FS:00000000 $t
+C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s:189    .text.STORAGE_Write_FS:00000000 STORAGE_Write_FS
+C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s:323    .text.STORAGE_Write_FS:00000078 $d
+C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s:331    .bss.sector_buf.0:00000000 sector_buf.0
+C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s:328    .bss.sector_buf.0:00000000 $d
+C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s:338    .data.USBD_Storage_Interface_fops_FS:00000000 USBD_Storage_Interface_fops_FS
+C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s:335    .data.USBD_Storage_Interface_fops_FS:00000000 $d
+C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s:352    .rodata.STORAGE_Inquirydata_FS:00000000 STORAGE_Inquirydata_FS
+C:\Users\kroko\AppData\Local\Temp\ccPlspUB.s:349    .rodata.STORAGE_Inquirydata_FS:00000000 $d
 
 UNDEFINED SYMBOLS
 MX25FLASH_Continious_Read
