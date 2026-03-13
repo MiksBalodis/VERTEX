@@ -104,7 +104,7 @@ Sistēma sastāv no trim galvenajiem blokiem:
 
 ![Projekta izstrādes Gantt diagramma](Documents/System_architecture.png)
 ![Projekta izstrādes Gantt diagramma](Documents/Arhitektura.png)
-![Flight computer block diagram](./Documents/FP_block_diagram.png)
+![Flight computer block diagram](./Documents/VERTEX_block_diagram.png)
 
 ---
 ## Izstrādes plāns (10 nedēļas)
