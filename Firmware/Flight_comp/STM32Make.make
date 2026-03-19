@@ -80,9 +80,11 @@ Core/Src/BMP388.c \
 Core/Src/GNSS.c \
 Core/Src/SX1262.c \
 Core/Src/ee24.c \
+Core/Src/imu_fusion.c \
 Core/Src/lsm6dso.c \
 Core/Src/lsm6dso_reg.c \
 Core/Src/main.c \
+Core/Src/mission.c \
 Core/Src/neopixel.c \
 Core/Src/servo.c \
 Core/Src/stm32f4xx_hal_msp.c \

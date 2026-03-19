@@ -32,6 +32,9 @@
 #include "servo.h"
 #include "GNSS.h"
 #include "SX1262.h"
+#include "imu_fusion.h"
+#include "mission.h"
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -75,6 +78,7 @@ UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
 LSM6DSO_Object_t hlsm6dso1;
+LSM6DSO_IO_t lsm6dso_io;
 
 BMP388_HandleTypeDef hbmp388;
 
@@ -106,7 +110,14 @@ static void MX_TIM5_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_CRC_Init(void);
 /* USER CODE BEGIN PFP */
+void Get_Vbat(void);
+void platform_delay(uint32_t ms);
 
+int32_t platform_imu_init(void);
+int32_t platform_imu_deinit(void);
+int32_t platform_imu_read(uint16_t Address, uint16_t Reg, uint8_t *Data, uint16_t Length);
+int32_t platform_imu_write(uint16_t Address, uint16_t Reg, uint8_t *Data, uint16_t Length);
+int32_t platform_get_tick(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -169,7 +180,6 @@ int main(void)
 
   hbmp388.hi2c = &hi2c2;
   uint32_t rprs, rtemp, time;
-  float prs, temp;
   if(BMP388_Init(&hbmp388) == HAL_OK){
     HAL_Delay(5);
     BMP388_SetTempOS(&hbmp388, BMP388_OVERSAMPLING_8X);
@@ -179,14 +189,28 @@ int main(void)
     BMP388_ReadRawPressTempTime(&hbmp388, &rprs, &rtemp, &time);  // DUMMY
   }
 
-  LSM6DSO_Axes_t acc;
-  uint8_t ID;
-  if(LSM6DSO_Init(&hlsm6dso1) == HAL_OK){
-    LSM6DSO_ACC_Enable(&hlsm6dso1);
-    LSM6DSO_ACC_GetAxes(&hlsm6dso1, &acc);
-    LSM6DSO_ReadID(&hlsm6dso1, &ID);
-  }
+  uint8_t ID = 0;
 
+  lsm6dso_io.BusType  = LSM6DSO_SPI_4WIRES_BUS;
+  lsm6dso_io.Address  = 0;
+  lsm6dso_io.Init     = platform_imu_init;
+  lsm6dso_io.DeInit   = platform_imu_deinit;
+  lsm6dso_io.ReadReg  = platform_imu_read;
+  lsm6dso_io.WriteReg = platform_imu_write;
+  lsm6dso_io.GetTick  = platform_get_tick;
+  lsm6dso_io.Delay    = platform_delay;
+
+  if (LSM6DSO_RegisterBusIO(&hlsm6dso1, &lsm6dso_io) == LSM6DSO_OK)
+  {
+    if (LSM6DSO_Init(&hlsm6dso1) == LSM6DSO_OK)
+    {
+      LSM6DSO_ReadID(&hlsm6dso1, &ID);
+
+      IMU_Fusion_Init(&hlsm6dso1);
+      HAL_Delay(100);
+      IMU_Fusion_CalibrateGyro(200);
+    }
+  }
 
 // uint8_t tx[2] = {0x8F, 0x00};
 // uint8_t rx[2];
@@ -197,16 +221,7 @@ int main(void)
 
 // uint8_t who_am_i = rx[1];
 
-
-  uint8_t data[2];
-  if(EE24_Init(&h24lc64, &hi2c1, EE24_ADDRESS_DEFAULT, EEP_WP_GPIO_Port, EEP_WP_Pin) == 1){
-    data[0] = 0xAA;
-    data[1] = 0x55;
-    // EE24_Write(&h24lc64, 0, data, 2, 100); // Avoid unnecessary damage
-  }
-
   Servo_Init(&hservo1, &htim5, TIM_CHANNEL_1);
-  uint8_t servo_angle = 0;
 
   uint8_t fl_data[512];
   memset(fl_data, 0, 512);
@@ -245,6 +260,9 @@ int main(void)
 //     f_write(&file, "Hello STM32", 11, &bw);
 //     f_close(&file);
 //   }
+
+  Mission_Init();
+
   LED_Set_Color(0, 64, 0);
   /* USER CODE END 2 */
 
@@ -252,18 +270,8 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    HAL_Delay(100);  // wait for conversion
-
-    BMP388_ReadRawPressTempTime(&hbmp388, &rprs, &rtemp, &time);
-    BMP388_CompensateRawPressTemp(&hbmp388, rprs, rtemp, &prs, &temp);
-
-    LSM6DSO_ACC_GetAxes(&hlsm6dso1, &acc);
-
-    EE24_Read(&h24lc64, 0, data, 2, 100);
-
-    Servo_SetAngle(&hservo1, servo_angle);
-    servo_angle+=10;
-    if(servo_angle > 180) servo_angle = 0;
+    Mission_Update();
+    HAL_Delay(5);
 
     // MX25FLASH_Continious_Read(0, fl_data, 2);
     /* USER CODE END WHILE */
@@ -988,45 +996,83 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void Get_Vbat(){
+
+void Get_Vbat(void){
   HAL_ADC_Start_DMA(&hadc1, adc_buff, 1);
 }
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 {
   if(hadc->Instance == ADC1){
-    battery_v = (adc_buff[1] * 3.3 / 4095)*VBAT_DIV_K;
+    battery_v = (adc_buff[0] * 3.3f / 4095.0f) * VBAT_DIV_K;
   }
 }
 
-int32_t lsm6dso_write_reg(stmdev_ctx_t *ctx, uint8_t reg,
-                                 uint8_t *data,
-                                 uint16_t len){
-  uint8_t buf[len + 1];
-  buf[0] = reg & 0x7F;  // write
-  memcpy(&buf[1], data, len);
-  HAL_GPIO_WritePin(IMU_NSS_GPIO_Port, IMU_NSS_Pin, GPIO_PIN_RESET);
-  HAL_SPI_Transmit(&hspi2, buf, len + 1, HAL_MAX_DELAY);
-  HAL_GPIO_WritePin(IMU_NSS_GPIO_Port, IMU_NSS_Pin, GPIO_PIN_SET);
+int32_t platform_imu_init(void)
+{
   return 0;
 }
 
-int32_t lsm6dso_read_reg(stmdev_ctx_t *ctx, uint8_t reg,
-                                uint8_t *data,
-                                uint16_t len){
-  HAL_GPIO_WritePin(IMU_NSS_GPIO_Port, IMU_NSS_Pin, GPIO_PIN_RESET);
-  reg |= 0x80; // MSB=1 for read
-  HAL_SPI_Transmit(&hspi2, &reg, 1, HAL_MAX_DELAY);
-  HAL_SPI_Receive(&hspi2, data, len, HAL_MAX_DELAY);
-  HAL_GPIO_WritePin(IMU_NSS_GPIO_Port, IMU_NSS_Pin, GPIO_PIN_SET);
+int32_t platform_imu_deinit(void)
+{
   return 0;
+}
+
+int32_t platform_imu_write(uint16_t Address, uint16_t Reg, uint8_t *Data, uint16_t Length)
+{
+  (void)Address;
+
+  uint8_t buf[256];
+  if (Length + 1 > sizeof(buf)) return -1;
+
+  buf[0] = ((uint8_t)Reg) & 0x7F;
+  memcpy(&buf[1], Data, Length);
+
+  HAL_GPIO_WritePin(IMU_NSS_GPIO_Port, IMU_NSS_Pin, GPIO_PIN_RESET);
+  if (HAL_SPI_Transmit(&hspi2, buf, Length + 1, HAL_MAX_DELAY) != HAL_OK)
+  {
+    HAL_GPIO_WritePin(IMU_NSS_GPIO_Port, IMU_NSS_Pin, GPIO_PIN_SET);
+    return -1;
+  }
+  HAL_GPIO_WritePin(IMU_NSS_GPIO_Port, IMU_NSS_Pin, GPIO_PIN_SET);
+
+  return 0;
+}
+
+int32_t platform_imu_read(uint16_t Address, uint16_t Reg, uint8_t *Data, uint16_t Length)
+{
+  (void)Address;
+
+  uint8_t reg_addr = ((uint8_t)Reg) | 0x80;
+
+  HAL_GPIO_WritePin(IMU_NSS_GPIO_Port, IMU_NSS_Pin, GPIO_PIN_RESET);
+
+  if (HAL_SPI_Transmit(&hspi2, &reg_addr, 1, HAL_MAX_DELAY) != HAL_OK)
+  {
+    HAL_GPIO_WritePin(IMU_NSS_GPIO_Port, IMU_NSS_Pin, GPIO_PIN_SET);
+    return -1;
+  }
+
+  if (HAL_SPI_Receive(&hspi2, Data, Length, HAL_MAX_DELAY) != HAL_OK)
+  {
+    HAL_GPIO_WritePin(IMU_NSS_GPIO_Port, IMU_NSS_Pin, GPIO_PIN_SET);
+    return -1;
+  }
+
+  HAL_GPIO_WritePin(IMU_NSS_GPIO_Port, IMU_NSS_Pin, GPIO_PIN_SET);
+
+  return 0;
+}
+
+int32_t platform_get_tick(void)
+{
+  return (int32_t)HAL_GetTick();
 }
 
 void platform_delay(uint32_t ms)
 {
     HAL_Delay(ms);
 }
-
 
 /* USER CODE END 4 */
 

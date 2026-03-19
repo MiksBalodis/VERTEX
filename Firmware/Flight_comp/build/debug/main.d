@@ -48,7 +48,8 @@ build/debug/main.o: Core/Src/main.c Core/Inc/main.h \
  Core/Inc/neopixel.h Core/Inc/buzzer.h Core/Inc/lsm6dso.h \
  Core/Inc/lsm6dso_reg.h Core/Inc/BMP388.h Core/Inc/ee24.h \
  Core/Inc/EE24_conf.h Core/Inc/servo.h Core/Inc/GNSS.h Core/Inc/SX1262.h \
- Core/Inc/SX1262_Definitions.h
+ Core/Inc/SX1262_Definitions.h Core/Inc/imu_fusion.h Core/Inc/lsm6dso.h \
+ Core/Inc/mission.h
 Core/Inc/main.h:
 Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 Core/Inc/stm32f4xx_hal_conf.h:
@@ -114,3 +115,6 @@ Core/Inc/servo.h:
 Core/Inc/GNSS.h:
 Core/Inc/SX1262.h:
 Core/Inc/SX1262_Definitions.h:
+Core/Inc/imu_fusion.h:
+Core/Inc/lsm6dso.h:
+Core/Inc/mission.h:

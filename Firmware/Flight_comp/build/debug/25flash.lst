@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 1
+ARM GAS  C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 1
   51 0010 08BD     		pop	{r3, pc}
   52              	.L4:
   53 0012 00BF     		.align	2
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 2
+ARM GAS  C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s 			page 2
 
 
   54              	.L3:
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 1
   10:Core/Src/25flash.c **** 
   11:Core/Src/25flash.c **** void MX25FLASH_Reset(void){
  108              		.loc 1 11 27 is_stmt 1 view -0
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 3
+ARM GAS  C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s 			page 3
 
 
  109              		.cfi_startproc
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 1
  154              	.L12:
  155              		.align	2
  156              	.L11:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 4
+ARM GAS  C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s 			page 4
 
 
  157 0038 00080240 		.word	1073874944
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 1
  205 002c 2046     		mov	r0, r4
  206 002e FFF7FEFF 		bl	HAL_GPIO_WritePin
  207              	.LVL15:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 5
+ARM GAS  C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s 			page 5
 
 
   29:Core/Src/25flash.c **** 	return ((rData[0]<<16)|(rData[1]<<8)|rData[2]); // MFN ID : MEM ID : CAPACITY ID
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 1
   35:Core/Src/25flash.c ****     tData[1] = (address >> 16) & 0xFF;  // Most significant byte
  258              		.loc 1 35 5 is_stmt 1 view .LVU44
  259              		.loc 1 35 25 is_stmt 0 view .LVU45
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 6
+ARM GAS  C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s 			page 6
 
 
  260 000a 030C     		lsrs	r3, r0, #16
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 1
  305 004a 00BF     		.align	2
  306              	.L19:
  307 004c 00080240 		.word	1073874944
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 7
+ARM GAS  C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s 			page 7
 
 
  308              		.cfi_endproc
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 1
  344 001c FFF7FEFF 		bl	MX25FLASH_SPI_Write
  345              	.LVL23:
   65:Core/Src/25flash.c ****     FLASH_CS_HIGH();
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 8
+ARM GAS  C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s 			page 8
 
 
  346              		.loc 1 65 5 view .LVU65
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 1
   94:Core/Src/25flash.c **** 	return MX25FLASH_WFE();
   95:Core/Src/25flash.c **** }
   96:Core/Src/25flash.c **** 
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 9
+ARM GAS  C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s 			page 9
 
 
   97:Core/Src/25flash.c **** uint8_t MX25FLASH_Program_Sector(uint32_t sector, uint8_t *data){
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 1
  407              	.L26:
  115:Core/Src/25flash.c ****     for (uint32_t addr = 0; addr < 512; addr++){
  408              		.loc 1 115 34 discriminator 1 view .LVU77
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 10
+ARM GAS  C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s 			page 10
 
 
  409 0016 B4F5007F 		cmp	r4, #512
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 1
  458              		.loc 1 121 46 is_stmt 1 discriminator 3 view .LVU89
  459 0014 0134     		adds	r4, r4, #1
  460              	.LVL34:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 11
+ARM GAS  C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s 			page 11
 
 
  461              	.L30:
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 1
  508              		.loc 1 130 25 is_stmt 0 view .LVU102
  509 0014 030A     		lsrs	r3, r0, #8
  510              		.loc 1 130 14 view .LVU103
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 12
+ARM GAS  C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s 			page 12
 
 
  511 0016 8DF80630 		strb	r3, [sp, #6]
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 1
  559              	.LFE251:
  561              		.section	.text.MX25FLASH_WFE,"ax",%progbits
  562              		.align	1
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 13
+ARM GAS  C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s 			page 13
 
 
  563              		.global	MX25FLASH_WFE
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 1
  608 0028 0DF10600 		add	r0, sp, #6
  609 002c FFF7FEFF 		bl	MX25FLASH_SPI_Read
  610              	.LVL48:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 14
+ARM GAS  C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s 			page 14
 
 
  147:Core/Src/25flash.c ****         FLASH_CS_HIGH();
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 1
  659              	.LVL52:
  660              	.LFB244:
   46:Core/Src/25flash.c **** 	MX25FLASH_WE();
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 15
+ARM GAS  C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s 			page 15
 
 
  661              		.loc 1 46 62 is_stmt 1 view -0
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 1
  700              		.loc 1 54 2 is_stmt 1 view .LVU151
  701 0024 4FF48072 		mov	r2, #256
  702 0028 3146     		mov	r1, r6
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 16
+ARM GAS  C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s 			page 16
 
 
  703 002a 02A8     		add	r0, sp, #8
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 1
  752              	.LFB246:
   68:Core/Src/25flash.c **** 	MX25FLASH_WE();
  753              		.loc 1 68 48 is_stmt 1 view -0
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 17
+ARM GAS  C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s 			page 17
 
 
  754              		.cfi_startproc
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 1
  793 0028 FFF7FEFF 		bl	HAL_GPIO_WritePin
  794              	.LVL65:
   77:Core/Src/25flash.c ****     FLASH_CS_HIGH();
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 18
+ARM GAS  C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s 			page 18
 
 
  795              		.loc 1 77 5 is_stmt 1 view .LVU175
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 1
  844              		.loc 1 83 2 is_stmt 1 view .LVU182
  845 0006 FFF7FEFF 		bl	MX25FLASH_WE
  846              	.LVL70:
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 19
+ARM GAS  C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s 			page 19
 
 
   84:Core/Src/25flash.c ****     sector = (sector << 4);
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 1
  885 0042 FFF7FEFF 		bl	HAL_GPIO_WritePin
  886              	.LVL74:
   94:Core/Src/25flash.c **** }
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 20
+ARM GAS  C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s 			page 20
 
 
  887              		.loc 1 94 2 view .LVU199
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 1
   99:Core/Src/25flash.c ****         uint8_t tData[260];
  936              		.loc 1 99 18 is_stmt 0 view .LVU207
  937 000e 0024     		movs	r4, #0
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 21
+ARM GAS  C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s 			page 21
 
 
   99:Core/Src/25flash.c ****         uint8_t tData[260];
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 1
  975 003c 0C4D     		ldr	r5, .L60
  976 003e 0022     		movs	r2, #0
  977 0040 1021     		movs	r1, #16
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 22
+ARM GAS  C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s 			page 22
 
 
  978 0042 2846     		mov	r0, r5
@@ -1315,10 +1315,10 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 1
  1020              	.LFE248:
  1022              		.text
  1023              	.Letext0:
- 1024              		.file 2 "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/arm-none-eabi/include/ma
- 1025              		.file 3 "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/arm-none-eabi/include/sy
+ 1024              		.file 2 "C:/Users/Miks/AppData/Roaming/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-too
+ 1025              		.file 3 "C:/Users/Miks/AppData/Roaming/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-too
  1026              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h"
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 23
+ARM GAS  C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s 			page 23
 
 
  1027              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
@@ -1326,54 +1326,54 @@ ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 1
  1029              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
  1030              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"
  1031              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
- 1032              		.file 10 "C:/Program Files (x86)/Arm GNU Toolchain arm-none-eabi/14.2 rel1/arm-none-eabi/include/s
+ 1032              		.file 10 "C:/Users/Miks/AppData/Roaming/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-to
  1033              		.file 11 "Core/Inc/25flash.h"
  1034              		.file 12 "<built-in>"
-ARM GAS  C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s 			page 24
+ARM GAS  C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s 			page 24
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 25flash.c
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:21     .text.MX25FLASH_SPI_Write:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:27     .text.MX25FLASH_SPI_Write:00000000 MX25FLASH_SPI_Write
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:55     .text.MX25FLASH_SPI_Write:00000014 $d
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:60     .text.MX25FLASH_SPI_Read:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:66     .text.MX25FLASH_SPI_Read:00000000 MX25FLASH_SPI_Read
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:95     .text.MX25FLASH_SPI_Read:00000014 $d
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:100    .text.MX25FLASH_Reset:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:106    .text.MX25FLASH_Reset:00000000 MX25FLASH_Reset
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:157    .text.MX25FLASH_Reset:00000038 $d
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:162    .text.MX25FLASH_ReadID:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:168    .text.MX25FLASH_ReadID:00000000 MX25FLASH_ReadID
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:228    .text.MX25FLASH_ReadID:0000004c $d
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:233    .text.MX25FLASH_Read:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:239    .text.MX25FLASH_Read:00000000 MX25FLASH_Read
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:307    .text.MX25FLASH_Read:0000004c $d
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:312    .text.MX25FLASH_WE:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:318    .text.MX25FLASH_WE:00000000 MX25FLASH_WE
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:360    .text.MX25FLASH_WE:00000030 $d
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:365    .text.MX25FLASH_Read_LogBlock:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:371    .text.MX25FLASH_Read_LogBlock:00000000 MX25FLASH_Read_LogBlock
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:419    .text.MX25FLASH_Read_Sector:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:425    .text.MX25FLASH_Read_Sector:00000000 MX25FLASH_Read_Sector
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:473    .text.MX25FLASH_Continious_Read:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:479    .text.MX25FLASH_Continious_Read:00000000 MX25FLASH_Continious_Read
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:556    .text.MX25FLASH_Continious_Read:00000050 $d
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:562    .text.MX25FLASH_WFE:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:568    .text.MX25FLASH_WFE:00000000 MX25FLASH_WFE
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:647    .text.MX25FLASH_WFE:00000058 $d
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:652    .text.MX25FLASH_Program_Page:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:658    .text.MX25FLASH_Program_Page:00000000 MX25FLASH_Program_Page
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:739    .text.MX25FLASH_Program_Page:00000058 $d
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:744    .text.MX25FLASH_Sector_Erase:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:750    .text.MX25FLASH_Sector_Erase:00000000 MX25FLASH_Sector_Erase
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:818    .text.MX25FLASH_Sector_Erase:00000048 $d
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:823    .text._MX25FLASH_Sector_Erase:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:829    .text._MX25FLASH_Sector_Erase:00000000 _MX25FLASH_Sector_Erase
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:899    .text._MX25FLASH_Sector_Erase:00000050 $d
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:904    .text.MX25FLASH_Program_Sector:00000000 $t
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:910    .text.MX25FLASH_Program_Sector:00000000 MX25FLASH_Program_Sector
-C:\Users\kroko\AppData\Local\Temp\ccEtySlM.s:1018   .text.MX25FLASH_Program_Sector:00000070 $d
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:21     .text.MX25FLASH_SPI_Write:00000000 $t
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:27     .text.MX25FLASH_SPI_Write:00000000 MX25FLASH_SPI_Write
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:55     .text.MX25FLASH_SPI_Write:00000014 $d
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:60     .text.MX25FLASH_SPI_Read:00000000 $t
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:66     .text.MX25FLASH_SPI_Read:00000000 MX25FLASH_SPI_Read
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:95     .text.MX25FLASH_SPI_Read:00000014 $d
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:100    .text.MX25FLASH_Reset:00000000 $t
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:106    .text.MX25FLASH_Reset:00000000 MX25FLASH_Reset
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:157    .text.MX25FLASH_Reset:00000038 $d
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:162    .text.MX25FLASH_ReadID:00000000 $t
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:168    .text.MX25FLASH_ReadID:00000000 MX25FLASH_ReadID
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:228    .text.MX25FLASH_ReadID:0000004c $d
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:233    .text.MX25FLASH_Read:00000000 $t
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:239    .text.MX25FLASH_Read:00000000 MX25FLASH_Read
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:307    .text.MX25FLASH_Read:0000004c $d
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:312    .text.MX25FLASH_WE:00000000 $t
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:318    .text.MX25FLASH_WE:00000000 MX25FLASH_WE
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:360    .text.MX25FLASH_WE:00000030 $d
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:365    .text.MX25FLASH_Read_LogBlock:00000000 $t
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:371    .text.MX25FLASH_Read_LogBlock:00000000 MX25FLASH_Read_LogBlock
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:419    .text.MX25FLASH_Read_Sector:00000000 $t
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:425    .text.MX25FLASH_Read_Sector:00000000 MX25FLASH_Read_Sector
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:473    .text.MX25FLASH_Continious_Read:00000000 $t
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:479    .text.MX25FLASH_Continious_Read:00000000 MX25FLASH_Continious_Read
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:556    .text.MX25FLASH_Continious_Read:00000050 $d
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:562    .text.MX25FLASH_WFE:00000000 $t
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:568    .text.MX25FLASH_WFE:00000000 MX25FLASH_WFE
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:647    .text.MX25FLASH_WFE:00000058 $d
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:652    .text.MX25FLASH_Program_Page:00000000 $t
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:658    .text.MX25FLASH_Program_Page:00000000 MX25FLASH_Program_Page
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:739    .text.MX25FLASH_Program_Page:00000058 $d
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:744    .text.MX25FLASH_Sector_Erase:00000000 $t
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:750    .text.MX25FLASH_Sector_Erase:00000000 MX25FLASH_Sector_Erase
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:818    .text.MX25FLASH_Sector_Erase:00000048 $d
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:823    .text._MX25FLASH_Sector_Erase:00000000 $t
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:829    .text._MX25FLASH_Sector_Erase:00000000 _MX25FLASH_Sector_Erase
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:899    .text._MX25FLASH_Sector_Erase:00000050 $d
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:904    .text.MX25FLASH_Program_Sector:00000000 $t
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:910    .text.MX25FLASH_Program_Sector:00000000 MX25FLASH_Program_Sector
+C:\Users\Miks\AppData\Local\Temp\ccvXKx7K.s:1018   .text.MX25FLASH_Program_Sector:00000070 $d
 
 UNDEFINED SYMBOLS
 HAL_SPI_Transmit
