@@ -537,10 +537,10 @@ void SX1262_SetFrequency(uint32_t frequency)
 
   uint32_t freq = (uint32_t)((double)frequency / (double)FREQ_STEP);
   buf[0] = 0x86; //Opcode for set RF Frequencty
-	buf[1] = ((freq >> 24) & 0xFF);
+  buf[1] = ((freq >> 24) & 0xFF);
   buf[2] = ((freq >> 16) & 0xFF);
   buf[3] = ((freq >> 8) & 0xFF);
   buf[4] = (freq & 0xFF);
 	
-	SX1262_Set_Command(buf,answ,5,100,0);
+  SX1262_Set_Command(buf,answ,5,100,0);
 }

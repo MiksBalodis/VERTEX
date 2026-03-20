@@ -32,6 +32,7 @@
 #include "servo.h"
 #include "GNSS.h"
 #include "SX1262.h"
+#include "stdbool.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -69,16 +70,22 @@ SPI_HandleTypeDef hspi3;
 TIM_HandleTypeDef htim3;
 TIM_HandleTypeDef htim4;
 TIM_HandleTypeDef htim5;
+TIM_HandleTypeDef htim7;
 DMA_HandleTypeDef hdma_tim3_ch1_trig;
 
 UART_HandleTypeDef huart1;
+DMA_HandleTypeDef hdma_usart1_tx;
 
 /* USER CODE BEGIN PV */
 LSM6DSO_Object_t hlsm6dso1;
 
+GNSS_StateHandle GNSS_Handle;
+
 BMP388_HandleTypeDef hbmp388;
 
 EE24_HandleTypeDef h24lc64;
+
+Buzzer_Handle hbuzz1;
 
 servo_t hservo1;
 
@@ -86,6 +93,10 @@ FATFS fs;
 
 float battery_v;
 uint32_t adc_buff[1];
+
+bool buzz_state;
+
+extern SX1262 SX_stc;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -105,13 +116,15 @@ static void MX_TIM4_Init(void);
 static void MX_TIM5_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_CRC_Init(void);
+static void MX_TIM7_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+#define BUZZ_ON()  (buzz_state = 1)
+#define BUZZ_OFF() (buzz_state = 0)
 /* USER CODE END 0 */
 
 /**
@@ -159,10 +172,9 @@ int main(void)
   MX_USB_DEVICE_Init();
   MX_CRC_Init();
   MX_FATFS_Init();
+  MX_TIM7_Init();
   /* USER CODE BEGIN 2 */
-  HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_SET);
-  HAL_Delay(300);
-  HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET);
+  BUZZ(&hbuzz1, 300);
 
   HAL_GPIO_WritePin(PYRO1_GPIO_Port, PYRO1_Pin, GPIO_PIN_SET);
   HAL_GPIO_WritePin(PYRO2_GPIO_Port, PYRO2_Pin, GPIO_PIN_SET);
@@ -187,7 +199,24 @@ int main(void)
     LSM6DSO_ReadID(&hlsm6dso1, &ID);
   }
 
+  GNSS_Init(&GNSS_Handle, &huart1);
+  HAL_Delay(1000);
+	GNSS_LoadConfig(&GNSS_Handle);
 
+
+  SX_stc.SPI = hspi3;
+  SX_stc.Reset_Port = LORA_NRST_GPIO_Port;
+  SX_stc.Reset_Pin = LORA_NRST_Pin;
+  SX_stc.NSS_Port = LORA_NSS_GPIO_Port;
+  SX_stc.NSS_Pin = LORA_NSS_Pin;
+  SX_stc.Busy_Port = LORA_IO0_GPIO_Port;
+  SX_stc.Busy_Pin = LORA_IO0_Pin;
+
+  SX1262_Init();
+  SX1262_SetFrequency(434000000);
+  SX1262_setModeReceive();
+  uint8_t lora_buf[255];
+  uint8_t received_len;
 // uint8_t tx[2] = {0x8F, 0x00};
 // uint8_t rx[2];
 
@@ -264,6 +293,17 @@ int main(void)
     Servo_SetAngle(&hservo1, servo_angle);
     servo_angle+=10;
     if(servo_angle > 180) servo_angle = 0;
+
+    GNSS_GetUniqID(&GNSS_Handle);
+    GNSS_ParseBuffer(&GNSS_Handle);
+    HAL_Delay(250);
+
+    SX1262_HandleCallback(lora_buf, &received_len);
+    if(received_len > 0){
+      BUZZ_ON();
+      HAL_Delay(300);
+      BUZZ_OFF();
+    }
 
     // MX25FLASH_Continious_Read(0, fl_data, 2);
     /* USER CODE END WHILE */
@@ -632,7 +672,7 @@ static void MX_SPI3_Init(void)
   hspi3.Init.DataSize = SPI_DATASIZE_8BIT;
   hspi3.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi3.Init.CLKPhase = SPI_PHASE_1EDGE;
-  hspi3.Init.NSS = SPI_NSS_HARD_OUTPUT;
+  hspi3.Init.NSS = SPI_NSS_SOFT;
   hspi3.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
   hspi3.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi3.Init.TIMode = SPI_TIMODE_DISABLE;
@@ -847,6 +887,44 @@ static void MX_TIM5_Init(void)
 }
 
 /**
+  * @brief TIM7 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM7_Init(void)
+{
+
+  /* USER CODE BEGIN TIM7_Init 0 */
+
+  /* USER CODE END TIM7_Init 0 */
+
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM7_Init 1 */
+
+  /* USER CODE END TIM7_Init 1 */
+  htim7.Instance = TIM7;
+  htim7.Init.Prescaler = 35;
+  htim7.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim7.Init.Period = 250;
+  htim7.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim7) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim7, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM7_Init 2 */
+
+  /* USER CODE END TIM7_Init 2 */
+
+}
+
+/**
   * @brief USART1 Initialization Function
   * @param None
   * @retval None
@@ -862,7 +940,7 @@ static void MX_USART1_UART_Init(void)
 
   /* USER CODE END USART1_Init 1 */
   huart1.Instance = USART1;
-  huart1.Init.BaudRate = 115200;
+  huart1.Init.BaudRate = 9600;
   huart1.Init.WordLength = UART_WORDLENGTH_8B;
   huart1.Init.StopBits = UART_STOPBITS_1;
   huart1.Init.Parity = UART_PARITY_NONE;
@@ -887,11 +965,15 @@ static void MX_DMA_Init(void)
 
   /* DMA controller clock enable */
   __HAL_RCC_DMA1_CLK_ENABLE();
+  __HAL_RCC_DMA2_CLK_ENABLE();
 
   /* DMA interrupt init */
   /* DMA1_Stream4_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Stream4_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA1_Stream4_IRQn);
+  /* DMA2_Stream7_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA2_Stream7_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Stream7_IRQn);
 
 }
 
@@ -927,7 +1009,10 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(IMU_NSS_GPIO_Port, IMU_NSS_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LORA_NRST_GPIO_Port, LORA_NRST_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(LORA_NSS_GPIO_Port, LORA_NSS_Pin, GPIO_PIN_SET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(LORA_NRST_GPIO_Port, LORA_NRST_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pins : CAM_CTRL_Pin BUZZER_Pin PYRO1_Pin PYRO2_Pin */
   GPIO_InitStruct.Pin = CAM_CTRL_Pin|BUZZER_Pin|PYRO1_Pin|PYRO2_Pin;
@@ -974,6 +1059,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(IMU_INT1_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : LORA_NSS_Pin */
+  GPIO_InitStruct.Pin = LORA_NSS_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+  HAL_GPIO_Init(LORA_NSS_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : LORA_NRST_Pin */
   GPIO_InitStruct.Pin = LORA_NRST_Pin;
@@ -1027,7 +1119,16 @@ void platform_delay(uint32_t ms)
     HAL_Delay(ms);
 }
 
-
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
+  if (htim == &htim7){
+    HAL_GPIO_TogglePin(BUZZER_GPIO_Port, BUZZER_Pin);
+    hbuzz1.ticks--;
+    if(hbuzz1.ticks == 0){
+      HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET);
+      HAL_TIM_Base_Stop(&htim7);
+    }
+  }
+}
 /* USER CODE END 4 */
 
 /**
