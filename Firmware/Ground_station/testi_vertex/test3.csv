@@ -1,0 +1,202 @@
+time_ms,state,pitch,yaw,roll,altitude,speed,acceleration,error_flags,status_text
+0,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+90,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+180,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+270,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+360,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+450,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+540,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+630,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+720,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+810,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+900,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+990,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+1080,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+1170,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+1260,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+1350,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+1440,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+1530,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+1620,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+1710,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+1800,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+1890,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+1980,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+2070,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+2160,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+2250,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+2340,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+2430,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+2520,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+2610,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+2700,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+2790,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+2880,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+2970,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+3060,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+3150,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+3240,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+3330,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+3420,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+3510,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+3600,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+3690,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+3780,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+3870,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+3960,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+4050,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+4140,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+4230,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+4320,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+4410,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+4500,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+4590,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+4680,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+4770,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+4860,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+4950,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+5040,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+5130,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+5220,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+5310,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+5400,ASCENT,1.5,0.8,-0.3,0.0,15.0,12.0,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+5468,ASCENT,1.5,0.8,-0.3,2.2,15.6,12.0,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+5536,ASCENT,1.5,0.8,-0.3,4.5,16.2,11.9,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+5604,ASCENT,1.5,0.8,-0.3,6.8,16.9,11.9,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+5672,ASCENT,1.5,0.8,-0.3,9.0,17.5,11.9,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+5740,ASCENT,1.6,0.8,-0.3,11.2,18.1,11.9,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+5808,ASCENT,1.6,0.9,-0.3,13.5,18.8,11.8,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+5876,ASCENT,1.6,0.9,-0.3,15.7,19.4,11.8,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+5944,ASCENT,1.6,0.9,-0.3,18.0,20.0,11.8,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+6012,ASCENT,1.6,0.9,-0.3,20.2,20.6,11.8,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+6080,ASCENT,1.6,0.9,-0.3,22.5,21.2,11.8,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+6148,ASCENT,1.6,0.9,-0.3,24.8,21.9,11.7,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+6216,ASCENT,1.6,0.9,-0.3,27.0,22.5,11.7,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+6284,ASCENT,1.6,0.9,-0.3,29.2,23.1,11.7,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+6352,ASCENT,1.6,0.9,-0.3,31.5,23.8,11.7,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+6420,ASCENT,1.6,0.9,-0.3,33.8,24.4,11.6,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+6488,ASCENT,1.7,0.9,-0.3,36.0,25.0,11.6,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+6556,ASCENT,1.7,0.9,-0.3,38.2,25.6,11.6,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+6624,ASCENT,1.7,1.0,-0.3,40.5,26.2,11.6,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+6692,ASCENT,1.7,1.0,-0.3,42.8,26.9,11.5,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+6760,ASCENT,1.7,1.0,-0.3,45.0,27.5,11.5,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+6828,ASCENT,1.7,1.0,-0.3,47.2,28.1,11.5,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+6896,ASCENT,1.7,1.0,-0.3,49.5,28.8,11.4,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+6964,ASCENT,1.7,1.0,-0.3,51.7,29.4,11.4,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+7032,ASCENT,1.7,1.0,-0.3,54.0,30.0,11.4,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+7100,ASCENT,1.8,1.0,-0.3,56.2,30.6,11.4,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+7168,ASCENT,1.8,1.0,-0.3,58.5,31.2,11.3,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+7236,ASCENT,1.8,1.0,-0.3,60.8,31.9,11.3,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+7304,ASCENT,1.8,1.0,-0.3,63.0,32.5,11.3,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+7372,ASCENT,1.8,1.1,-0.3,65.2,33.1,11.3,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+7440,ASCENT,1.8,1.1,-0.3,67.5,33.8,11.2,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+7508,ASCENT,1.8,1.1,-0.3,69.8,34.4,11.2,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+7576,ASCENT,1.8,1.1,-0.3,72.0,35.0,11.2,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+7644,ASCENT,1.8,1.1,-0.3,74.2,35.6,11.2,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+7712,ASCENT,1.8,1.1,-0.3,76.5,36.2,11.2,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+7780,ASCENT,1.9,1.1,-0.3,78.8,36.9,11.1,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+7848,ASCENT,1.9,1.1,-0.3,81.0,37.5,11.1,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+7916,ASCENT,1.9,1.1,-0.3,83.2,38.1,11.1,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+7984,ASCENT,1.9,1.1,-0.3,85.5,38.8,11.1,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+8052,ASCENT,1.9,1.1,-0.3,87.8,39.4,11.0,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+8120,ASCENT,1.9,1.1,-0.2,90.0,40.0,11.0,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+8188,ASCENT,1.9,1.2,-0.2,92.2,40.6,11.0,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+8256,ASCENT,1.9,1.2,-0.2,94.5,41.2,10.9,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+8324,ASCENT,1.9,1.2,-0.2,96.8,41.9,10.9,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+8392,ASCENT,1.9,1.2,-0.2,99.0,42.5,10.9,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+8460,ASCENT,1.9,1.2,-0.2,101.2,43.1,10.9,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+8528,ASCENT,2.0,1.2,-0.2,103.5,43.8,10.8,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+8596,ASCENT,2.0,1.2,-0.2,105.8,44.4,10.8,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+8664,ASCENT,2.0,1.2,-0.2,108.0,45.0,10.8,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+8732,ASCENT,2.0,1.2,-0.2,110.3,45.6,10.8,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+8800,ASCENT,2.0,1.2,-0.2,112.5,46.2,10.8,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+8868,ASCENT,2.0,1.2,-0.2,114.7,46.9,10.7,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+8936,ASCENT,2.0,1.3,-0.2,117.0,47.5,10.7,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+9004,ASCENT,2.0,1.3,-0.2,119.2,48.1,10.7,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+9072,ASCENT,2.0,1.3,-0.2,121.5,48.8,10.7,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+9140,ASCENT,2.0,1.3,-0.2,123.8,49.4,10.6,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+9208,ASCENT,2.1,1.3,-0.2,126.0,50.0,10.6,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+9276,ASCENT,2.1,1.3,-0.2,128.2,50.6,10.6,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+9344,ASCENT,2.1,1.3,-0.2,130.5,51.2,10.6,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+9412,ASCENT,2.1,1.3,-0.2,132.8,51.9,10.5,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+9480,ASCENT,2.1,1.3,-0.2,135.0,52.5,10.5,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+9548,ASCENT,2.1,1.3,-0.2,137.2,53.1,10.5,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+9616,ASCENT,2.1,1.3,-0.2,139.5,53.8,10.4,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+9684,ASCENT,2.1,1.4,-0.2,141.8,54.4,10.4,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+9752,ASCENT,2.1,1.4,-0.2,144.0,55.0,10.4,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+9820,ASCENT,2.1,1.4,-0.2,146.2,55.6,10.4,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+9888,ASCENT,2.2,1.4,-0.2,148.5,56.2,10.3,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+9956,ASCENT,2.2,1.4,-0.2,150.8,56.9,10.3,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+10024,ASCENT,2.2,1.4,-0.2,153.0,57.5,10.3,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+10092,ASCENT,2.2,1.4,-0.2,155.2,58.1,10.3,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+10160,ASCENT,2.2,1.4,-0.2,157.5,58.8,10.2,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+10228,ASCENT,2.2,1.4,-0.2,159.8,59.4,10.2,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+10296,ASCENT,2.2,1.4,-0.2,162.0,60.0,10.2,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+10364,ASCENT,2.2,1.4,-0.2,164.2,60.6,10.2,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+10432,ASCENT,2.2,1.4,-0.2,166.5,61.2,10.2,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+10500,ASCENT,2.2,1.5,-0.2,168.8,61.9,10.1,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+10568,ASCENT,2.3,1.5,-0.2,171.0,62.5,10.1,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+10636,ASCENT,2.3,1.5,-0.2,173.2,63.1,10.1,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+10704,ASCENT,2.3,1.5,-0.2,175.5,63.8,10.1,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+10772,ASCENT,2.3,1.5,-0.2,177.8,64.4,10.0,INVALID_STATE_TRANSITION,Launch detected. Stabilization active.
+10840,DESCENT,0.8,0.7,0.0,180.0,-8.0,-3.0,INVALID_STATE_TRANSITION,Descent phase active.
+10908,DESCENT,0.8,0.7,0.0,176.4,-8.4,-3.1,INVALID_STATE_TRANSITION,Descent phase active.
+10976,DESCENT,0.8,0.7,0.0,172.8,-8.8,-3.1,INVALID_STATE_TRANSITION,Descent phase active.
+11044,DESCENT,0.8,0.7,0.0,169.2,-9.2,-3.2,INVALID_STATE_TRANSITION,Descent phase active.
+11112,DESCENT,0.8,0.7,0.0,165.6,-9.6,-3.2,INVALID_STATE_TRANSITION,Descent phase active.
+11180,DESCENT,0.8,0.7,0.0,162.0,-10.0,-3.3,INVALID_STATE_TRANSITION,Descent phase active.
+11248,DESCENT,0.7,0.7,0.0,158.4,-10.4,-3.4,INVALID_STATE_TRANSITION,Descent phase active.
+11316,DESCENT,0.7,0.6,0.0,154.8,-10.8,-3.4,INVALID_STATE_TRANSITION,Descent phase active.
+11384,DESCENT,0.7,0.6,0.0,151.2,-11.2,-3.5,INVALID_STATE_TRANSITION,Descent phase active.
+11452,DESCENT,0.7,0.6,0.0,147.6,-11.6,-3.5,INVALID_STATE_TRANSITION,Descent phase active.
+11520,DESCENT,0.7,0.6,0.0,144.0,-12.0,-3.6,INVALID_STATE_TRANSITION,Descent phase active.
+11588,DESCENT,0.7,0.6,0.0,140.4,-12.4,-3.7,INVALID_STATE_TRANSITION,Descent phase active.
+11656,DESCENT,0.7,0.6,0.0,136.8,-12.8,-3.7,INVALID_STATE_TRANSITION,Descent phase active.
+11724,DESCENT,0.7,0.6,0.0,133.2,-13.2,-3.8,INVALID_STATE_TRANSITION,Descent phase active.
+11792,DESCENT,0.7,0.6,0.0,129.6,-13.6,-3.8,INVALID_STATE_TRANSITION,Descent phase active.
+11860,DESCENT,0.7,0.6,0.0,126.0,-14.0,-3.9,INVALID_STATE_TRANSITION,Descent phase active.
+11928,DESCENT,0.6,0.6,0.0,122.4,-14.4,-4.0,INVALID_STATE_TRANSITION,Descent phase active.
+11996,DESCENT,0.6,0.6,0.0,118.8,-14.8,-4.0,INVALID_STATE_TRANSITION,Descent phase active.
+12064,DESCENT,0.6,0.6,0.0,115.2,-15.2,-4.1,INVALID_STATE_TRANSITION,Descent phase active.
+12132,DESCENT,0.6,0.5,0.0,111.6,-15.6,-4.1,INVALID_STATE_TRANSITION,Descent phase active.
+12200,DESCENT,0.6,0.5,0.0,108.0,-16.0,-4.2,INVALID_STATE_TRANSITION,Descent phase active.
+12268,DESCENT,0.6,0.5,0.0,104.4,-16.4,-4.3,INVALID_STATE_TRANSITION,Descent phase active.
+12336,DESCENT,0.6,0.5,0.0,100.8,-16.8,-4.3,INVALID_STATE_TRANSITION,Descent phase active.
+12404,DESCENT,0.6,0.5,0.0,97.2,-17.2,-4.4,INVALID_STATE_TRANSITION,Descent phase active.
+12472,DESCENT,0.6,0.5,0.0,93.6,-17.6,-4.4,INVALID_STATE_TRANSITION,Descent phase active.
+12540,DESCENT,0.6,0.5,0.0,90.0,-18.0,-4.5,INVALID_STATE_TRANSITION,Descent phase active.
+12608,DESCENT,0.5,0.5,0.0,86.4,-18.4,-4.6,INVALID_STATE_TRANSITION,Descent phase active.
+12676,DESCENT,0.5,0.5,0.0,82.8,-18.8,-4.6,INVALID_STATE_TRANSITION,Descent phase active.
+12744,DESCENT,0.5,0.5,0.0,79.2,-19.2,-4.7,INVALID_STATE_TRANSITION,Descent phase active.
+12812,DESCENT,0.5,0.5,0.0,75.6,-19.6,-4.7,INVALID_STATE_TRANSITION,Descent phase active.
+12880,DESCENT,0.5,0.5,0.0,72.0,-20.0,-4.8,INVALID_STATE_TRANSITION,Descent phase active.
+12948,DESCENT,0.5,0.5,0.0,68.4,-20.4,-4.9,INVALID_STATE_TRANSITION,Descent phase active.
+13016,DESCENT,0.5,0.4,0.0,64.8,-20.8,-4.9,INVALID_STATE_TRANSITION,Descent phase active.
+13084,DESCENT,0.5,0.4,0.0,61.2,-21.2,-5.0,INVALID_STATE_TRANSITION,Descent phase active.
+13152,DESCENT,0.5,0.4,0.0,57.6,-21.6,-5.0,INVALID_STATE_TRANSITION,Descent phase active.
+13220,DESCENT,0.5,0.4,0.0,54.0,-22.0,-5.1,INVALID_STATE_TRANSITION,Descent phase active.
+13288,DESCENT,0.4,0.4,0.0,50.4,-22.4,-5.2,INVALID_STATE_TRANSITION,Descent phase active.
+13356,DESCENT,0.4,0.4,0.0,46.8,-22.8,-5.2,INVALID_STATE_TRANSITION,Descent phase active.
+13424,DESCENT,0.4,0.4,0.0,43.2,-23.2,-5.3,INVALID_STATE_TRANSITION,Descent phase active.
+13492,DESCENT,0.4,0.4,0.0,39.6,-23.6,-5.3,INVALID_STATE_TRANSITION,Descent phase active.
+13560,DESCENT,0.4,0.4,0.0,36.0,-24.0,-5.4,INVALID_STATE_TRANSITION,Descent phase active.
+13628,DESCENT,0.4,0.4,0.0,32.4,-24.4,-5.5,INVALID_STATE_TRANSITION,Descent phase active.
+13696,DESCENT,0.4,0.4,0.0,28.8,-24.8,-5.5,INVALID_STATE_TRANSITION,Descent phase active.
+13764,DESCENT,0.4,0.4,0.0,25.2,-25.2,-5.6,INVALID_STATE_TRANSITION,Descent phase active.
+13832,DESCENT,0.4,0.3,0.0,21.6,-25.6,-5.6,INVALID_STATE_TRANSITION,Descent phase active.
+13900,DESCENT,0.4,0.3,0.0,18.0,-26.0,-5.7,INVALID_STATE_TRANSITION,Descent phase active.
+13968,DESCENT,0.3,0.3,0.0,14.4,-26.4,-5.8,INVALID_STATE_TRANSITION,Descent phase active.
+14036,DESCENT,0.3,0.3,0.0,10.8,-26.8,-5.8,INVALID_STATE_TRANSITION,Descent phase active.
+14104,DESCENT,0.3,0.3,0.0,7.2,-27.2,-5.9,INVALID_STATE_TRANSITION,Descent phase active.
+14172,DESCENT,0.3,0.3,0.0,3.6,-27.6,-5.9,INVALID_STATE_TRANSITION,Descent phase active.
+14240,LANDED,0,0,0,0,0,0,INVALID_STATE_TRANSITION,Touchdown confirmed. Recovery mode.
+14290,LANDED,0,0,0,0,0,0,INVALID_STATE_TRANSITION,Touchdown confirmed. Recovery mode.
+14340,LANDED,0,0,0,0,0,0,INVALID_STATE_TRANSITION,Touchdown confirmed. Recovery mode.
+14390,LANDED,0,0,0,0,0,0,INVALID_STATE_TRANSITION,Touchdown confirmed. Recovery mode.
+14440,LANDED,0,0,0,0,0,0,INVALID_STATE_TRANSITION,Touchdown confirmed. Recovery mode.
+14490,LANDED,0,0,0,0,0,0,INVALID_STATE_TRANSITION,Touchdown confirmed. Recovery mode.
+14540,LANDED,0,0,0,0,0,0,INVALID_STATE_TRANSITION,Touchdown confirmed. Recovery mode.
+14590,LANDED,0,0,0,0,0,0,INVALID_STATE_TRANSITION,Touchdown confirmed. Recovery mode.
+14640,LANDED,0,0,0,0,0,0,INVALID_STATE_TRANSITION,Touchdown confirmed. Recovery mode.
+14690,LANDED,0,0,0,0,0,0,INVALID_STATE_TRANSITION,Touchdown confirmed. Recovery mode.
+14740,LANDED,0,0,0,0,0,0,INVALID_STATE_TRANSITION,Touchdown confirmed. Recovery mode.
