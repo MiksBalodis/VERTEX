@@ -1,21 +1,16 @@
-# This repo is no longer maintained. Consider using `npm init vite` and selecting the `svelte` option or — if you want a full-fledged app framework — use [SvelteKit](https://kit.svelte.dev), the official application framework for Svelte.
+# Šeit ir viss nepieciešamais zemes stacijas GUI testēšanai
 
 ---
 
-# svelte app
+# Sagatavošanās
 
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
-
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
-
-```bash
-npx degit sveltejs/template svelte-app
-cd svelte-app
-```
-
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
-
-
+1) Lejupieladēt repozitoriju
+2) Instalēt [Docker](https://www.docker.com)
+3) Ja nav ieslēgta virutalizācija, ieslēgt
+4) Atvērt *Docker Desktop*
+5) Palaist *run_docker.bat*
+6) Pārlūkprogrammā atvērt [localhost:5000](http://localhost:5000)
+   
 ## Get started
 
 Install the dependencies...
