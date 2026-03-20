@@ -16,7 +16,7 @@ typedef struct {
 
 void IMU_Fusion_Init(LSM6DSO_Object_t *imu);
 void IMU_Fusion_CalibrateGyro(uint16_t samples);
-void IMU_Fusion_Update(void);
-IMU_Data_t IMU_Fusion_GetData(void);
+void IMU_Fusion_Update(IMU_Data_t *imu_data);
+// IMU_Data_t IMU_Fusion_GetData(void);
 
 #endif

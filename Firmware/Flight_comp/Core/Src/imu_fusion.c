@@ -3,7 +3,7 @@
 #include <string.h>
 
 static LSM6DSO_Object_t *imu_handle = NULL;
-static IMU_Data_t imu_data;
+// static IMU_Data_t imu_data;
 
 static float gx_bias = 0.0f;
 static float gy_bias = 0.0f;
@@ -17,7 +17,7 @@ static float lowpass(float old_value, float new_value, float alpha)
 void IMU_Fusion_Init(LSM6DSO_Object_t *imu)
 {
     imu_handle = imu;
-    memset(&imu_data, 0, sizeof(imu_data));
+    // memset(&imu_data, 0, sizeof(imu_data));
 
     LSM6DSO_ACC_SetFullScale(imu_handle, 16);
     LSM6DSO_GYRO_SetFullScale(imu_handle, 2000);
@@ -66,7 +66,7 @@ void IMU_Fusion_CalibrateGyro(uint16_t samples)
     gz_bias = sum_z / samples;
 }
 
-void IMU_Fusion_Update(void)
+void IMU_Fusion_Update(IMU_Data_t *imu_data)
 {
     if (imu_handle == NULL) return;
 
@@ -83,9 +83,9 @@ void IMU_Fusion_Update(void)
         float rocket_y = -sensor_y;
         float rocket_z =  sensor_z;
 
-        imu_data.rx = lowpass(imu_data.rx, rocket_x, 0.2f);
-        imu_data.ry = lowpass(imu_data.ry, rocket_y, 0.2f);
-        imu_data.rz = lowpass(imu_data.rz, rocket_z, 0.2f);
+        imu_data->rx = lowpass(imu_data->rx, rocket_x, 0.2f);
+        imu_data->ry = lowpass(imu_data->ry, rocket_y, 0.2f);
+        imu_data->rz = lowpass(imu_data->rz, rocket_z, 0.2f);
     }
 
     if (LSM6DSO_GYRO_GetAxes(imu_handle, &gyro_raw) == LSM6DSO_OK)
@@ -98,13 +98,13 @@ void IMU_Fusion_Update(void)
         float rocket_y = -sensor_y - gy_bias;
         float rocket_z =  sensor_z - gz_bias;
 
-        imu_data.gx = lowpass(imu_data.gx, rocket_x, 0.2f);
-        imu_data.gy = lowpass(imu_data.gy, rocket_y, 0.2f);
-        imu_data.gz = lowpass(imu_data.gz, rocket_z, 0.2f);
+        imu_data->gx = lowpass(imu_data->gx, rocket_x, 0.2f);
+        imu_data->gy = lowpass(imu_data->gy, rocket_y, 0.2f);
+        imu_data->gz = lowpass(imu_data->gz, rocket_z, 0.2f);
     }
 }
 
-IMU_Data_t IMU_Fusion_GetData(void)
-{
-    return imu_data;
-}
+// IMU_Data_t IMU_Fusion_GetData(void)
+// {
+//     return imu_data;
+// }

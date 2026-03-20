@@ -192,6 +192,7 @@ int main(void)
 
   hbmp388.hi2c = &hi2c2;
   uint32_t rprs, rtemp, time;
+  float prs, temp;
   if(BMP388_Init(&hbmp388) == HAL_OK){
     HAL_Delay(5);
     BMP388_SetTempOS(&hbmp388, BMP388_OVERSAMPLING_8X);
@@ -203,6 +204,8 @@ int main(void)
 
   uint8_t ID = 0;
 
+  LSM6DSO_Axes_t acc;
+
   lsm6dso_io.BusType  = LSM6DSO_SPI_4WIRES_BUS;
   lsm6dso_io.Address  = 0;
   lsm6dso_io.Init     = platform_imu_init;
@@ -212,10 +215,8 @@ int main(void)
   lsm6dso_io.GetTick  = platform_get_tick;
   lsm6dso_io.Delay    = platform_delay;
 
-  if (LSM6DSO_RegisterBusIO(&hlsm6dso1, &lsm6dso_io) == LSM6DSO_OK)
-  {
-    if (LSM6DSO_Init(&hlsm6dso1) == LSM6DSO_OK)
-    {
+  if (LSM6DSO_RegisterBusIO(&hlsm6dso1, &lsm6dso_io) == LSM6DSO_OK){
+    if (LSM6DSO_Init(&hlsm6dso1) == LSM6DSO_OK){
       LSM6DSO_ReadID(&hlsm6dso1, &ID);
 
       IMU_Fusion_Init(&hlsm6dso1);
@@ -251,7 +252,15 @@ int main(void)
 
 // uint8_t who_am_i = rx[1];
 
+  uint8_t data[2];
+  if(EE24_Init(&h24lc64, &hi2c1, EE24_ADDRESS_DEFAULT, EEP_WP_GPIO_Port, EEP_WP_Pin) == 1){
+    data[0] = 0xAA;
+    data[1] = 0x55;
+    // EE24_Write(&h24lc64, 0, data, 2, 100); // Avoid unnecessary damage
+  }
+
   Servo_Init(&hservo1, &htim5, TIM_CHANNEL_1);
+  uint8_t servo_angle = 0;
 
   uint8_t fl_data[512];
   memset(fl_data, 0, 512);
@@ -319,12 +328,11 @@ int main(void)
 
     SX1262_HandleCallback(lora_buf, &received_len);
     if(received_len > 0){
-      BUZZ_ON();
-      HAL_Delay(300);
-      BUZZ_OFF();
+      BUZZ(&hbuzz1, 300);
     }
 
     // MX25FLASH_Continious_Read(0, fl_data, 2);
+    Mission_Update();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

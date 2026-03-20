@@ -79,6 +79,7 @@ Core/Src/25flash.c \
 Core/Src/BMP388.c \
 Core/Src/GNSS.c \
 Core/Src/SX1262.c \
+Core/Src/buzzer.c \
 Core/Src/ee24.c \
 Core/Src/imu_fusion.c \
 Core/Src/lsm6dso.c \
