@@ -1,0 +1,202 @@
+time_ms,state,pitch,yaw,roll,altitude,speed,acceleration,error_flags,status_text
+0,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+90,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+180,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+270,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+360,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+450,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+540,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+630,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+720,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+810,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+900,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+990,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+1080,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+1170,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+1260,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+1350,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+1440,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+1530,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+1620,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+1710,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+1800,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+1890,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+1980,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+2070,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+2160,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+2250,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+2340,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+2430,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+2520,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+2610,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+2700,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+2790,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+2880,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+2970,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+3060,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+3150,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+3240,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+3330,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+3420,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+3510,IDLE,0,0,0,0,0,0,NONE,Systems safe. Awaiting command.
+3600,READY,0.1,0.1,0.1,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+3680,READY,0.1,0.1,0.1,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+3760,READY,0.1,0.1,0.1,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+3840,READY,0.2,0.1,0.1,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+3920,READY,0.2,0.1,0.1,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+4000,READY,0.2,0.2,0.1,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+4080,READY,0.2,0.2,0.1,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+4160,READY,0.2,0.2,0.1,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+4240,READY,0.2,0.2,0.1,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+4320,READY,0.2,0.2,0.1,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+4400,READY,0.2,0.2,0.1,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+4480,READY,0.2,0.2,0.1,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+4560,READY,0.1,0.2,0.1,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+4640,READY,0.1,0.2,0.1,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+4720,READY,0.1,0.2,0.1,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+4800,READY,0.1,0.2,0.1,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+4880,READY,0.0,0.2,0.1,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+4960,READY,-0.0,0.1,0.1,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+5040,READY,-0.0,0.1,0.0,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+5120,READY,-0.1,0.1,0.0,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+5200,READY,-0.1,0.1,0.0,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+5280,READY,-0.1,0.0,0.0,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+5360,READY,-0.2,0.0,0.0,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+5440,READY,-0.2,-0.0,-0.0,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+5520,READY,-0.2,-0.0,-0.0,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+5600,READY,-0.2,-0.1,-0.0,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+5680,READY,-0.2,-0.1,-0.0,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+5760,READY,-0.2,-0.1,-0.0,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+5840,READY,-0.2,-0.1,-0.0,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+5920,READY,-0.2,-0.1,-0.1,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+6000,READY,-0.2,-0.2,-0.1,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+6080,READY,-0.1,-0.2,-0.1,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+6160,READY,-0.1,-0.2,-0.1,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+6240,READY,-0.1,-0.2,-0.1,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+6320,READY,-0.0,-0.2,-0.1,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+6400,READY,-0.0,-0.2,-0.1,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+6480,READY,0.0,-0.2,-0.1,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+6560,READY,0.1,-0.2,-0.1,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+6640,READY,0.1,-0.2,-0.1,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+6720,READY,0.1,-0.2,-0.1,0,0,0,NONE,Vehicle armed. Pre-launch checks complete.
+6800,ASCENT,2.0,1.0,-0.5,0.0,20.0,18.0,NONE,Launch detected. Stabilization active.
+6868,ASCENT,2.0,1.0,-0.5,0.1,21.8,17.9,NONE,Launch detected. Stabilization active.
+6936,ASCENT,2.0,1.0,-0.5,0.4,23.6,17.8,NONE,Launch detected. Stabilization active.
+7004,ASCENT,2.1,1.0,-0.5,0.9,25.4,17.6,NONE,Launch detected. Stabilization active.
+7072,ASCENT,2.1,1.1,-0.5,1.6,27.2,17.5,NONE,Launch detected. Stabilization active.
+7140,ASCENT,2.1,1.1,-0.5,2.5,29.0,17.4,NONE,Launch detected. Stabilization active.
+7208,ASCENT,2.1,1.1,-0.5,3.6,30.8,17.3,NONE,Launch detected. Stabilization active.
+7276,ASCENT,2.2,1.1,-0.5,4.9,32.6,17.2,NONE,Launch detected. Stabilization active.
+7344,ASCENT,2.2,1.1,-0.5,6.4,34.4,17.0,NONE,Launch detected. Stabilization active.
+7412,ASCENT,2.2,1.1,-0.4,8.1,36.2,16.9,NONE,Launch detected. Stabilization active.
+7480,ASCENT,2.2,1.2,-0.4,10.0,38.0,16.8,NONE,Launch detected. Stabilization active.
+7548,ASCENT,2.3,1.2,-0.4,12.1,39.8,16.7,NONE,Launch detected. Stabilization active.
+7616,ASCENT,2.3,1.2,-0.4,14.4,41.6,16.6,NONE,Launch detected. Stabilization active.
+7684,ASCENT,2.3,1.2,-0.4,16.9,43.4,16.4,NONE,Launch detected. Stabilization active.
+7752,ASCENT,2.3,1.2,-0.4,19.6,45.2,16.3,NONE,Launch detected. Stabilization active.
+7820,ASCENT,2.4,1.2,-0.4,22.5,47.0,16.2,NONE,Launch detected. Stabilization active.
+7888,ASCENT,2.4,1.3,-0.4,25.6,48.8,16.1,NONE,Launch detected. Stabilization active.
+7956,ASCENT,2.4,1.3,-0.4,28.9,50.6,16.0,NONE,Launch detected. Stabilization active.
+8024,ASCENT,2.4,1.3,-0.4,32.4,52.4,15.8,NONE,Launch detected. Stabilization active.
+8092,ASCENT,2.5,1.3,-0.4,36.1,54.2,15.7,NONE,Launch detected. Stabilization active.
+8160,ASCENT,2.5,1.3,-0.4,40.0,56.0,15.6,NONE,Launch detected. Stabilization active.
+8228,ASCENT,2.5,1.3,-0.4,44.1,57.8,15.5,NONE,Launch detected. Stabilization active.
+8296,ASCENT,2.5,1.4,-0.4,48.4,59.6,15.4,NONE,Launch detected. Stabilization active.
+8364,ASCENT,2.6,1.4,-0.4,52.9,61.4,15.2,NONE,Launch detected. Stabilization active.
+8432,ASCENT,2.6,1.4,-0.4,57.6,63.2,15.1,NONE,Launch detected. Stabilization active.
+8500,ASCENT,2.6,1.4,-0.3,62.5,65.0,15.0,NONE,Launch detected. Stabilization active.
+8568,ASCENT,2.6,1.4,-0.3,67.6,66.8,14.9,NONE,Launch detected. Stabilization active.
+8636,ASCENT,2.6,1.4,-0.3,72.9,68.6,14.8,NONE,Launch detected. Stabilization active.
+8704,ASCENT,2.7,1.4,-0.3,78.4,70.4,14.6,NONE,Launch detected. Stabilization active.
+8772,ASCENT,2.7,1.5,-0.3,84.1,72.2,14.5,NONE,Launch detected. Stabilization active.
+8840,ASCENT,2.7,1.5,-0.3,90.0,74.0,14.4,NONE,Launch detected. Stabilization active.
+8908,ASCENT,2.7,1.5,-0.3,96.1,75.8,14.3,NONE,Launch detected. Stabilization active.
+8976,ASCENT,2.8,1.5,-0.3,102.4,77.6,14.2,NONE,Launch detected. Stabilization active.
+9044,ASCENT,2.8,1.5,-0.3,108.9,79.4,14.0,NONE,Launch detected. Stabilization active.
+9112,ASCENT,2.8,1.5,-0.3,115.6,81.2,13.9,NONE,Launch detected. Stabilization active.
+9180,ASCENT,2.8,1.6,-0.3,122.5,83.0,13.8,NONE,Launch detected. Stabilization active.
+9248,ASCENT,2.9,1.6,-0.3,129.6,84.8,13.7,NONE,Launch detected. Stabilization active.
+9316,ASCENT,2.9,1.6,-0.3,136.9,86.6,13.6,NONE,Launch detected. Stabilization active.
+9384,ASCENT,2.9,1.6,-0.3,144.4,88.4,13.4,NONE,Launch detected. Stabilization active.
+9452,ASCENT,2.9,1.6,-0.3,152.1,90.2,13.3,NONE,Launch detected. Stabilization active.
+9520,ASCENT,3.0,1.6,-0.3,160.0,92.0,13.2,NONE,Launch detected. Stabilization active.
+9588,ASCENT,3.0,1.7,-0.3,168.1,93.8,13.1,NONE,Launch detected. Stabilization active.
+9656,ASCENT,3.0,1.7,-0.2,176.4,95.6,13.0,NONE,Launch detected. Stabilization active.
+9724,ASCENT,3.0,1.7,-0.2,184.9,97.4,12.8,NONE,Launch detected. Stabilization active.
+9792,ASCENT,3.1,1.7,-0.2,193.6,99.2,12.7,NONE,Launch detected. Stabilization active.
+9860,ASCENT,3.1,1.7,-0.2,202.5,101.0,12.6,NONE,Launch detected. Stabilization active.
+9928,ASCENT,3.1,1.7,-0.2,211.6,102.8,12.5,NONE,Launch detected. Stabilization active.
+9996,ASCENT,3.1,1.8,-0.2,220.9,104.6,12.4,NONE,Launch detected. Stabilization active.
+10064,ASCENT,3.2,1.8,-0.2,230.4,106.4,12.2,NONE,Launch detected. Stabilization active.
+10132,ASCENT,3.2,1.8,-0.2,240.1,108.2,12.1,NONE,Launch detected. Stabilization active.
+10200,DESCENT,1.1,0.9,0.1,250.0,-10.0,-4.0,NONE,Descent phase active.
+10268,DESCENT,1.1,0.9,0.1,245.0,-10.7,-4.1,NONE,Descent phase active.
+10336,DESCENT,1.1,0.9,0.1,240.0,-11.4,-4.2,NONE,Descent phase active.
+10404,DESCENT,1.1,0.9,0.1,235.0,-12.1,-4.2,NONE,Descent phase active.
+10472,DESCENT,1.0,0.9,0.1,230.0,-12.8,-4.3,NONE,Descent phase active.
+10540,DESCENT,1.0,0.8,0.1,225.0,-13.5,-4.4,NONE,Descent phase active.
+10608,DESCENT,1.0,0.8,0.1,220.0,-14.2,-4.5,NONE,Descent phase active.
+10676,DESCENT,1.0,0.8,0.1,215.0,-14.9,-4.6,NONE,Descent phase active.
+10744,DESCENT,1.0,0.8,0.1,210.0,-15.6,-4.6,NONE,Descent phase active.
+10812,DESCENT,1.0,0.8,0.1,205.0,-16.3,-4.7,NONE,Descent phase active.
+10880,DESCENT,0.9,0.8,0.1,200.0,-17.0,-4.8,NONE,Descent phase active.
+10948,DESCENT,0.9,0.8,0.1,195.0,-17.7,-4.9,NONE,Descent phase active.
+11016,DESCENT,0.9,0.8,0.1,190.0,-18.4,-5.0,NONE,Descent phase active.
+11084,DESCENT,0.9,0.7,0.1,185.0,-19.1,-5.0,NONE,Descent phase active.
+11152,DESCENT,0.9,0.7,0.1,180.0,-19.8,-5.1,NONE,Descent phase active.
+11220,DESCENT,0.9,0.7,0.1,175.0,-20.5,-5.2,NONE,Descent phase active.
+11288,DESCENT,0.8,0.7,0.1,170.0,-21.2,-5.3,NONE,Descent phase active.
+11356,DESCENT,0.8,0.7,0.1,165.0,-21.9,-5.4,NONE,Descent phase active.
+11424,DESCENT,0.8,0.7,0.1,160.0,-22.6,-5.4,NONE,Descent phase active.
+11492,DESCENT,0.8,0.7,0.1,155.0,-23.3,-5.5,NONE,Descent phase active.
+11560,DESCENT,0.8,0.7,0.1,150.0,-24.0,-5.6,NONE,Descent phase active.
+11628,DESCENT,0.8,0.6,0.1,145.0,-24.7,-5.7,NONE,Descent phase active.
+11696,DESCENT,0.7,0.6,0.1,140.0,-25.4,-5.8,NONE,Descent phase active.
+11764,DESCENT,0.7,0.6,0.1,135.0,-26.1,-5.8,NONE,Descent phase active.
+11832,DESCENT,0.7,0.6,0.1,130.0,-26.8,-5.9,NONE,Descent phase active.
+11900,DESCENT,0.7,0.6,0.1,125.0,-27.5,-6.0,NONE,Descent phase active.
+11968,DESCENT,0.7,0.6,0.0,120.0,-28.2,-6.1,NONE,Descent phase active.
+12036,DESCENT,0.7,0.6,0.0,115.0,-28.9,-6.2,NONE,Descent phase active.
+12104,DESCENT,0.7,0.6,0.0,110.0,-29.6,-6.2,NONE,Descent phase active.
+12172,DESCENT,0.6,0.6,0.0,105.0,-30.3,-6.3,NONE,Descent phase active.
+12240,DESCENT,0.6,0.5,0.0,100.0,-31.0,-6.4,NONE,Descent phase active.
+12308,DESCENT,0.6,0.5,0.0,95.0,-31.7,-6.5,NONE,Descent phase active.
+12376,DESCENT,0.6,0.5,0.0,90.0,-32.4,-6.6,NONE,Descent phase active.
+12444,DESCENT,0.6,0.5,0.0,85.0,-33.1,-6.6,NONE,Descent phase active.
+12512,DESCENT,0.6,0.5,0.0,80.0,-33.8,-6.7,NONE,Descent phase active.
+12580,DESCENT,0.5,0.5,0.0,75.0,-34.5,-6.8,NONE,Descent phase active.
+12648,DESCENT,0.5,0.5,0.0,70.0,-35.2,-6.9,NONE,Descent phase active.
+12716,DESCENT,0.5,0.5,0.0,65.0,-35.9,-7.0,NONE,Descent phase active.
+12784,DESCENT,0.5,0.4,0.0,60.0,-36.6,-7.0,NONE,Descent phase active.
+12852,DESCENT,0.5,0.4,0.0,55.0,-37.3,-7.1,NONE,Descent phase active.
+12920,DESCENT,0.5,0.4,0.0,50.0,-38.0,-7.2,NONE,Descent phase active.
+12988,DESCENT,0.4,0.4,0.0,45.0,-38.7,-7.3,NONE,Descent phase active.
+13056,DESCENT,0.4,0.4,0.0,40.0,-39.4,-7.4,NONE,Descent phase active.
+13124,DESCENT,0.4,0.4,0.0,35.0,-40.1,-7.4,NONE,Descent phase active.
+13192,DESCENT,0.4,0.4,0.0,30.0,-40.8,-7.5,NONE,Descent phase active.
+13260,DESCENT,0.4,0.4,0.0,25.0,-41.5,-7.6,NONE,Descent phase active.
+13328,DESCENT,0.4,0.3,0.0,20.0,-42.2,-7.7,NONE,Descent phase active.
+13396,DESCENT,0.3,0.3,0.0,15.0,-42.9,-7.8,NONE,Descent phase active.
+13464,DESCENT,0.3,0.3,0.0,10.0,-43.6,-7.8,NONE,Descent phase active.
+13532,DESCENT,0.3,0.3,0.0,5.0,-44.3,-7.9,NONE,Descent phase active.
+13600,LANDED,0,0,0,0,0,0,NONE,Touchdown confirmed. Recovery mode.
+13650,LANDED,0,0,0,0,0,0,NONE,Touchdown confirmed. Recovery mode.
+13700,LANDED,0,0,0,0,0,0,NONE,Touchdown confirmed. Recovery mode.
+13750,LANDED,0,0,0,0,0,0,NONE,Touchdown confirmed. Recovery mode.
+13800,LANDED,0,0,0,0,0,0,NONE,Touchdown confirmed. Recovery mode.
+13850,LANDED,0,0,0,0,0,0,NONE,Touchdown confirmed. Recovery mode.
+13900,LANDED,0,0,0,0,0,0,NONE,Touchdown confirmed. Recovery mode.
+13950,LANDED,0,0,0,0,0,0,NONE,Touchdown confirmed. Recovery mode.
+14000,LANDED,0,0,0,0,0,0,NONE,Touchdown confirmed. Recovery mode.
+14050,LANDED,0,0,0,0,0,0,NONE,Touchdown confirmed. Recovery mode.
+14100,LANDED,0,0,0,0,0,0,NONE,Touchdown confirmed. Recovery mode.
+14150,LANDED,0,0,0,0,0,0,NONE,Touchdown confirmed. Recovery mode.
+14200,LANDED,0,0,0,0,0,0,NONE,Touchdown confirmed. Recovery mode.
+14250,LANDED,0,0,0,0,0,0,NONE,Touchdown confirmed. Recovery mode.
+14300,LANDED,0,0,0,0,0,0,NONE,Touchdown confirmed. Recovery mode.
+14350,LANDED,0,0,0,0,0,0,NONE,Touchdown confirmed. Recovery mode.
+14400,LANDED,0,0,0,0,0,0,NONE,Touchdown confirmed. Recovery mode.
+14450,LANDED,0,0,0,0,0,0,NONE,Touchdown confirmed. Recovery mode.
+14500,LANDED,0,0,0,0,0,0,NONE,Touchdown confirmed. Recovery mode.
+14550,LANDED,0,0,0,0,0,0,NONE,Touchdown confirmed. Recovery mode.
+14600,LANDED,0,0,0,0,0,0,NONE,Touchdown confirmed. Recovery mode.
