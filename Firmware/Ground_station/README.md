@@ -100,3 +100,101 @@ Then, from within your project folder:
 npm run build
 surge public my-project.surge.sh
 ```
+
+
+## GUI testēšana ar pievienotajiem `.csv` failiem
+
+Šie testa faili ir paredzēti zemes stacijas GUI pārbaudei ar iepriekš sagatavotiem lidojuma datiem.  
+Visiem failiem ir vienāda kolonnu struktūra:
+
+- `time_ms`
+- `state`
+- `pitch`
+- `yaw`
+- `roll`
+- `altitude`
+- `speed`
+- `acceleration`
+- `error_flags`
+- `status_text`
+
+## Kā veikt testēšanu
+
+1. Palaid GUI, kā aprakstīts iepriekš.
+2. Ielādē vienu no testa `.csv` failiem.
+3. Pārbaudi, vai:
+   - visi lauki tiek attēloti;
+   - indikatori mainās laikā atbilstoši datiem;
+   - stāvokļi (`state`) mainās loģiskā secībā;
+   - kļūdu indikatori parādās tad, kad `error_flags`;
+   - `status_text` atbilst attiecīgajam brīdim datu plūsmā;
+   - pēc faila beigām GUI  rāda pēdējo stāvokli korekti.
+4. Atkārto to pašu ar visiem testa failiem.
+
+---
+
+## Sagaidāmā vispārīgā uzvedība
+
+Ja GUI darbojas pareizi, tad:
+
+- laiks (`time_ms`) progresē uz priekšu;
+- `state` vērtības tiek attēlotas skaidri un bez nezināmu stāvokļu kļūdām;
+- `error_flags = NONE` nozīmē normālu režīmu bez aktīvām kļūdām;
+- kombinētās probēlmas, piemēram `GPS_LOST|BARO_FAIL|LOW_BATTERY`, tiek attēloti kā vairākas vienlaicīgas kļūmes;
+- pēdējā rindiņā GUI jāatspoguļo faila pēdējais stāvoklis;
+- ja lidojums beidzas ar `LANDED`, gala stāvoklim jābūt stabilam, ar nulles vai gandrīz nulles kustības rādītājiem;
+- kļūdu scenārijos GUI nedrīkst “salūzt” tikai tāpēc, ka parādās kļūdu karogi vai neparasta stāvokļu secība.
+
+---
+
+## Testa faili un sagaidāmie rezultāti
+
+## Īss sagaidāmais rezultāts katram testa failam
+
+### `test1.csv`
+Normāls pilns lidojums.  
+Sagaidāms: `IDLE → READY → ASCENT → DESCENT → LANDED`, bez kļūdām, rādījumi pieaug un pēc nosēšanās atgriežas uz nulli.
+
+### `test2.csv`
+Kļūme pirms lidojuma / drošais režīms.  
+Sagaidāms: sistēma pāriet no `IDLE` uz `SAFE`, lidojums nesākas, visi kustības rādītāji paliek uz nulli, tiek parādīta kļūme.
+
+### `test3.csv`
+Neatļauta stāvokļu pāreja.  
+Sagaidāms: dati ielādējas, bet GUI parāda kļūdu par nepareizu stāvokļu pāreju, jo lidojums sākas bez korektas iepriekšējās secības.
+
+### `test4.csv`
+IMU datu zudums un atkopšanās.  
+Sagaidāms: normāls lidojums, uz brīdi parādās IMU datu zudums, pēc tam atkopšanās, un lidojums beidzas veiksmīgi.
+
+### `test5.csv`
+Vairākas vienlaicīgas kļūdas.  
+Sagaidāms: normāls lidojums, bet GUI vienlaikus parāda vairākus kļūdu karogus, pēc tam lidojums noslēdzas ar nosēšanos.
+
+### `test6.csv`
+Sakaru zudums un GPS svārstības.  
+Sagaidāms: lidojums turpinās, parādās īslaicīgs sakaru zudums un GPS nestabilitāte, pēc tam atkopšanās un veiksmīga nosēšanās.
+
+### `test7.csv`
+Stāvokļa pārejas kļūda ar vēlāku atkopšanos.  
+Sagaidāms: GUI parāda neatļautu stāvokļa pāreju, pēc tam atkopšanos, un lidojums tomēr noslēdzas korekti.
+
+### `test8.csv`
+Jaukts anomāliju tests.  
+Sagaidāms: GUI apstrādā vairākas dažādas kļūdas un brīdinājumus vienā lidojumā, neuzkaras un beigās korekti parāda `LANDED`.
+
+---
+
+## Ko uzskatīt par kļūdu GUI pusē
+
+Testēšanas laikā par problēmu jāuzskata, ja notiek kaut kas no zemāk minētā:
+
+- `.csv` fails netiek ielādēts, lai gan formāts ir korekts;
+- `error_flags` netiek attēloti vai tiek attēloti nepareizi;
+- kombinētās kļūdas netiek sadalītas vai saprotami parādītas;
+- `state` netiek mainīts atbilstoši datiem;
+- GUI uzkaras vai avarē kļūdu scenārijos;
+- gala stāvoklis neatbilst pēdējai faila rindiņai;
+- `SAFE` vai `LANDED` scenārijos GUI joprojām rāda it kā notiktu aktīvs lidojums.
+
+---
