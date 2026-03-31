@@ -36,6 +36,7 @@
 #include "mission.h"
 #include <string.h>
 #include "stdbool.h"
+// #include "gps.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -78,6 +79,7 @@ DMA_HandleTypeDef hdma_tim3_ch1_trig;
 
 UART_HandleTypeDef huart1;
 DMA_HandleTypeDef hdma_usart1_tx;
+DMA_HandleTypeDef hdma_usart1_rx;
 
 /* USER CODE BEGIN PV */
 LSM6DSO_Object_t hlsm6dso1;
@@ -100,7 +102,13 @@ uint32_t adc_buff[1];
 
 bool buzz_state;
 
-extern SX1262 SX_stc;
+uint8_t lora_buf[255];
+uint8_t received_len;
+
+uint8_t gps_data[128];
+
+extern bool POST_fault_flags[];
+// extern SX1262 SX_stc;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -134,8 +142,7 @@ int32_t platform_get_tick(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-#define BUZZ_ON()  (buzz_state = 1)
-#define BUZZ_OFF() (buzz_state = 0)
+
 /* USER CODE END 0 */
 
 /**
@@ -200,6 +207,8 @@ int main(void)
     BMP388_SetIIRFilterCoeff(&hbmp388, BMP3_IIR_FILTER_COEFF_3);
     BMP388_SetOutputDataRate(&hbmp388, BMP3_ODR_50_HZ);
     BMP388_ReadRawPressTempTime(&hbmp388, &rprs, &rtemp, &time);  // DUMMY
+  }else{
+    POST_fault_flags[PRS_Comm_Fail] = 1;
   }
 
   uint8_t ID = 0;
@@ -223,26 +232,73 @@ int main(void)
       HAL_Delay(100);
       IMU_Fusion_CalibrateGyro(200);
     }
+  }else{
+    POST_fault_flags[IMU_Comm_Fail] = 1;
   }
 
+  // char msg[] = "Hallo Welt!\n\r";
+  // HAL_UART_Transmit_DMA(&huart1, msg, sizeof(msg)-1);
   GNSS_Init(&GNSS_Handle, &huart1);
   HAL_Delay(1000);
 	GNSS_LoadConfig(&GNSS_Handle);
 
+  // GPS_Init();
 
-  SX_stc.SPI = hspi3;
-  SX_stc.Reset_Port = LORA_NRST_GPIO_Port;
-  SX_stc.Reset_Pin = LORA_NRST_Pin;
-  SX_stc.NSS_Port = LORA_NSS_GPIO_Port;
-  SX_stc.NSS_Pin = LORA_NSS_Pin;
-  SX_stc.Busy_Port = LORA_IO0_GPIO_Port;
-  SX_stc.Busy_Pin = LORA_IO0_Pin;
+  // GPS_GetUniqID();
+
+  // bool flash_status = MX25FLASH_Full_Test();
+  // if(!flash_status){
+  //   BUZZ(&hbuzz1, 300);
+  // }
+
+  uint32_t Timer = HAL_GetTick();
+//   // BUZZ(&hbuzz1, 300);
+//   if (HAL_I2C_IsDeviceReady(&hi2c3, (0x42 << 1), 3, 100) == HAL_OK){
+    
+
+//       uint8_t reg;
+
+//     uint8_t avail_buf[2];
+//     uint16_t available;
+
+//     // Step 1: Read number of available bytes (register 0xFD)
+//     reg = 0xFD;
+//     HAL_I2C_Master_Transmit(&hi2c3, 0x42 << 1, &reg, 1, HAL_MAX_DELAY);
+//     HAL_I2C_Master_Receive(&hi2c3, 0x42 << 1, avail_buf, 2, HAL_MAX_DELAY);
+
+//     available = (avail_buf[0] << 8) | avail_buf[1];
+
+//     if (available > 0){
+
+// BUZZ(&hbuzz1, 300);
+//     if (available > sizeof(gps_data))
+//         available = sizeof(gps_data);
+
+//     // Step 2: Read data stream (register 0xFF)
+//     reg = 0xFF;
+//     HAL_I2C_Master_Transmit(&hi2c3, 0x42 << 1, &reg, 1, HAL_MAX_DELAY);
+//     HAL_I2C_Master_Receive(&hi2c3, 0x42 << 1, gps_data, available, HAL_MAX_DELAY);
+    
+//     }
+//   }
+  // LORA
+  // BUZZ(&hbuzz1, 300);
+  SX1262_Get_st()->SPI = hspi3;
+  SX1262_Get_st()->Reset_Port = LORA_NRST_GPIO_Port;
+  SX1262_Get_st()->Reset_Pin = LORA_NRST_Pin;
+  SX1262_Get_st()->NSS_Port = LORA_NSS_GPIO_Port;
+  SX1262_Get_st()->NSS_Pin = LORA_NSS_Pin;
+  SX1262_Get_st()->Busy_Port = LORA_IO0_GPIO_Port;
+  SX1262_Get_st()->Busy_Pin = LORA_IO0_Pin;
 
   SX1262_Init();
-  SX1262_SetFrequency(434000000);
-  SX1262_setModeReceive();
-  uint8_t lora_buf[255];
-  uint8_t received_len;
+  SX1262_SetFrequency(433000000);
+  // SX1262_setModeReceive();
+  uint8_t lora_data[] = "Hello, LoRa!";
+  SX1262_Transmit(lora_data, sizeof(lora_data));
+
+  /* 17 dbm, BW 250 kHz, CR_4_5, No CRC, SF7, use sync word 0x12 on SX1278*/
+
 // uint8_t tx[2] = {0x8F, 0x00};
 // uint8_t rx[2];
 
@@ -257,6 +313,8 @@ int main(void)
     data[0] = 0xAA;
     data[1] = 0x55;
     // EE24_Write(&h24lc64, 0, data, 2, 100); // Avoid unnecessary damage
+  }else{
+    POST_fault_flags[EEPROM_Comm_Fail] = 1;
   }
 
   Servo_Init(&hservo1, &htim5, TIM_CHANNEL_1);
@@ -270,7 +328,6 @@ int main(void)
   //MX25FLASH_Sector_Erase(0);
   // MX25FLASH_Program_Page(0, fl_data);
   // memset(fl_data, 0, 512);
-
 
 
 //   FRESULT fr;
@@ -301,7 +358,7 @@ int main(void)
 //   }
 
   Mission_Init();
-
+  
   LED_Set_Color(0, 64, 0);
   /* USER CODE END 2 */
 
@@ -311,25 +368,39 @@ int main(void)
   {
     HAL_Delay(100);  // wait for conversion
 
-    BMP388_ReadRawPressTempTime(&hbmp388, &rprs, &rtemp, &time);
-    BMP388_CompensateRawPressTemp(&hbmp388, rprs, rtemp, &prs, &temp);
+    // BMP388_ReadRawPressTempTime(&hbmp388, &rprs, &rtemp, &time);
+    // BMP388_CompensateRawPressTemp(&hbmp388, rprs, rtemp, &prs, &temp);
 
-    LSM6DSO_ACC_GetAxes(&hlsm6dso1, &acc);
+    // LSM6DSO_ACC_GetAxes(&hlsm6dso1, &acc);
 
-    EE24_Read(&h24lc64, 0, data, 2, 100);
+    // EE24_Read(&h24lc64, 0, data, 2, 100);
 
-    Servo_SetAngle(&hservo1, servo_angle);
-    servo_angle+=10;
-    if(servo_angle > 180) servo_angle = 0;
+    // Servo_SetAngle(&hservo1, servo_angle);
+    // servo_angle+=10;
+    // if(servo_angle > 180) servo_angle = 0;
+// if ((HAL_GetTick() - Timer) > 1000) {
+// 			GNSS_GetUniqID(&GNSS_Handle);
+//       HAL_Delay(250);
+// 			GNSS_ParseBuffer(&GNSS_Handle);
+//       GNSS_GetPVTData(&GNSS_Handle);
+// 			HAL_Delay(250);
+// 			GNSS_ParseBuffer(&GNSS_Handle);
+//       //      HAL_Delay(250);
+//       //      GNSS_SetMode(&GNSS_Handle,Automotiv);
+//       //      HAL_Delay(250);
+// 			Timer = HAL_GetTick();
+// 		}
 
-    GNSS_GetUniqID(&GNSS_Handle);
-    GNSS_ParseBuffer(&GNSS_Handle);
-    HAL_Delay(250);
+    // HAL_Delay(250);
+    SX1262_Transmit(lora_data, sizeof(lora_data));
 
-    SX1262_HandleCallback(lora_buf, &received_len);
-    if(received_len > 0){
-      BUZZ(&hbuzz1, 300);
-    }
+    // SX1262_HandleCallback(lora_buf, &received_len);
+    // SX1262_setModeReceive();
+    // if(received_len > 0){
+    //   BUZZ(&hbuzz1, 300);
+    // }
+
+    // SX1262_Transmit((uint8_t*)"salaMMMM", 4);
 
     // MX25FLASH_Continious_Read(0, fl_data, 2);
     Mission_Update();
@@ -624,7 +695,7 @@ static void MX_SPI1_Init(void)
   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi1.Init.NSS = SPI_NSS_SOFT;
-  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
+  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_8;
   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
@@ -700,7 +771,7 @@ static void MX_SPI3_Init(void)
   hspi3.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi3.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi3.Init.NSS = SPI_NSS_SOFT;
-  hspi3.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
+  hspi3.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_32;
   hspi3.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi3.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi3.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
@@ -998,6 +1069,9 @@ static void MX_DMA_Init(void)
   /* DMA1_Stream4_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Stream4_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA1_Stream4_IRQn);
+  /* DMA2_Stream2_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA2_Stream2_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Stream2_IRQn);
   /* DMA2_Stream7_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA2_Stream7_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA2_Stream7_IRQn);
@@ -1030,9 +1104,6 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOC, FLASH_NSS_Pin|FLASH_WP_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, LORA_DIO1_Pin|EEP_WP_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(IMU_NSS_GPIO_Port, IMU_NSS_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
@@ -1040,6 +1111,9 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(LORA_NRST_GPIO_Port, LORA_NRST_Pin, GPIO_PIN_SET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(EEP_WP_GPIO_Port, EEP_WP_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : CAM_CTRL_Pin BUZZER_Pin PYRO1_Pin PYRO2_Pin */
   GPIO_InitStruct.Pin = CAM_CTRL_Pin|BUZZER_Pin|PYRO1_Pin|PYRO2_Pin;
@@ -1057,15 +1131,14 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin : LORA_DIO1_Pin */
   GPIO_InitStruct.Pin = LORA_DIO1_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init(LORA_DIO1_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : LORA_IO0_Pin */
   GPIO_InitStruct.Pin = LORA_IO0_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init(LORA_IO0_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : BMP_INT_Pin */
@@ -1101,6 +1174,16 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LORA_NRST_GPIO_Port, &GPIO_InitStruct);
 
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI0_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI0_IRQn);
+
+  HAL_NVIC_SetPriority(EXTI2_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI2_IRQn);
+
+  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
+
   /* USER CODE BEGIN MX_GPIO_Init_2 */
 
   /* USER CODE END MX_GPIO_Init_2 */
@@ -1110,6 +1193,19 @@ static void MX_GPIO_Init(void)
 
 void Get_Vbat(void){
   HAL_ADC_Start_DMA(&hadc1, adc_buff, 1);
+}
+
+void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi)
+{
+  if(hspi == &hspi3){
+	  HAL_SPI_Receive_IT(&hspi3,(uint8_t *)lora_buf,5);
+  }
+}
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
+  if(GPIO_Pin == LORA_DIO1_Pin){
+    BUZZ(&hbuzz1, 100);
+  }
 }
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)

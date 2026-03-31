@@ -63,11 +63,19 @@
   */
 
 #define STORAGE_LUN_NBR                  1
-#define STORAGE_BLK_NBR                  0x10000
+#define STORAGE_BLK_NBR                  0x1000
 #define STORAGE_BLK_SIZ                  0x200
 
 /* USER CODE BEGIN PRIVATE_DEFINES */
 
+#define STORAGE_LUN_NBR                  1
+#define STORAGE_BLK_NBR                  0x1000
+#define STORAGE_BLK_SIZ                  0x200
+
+#define STORAGE_PG_NBR                   0x2000
+#define STORAGE_PG_SIZ                   0x100
+#define STORAGE_SEC_NBR                  0x200
+#define STORAGE_SEC_SIZ                  0x1000
 /* USER CODE END PRIVATE_DEFINES */
 
 /**
@@ -262,74 +270,52 @@ int8_t STORAGE_Read_FS(uint8_t lun, uint8_t *buf, uint32_t blk_addr, uint16_t bl
 int8_t STORAGE_Write_FS(uint8_t lun, uint8_t *buf, uint32_t blk_addr, uint16_t blk_len)
 {
   /* USER CODE BEGIN 7 */
-  // UNUSED(lun);
+/* W25Q16 Constants */
+  #define STORAGE_BLK_SIZ 0x200   // 512 bytes (USB Block)
+  #define SECTOR_SIZE     0x1000  // 4096 bytes (Flash Sector)
+  #define PAGE_SIZE       0x100   // 256 bytes (Flash Page)
 
-  //  static uint8_t current_sector_buf[4096];
-  //  uint16_t current_sector_addr = blk_addr / 8;
-  //  uint16_t startPage = current_sector_addr * 16;
-  //  int offset = 512 * (blk_addr % 8);
+  // Use a static buffer to avoid stack overflow (4KB is a lot for STM32 stack)
+  static uint8_t sector_scratchpad[SECTOR_SIZE];
 
-  // MX25FLASH_Continious_Read(startPage*0x200, current_sector_buf, 4096);
+  uint32_t blocks_written = 0;
 
+  while (blocks_written < blk_len)
+  {
+    uint32_t current_blk_addr = blk_addr + blocks_written;
+    
+    // 1. Find which 4KB sector the current block lives in
+    uint32_t sector_num = current_blk_addr / 8; // 8 blocks per sector (4096/512)
+    uint32_t sector_addr = sector_num * SECTOR_SIZE;
+    
+    // 2. Find the offset of our block inside that 4KB sector
+    uint32_t block_offset_in_sector = (current_blk_addr % 8) * STORAGE_BLK_SIZ;
 
-  //  memcpy(current_sector_buf + offset, buf, 512);
+    // 3. READ: Get the existing 4KB data from Flash into RAM
+    MX25FLASH_Continious_Read(sector_addr, sector_scratchpad, SECTOR_SIZE);
 
-  //  _MX25FLASH_Sector_Erase(current_sector_addr);
+    // 4. MODIFY: Overwrite only the 512 bytes Windows provided
+    // We can optimize this to write multiple blocks if they are in the same sector
+    uint32_t blocks_to_copy = 8 - (current_blk_addr % 8);
+    if (blocks_to_copy > (blk_len - blocks_written)) blocks_to_copy = blk_len - blocks_written;
 
-  //  startPage = current_sector_addr * 16;
+    memcpy(sector_scratchpad + block_offset_in_sector, 
+           buf + (blocks_written * STORAGE_BLK_SIZ), 
+           blocks_to_copy * STORAGE_BLK_SIZ);
 
-  //  for (uint16_t i = 0; i < 16; i++) {
-  //     static uint8_t pbuf[256];
-  //     memcpy(pbuf, current_sector_buf + i * 256, 256);
-  //     MX25FLASH_Program_Page(startPage + i, pbuf);
-  //  }
+    // 5. ERASE: Clear the physical sector on the chip
+    _MX25FLASH_Sector_Erase(sector_num);
 
-  // return USBD_OK;
-  UNUSED(lun);
-
-    /* Constants for clarity */
-    #define BLOCK_SIZE 512
-    #define SECTOR_SIZE 4096
-    #define BLOCKS_PER_SECTOR (SECTOR_SIZE / BLOCK_SIZE)
-    #define PAGE_SIZE 256
-    #define PAGES_PER_SECTOR (SECTOR_SIZE / PAGE_SIZE)
-
-    static uint8_t sector_buf[SECTOR_SIZE];
-
-    uint32_t blocks_written = 0;
-
-    while (blocks_written < blk_len)
-    {
-        /* Compute current sector */
-        uint32_t sector = (blk_addr + blocks_written) / BLOCKS_PER_SECTOR;
-        uint32_t sector_start_block = sector * BLOCKS_PER_SECTOR;
-        uint32_t offset_in_sector = (blk_addr + blocks_written - sector_start_block) * BLOCK_SIZE;
-
-        /* How many blocks fit in this sector */
-        uint32_t blocks_in_this_sector = BLOCKS_PER_SECTOR - (blk_addr + blocks_written - sector_start_block);
-        if (blocks_in_this_sector > (blk_len - blocks_written))
-            blocks_in_this_sector = blk_len - blocks_written;
-
-        /* Read current sector from flash */
-        MX25FLASH_Continious_Read(sector * SECTOR_SIZE, sector_buf, SECTOR_SIZE);
-
-        /* Copy USB blocks into sector buffer */
-        memcpy(sector_buf + offset_in_sector,
-               buf + blocks_written * BLOCK_SIZE,
-               blocks_in_this_sector * BLOCK_SIZE);
-
-        /* Erase and program sector page by page */
-        _MX25FLASH_Sector_Erase(sector);
-        for (uint32_t page = 0; page < PAGES_PER_SECTOR; page++)
-        {
-            MX25FLASH_Program_Page(sector * PAGES_PER_SECTOR + page,
-                                   sector_buf + page * PAGE_SIZE);
-        }
-
-        blocks_written += blocks_in_this_sector;
+    // 6. WRITE: Program the 4KB back into the chip, page by page (16 pages)
+    for (uint16_t i = 0; i < 16; i++) {
+      MX25FLASH_Program_Page((sector_num * 16) + i, sector_scratchpad + (i * PAGE_SIZE));
+      // Since your new Program_Page calls WFE(), this is now safe!
     }
 
-    return USBD_OK;
+    blocks_written += blocks_to_copy;
+  }
+
+  return USBD_OK;
   /* USER CODE END 7 */
 }
 

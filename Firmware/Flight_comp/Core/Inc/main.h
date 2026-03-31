@@ -85,10 +85,12 @@ void Error_Handler(void);
 #define FLASH_WP_GPIO_Port GPIOC
 #define LORA_DIO1_Pin GPIO_PIN_0
 #define LORA_DIO1_GPIO_Port GPIOB
+#define LORA_DIO1_EXTI_IRQn EXTI0_IRQn
 #define LORA_IO0_Pin GPIO_PIN_1
 #define LORA_IO0_GPIO_Port GPIOB
 #define BMP_INT_Pin GPIO_PIN_2
 #define BMP_INT_GPIO_Port GPIOB
+#define BMP_INT_EXTI_IRQn EXTI2_IRQn
 #define BMP_SCL_Pin GPIO_PIN_10
 #define BMP_SCL_GPIO_Port GPIOB
 #define BMP_SDA_Pin GPIO_PIN_11
@@ -103,6 +105,7 @@ void Error_Handler(void);
 #define IMU_MOSI_GPIO_Port GPIOB
 #define IMU_INT1_Pin GPIO_PIN_6
 #define IMU_INT1_GPIO_Port GPIOC
+#define IMU_INT1_EXTI_IRQn EXTI9_5_IRQn
 #define PYRO1_Pin GPIO_PIN_7
 #define PYRO1_GPIO_Port GPIOC
 #define PYRO2_Pin GPIO_PIN_8

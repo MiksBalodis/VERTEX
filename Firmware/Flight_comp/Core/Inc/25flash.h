@@ -3,14 +3,20 @@
 #include "main.h"
 #include "stdint.h" 
 #include "string.h"
+#include "stdbool.h"
 
 extern SPI_HandleTypeDef hspi1;
 #define FLASH_SPI   hspi1
 
-#define FLASH_TIMEOUT 500
+#define FLASH_TIMEOUT   500
 
-#define FLASH_CS_PORT    FLASH_NSS_GPIO_Port
-#define FLASH_CS_PIN     FLASH_NSS_Pin
+#define PAGE_SIZE       256
+#define PAGE_COUNT      8192
+#define SECTOR_SIZE     4096
+#define SECTOR_COUNT    512
+
+#define FLASH_CS_PORT   FLASH_NSS_GPIO_Port
+#define FLASH_CS_PIN    FLASH_NSS_Pin
 
 #define FLASH_CS_LOW()   HAL_GPIO_WritePin(FLASH_CS_PORT, FLASH_CS_PIN, GPIO_PIN_RESET)
 #define FLASH_CS_HIGH()  HAL_GPIO_WritePin(FLASH_CS_PORT, FLASH_CS_PIN, GPIO_PIN_SET)
@@ -25,7 +31,8 @@ void MX25FLASH_Reset(void);
 uint32_t MX25FLASH_ReadID(void);
 uint8_t MX25FLASH_Read(uint32_t address);
 void MX25FLASH_Read_Sector(uint32_t sector, uint8_t *data);
-void MX25FLASH_Program_Page(uint16_t page, uint8_t data[256]);
+void MX25FLASH_Read_Page(uint16_t page, uint8_t *data);
+uint8_t MX25FLASH_Program_Page(uint16_t page, uint8_t data[256]);
 uint8_t MX25FLASH_Sector_Erase(uint32_t sector);
 uint8_t MX25FLASH_Program_Sector(uint32_t sector, uint8_t *data);
 void MX25FLASH_Read_LogBlock(uint32_t sector, uint8_t *data);
@@ -35,3 +42,6 @@ void MX25FLASH_Continious_Read(uint32_t address, uint8_t *data, uint32_t len);
 
 uint8_t MX25FLASH_WFE(void);
 void MX25FLASH_WE(void);
+
+bool MX25FLASH_Full_Test(void);
+uint8_t MX25FLASH_Chip_Erase(void);

@@ -43,7 +43,7 @@ uint8_t MX25FLASH_Read(uint32_t address){
     return rData[0];
 }
 
-void MX25FLASH_Program_Page(uint16_t page, uint8_t data[256]){
+uint8_t MX25FLASH_Program_Page(uint16_t page, uint8_t data[256]){
 	MX25FLASH_WE();
     uint8_t tData[260];
 	uint32_t address = page * 0x100;
@@ -55,7 +55,7 @@ void MX25FLASH_Program_Page(uint16_t page, uint8_t data[256]){
 	FLASH_CS_LOW();  // pull the CS LOW
     MX25FLASH_SPI_Write(tData, 260);
 	FLASH_CS_HIGH();  // pull the HIGH
-	MX25FLASH_WFE();
+	return MX25FLASH_WFE();
 }
 
 void MX25FLASH_WE(void){
@@ -82,11 +82,11 @@ uint8_t MX25FLASH_Sector_Erase(uint32_t sector){
 uint8_t _MX25FLASH_Sector_Erase(uint32_t sector){
 	MX25FLASH_WE();
     uint8_t cmd[4];
-    sector = (sector << 4);
+    uint32_t addr = sector * 4096;
     cmd[0] = 0x20;  // 4KB Sector Erase
-    cmd[1] = (sector >> 16) & 0xFF;
-    cmd[2] = (sector >> 8) & 0xFF;
-    cmd[3] = sector & 0xFF;
+    cmd[1] = (addr >> 16) & 0xFF;
+    cmd[2] = (addr >> 8) & 0xFF;
+    cmd[3] = addr & 0xFF;
 
     FLASH_CS_LOW();
     MX25FLASH_SPI_Write(cmd, 4);
@@ -123,6 +123,20 @@ void MX25FLASH_Read_Sector(uint32_t sector, uint8_t *data){
     }
 }
 
+void MX25FLASH_Read_Page(uint16_t page, uint8_t *data){
+    uint8_t tData[4];
+    uint32_t addr = page * PAGE_SIZE;
+    tData[0] = 0x03;              
+    tData[1] = (addr >> 16) & 0xFF;
+    tData[2] = (addr >> 8) & 0xFF;
+    tData[3] = addr & 0xFF;
+
+    FLASH_CS_LOW();  // pull the CS LOW
+    HAL_SPI_Transmit(&FLASH_SPI, tData, 4, HAL_MAX_DELAY);
+    HAL_SPI_Receive(&FLASH_SPI, data, PAGE_SIZE, HAL_MAX_DELAY);
+    FLASH_CS_HIGH();  // pull the HIGH
+}
+
 void MX25FLASH_Continious_Read(uint32_t address, uint8_t *data, uint32_t len){
     uint8_t tData[4];
     tData[0] = 0x03;
@@ -137,18 +151,63 @@ void MX25FLASH_Continious_Read(uint32_t address, uint8_t *data, uint32_t len){
 
 
 uint8_t MX25FLASH_WFE(void){
-    uint8_t cmd = 0x05;
-	uint32_t tmr = HAL_GetTick();
-    uint8_t status;
-    do {
+    // uint8_t cmd = 0x05;
+	// uint32_t tmr = HAL_GetTick();
+    // uint8_t status;
+    // do {
+    //     FLASH_CS_LOW();
+    //     MX25FLASH_SPI_Write(&cmd, 1);
+    //     MX25FLASH_SPI_Read(&status, 1);
+    //     FLASH_CS_HIGH();
+	// 	if(HAL_GetTick() - tmr > FLASH_TIMEOUT){
+	// 		return FL_FAIL;
+	// 	}
+    // } while (status & 0x01);  // Wait while WIP bit is set
+    // return FL_OK;
+
+
+    uint8_t cmd = 0x05; // Read Status Register-1
+    uint8_t status = 0;
+    uint32_t timeout = HAL_GetTick() + 1000; // 1 second timeout
+
+    while (HAL_GetTick() < timeout) {
         FLASH_CS_LOW();
-        MX25FLASH_SPI_Write(&cmd, 1);
-        MX25FLASH_SPI_Read(&status, 1);
+        HAL_SPI_Transmit(&FLASH_SPI, &cmd, 1, 100);
+        HAL_SPI_Receive(&FLASH_SPI, &status, 1, 100);
         FLASH_CS_HIGH();
-		if(HAL_GetTick() - tmr > FLASH_TIMEOUT){
-			return FL_FAIL;
-		}
-    } while (status & 0x01);  // Wait while WIP bit is set
-    return FL_OK;
+
+        if (!(status & 0x01)) return 0; // Bit 0 (BUSY) is 0: Success
+    }
+    return 1; // Timeout failure
 }
+
+uint8_t MX25FLASH_Chip_Erase(void){
+    MX25FLASH_WE();
+    uint8_t cmd = 0x60;
+    FLASH_CS_LOW();
+    MX25FLASH_SPI_Write(&cmd, 1);
+    FLASH_CS_HIGH();
+    MX25FLASH_WFE();
+}
+
+bool MX25FLASH_Full_Test(void){
+    MX25FLASH_Reset();
+
+    // MX25FLASH_Chip_Erase();
+    
+    uint8_t test_page[256];
+    for (uint16_t i = 0; i < 256; i++){
+        test_page[i] = i;
+    }
+
+    MX25FLASH_Program_Page(0, test_page);
+
+    uint8_t pg[256];
+    MX25FLASH_Read_Page(0, pg);
+
+    for (uint16_t i = 0; i < 256; i++){
+        if(test_page[i] != pg[i]){return 1;}
+    }
+    return 0;
+} 
 

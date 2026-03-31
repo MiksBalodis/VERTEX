@@ -81,6 +81,7 @@ Core/Src/GNSS.c \
 Core/Src/SX1262.c \
 Core/Src/buzzer.c \
 Core/Src/ee24.c \
+Core/Src/gps.c \
 Core/Src/imu_fusion.c \
 Core/Src/lsm6dso.c \
 Core/Src/lsm6dso_reg.c \

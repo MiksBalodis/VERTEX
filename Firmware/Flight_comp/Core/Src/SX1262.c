@@ -243,6 +243,8 @@ void SX1262_Init(void){
 	HAL_GPIO_WritePin(SX_stc.Reset_Port, SX_stc.Reset_Pin, GPIO_PIN_SET);
 	HAL_Delay(100);
 
+	SX1262_setModeStandby();
+
 	//==================================================================
 	 // SetDIO3asTCXOCtrl SPI Transaction
 		cmnd[0] = 0x97;        // 0x97 is  SetDIO3asTCXOCtrl
