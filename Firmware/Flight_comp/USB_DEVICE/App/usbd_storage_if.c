@@ -62,14 +62,14 @@
   * @{
   */
 
-#define STORAGE_LUN_NBR                  1
-#define STORAGE_BLK_NBR                  0x1000
-#define STORAGE_BLK_SIZ                  0x200
+// #define STORAGE_LUN_NBR                  1
+// #define STORAGE_BLK_NBR                  0x10000
+// #define STORAGE_BLK_SIZ                  0x200
 
 /* USER CODE BEGIN PRIVATE_DEFINES */
 
 #define STORAGE_LUN_NBR                  1
-#define STORAGE_BLK_NBR                  0x1000
+#define STORAGE_BLK_NBR                  0x4000
 #define STORAGE_BLK_SIZ                  0x200
 
 #define STORAGE_PG_NBR                   0x2000
@@ -113,8 +113,8 @@ const int8_t STORAGE_Inquirydata_FS[] = {/* 36 */
   0x00,
   0x00,
   0x00,
-  'S', 'T', 'M', ' ', ' ', ' ', ' ', ' ', /* Manufacturer : 8 bytes */
-  'P', 'r', 'o', 'd', 'u', 'c', 't', ' ', /* Product      : 16 Bytes */
+  'R', 'T', 'U', ' ', 'I', 'Z', 'V', ' ', /* Manufacturer : 8 bytes */
+  'V', 'E', 'R', 'T', 'E', 'X', ' ', ' ', /* Product      : 16 Bytes */
   ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ',
   '0', '.', '0' ,'1'                      /* Version      : 4 Bytes */
 };
@@ -270,51 +270,101 @@ int8_t STORAGE_Read_FS(uint8_t lun, uint8_t *buf, uint32_t blk_addr, uint16_t bl
 int8_t STORAGE_Write_FS(uint8_t lun, uint8_t *buf, uint32_t blk_addr, uint16_t blk_len)
 {
   /* USER CODE BEGIN 7 */
-/* W25Q16 Constants */
-  #define STORAGE_BLK_SIZ 0x200   // 512 bytes (USB Block)
-  #define SECTOR_SIZE     0x1000  // 4096 bytes (Flash Sector)
-  #define PAGE_SIZE       0x100   // 256 bytes (Flash Page)
+// /* W25Q16 Constants */
+//   #define STORAGE_BLK_SIZ 0x200   // 512 bytes (USB Block)
+//   #define SECTOR_SIZE     0x1000  // 4096 bytes (Flash Sector)
+//   #define PAGE_SIZE       0x100   // 256 bytes (Flash Page)
 
-  // Use a static buffer to avoid stack overflow (4KB is a lot for STM32 stack)
-  static uint8_t sector_scratchpad[SECTOR_SIZE];
+//   // Use a static buffer to avoid stack overflow (4KB is a lot for STM32 stack)
+//   static uint8_t sector_scratchpad[SECTOR_SIZE];
 
+//   uint32_t blocks_written = 0;
+
+//   while (blocks_written < blk_len)
+//   {
+//     uint32_t current_blk_addr = blk_addr + blocks_written;
+    
+//     // 1. Find which 4KB sector the current block lives in
+//     uint32_t sector_num = current_blk_addr / 8; // 8 blocks per sector (4096/512)
+//     uint32_t sector_addr = sector_num * SECTOR_SIZE;
+    
+//     // 2. Find the offset of our block inside that 4KB sector
+//     uint32_t block_offset_in_sector = (current_blk_addr % 8) * STORAGE_BLK_SIZ;
+
+//     // 3. READ: Get the existing 4KB data from Flash into RAM
+//     MX25FLASH_Continious_Read(sector_addr, sector_scratchpad, SECTOR_SIZE);
+
+//     // 4. MODIFY: Overwrite only the 512 bytes Windows provided
+//     // We can optimize this to write multiple blocks if they are in the same sector
+//     uint32_t blocks_to_copy = 8 - (current_blk_addr % 8);
+//     if (blocks_to_copy > (blk_len - blocks_written)) blocks_to_copy = blk_len - blocks_written;
+
+//     memcpy(sector_scratchpad + block_offset_in_sector, 
+//            buf + (blocks_written * STORAGE_BLK_SIZ), 
+//            blocks_to_copy * STORAGE_BLK_SIZ);
+
+//     // 5. ERASE: Clear the physical sector on the chip
+//     _MX25FLASH_Sector_Erase(sector_num);
+
+//     // 6. WRITE: Program the 4KB back into the chip, page by page (16 pages)
+//     for (uint16_t i = 0; i < 16; i++) {
+//       MX25FLASH_Program_Page((sector_num * 16) + i, sector_scratchpad + (i * PAGE_SIZE));
+//       // Since your new Program_Page calls WFE(), this is now safe!
+//     }
+
+//     blocks_written += blocks_to_copy;
+//   }
+
+//   return USBD_OK;
+
+
+static uint8_t sector_scratchpad[4096];
+  static uint8_t original_flash_data[4096]; // To compare changes
   uint32_t blocks_written = 0;
 
-  while (blocks_written < blk_len)
-  {
-    uint32_t current_blk_addr = blk_addr + blocks_written;
-    
-    // 1. Find which 4KB sector the current block lives in
-    uint32_t sector_num = current_blk_addr / 8; // 8 blocks per sector (4096/512)
-    uint32_t sector_addr = sector_num * SECTOR_SIZE;
-    
-    // 2. Find the offset of our block inside that 4KB sector
-    uint32_t block_offset_in_sector = (current_blk_addr % 8) * STORAGE_BLK_SIZ;
+  while (blocks_written < blk_len) {
+    uint32_t curr_blk = blk_addr + blocks_written;
+    uint32_t sector_num = curr_blk / 8;
+    uint32_t sector_addr = sector_num * 4096;
 
-    // 3. READ: Get the existing 4KB data from Flash into RAM
-    MX25FLASH_Continious_Read(sector_addr, sector_scratchpad, SECTOR_SIZE);
+    // 1. Read current state
+    MX25FLASH_Continious_Read(sector_addr, original_flash_data, 4096);
+    memcpy(sector_scratchpad, original_flash_data, 4096);
 
-    // 4. MODIFY: Overwrite only the 512 bytes Windows provided
-    // We can optimize this to write multiple blocks if they are in the same sector
-    uint32_t blocks_to_copy = 8 - (current_blk_addr % 8);
+    // 2. Modify scratchpad with new data
+    uint32_t offset = (curr_blk % 8) * 512;
+    uint32_t blocks_to_copy = 8 - (curr_blk % 8);
     if (blocks_to_copy > (blk_len - blocks_written)) blocks_to_copy = blk_len - blocks_written;
+    
+    memcpy(sector_scratchpad + offset, buf + (blocks_written * 512), blocks_to_copy * 512);
 
-    memcpy(sector_scratchpad + block_offset_in_sector, 
-           buf + (blocks_written * STORAGE_BLK_SIZ), 
-           blocks_to_copy * STORAGE_BLK_SIZ);
+    // 3. SPEED HACK: Check if data actually changed
+    if (memcmp(sector_scratchpad, original_flash_data, 4096) == 0) {
+        blocks_written += blocks_to_copy;
+        continue; // Skip Erase/Write entirely if data is the same
+    }
 
-    // 5. ERASE: Clear the physical sector on the chip
-    _MX25FLASH_Sector_Erase(sector_num);
+    // 4. SPEED HACK: Check if we even need to erase
+    // If the flash area is already 0xFF, we can skip the 100ms Erase!
+    bool needs_erase = false;
+    for (int i = 0; i < 4096; i++) {
+        if (original_flash_data[i] != 0xFF) {
+            needs_erase = true;
+            break;
+        }
+    }
 
-    // 6. WRITE: Program the 4KB back into the chip, page by page (16 pages)
+    if (needs_erase) {
+        _MX25FLASH_Sector_Erase(sector_num);
+    }
+
+    // 5. Write back
     for (uint16_t i = 0; i < 16; i++) {
-      MX25FLASH_Program_Page((sector_num * 16) + i, sector_scratchpad + (i * PAGE_SIZE));
-      // Since your new Program_Page calls WFE(), this is now safe!
+      MX25FLASH_Program_Page((sector_num * 16) + i, sector_scratchpad + (i * 256));
     }
 
     blocks_written += blocks_to_copy;
   }
-
   return USBD_OK;
   /* USER CODE END 7 */
 }
