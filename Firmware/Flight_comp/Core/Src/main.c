@@ -236,8 +236,6 @@ int main(void)
     POST_fault_flags[IMU_Comm_Fail] = 1;
   }
 
-  // char msg[] = "Hallo Welt!\n\r";
-  // HAL_UART_Transmit_DMA(&huart1, msg, sizeof(msg)-1);
   GNSS_Init(&GNSS_Handle, &huart1);
   HAL_Delay(1000);
 	GNSS_LoadConfig(&GNSS_Handle);
@@ -245,11 +243,6 @@ int main(void)
   // GPS_Init();
 
   // GPS_GetUniqID();
-
-  // bool flash_status = MX25FLASH_Full_Test();
-  // if(!flash_status){
-  //   BUZZ(&hbuzz1, 300);
-  // }
 
   uint32_t Timer = HAL_GetTick();
 //   // BUZZ(&hbuzz1, 300);
@@ -291,11 +284,11 @@ int main(void)
   SX1262_Get_st()->Busy_Port = LORA_IO0_GPIO_Port;
   SX1262_Get_st()->Busy_Pin = LORA_IO0_Pin;
 
-  SX1262_Init();
-  SX1262_SetFrequency(433000000);
-  // SX1262_setModeReceive();
+  // SX1262_Init();
+  // SX1262_SetFrequency(433000000);
+  // // SX1262_setModeReceive();
   uint8_t lora_data[] = "Hello, LoRa!";
-  SX1262_Transmit(lora_data, sizeof(lora_data));
+  // SX1262_Transmit(lora_data, sizeof(lora_data));
 
   /* 17 dbm, BW 250 kHz, CR_4_5, No CRC, SF7, use sync word 0x12 on SX1278*/
 
@@ -320,42 +313,37 @@ int main(void)
   Servo_Init(&hservo1, &htim5, TIM_CHANNEL_1);
   uint8_t servo_angle = 0;
 
-  uint8_t fl_data[512];
-  memset(fl_data, 0, 512);
-  // fl_data[0] = 0xAA;
-  // fl_data[1] = 0x55;
-  // fl_data[2] = 0x14;
-  //MX25FLASH_Sector_Erase(0);
-  // MX25FLASH_Program_Page(0, fl_data);
-  // memset(fl_data, 0, 512);
+  /* FATFS TESTS*/
+  FATFS FatFs;
+  FIL Fil;
+  FRESULT FR_Status;
+  FATFS *FS_Ptr;
+  DWORD FreeClusters;
+  UINT RWC; 
+  char RW_Buffer[200];
 
+  FR_Status = f_mount(&FatFs, "", 1);
+  if (FR_Status == FR_OK){
+    f_getfree("", &FreeClusters, &FS_Ptr);
+    uint32_t FreeSpace = (uint32_t)(FreeClusters * FS_Ptr->csize * 0.5);
+    if(FreeSpace < MIN_FLASH_SPACE_KB){
+       POST_fault_flags[FS_No_Space] = 1;
+    }
+    FR_Status = f_open(&Fil, "hello.txt", FA_READ); // Open The File For Read
+    f_read(&Fil, RW_Buffer, f_size(&Fil), &RWC);
+    if (RW_Buffer[0] == 'H') {
+      BUZZ(&hbuzz1, 300);
+    }
+    f_close(&Fil);
+    
+    FR_Status = f_open(&Fil, "Text.txt", FA_WRITE | FA_READ | FA_CREATE_ALWAYS);
+    f_puts("Hello!", &Fil);
+    f_close(&Fil);
+  }else{
+    POST_fault_flags[FS_Not_Found] = 1;
+  }
 
-//   FRESULT fr;
-//   uint8_t work[4096]; // work buffer = at least one sector size
-
-//   fr = f_mount(&fs, "", 1);  
-//   if (fr == FR_NO_FILESYSTEM)
-// {
-//     fr = f_mkfs("", FM_ANY, 0, work, sizeof work);
-//     if(fr != FR_OK) {
-//         // formatting failed
-//         Error_Handler();
-//     }
-
-//     // mount again
-//     fr = f_mount(&fs, "", 1);
-//         if(fr != FR_OK) {
-//         // formatting failed
-//         Error_Handler();
-//     }
-// }
-//   FIL file;
-//   UINT bw;
-  
-//   if(f_open(&file, "test.txt", FA_WRITE | FA_CREATE_ALWAYS) == FR_OK && fr == FR_OK){
-//     f_write(&file, "Hello STM32", 11, &bw);
-//     f_close(&file);
-//   }
+  FR_Status = f_mount(NULL, "", 0);
 
   Mission_Init();
   

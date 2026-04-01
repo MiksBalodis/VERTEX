@@ -1,5 +1,6 @@
 #include "imu_fusion.h"
 #include "main.h"
+#include "lsm6dso.h"
 #include <string.h>
 
 static LSM6DSO_Object_t *imu_handle = NULL;
@@ -19,14 +20,14 @@ void IMU_Fusion_Init(LSM6DSO_Object_t *imu)
     imu_handle = imu;
     // memset(&imu_data, 0, sizeof(imu_data));
 
-    LSM6DSO_ACC_SetFullScale(imu_handle, 16);
-    LSM6DSO_GYRO_SetFullScale(imu_handle, 2000);
+    LSM6DSO_ACC_SetFullScale(imu_handle, LSM6DSO_ACC_SENSITIVITY_FS_16G);
+    LSM6DSO_GYRO_SetFullScale(imu_handle, LSM6DSO_GYRO_SENSITIVITY_FS_2000DPS);
 
-    LSM6DSO_ACC_SetOutputDataRate(imu_handle, 208.0f);
-    LSM6DSO_GYRO_SetOutputDataRate(imu_handle, 208.0f);
+    LSM6DSO_ACC_SetOutputDataRate(imu_handle, IMU_ODR_208_HZ);
+    LSM6DSO_GYRO_SetOutputDataRate(imu_handle, IMU_ODR_208_HZ);
 
-    LSM6DSO_ACC_Set_Filter_Mode(imu_handle, 0, 0x02);
-    LSM6DSO_GYRO_Set_Filter_Mode(imu_handle, 0, 2);
+    LSM6DSO_ACC_Set_Filter_Mode(imu_handle, 0, IMU_ODR_DIV_20);
+    LSM6DSO_GYRO_Set_Filter_Mode(imu_handle, 0, IMU_ODR_DIV_20);
 
     LSM6DSO_ACC_Enable(imu_handle);
     LSM6DSO_GYRO_Enable(imu_handle);

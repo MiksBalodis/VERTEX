@@ -3,6 +3,8 @@
 
 #include <stdbool.h>
 
+#define MIN_FLASH_SPACE_KB  1024
+
 typedef enum
 {
     EEPROM_Comm_Fail = 0,
@@ -12,6 +14,8 @@ typedef enum
     GNSS_Comm_Fail,
     LORA_Comm_Fail,
     Vbat_UVLO,
+    FS_Not_Found,
+    FS_No_Space,
     FAULT_MAX  // Only to make an array
 } POST_t;
 

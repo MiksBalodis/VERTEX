@@ -51,6 +51,8 @@ static volatile DSTATUS Stat = STA_NOINIT;
 #define BLOCKS_PER_SECTOR (SECTOR_SIZE / BLOCK_SIZE)
 #define PAGES_PER_SECTOR  (SECTOR_SIZE / PAGE_SIZE)
 
+#define _USE_WRITE 1
+
 /* USER CODE END DECL */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -154,35 +156,41 @@ DRESULT USER_write (
 )
 {
   /* USER CODE BEGIN WRITE */
-    uint32_t blocks_written = 0;
-    static uint8_t sector_buf[4096];
+   static uint8_t sector_buf[4096];
+  uint32_t sectors_processed = 0;
 
-    while(blocks_written < count)
-    {
-        uint32_t cur_sector = (sector + blocks_written) / 8;
-        uint32_t sector_start_block = cur_sector * 8;
-        uint32_t offset = ((sector + blocks_written) - sector_start_block) * 512;
+  while (sectors_processed < count)
+  {
+    uint32_t current_lba = sector + sectors_processed;
+    
+    uint32_t flash_sector_idx = current_lba / 8; // 8 LBA blocks (512b) per 4KB sector
+    uint32_t flash_sector_addr = flash_sector_idx * 4096;
+    
+    uint32_t lba_offset_in_sector = (current_lba % 8) * 512;
 
-        // Read full flash sector
-        MX25FLASH_Continious_Read(cur_sector*4096, sector_buf, 4096);
-
-        // Copy as many blocks as fit into this sector
-        uint32_t blocks_in_this_sector = 8 - ((sector + blocks_written) - sector_start_block);
-        if(blocks_in_this_sector > (count - blocks_written))
-            blocks_in_this_sector = count - blocks_written;
-
-        memcpy(sector_buf + offset, buff + blocks_written*512, blocks_in_this_sector*512);
-
-        // Erase and program pages
-        MX25FLASH_Sector_Erase(cur_sector);
-        for(uint32_t page=0; page<16; page++)
-            MX25FLASH_Program_Page(cur_sector*16 + page, sector_buf + page*256);
-
-        blocks_written += blocks_in_this_sector;
+    uint32_t blocks_to_copy = 8 - (current_lba % 8);
+    if (blocks_to_copy > (count - sectors_processed)) {
+        blocks_to_copy = count - sectors_processed;
     }
 
+    MX25FLASH_Continious_Read(flash_sector_addr, sector_buf, 4096);
+
+    memcpy(sector_buf + lba_offset_in_sector, 
+           buff + (sectors_processed * 512), 
+           blocks_to_copy * 512);
+
+    _MX25FLASH_Sector_Erase(flash_sector_idx);
+
+    for (uint16_t page = 0; page < 16; page++){
+        uint32_t page_idx = (flash_sector_idx * 16) + page;
+        MX25FLASH_Program_Page(page_idx, sector_buf + (page * 256));
+
+    }
+
+    sectors_processed += blocks_to_copy;
+  }
   /* USER CODE HERE */
-    return RES_OK;
+  return RES_OK;
   /* USER CODE END WRITE */
 }
 #endif /* _USE_WRITE == 1 */

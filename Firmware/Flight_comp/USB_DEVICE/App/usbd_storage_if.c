@@ -327,25 +327,24 @@ static uint8_t sector_scratchpad[4096];
     uint32_t sector_num = curr_blk / 8;
     uint32_t sector_addr = sector_num * 4096;
 
-    // 1. Read current state
+    // Read current state
     MX25FLASH_Continious_Read(sector_addr, original_flash_data, 4096);
     memcpy(sector_scratchpad, original_flash_data, 4096);
 
-    // 2. Modify scratchpad with new data
+    // Modify scratchpad with new data
     uint32_t offset = (curr_blk % 8) * 512;
     uint32_t blocks_to_copy = 8 - (curr_blk % 8);
     if (blocks_to_copy > (blk_len - blocks_written)) blocks_to_copy = blk_len - blocks_written;
     
     memcpy(sector_scratchpad + offset, buf + (blocks_written * 512), blocks_to_copy * 512);
 
-    // 3. SPEED HACK: Check if data actually changed
+    // Check if data actually changed
     if (memcmp(sector_scratchpad, original_flash_data, 4096) == 0) {
         blocks_written += blocks_to_copy;
-        continue; // Skip Erase/Write entirely if data is the same
+        continue; // Skip Erase/Write if data is the same
     }
 
-    // 4. SPEED HACK: Check if we even need to erase
-    // If the flash area is already 0xFF, we can skip the 100ms Erase!
+    // Check if we even need to erase
     bool needs_erase = false;
     for (int i = 0; i < 4096; i++) {
         if (original_flash_data[i] != 0xFF) {
@@ -358,7 +357,7 @@ static uint8_t sector_scratchpad[4096];
         _MX25FLASH_Sector_Erase(sector_num);
     }
 
-    // 5. Write back
+    // Write back
     for (uint16_t i = 0; i < 16; i++) {
       MX25FLASH_Program_Page((sector_num * 16) + i, sector_scratchpad + (i * 256));
     }

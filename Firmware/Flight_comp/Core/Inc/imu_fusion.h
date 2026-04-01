@@ -4,6 +4,9 @@
 #include "lsm6dso.h"
 #include <stdint.h>
 
+#define IMU_ODR_208_HZ  208.0f
+#define IMU_ODR_DIV_20  0x02
+
 typedef struct {
     float rx;   // rocket right = -sensor_x
     float ry;   // rocket up = -sensor_y
