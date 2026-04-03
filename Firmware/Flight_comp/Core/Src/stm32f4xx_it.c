@@ -22,7 +22,7 @@
 #include "stm32f4xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-// #include "gps.h"
+#include "gps.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -61,11 +61,10 @@ extern SPI_HandleTypeDef hspi3;
 extern DMA_HandleTypeDef hdma_tim3_ch1_trig;
 extern TIM_HandleTypeDef htim3;
 extern TIM_HandleTypeDef htim7;
-extern DMA_HandleTypeDef hdma_usart1_tx;
 extern DMA_HandleTypeDef hdma_usart1_rx;
 extern UART_HandleTypeDef huart1;
 /* USER CODE BEGIN EV */
-
+extern uint8_t gps_working_buf[1024];
 /* USER CODE END EV */
 
 /******************************************************************************/
@@ -282,11 +281,17 @@ void TIM3_IRQHandler(void)
 void USART1_IRQHandler(void)
 {
   /* USER CODE BEGIN USART1_IRQn 0 */
-  // if (__HAL_UART_GET_FLAG(&huart1, UART_FLAG_IDLE)){
-  //   __HAL_UART_CLEAR_IDLEFLAG(&huart1);
+ if (__HAL_UART_GET_FLAG(&huart1, UART_FLAG_IDLE)) {
+      __HAL_UART_CLEAR_IDLEFLAG(&huart1);
 
-  //   GPS_UART_IdleCallback(); 
-  // }
+      HAL_UART_DMAStop(&huart1);
+
+      uint16_t start = sizeof(gps_working_buf) - __HAL_DMA_GET_COUNTER(huart1.hdmarx);
+
+      GPS_Process_Data(gps_working_buf, start);
+
+      HAL_UART_Receive_DMA(&huart1, gps_working_buf, sizeof(gps_working_buf));
+  }
   /* USER CODE END USART1_IRQn 0 */
   HAL_UART_IRQHandler(&huart1);
   /* USER CODE BEGIN USART1_IRQn 1 */
@@ -348,20 +353,6 @@ void OTG_FS_IRQHandler(void)
   /* USER CODE BEGIN OTG_FS_IRQn 1 */
 
   /* USER CODE END OTG_FS_IRQn 1 */
-}
-
-/**
-  * @brief This function handles DMA2 stream7 global interrupt.
-  */
-void DMA2_Stream7_IRQHandler(void)
-{
-  /* USER CODE BEGIN DMA2_Stream7_IRQn 0 */
-
-  /* USER CODE END DMA2_Stream7_IRQn 0 */
-  HAL_DMA_IRQHandler(&hdma_usart1_tx);
-  /* USER CODE BEGIN DMA2_Stream7_IRQn 1 */
-
-  /* USER CODE END DMA2_Stream7_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */

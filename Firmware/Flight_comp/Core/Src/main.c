@@ -30,7 +30,7 @@
 #include "BMP388.h"
 #include "ee24.h"
 #include "servo.h"
-#include "GNSS.h"
+#include "gps.h"
 #include "SX1262.h"
 #include "imu_fusion.h"
 #include "mission.h"
@@ -78,14 +78,13 @@ TIM_HandleTypeDef htim7;
 DMA_HandleTypeDef hdma_tim3_ch1_trig;
 
 UART_HandleTypeDef huart1;
-DMA_HandleTypeDef hdma_usart1_tx;
 DMA_HandleTypeDef hdma_usart1_rx;
 
 /* USER CODE BEGIN PV */
 LSM6DSO_Object_t hlsm6dso1;
 LSM6DSO_IO_t lsm6dso_io;
 
-GNSS_StateHandle GNSS_Handle;
+// GNSS_StateHandle GNSS_Handle;
 
 BMP388_HandleTypeDef hbmp388;
 
@@ -94,6 +93,7 @@ EE24_HandleTypeDef h24lc64;
 Buzzer_Handle hbuzz1;
 
 servo_t hservo1;
+gngga_t gps;
 
 FATFS fs;
 
@@ -105,7 +105,7 @@ bool buzz_state;
 uint8_t lora_buf[255];
 uint8_t received_len;
 
-uint8_t gps_data[128];
+uint8_t gps_working_buf[1024];
 
 extern bool POST_fault_flags[];
 // extern SX1262 SX_stc;
@@ -236,9 +236,9 @@ int main(void)
     POST_fault_flags[IMU_Comm_Fail] = 1;
   }
 
-  GNSS_Init(&GNSS_Handle, &huart1);
-  HAL_Delay(1000);
-	GNSS_LoadConfig(&GNSS_Handle);
+  // GNSS_Init(&GNSS_Handle, &huart1);
+  // HAL_Delay(1000);
+	// GNSS_LoadConfig(&GNSS_Handle);
 
   // GPS_Init();
 
@@ -298,7 +298,8 @@ int main(void)
 // HAL_GPIO_WritePin(IMU_NSS_GPIO_Port, IMU_NSS_Pin, GPIO_PIN_RESET);
 // HAL_SPI_TransmitReceive(&hspi2, tx, rx, 2, HAL_MAX_DELAY);
 // HAL_GPIO_WritePin(IMU_NSS_GPIO_Port, IMU_NSS_Pin, GPIO_PIN_SET);
-
+  HAL_UART_Receive_DMA(&huart1, gps_working_buf, sizeof(gps_working_buf));
+  __HAL_UART_ENABLE_IT(&huart1, UART_IT_IDLE);
 // uint8_t who_am_i = rx[1];
 
   uint8_t data[2];
@@ -354,7 +355,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    HAL_Delay(100);  // wait for conversion
+    HAL_Delay(1000);  // wait for conversion
 
     // BMP388_ReadRawPressTempTime(&hbmp388, &rprs, &rtemp, &time);
     // BMP388_CompensateRawPressTemp(&hbmp388, rprs, rtemp, &prs, &temp);
@@ -378,6 +379,10 @@ int main(void)
 //       //      HAL_Delay(250);
 // 			Timer = HAL_GetTick();
 // 		}
+
+    if(gps.lat != 0 && gps.valid){
+      BUZZ(&hbuzz1, 300);
+    }
 
     // HAL_Delay(250);
     SX1262_Transmit(lora_data, sizeof(lora_data));
@@ -1060,9 +1065,6 @@ static void MX_DMA_Init(void)
   /* DMA2_Stream2_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA2_Stream2_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA2_Stream2_IRQn);
-  /* DMA2_Stream7_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA2_Stream7_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(DMA2_Stream7_IRQn);
 
 }
 
@@ -1202,6 +1204,16 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
     battery_v = (adc_buff[0] * 3.3f / 4095.0f) * VBAT_DIV_K;
   }
 }
+
+// void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
+//   if (huart->Instance == USART1){
+//     if (huart->RxEventType == HAL_UART_RXEVENT_TC){
+//       GPS_Process_Data(gps_working_buf, sizeof(gps_working_buf));
+
+//       HAL_UART_Receive_DMA(&huart1, gps_working_buf, sizeof(gps_working_buf));
+//     }
+//   }
+// }
 
 int32_t platform_imu_init(void)
 {
