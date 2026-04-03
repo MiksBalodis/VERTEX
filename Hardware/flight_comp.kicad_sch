@@ -4588,211 +4588,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Transistor_BJT:PMBT2222A"
-			(pin_names
-				(offset 0)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "Q"
-				(at 5.08 1.905 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "PMBT2222A"
-				(at 5.08 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-				(at 5.08 -1.905 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-						(italic yes)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "https://assets.nexperia.com/documents/data-sheet/PMBT2222A.pdf"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Description" "600mA Ic, 40V Vce, NPN Transistor, SOT-23"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "NPN Transistor"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "SOT?23*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "PMBT2222A_0_1"
-				(polyline
-					(pts
-						(xy -2.54 0) (xy 0.635 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.635 1.905) (xy 0.635 -1.905)
-					)
-					(stroke
-						(width 0.508)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 1.27 0)
-					(radius 2.8194)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "PMBT2222A_1_1"
-				(polyline
-					(pts
-						(xy 0.635 0.635) (xy 2.54 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.635 -0.635) (xy 2.54 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 -1.778) (xy 1.778 -1.27) (xy 2.286 -2.286) (xy 1.27 -1.778)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(pin input line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "B"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 5.08 270)
-					(length 2.54)
-					(name "C"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -5.08 90)
-					(length 2.54)
-					(name "E"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "library:24LC64"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -5764,10 +5559,6 @@
 		(at 148.59 86.36)
 		(uuid "b80af74a-c2c4-4978-9dd4-caf1d4a4cd47")
 	)
-	(no_connect
-		(at 148.59 55.88)
-		(uuid "f9412c7c-c107-48c4-97e2-00570ce63cac")
-	)
 	(wire
 		(pts
 			(xy 270.51 121.92) (xy 266.7 121.92)
@@ -5780,7 +5571,7 @@
 	)
 	(wire
 		(pts
-			(xy 248.92 25.4) (xy 248.92 26.67)
+			(xy 250.19 29.21) (xy 250.19 30.48)
 		)
 		(stroke
 			(width 0)
@@ -6378,6 +6169,16 @@
 		)
 		(uuid "edb4f905-7697-4dcc-b609-dac6aa5a1e17")
 	)
+	(wire
+		(pts
+			(xy 245.11 35.56) (xy 250.19 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fd41d22d-956c-4475-9a77-16a907258068")
+	)
 	(global_label "TIM5_CH4"
 		(shape input)
 		(at 189.23 38.1 0)
@@ -6842,7 +6643,7 @@
 	)
 	(global_label "BUZZ"
 		(shape input)
-		(at 233.68 36.83 180)
+		(at 237.49 35.56 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -6852,7 +6653,7 @@
 		)
 		(uuid "4f81ae72-9a74-4fa1-940f-d1c722036d42")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 225.6753 36.83 0)
+			(at 229.4853 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7821,6 +7622,28 @@
 		(uuid "eda0da93-ae80-482f-9321-21e13a6eb59e")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 24.6524 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "PPS"
+		(shape input)
+		(at 148.59 55.88 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "f285fde8-304d-4c5b-9da8-dea9ab0d2e7f")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 141.8553 55.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8954,72 +8777,6 @@
 			(project "flight_comp"
 				(path "/99100214-bcab-4638-96e7-2342f837a8e5"
 					(reference "C31")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 248.92 41.91 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "36527baa-ffca-4056-b193-785f6c6a03dd")
-		(property "Reference" "#PWR0134"
-			(at 248.92 48.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 248.92 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 248.92 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 248.92 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 248.92 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "d1cc30ed-3f59-4785-b153-cab209779048")
-		)
-		(instances
-			(project "flight_comp"
-				(path "/99100214-bcab-4638-96e7-2342f837a8e5"
-					(reference "#PWR0134")
 					(unit 1)
 				)
 			)
@@ -11561,7 +11318,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 248.92 25.4 0)
+		(at 250.19 29.21 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11570,7 +11327,7 @@
 		(fields_autoplaced yes)
 		(uuid "8efc34cc-7ad3-4fb2-a718-2f005514574e")
 		(property "Reference" "#PWR0135"
-			(at 248.92 29.21 0)
+			(at 250.19 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11579,7 +11336,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 248.92 20.32 0)
+			(at 250.19 24.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11587,7 +11344,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 248.92 25.4 0)
+			(at 250.19 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11596,7 +11353,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 248.92 25.4 0)
+			(at 250.19 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11605,7 +11362,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 248.92 25.4 0)
+			(at 250.19 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11832,82 +11589,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Transistor_BJT:PMBT2222A")
-		(at 246.38 36.83 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "a1af7632-fb9c-40b1-830c-4363e911eda7")
-		(property "Reference" "Q5"
-			(at 251.46 35.5599 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "PMBT2222A"
-			(at 251.46 38.0999 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 251.46 38.735 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://assets.nexperia.com/documents/data-sheet/PMBT2222A.pdf"
-			(at 246.38 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Description" "600mA Ic, 40V Vce, NPN Transistor, SOT-23"
-			(at 246.38 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "3"
-			(uuid "378c5ccb-8326-4e03-9411-2e028f47cd14")
-		)
-		(pin "2"
-			(uuid "0dd0c18d-42da-434b-aabe-96b2f54413b7")
-		)
-		(pin "1"
-			(uuid "3058fd6d-4794-4151-ae8b-219198f69c65")
-		)
-		(instances
-			(project ""
-				(path "/99100214-bcab-4638-96e7-2342f837a8e5"
-					(reference "Q5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 128.27 106.68 0)
 		(unit 1)
@@ -12109,7 +11790,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 237.49 36.83 90)
+		(at 241.3 35.56 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -12118,7 +11799,7 @@
 		(fields_autoplaced yes)
 		(uuid "acb589b8-d9c2-403c-899b-33c514a331c3")
 		(property "Reference" "R33"
-			(at 237.49 30.48 90)
+			(at 241.3 29.21 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12126,7 +11807,7 @@
 			)
 		)
 		(property "Value" "1k"
-			(at 237.49 33.02 90)
+			(at 241.3 31.75 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12134,7 +11815,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 237.49 38.608 90)
+			(at 241.3 37.338 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12143,7 +11824,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 237.49 36.83 0)
+			(at 241.3 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12152,7 +11833,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 237.49 36.83 0)
+			(at 241.3 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13928,7 +13609,7 @@
 	)
 	(symbol
 		(lib_id "Device:Buzzer")
-		(at 251.46 29.21 0)
+		(at 252.73 33.02 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -13937,7 +13618,7 @@
 		(fields_autoplaced yes)
 		(uuid "f14005c1-c4e7-494f-abe3-9214fe5e877e")
 		(property "Reference" "BZ1"
-			(at 255.27 27.9399 0)
+			(at 256.54 31.7499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13946,7 +13627,7 @@
 			)
 		)
 		(property "Value" "Buzzer"
-			(at 255.27 30.4799 0)
+			(at 256.54 34.2899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13955,7 +13636,7 @@
 			)
 		)
 		(property "Footprint" "Buzzer_Beeper:Buzzer_CUI_CPT-9019S-SMT"
-			(at 250.825 26.67 90)
+			(at 252.095 30.48 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13964,7 +13645,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 250.825 26.67 90)
+			(at 252.095 30.48 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13973,7 +13654,7 @@
 			)
 		)
 		(property "Description" "Buzzer, polarized"
-			(at 251.46 29.21 0)
+			(at 252.73 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
