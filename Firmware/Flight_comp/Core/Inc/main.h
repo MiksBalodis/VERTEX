@@ -128,7 +128,7 @@ void Error_Handler(void);
 #define LORA_MOSI_GPIO_Port GPIOC
 #define LORA_NRST_Pin GPIO_PIN_2
 #define LORA_NRST_GPIO_Port GPIOD
-#define LED_Pin GPIO_PIN_4
+#define LED_Pin GPIO_PIN_3
 #define LED_GPIO_Port GPIOB
 #define EEP_WP_Pin GPIO_PIN_5
 #define EEP_WP_GPIO_Port GPIOB

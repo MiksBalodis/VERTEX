@@ -13,7 +13,7 @@ typedef union{
   uint32_t data;
 } PixelRGB_t;
 
-extern TIM_HandleTypeDef htim3;
+extern TIM_HandleTypeDef htim2;
 
 #define NEOPIXEL_0  30
 #define NEOPIXEL_1  60
@@ -21,7 +21,7 @@ extern TIM_HandleTypeDef htim3;
 #define NUM_PX      1
 #define DMA_BUFF    (NUM_PX*24)+50
 
-#define NEOPIXEL_TIM    htim3
-#define NEOPIXEL_CH     TIM_CHANNEL_1
+#define NEOPIXEL_TIM    htim2
+#define NEOPIXEL_CH     TIM_CHANNEL_2
 
 void LED_Set_Color(uint8_t r, uint8_t g, uint8_t b);

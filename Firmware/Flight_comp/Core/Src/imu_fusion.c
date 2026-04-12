@@ -23,8 +23,8 @@ void IMU_Fusion_Init(LSM6DSO_Object_t *imu)
     LSM6DSO_ACC_SetFullScale(imu_handle, LSM6DSO_ACC_SENSITIVITY_FS_16G);
     LSM6DSO_GYRO_SetFullScale(imu_handle, LSM6DSO_GYRO_SENSITIVITY_FS_2000DPS);
 
-    LSM6DSO_ACC_SetOutputDataRate(imu_handle, IMU_ODR_208_HZ);
-    LSM6DSO_GYRO_SetOutputDataRate(imu_handle, IMU_ODR_208_HZ);
+    LSM6DSO_ACC_SetOutputDataRate(imu_handle, IMU_ODR_3333_HZ);
+    LSM6DSO_GYRO_SetOutputDataRate(imu_handle, IMU_ODR_3333_HZ);
 
     LSM6DSO_ACC_Set_Filter_Mode(imu_handle, 0, IMU_ODR_DIV_20);
     LSM6DSO_GYRO_Set_Filter_Mode(imu_handle, 0, IMU_ODR_DIV_20);

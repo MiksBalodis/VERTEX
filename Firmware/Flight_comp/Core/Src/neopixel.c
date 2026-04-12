@@ -15,8 +15,7 @@ void LED_Set_Color(uint8_t r, uint8_t g, uint8_t b){
   for (j = 23; j >= 0; j--){
     if ((pixel[0].data >> j) & 0x01){
       *pBuff = NEOPIXEL_1;
-    }
-    else{
+    }else{
       *pBuff = NEOPIXEL_0;
     }
     pBuff++;

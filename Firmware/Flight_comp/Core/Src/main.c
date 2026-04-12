@@ -70,12 +70,14 @@ RTC_HandleTypeDef hrtc;
 SPI_HandleTypeDef hspi1;
 SPI_HandleTypeDef hspi2;
 SPI_HandleTypeDef hspi3;
+DMA_HandleTypeDef hdma_spi2_rx;
+DMA_HandleTypeDef hdma_spi2_tx;
 
-TIM_HandleTypeDef htim3;
+TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim4;
 TIM_HandleTypeDef htim5;
 TIM_HandleTypeDef htim7;
-DMA_HandleTypeDef hdma_tim3_ch1_trig;
+DMA_HandleTypeDef hdma_tim2_ch2_ch4;
 
 UART_HandleTypeDef huart1;
 DMA_HandleTypeDef hdma_usart1_rx;
@@ -123,12 +125,12 @@ static void MX_RTC_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_SPI2_Init(void);
 static void MX_SPI3_Init(void);
-static void MX_TIM3_Init(void);
 static void MX_TIM4_Init(void);
 static void MX_TIM5_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_CRC_Init(void);
 static void MX_TIM7_Init(void);
+static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
 void Get_Vbat(void);
 void platform_delay(uint32_t ms);
@@ -183,7 +185,6 @@ int main(void)
   MX_SPI1_Init();
   MX_SPI2_Init();
   MX_SPI3_Init();
-  MX_TIM3_Init();
   MX_TIM4_Init();
   MX_TIM5_Init();
   MX_USART1_UART_Init();
@@ -191,6 +192,7 @@ int main(void)
   MX_CRC_Init();
   MX_FATFS_Init();
   MX_TIM7_Init();
+  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   BUZZ(&hbuzz1, 300);
 
@@ -780,46 +782,46 @@ static void MX_SPI3_Init(void)
 }
 
 /**
-  * @brief TIM3 Initialization Function
+  * @brief TIM2 Initialization Function
   * @param None
   * @retval None
   */
-static void MX_TIM3_Init(void)
+static void MX_TIM2_Init(void)
 {
 
-  /* USER CODE BEGIN TIM3_Init 0 */
+  /* USER CODE BEGIN TIM2_Init 0 */
 
-  /* USER CODE END TIM3_Init 0 */
+  /* USER CODE END TIM2_Init 0 */
 
   TIM_ClockConfigTypeDef sClockSourceConfig = {0};
   TIM_MasterConfigTypeDef sMasterConfig = {0};
   TIM_OC_InitTypeDef sConfigOC = {0};
 
-  /* USER CODE BEGIN TIM3_Init 1 */
+  /* USER CODE BEGIN TIM2_Init 1 */
 
-  /* USER CODE END TIM3_Init 1 */
-  htim3.Instance = TIM3;
-  htim3.Init.Prescaler = 0;
-  htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim3.Init.Period = 90-1;
-  htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
+  /* USER CODE END TIM2_Init 1 */
+  htim2.Instance = TIM2;
+  htim2.Init.Prescaler = 0;
+  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim2.Init.Period = 90-1;
+  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
   {
     Error_Handler();
   }
   sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-  if (HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig) != HAL_OK)
+  if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
   {
     Error_Handler();
   }
-  if (HAL_TIM_PWM_Init(&htim3) != HAL_OK)
+  if (HAL_TIM_PWM_Init(&htim2) != HAL_OK)
   {
     Error_Handler();
   }
   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
   {
     Error_Handler();
   }
@@ -827,14 +829,14 @@ static void MX_TIM3_Init(void)
   sConfigOC.Pulse = 0;
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
-  if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+  if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
   {
     Error_Handler();
   }
-  /* USER CODE BEGIN TIM3_Init 2 */
+  /* USER CODE BEGIN TIM2_Init 2 */
 
-  /* USER CODE END TIM3_Init 2 */
-  HAL_TIM_MspPostInit(&htim3);
+  /* USER CODE END TIM2_Init 2 */
+  HAL_TIM_MspPostInit(&htim2);
 
 }
 
@@ -1055,13 +1057,19 @@ static void MX_DMA_Init(void)
 {
 
   /* DMA controller clock enable */
-  __HAL_RCC_DMA1_CLK_ENABLE();
   __HAL_RCC_DMA2_CLK_ENABLE();
+  __HAL_RCC_DMA1_CLK_ENABLE();
 
   /* DMA interrupt init */
+  /* DMA1_Stream3_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Stream3_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Stream3_IRQn);
   /* DMA1_Stream4_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Stream4_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA1_Stream4_IRQn);
+  /* DMA1_Stream6_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Stream6_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Stream6_IRQn);
   /* DMA2_Stream2_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA2_Stream2_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA2_Stream2_IRQn);
@@ -1235,40 +1243,40 @@ int32_t platform_imu_write(uint16_t Address, uint16_t Reg, uint8_t *Data, uint16
   buf[0] = ((uint8_t)Reg) & 0x7F;
   memcpy(&buf[1], Data, Length);
 
-  HAL_GPIO_WritePin(IMU_NSS_GPIO_Port, IMU_NSS_Pin, GPIO_PIN_RESET);
-  if (HAL_SPI_Transmit(&hspi2, buf, Length + 1, HAL_MAX_DELAY) != HAL_OK)
-  {
-    HAL_GPIO_WritePin(IMU_NSS_GPIO_Port, IMU_NSS_Pin, GPIO_PIN_SET);
+  IMU_NSS_GPIO_Port->BSRR = IMU_NSS_Pin << 16; // Set NSS low
+
+  if (HAL_SPI_Transmit_DMA(&hspi2, buf, Length + 1) != HAL_OK){
+    IMU_NSS_GPIO_Port->BSRR = IMU_NSS_Pin; // Set NSS high
     return -1;
   }
-  HAL_GPIO_WritePin(IMU_NSS_GPIO_Port, IMU_NSS_Pin, GPIO_PIN_SET);
+  // IMU_NSS_GPIO_Port->BSRR = IMU_NSS_Pin; // Set NSS high
 
   return 0;
 }
 
 int32_t platform_imu_read(uint16_t Address, uint16_t Reg, uint8_t *Data, uint16_t Length)
 {
-  (void)Address;
+    (void)Address;
 
-  uint8_t reg_addr = ((uint8_t)Reg) | 0x80;
+    uint8_t tx_buf[1 + Length];
+    uint8_t rx_buf[1 + Length];
 
-  HAL_GPIO_WritePin(IMU_NSS_GPIO_Port, IMU_NSS_Pin, GPIO_PIN_RESET);
+    memset(tx_buf, 0xFF, sizeof(tx_buf));
 
-  if (HAL_SPI_Transmit(&hspi2, &reg_addr, 1, HAL_MAX_DELAY) != HAL_OK)
-  {
-    HAL_GPIO_WritePin(IMU_NSS_GPIO_Port, IMU_NSS_Pin, GPIO_PIN_SET);
-    return -1;
-  }
+    tx_buf[0] = ((uint8_t)Reg) | 0x80; // Read bit set
 
-  if (HAL_SPI_Receive(&hspi2, Data, Length, HAL_MAX_DELAY) != HAL_OK)
-  {
-    HAL_GPIO_WritePin(IMU_NSS_GPIO_Port, IMU_NSS_Pin, GPIO_PIN_SET);
-    return -1;
-  }
+    IMU_NSS_GPIO_Port->BSRR = IMU_NSS_Pin << 16; // NSS low
 
-  HAL_GPIO_WritePin(IMU_NSS_GPIO_Port, IMU_NSS_Pin, GPIO_PIN_SET);
+    if (HAL_SPI_TransmitReceive(&hspi2, tx_buf, rx_buf, 1 + Length, HAL_MAX_DELAY) != HAL_OK) {
+        IMU_NSS_GPIO_Port->BSRR = IMU_NSS_Pin; // NSS high
+        return -1;
+    }
 
-  return 0;
+    IMU_NSS_GPIO_Port->BSRR = IMU_NSS_Pin; // NSS high
+
+    memcpy(Data, &rx_buf[1], Length);
+
+    return 0;
 }
 
 int32_t platform_get_tick(void)
@@ -1289,6 +1297,17 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
       HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET);
       HAL_TIM_Base_Stop(&htim7);
     }
+  }
+}
+
+void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi)
+{
+  if (hspi == &hspi2){
+    // Wait until SPI fully finished
+    while (hspi->Instance->SR & SPI_SR_BSY);
+
+    // Now it's safe to release NSS
+    IMU_NSS_GPIO_Port->BSRR = IMU_NSS_Pin;
   }
 }
 /* USER CODE END 4 */
