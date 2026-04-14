@@ -75,6 +75,8 @@ endif
 ######################################
 # C sources
 C_SOURCES =  \
+Core/Src/SX1278.c \
+Core/Src/SX1278_hw.c \
 Core/Src/app_debug.c \
 Core/Src/app_entry.c \
 Core/Src/hw_timerserver.c \
@@ -95,13 +97,22 @@ Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c \
 Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_gpio.c \
 Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_hsem.c \
 Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_ipcc.c \
+Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_pcd.c \
+Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_pcd_ex.c \
 Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_pwr.c \
 Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_pwr_ex.c \
 Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_rcc.c \
 Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_rcc_ex.c \
 Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_rtc.c \
 Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_rtc_ex.c \
+Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_spi.c \
+Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_spi_ex.c \
 Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_ll_rcc.c \
+Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_ll_usb.c \
+Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c \
+Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c \
+Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c \
+Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c \
 Middlewares/ST/STM32_WPAN/ble/core/auto/ble_events.c \
 Middlewares/ST/STM32_WPAN/ble/core/auto/ble_gap_aci.c \
 Middlewares/ST/STM32_WPAN/ble/core/auto/ble_gatt_aci.c \
@@ -125,6 +136,10 @@ STM32_WPAN/App/app_ble.c \
 STM32_WPAN/App/custom_app.c \
 STM32_WPAN/App/custom_stm.c \
 STM32_WPAN/Target/hw_ipcc.c \
+USB_Device/App/usb_device.c \
+USB_Device/App/usbd_cdc_if.c \
+USB_Device/App/usbd_desc.c \
+USB_Device/Target/usbd_conf.c \
 Utilities/lpm/tiny_lpm/stm32_lpm.c \
 Utilities/sequencer/stm32_seq.c
 
@@ -224,6 +239,8 @@ C_INCLUDES =  \
 -IDrivers/CMSIS/Include \
 -IDrivers/STM32WBxx_HAL_Driver/Inc \
 -IDrivers/STM32WBxx_HAL_Driver/Inc/Legacy \
+-IMiddlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc \
+-IMiddlewares/ST/STM32_USB_Device_Library/Core/Inc \
 -IMiddlewares/ST/STM32_WPAN \
 -IMiddlewares/ST/STM32_WPAN/ble \
 -IMiddlewares/ST/STM32_WPAN/ble/core \
@@ -236,6 +253,8 @@ C_INCLUDES =  \
 -IMiddlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl \
 -IMiddlewares/ST/STM32_WPAN/utilities \
 -ISTM32_WPAN/App \
+-IUSB_Device/App \
+-IUSB_Device/Target \
 -IUtilities/lpm/tiny_lpm \
 -IUtilities/sequencer
 

@@ -20,6 +20,15 @@ typedef enum
 
 static MissionState_t mission_state = MISSION_READY;
 
+typedef struct __attribute__((packed)) {
+    float altitude;         // 4 bytes
+    int16_t velocity;       // 2 bytes (cm/s)
+    int16_t ax, ay, az;     // 6 bytes (mg)
+    int16_t gx, gy, gz;     // 6 bytes (DPS*10)
+    uint8_t flight_state;   // 1 byte
+    int8_t RSSI;            // 1 byte
+} TelemetryData_t; // Total: 20 bytes (MAX for BLE packet is 20 bytes)
+
 bool POST_fault_flags[FAULT_MAX] = {0};
 
 void Mission_Init(void)

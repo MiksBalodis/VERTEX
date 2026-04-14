@@ -18,15 +18,25 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "usb_device.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "SX1278.h"
+#include "usbd_cdc_if.h"
+#include "stdint.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+typedef struct __attribute__((packed)) {
+    float altitude;         // 4 bytes
+    int16_t velocity;       // 2 bytes (cm/s)
+    int16_t ax, ay, az;     // 6 bytes (mg)
+    int16_t gx, gy, gz;     // 6 bytes (DPS*10)
+    uint8_t flight_state;   // 1 byte
+    int8_t RSSI;            // 1 byte
+} TelemetryData_t; // Total: 20 bytes (MAX for BLE packet is 20 bytes)
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -44,13 +54,19 @@ IPCC_HandleTypeDef hipcc;
 
 RTC_HandleTypeDef hrtc;
 
+SPI_HandleTypeDef hspi1;
+
 /* USER CODE BEGIN PV */
-// osThreadId_t LEDHandle;
-// const osThreadAttr_t LED_attributes = {
-//   .name = "LED",
-//   .priority = (osPriority_t) osPriorityNormal,
-//   .stack_size = 512 * 2
-// };
+SX1278_hw_t SX1278_hw;
+SX1278_t SX1278;
+
+int master;
+int ret;
+
+char buffer[512];
+
+int message;
+int message_length;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -59,9 +75,10 @@ void PeriphCommonClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_IPCC_Init(void);
 static void MX_RTC_Init(void);
+static void MX_SPI1_Init(void);
 static void MX_RF_Init(void);
 /* USER CODE BEGIN PFP */
-void StartLEDTask(void *argument);
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -101,14 +118,31 @@ int main(void)
   MX_IPCC_Init();
 
   /* USER CODE BEGIN SysInit */
-
+  LL_HSEM_1StepLock(HSEM, 5 );
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_RTC_Init();
+  MX_SPI1_Init();
+  MX_USB_Device_Init();
   MX_RF_Init();
   /* USER CODE BEGIN 2 */
+  SX1278_hw.dio0.port = SPI1_G0_GPIO_Port;
+	SX1278_hw.dio0.pin = SPI1_G0_Pin;
+	SX1278_hw.nss.port = SPI1_NSS_GPIO_Port;
+	SX1278_hw.nss.pin = SPI1_NSS_Pin;
+	SX1278_hw.reset.port = SPI1_RST_GPIO_Port;
+	SX1278_hw.reset.pin = SPI1_RST_Pin;
+	SX1278_hw.spi = &hspi1;
+
+	SX1278.hw = &SX1278_hw;
+	
+	SX1278_init(&SX1278, 433000000, SX1278_POWER_17DBM, SX1278_LORA_SF_7,
+	SX1278_LORA_BW_250KHZ, SX1278_LORA_CR_4_5, SX1278_LORA_CRC_DIS, 10);
+
+  ret = SX1278_LoRaEntryRx(&SX1278, 16, 2000);
+  HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, ret);
 
   /* USER CODE END 2 */
 
@@ -119,6 +153,14 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    if (message) {
+      ret = SX1278_LoRaRxPacket(&SX1278);
+			if (ret > 0) {
+				SX1278_read(&SX1278, (uint8_t*) buffer, ret);
+        HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
+        CDC_Transmit_FS((uint8_t*) buffer, ret);
+			}
+    }
     /* USER CODE END WHILE */
     MX_APPE_Process();
 
@@ -148,11 +190,12 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_HSE
-                              |RCC_OSCILLATORTYPE_LSE;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI48|RCC_OSCILLATORTYPE_HSI
+                              |RCC_OSCILLATORTYPE_HSE|RCC_OSCILLATORTYPE_LSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
   RCC_OscInitStruct.LSEState = RCC_LSE_ON;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.HSI48State = RCC_HSI48_ON;
   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
@@ -299,6 +342,46 @@ static void MX_RTC_Init(void)
 }
 
 /**
+  * @brief SPI1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_SPI1_Init(void)
+{
+
+  /* USER CODE BEGIN SPI1_Init 0 */
+
+  /* USER CODE END SPI1_Init 0 */
+
+  /* USER CODE BEGIN SPI1_Init 1 */
+
+  /* USER CODE END SPI1_Init 1 */
+  /* SPI1 parameter configuration*/
+  hspi1.Instance = SPI1;
+  hspi1.Init.Mode = SPI_MODE_MASTER;
+  hspi1.Init.Direction = SPI_DIRECTION_2LINES;
+  hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
+  hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
+  hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
+  hspi1.Init.NSS = SPI_NSS_SOFT;
+  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_32;
+  hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
+  hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
+  hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+  hspi1.Init.CRCPolynomial = 7;
+  hspi1.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
+  hspi1.Init.NSSPMode = SPI_NSS_PULSE_ENABLE;
+  if (HAL_SPI_Init(&hspi1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN SPI1_Init 2 */
+
+  /* USER CODE END SPI1_Init 2 */
+
+}
+
+/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -312,11 +395,27 @@ static void MX_GPIO_Init(void)
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOC_CLK_ENABLE();
-  __HAL_RCC_GPIOE_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOE_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOA, SPI1_NSS_Pin|SPI1_RST_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
+
+  /*Configure GPIO pins : SPI1_NSS_Pin SPI1_RST_Pin */
+  GPIO_InitStruct.Pin = SPI1_NSS_Pin|SPI1_RST_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : SPI1_G0_Pin */
+  GPIO_InitStruct.Pin = SPI1_G0_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(SPI1_G0_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : LED_Pin */
   GPIO_InitStruct.Pin = LED_Pin;
@@ -325,22 +424,20 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LED_GPIO_Port, &GPIO_InitStruct);
 
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
+
   /* USER CODE BEGIN MX_GPIO_Init_2 */
 
   /* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
-void StartLEDTask(void *argument)
-{
-  /* USER CODE BEGIN StartLEDTask */
-  /* Infinite loop */
-  for(;;){
-    // osDelay(500);
-    // for(volatile int i = 0; i < 1000000; i++);
-    // HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
+  if (GPIO_Pin == SPI1_G0_Pin) {
+    message = 1;
   }
-  /* USER CODE END StartLEDTask */
 }
 /* USER CODE END 4 */
 
