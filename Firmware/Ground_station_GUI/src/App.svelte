@@ -335,7 +335,7 @@
       </div>
 
       <div class="panel metric">
-        <div class="label">ALTITUDE (m)</div>
+        <div class="label">BAROMETRIC ALTITUDE (m)</div>
         <div class="value">{telemetry.altitude}</div>
       </div>
 

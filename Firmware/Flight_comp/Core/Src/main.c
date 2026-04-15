@@ -110,6 +110,10 @@ uint8_t received_len;
 uint8_t gps_working_buf[1024];
 
 extern bool POST_fault_flags[];
+
+// extern TelemetryData_t telemetry;
+
+float ground_pressure;
 // extern SX1262 SX_stc;
 /* USER CODE END PV */
 
@@ -359,8 +363,9 @@ int main(void)
   {
     HAL_Delay(1000);  // wait for conversion
 
-    // BMP388_ReadRawPressTempTime(&hbmp388, &rprs, &rtemp, &time);
-    // BMP388_CompensateRawPressTemp(&hbmp388, rprs, rtemp, &prs, &temp);
+    BMP388_ReadRawPressTempTime(&hbmp388, &rprs, &rtemp, &time);
+    BMP388_CompensateRawPressTemp(&hbmp388, rprs, rtemp, &prs, &temp);
+    
 
     // LSM6DSO_ACC_GetAxes(&hlsm6dso1, &acc);
 
