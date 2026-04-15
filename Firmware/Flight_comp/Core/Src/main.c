@@ -165,8 +165,6 @@ void PRS_Init(void){
 }
 
 void IMU_Init(void){
-  LSM6DSO_Axes_t acc;
-
   lsm6dso_io.BusType  = LSM6DSO_SPI_4WIRES_BUS;
   lsm6dso_io.Address  = 0;
   lsm6dso_io.Init     = platform_imu_init;
@@ -1168,6 +1166,8 @@ void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi){
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
   if(GPIO_Pin == LORA_DIO1_Pin){
     BUZZ(&hbuzz1, 100);
+  }else if (GPIO_Pin == IMU_INT1_Pin) {
+    Mission_IMU_DRDY();
   }
 }
 

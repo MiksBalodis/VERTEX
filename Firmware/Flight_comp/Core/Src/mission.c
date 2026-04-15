@@ -12,6 +12,7 @@ extern TIM_HandleTypeDef htim6;
 float ground_pressure;
 
 IMU_Data_t imu;
+IMU_Integration_t imu_integration;
 extern BMP388_HandleTypeDef hbmp388;
 extern FATFS FatFs;
 
@@ -27,7 +28,7 @@ typedef enum
     MISSION_POST_FAIL
 } MissionState_t;
 
-static MissionState_t mission_state = MISSION_READY;
+static volatile MissionState_t mission_state = MISSION_READY;
 
 typedef struct __attribute__((packed)) {
     float altitude;           // 4 bytes
@@ -73,7 +74,7 @@ void Mission_Update(void)
     {
         case MISSION_READY:
             // LSM6DSO accel values are in mg so 3000 ~ 3 g
-            if (imu.ry > 300.0f){
+            if (imu.ry > 3000.0f){
                 mission_state = MISSION_ASCENT;
                 HAL_TIM_Base_Start_IT(&htim6); // Start 1 us timer for INS
                 f_mount(&FatFs, "", 1);
@@ -128,5 +129,14 @@ uint32_t Mission_GetTick(void){
 
 void Mission_BuildTelemetryPacket(uint8_t *buf){
     telemetry.timestamp = Mission_GetTick();
+    telemetry.pitch = imu_integration.pitch * 10.0f; // Convert to DEG*10
+    telemetry.roll = imu_integration.roll * 10.0f;  // Convert to DEG*10
+    telemetry.yaw = imu_integration.yaw * 10.0f;   // Convert to DEG*10
     memcpy(buf, &telemetry, sizeof(TelemetryData_t));
+}
+
+void Mission_IMU_DRDY(void){
+    if (mission_state == MISSION_ASCENT) {
+        IMU_Fusion_IntegrateGyro(&imu_integration, Mission_GetTick());
+    } 
 }
