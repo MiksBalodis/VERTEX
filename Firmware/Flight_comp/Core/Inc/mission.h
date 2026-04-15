@@ -5,6 +5,7 @@
 
 #define MIN_FLASH_SPACE_KB  1024
 
+// Power-on self-test
 typedef enum
 {
     EEPROM_Comm_Fail = 0,

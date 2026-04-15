@@ -4,6 +4,7 @@
 #include "buzzer.h"
 #include "neopixel.h"
 #include "BMP388.h"
+#include "fatfs.h"
 
 extern Buzzer_Handle hbuzz1;
 
@@ -11,6 +12,7 @@ extern float ground_pressure;
 
 IMU_Data_t imu;
 extern BMP388_HandleTypeDef hbmp388;
+extern FATFS FatFs;
 
 typedef enum
 {
@@ -70,6 +72,7 @@ void Mission_Update(void)
             // LSM6DSO accel values are in mg so 3000 ~ 3 g
             if (imu.ry > 3000.0f){
                 mission_state = MISSION_ASCENT;
+                f_mount(&FatFs, "", 1);
                 BUZZ(&hbuzz1, 100);
             }
             ground_pressure = prs;
@@ -80,6 +83,10 @@ void Mission_Update(void)
 
         case MISSION_POST_FAIL:
             Mission_SafeMode();
+            break;
+
+        case MISSION_LANDED:
+            f_mount(&FatFs, "", 0);
             break;
 
         default:

@@ -114,6 +114,9 @@ extern bool POST_fault_flags[];
 // extern TelemetryData_t telemetry;
 
 float ground_pressure;
+
+uint32_t FreeSpace;
+FATFS FatFs;
 // extern SX1262 SX_stc;
 /* USER CODE END PV */
 
@@ -148,7 +151,80 @@ int32_t platform_get_tick(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void PRS_Init(void){
+  hbmp388.hi2c = &hi2c2;
+  uint32_t rprs, rtemp, time;
+  if(BMP388_Init(&hbmp388) == HAL_OK){
+    HAL_Delay(5);
+    BMP388_SetTempOS(&hbmp388, BMP388_OVERSAMPLING_8X);
+    BMP388_SetPressOS(&hbmp388, BMP388_OVERSAMPLING_8X);
+    BMP388_SetIIRFilterCoeff(&hbmp388, BMP3_IIR_FILTER_COEFF_3);
+    BMP388_SetOutputDataRate(&hbmp388, BMP3_ODR_50_HZ);
+    BMP388_ReadRawPressTempTime(&hbmp388, &rprs, &rtemp, &time);  // DUMMY
+  }else{
+    POST_fault_flags[PRS_Comm_Fail] = 1;
+  }
+}
 
+void IMU_Init(void){
+  LSM6DSO_Axes_t acc;
+
+  lsm6dso_io.BusType  = LSM6DSO_SPI_4WIRES_BUS;
+  lsm6dso_io.Address  = 0;
+  lsm6dso_io.Init     = platform_imu_init;
+  lsm6dso_io.DeInit   = platform_imu_deinit;
+  lsm6dso_io.ReadReg  = platform_imu_read;
+  lsm6dso_io.WriteReg = platform_imu_write;
+  lsm6dso_io.GetTick  = platform_get_tick;
+  lsm6dso_io.Delay    = platform_delay;
+
+  if (LSM6DSO_RegisterBusIO(&hlsm6dso1, &lsm6dso_io) == LSM6DSO_OK){
+    if (LSM6DSO_Init(&hlsm6dso1) == LSM6DSO_OK){
+      IMU_Fusion_Init(&hlsm6dso1);
+      HAL_Delay(100);
+      IMU_Fusion_CalibrateGyro(200);
+    }
+  }else{
+    POST_fault_flags[IMU_Comm_Fail] = 1;
+  }
+}
+
+void LoRa_Init(void){
+  SX1262_Get_st()->SPI = hspi3;
+  SX1262_Get_st()->Reset_Port = LORA_NRST_GPIO_Port;
+  SX1262_Get_st()->Reset_Pin = LORA_NRST_Pin;
+  SX1262_Get_st()->NSS_Port = LORA_NSS_GPIO_Port;
+  SX1262_Get_st()->NSS_Pin = LORA_NSS_Pin;
+  SX1262_Get_st()->Busy_Port = LORA_IO0_GPIO_Port;
+  SX1262_Get_st()->Busy_Pin = LORA_IO0_Pin;
+
+  SX1262_Init();
+  SX1262_SetFrequency(433000000);
+  SX1262_setModeReceive();
+  // uint8_t lora_data[] = "Hello, LoRa!";
+  // SX1262_Transmit(lora_data, sizeof(lora_data));
+
+  /* 17 dbm, BW 250 kHz, CR_4_5, No CRC, SF7, use sync word 0x12 on SX1278*/
+}
+
+void FatFs_Test(void){
+  FRESULT FR_Status;
+  FATFS *FS_Ptr;
+  DWORD FreeClusters;
+
+  FR_Status = f_mount(&FatFs, "", 1);
+  if (FR_Status == FR_OK){
+    f_getfree("", &FreeClusters, &FS_Ptr);
+    FreeSpace = (uint32_t)(FreeClusters * FS_Ptr->csize * 0.5);
+    if(FreeSpace < MIN_FLASH_SPACE_KB){
+      POST_fault_flags[FS_No_Space] = 1;
+    }
+  }else{
+    POST_fault_flags[FS_Not_Found] = 1;
+  }
+
+  FR_Status = f_mount(NULL, "", 0);
+}
 /* USER CODE END 0 */
 
 /**
@@ -203,155 +279,32 @@ int main(void)
   HAL_GPIO_WritePin(PYRO1_GPIO_Port, PYRO1_Pin, GPIO_PIN_SET);
   HAL_GPIO_WritePin(PYRO2_GPIO_Port, PYRO2_Pin, GPIO_PIN_SET);
 
-  hbmp388.hi2c = &hi2c2;
-  uint32_t rprs, rtemp, time;
-  float prs, temp;
-  if(BMP388_Init(&hbmp388) == HAL_OK){
-    HAL_Delay(5);
-    BMP388_SetTempOS(&hbmp388, BMP388_OVERSAMPLING_8X);
-    BMP388_SetPressOS(&hbmp388, BMP388_OVERSAMPLING_8X);
-    BMP388_SetIIRFilterCoeff(&hbmp388, BMP3_IIR_FILTER_COEFF_3);
-    BMP388_SetOutputDataRate(&hbmp388, BMP3_ODR_50_HZ);
-    BMP388_ReadRawPressTempTime(&hbmp388, &rprs, &rtemp, &time);  // DUMMY
-  }else{
-    POST_fault_flags[PRS_Comm_Fail] = 1;
-  }
+  // PRS
+  PRS_Init();
 
-  uint8_t ID = 0;
+  // IMU
+  IMU_Init();
 
-  LSM6DSO_Axes_t acc;
-
-  lsm6dso_io.BusType  = LSM6DSO_SPI_4WIRES_BUS;
-  lsm6dso_io.Address  = 0;
-  lsm6dso_io.Init     = platform_imu_init;
-  lsm6dso_io.DeInit   = platform_imu_deinit;
-  lsm6dso_io.ReadReg  = platform_imu_read;
-  lsm6dso_io.WriteReg = platform_imu_write;
-  lsm6dso_io.GetTick  = platform_get_tick;
-  lsm6dso_io.Delay    = platform_delay;
-
-  if (LSM6DSO_RegisterBusIO(&hlsm6dso1, &lsm6dso_io) == LSM6DSO_OK){
-    if (LSM6DSO_Init(&hlsm6dso1) == LSM6DSO_OK){
-      LSM6DSO_ReadID(&hlsm6dso1, &ID);
-
-      IMU_Fusion_Init(&hlsm6dso1);
-      HAL_Delay(100);
-      IMU_Fusion_CalibrateGyro(200);
-    }
-  }else{
-    POST_fault_flags[IMU_Comm_Fail] = 1;
-  }
-
-  // GNSS_Init(&GNSS_Handle, &huart1);
-  // HAL_Delay(1000);
-	// GNSS_LoadConfig(&GNSS_Handle);
-
-  // GPS_Init();
-
-  // GPS_GetUniqID();
-
-  uint32_t Timer = HAL_GetTick();
-//   // BUZZ(&hbuzz1, 300);
-//   if (HAL_I2C_IsDeviceReady(&hi2c3, (0x42 << 1), 3, 100) == HAL_OK){
-    
-
-//       uint8_t reg;
-
-//     uint8_t avail_buf[2];
-//     uint16_t available;
-
-//     // Step 1: Read number of available bytes (register 0xFD)
-//     reg = 0xFD;
-//     HAL_I2C_Master_Transmit(&hi2c3, 0x42 << 1, &reg, 1, HAL_MAX_DELAY);
-//     HAL_I2C_Master_Receive(&hi2c3, 0x42 << 1, avail_buf, 2, HAL_MAX_DELAY);
-
-//     available = (avail_buf[0] << 8) | avail_buf[1];
-
-//     if (available > 0){
-
-// BUZZ(&hbuzz1, 300);
-//     if (available > sizeof(gps_data))
-//         available = sizeof(gps_data);
-
-//     // Step 2: Read data stream (register 0xFF)
-//     reg = 0xFF;
-//     HAL_I2C_Master_Transmit(&hi2c3, 0x42 << 1, &reg, 1, HAL_MAX_DELAY);
-//     HAL_I2C_Master_Receive(&hi2c3, 0x42 << 1, gps_data, available, HAL_MAX_DELAY);
-    
-//     }
-//   }
   // LORA
-  // BUZZ(&hbuzz1, 300);
-  SX1262_Get_st()->SPI = hspi3;
-  SX1262_Get_st()->Reset_Port = LORA_NRST_GPIO_Port;
-  SX1262_Get_st()->Reset_Pin = LORA_NRST_Pin;
-  SX1262_Get_st()->NSS_Port = LORA_NSS_GPIO_Port;
-  SX1262_Get_st()->NSS_Pin = LORA_NSS_Pin;
-  SX1262_Get_st()->Busy_Port = LORA_IO0_GPIO_Port;
-  SX1262_Get_st()->Busy_Pin = LORA_IO0_Pin;
+  LoRa_Init();
 
-  // SX1262_Init();
-  // SX1262_SetFrequency(433000000);
-  // // SX1262_setModeReceive();
-  uint8_t lora_data[] = "Hello, LoRa!";
-  // SX1262_Transmit(lora_data, sizeof(lora_data));
-
-  /* 17 dbm, BW 250 kHz, CR_4_5, No CRC, SF7, use sync word 0x12 on SX1278*/
-
-// uint8_t tx[2] = {0x8F, 0x00};
-// uint8_t rx[2];
-
-// HAL_GPIO_WritePin(IMU_NSS_GPIO_Port, IMU_NSS_Pin, GPIO_PIN_RESET);
-// HAL_SPI_TransmitReceive(&hspi2, tx, rx, 2, HAL_MAX_DELAY);
-// HAL_GPIO_WritePin(IMU_NSS_GPIO_Port, IMU_NSS_Pin, GPIO_PIN_SET);
+  // GPS
   HAL_UART_Receive_DMA(&huart1, gps_working_buf, sizeof(gps_working_buf));
   __HAL_UART_ENABLE_IT(&huart1, UART_IT_IDLE);
-// uint8_t who_am_i = rx[1];
 
-  uint8_t data[2];
-  if(EE24_Init(&h24lc64, &hi2c1, EE24_ADDRESS_DEFAULT, EEP_WP_GPIO_Port, EEP_WP_Pin) == 1){
-    data[0] = 0xAA;
-    data[1] = 0x55;
-    // EE24_Write(&h24lc64, 0, data, 2, 100); // Avoid unnecessary damage
-  }else{
+  // EEPROM
+  if(EE24_Init(&h24lc64, &hi2c1, EE24_ADDRESS_DEFAULT, EEP_WP_GPIO_Port, EEP_WP_Pin) != 1){
     POST_fault_flags[EEPROM_Comm_Fail] = 1;
   }
 
+  // SERVO
   Servo_Init(&hservo1, &htim5, TIM_CHANNEL_1);
   uint8_t servo_angle = 0;
 
-  /* FATFS TESTS*/
-  FATFS FatFs;
-  FIL Fil;
-  FRESULT FR_Status;
-  FATFS *FS_Ptr;
-  DWORD FreeClusters;
-  UINT RWC; 
-  char RW_Buffer[200];
+  // FatFs
+  FatFs_Test();
 
-  FR_Status = f_mount(&FatFs, "", 1);
-  if (FR_Status == FR_OK){
-    f_getfree("", &FreeClusters, &FS_Ptr);
-    uint32_t FreeSpace = (uint32_t)(FreeClusters * FS_Ptr->csize * 0.5);
-    if(FreeSpace < MIN_FLASH_SPACE_KB){
-       POST_fault_flags[FS_No_Space] = 1;
-    }
-    FR_Status = f_open(&Fil, "hello.txt", FA_READ); // Open The File For Read
-    f_read(&Fil, RW_Buffer, f_size(&Fil), &RWC);
-    if (RW_Buffer[0] == 'H') {
-      BUZZ(&hbuzz1, 300);
-    }
-    f_close(&Fil);
-    
-    FR_Status = f_open(&Fil, "Text.txt", FA_WRITE | FA_READ | FA_CREATE_ALWAYS);
-    f_puts("Hello!", &Fil);
-    f_close(&Fil);
-  }else{
-    POST_fault_flags[FS_Not_Found] = 1;
-  }
-
-  FR_Status = f_mount(NULL, "", 0);
-
+  // Mission
   Mission_Init();
   
   LED_Set_Color(0, 64, 0);
@@ -363,36 +316,19 @@ int main(void)
   {
     HAL_Delay(1000);  // wait for conversion
 
-    BMP388_ReadRawPressTempTime(&hbmp388, &rprs, &rtemp, &time);
-    BMP388_CompensateRawPressTemp(&hbmp388, rprs, rtemp, &prs, &temp);
-    
-
-    // LSM6DSO_ACC_GetAxes(&hlsm6dso1, &acc);
 
     // EE24_Read(&h24lc64, 0, data, 2, 100);
 
     // Servo_SetAngle(&hservo1, servo_angle);
     // servo_angle+=10;
     // if(servo_angle > 180) servo_angle = 0;
-// if ((HAL_GetTick() - Timer) > 1000) {
-// 			GNSS_GetUniqID(&GNSS_Handle);
-//       HAL_Delay(250);
-// 			GNSS_ParseBuffer(&GNSS_Handle);
-//       GNSS_GetPVTData(&GNSS_Handle);
-// 			HAL_Delay(250);
-// 			GNSS_ParseBuffer(&GNSS_Handle);
-//       //      HAL_Delay(250);
-//       //      GNSS_SetMode(&GNSS_Handle,Automotiv);
-//       //      HAL_Delay(250);
-// 			Timer = HAL_GetTick();
-// 		}
 
     if(gps.lat != 0 && gps.valid){
       BUZZ(&hbuzz1, 300);
     }
 
     // HAL_Delay(250);
-    SX1262_Transmit(lora_data, sizeof(lora_data));
+    // SX1262_Transmit(lora_data, sizeof(lora_data));
 
     // SX1262_HandleCallback(lora_buf, &received_len);
     // SX1262_setModeReceive();
@@ -402,7 +338,6 @@ int main(void)
 
     // SX1262_Transmit((uint8_t*)"salaMMMM", 4);
 
-    // MX25FLASH_Continious_Read(0, fl_data, 2);
     Mission_Update();
     /* USER CODE END WHILE */
 
