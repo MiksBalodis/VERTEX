@@ -94,7 +94,7 @@ EE24_HandleTypeDef h24lc64;
 
 Buzzer_Handle hbuzz1;
 
-servo_t hservo1;
+servo_t hservo1, hservo2, hservo3, hservo4, hservo5, hservo6;
 gngga_t gps;
 
 FATFS fs;
@@ -110,6 +110,8 @@ uint8_t received_len;
 uint8_t gps_working_buf[1024];
 
 extern bool POST_fault_flags[];
+
+extern volatile uint32_t time_us; // TO DO: add us timer with interrupts
 
 // extern TelemetryData_t telemetry;
 
@@ -225,6 +227,23 @@ void FatFs_Test(void){
 
   FR_Status = f_mount(NULL, "", 0);
 }
+
+void Servo_Init_All(void){
+  Servo_Init(&hservo1, &htim5, TIM_CHANNEL_1);
+  Servo_Init(&hservo2, &htim5, TIM_CHANNEL_2);
+}
+
+void GPS_Init(void){
+  HAL_UART_Receive_DMA(&huart1, gps_working_buf, sizeof(gps_working_buf));
+  __HAL_UART_ENABLE_IT(&huart1, UART_IT_IDLE);
+}
+
+void EEPROM_Init(void){
+  if(EE24_Init(&h24lc64, &hi2c1, EE24_ADDRESS_DEFAULT, EEP_WP_GPIO_Port, EEP_WP_Pin) != 1){
+    POST_fault_flags[EEPROM_Comm_Fail] = 1;
+  }
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -276,35 +295,14 @@ int main(void)
   /* USER CODE BEGIN 2 */
   BUZZ(&hbuzz1, 300);
 
-  HAL_GPIO_WritePin(PYRO1_GPIO_Port, PYRO1_Pin, GPIO_PIN_SET);
-  HAL_GPIO_WritePin(PYRO2_GPIO_Port, PYRO2_Pin, GPIO_PIN_SET);
-
-  // PRS
+  EEPROM_Init();
+  GPS_Init();
   PRS_Init();
-
-  // IMU
   IMU_Init();
-
-  // LORA
   LoRa_Init();
-
-  // GPS
-  HAL_UART_Receive_DMA(&huart1, gps_working_buf, sizeof(gps_working_buf));
-  __HAL_UART_ENABLE_IT(&huart1, UART_IT_IDLE);
-
-  // EEPROM
-  if(EE24_Init(&h24lc64, &hi2c1, EE24_ADDRESS_DEFAULT, EEP_WP_GPIO_Port, EEP_WP_Pin) != 1){
-    POST_fault_flags[EEPROM_Comm_Fail] = 1;
-  }
-
-  // SERVO
-  Servo_Init(&hservo1, &htim5, TIM_CHANNEL_1);
-  uint8_t servo_angle = 0;
-
-  // FatFs
+  Servo_Init_All();
   FatFs_Test();
 
-  // Mission
   Mission_Init();
   
   LED_Set_Color(0, 64, 0);
@@ -1133,8 +1131,7 @@ void Get_Vbat(void){
   HAL_ADC_Start_DMA(&hadc1, adc_buff, 1);
 }
 
-void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi)
-{
+void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi){
   if(hspi == &hspi3){
 	  HAL_SPI_Receive_IT(&hspi3,(uint8_t *)lora_buf,5);
   }
@@ -1146,8 +1143,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
   }
 }
 
-void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
-{
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc){
   if(hadc->Instance == ADC1){
     battery_v = (adc_buff[0] * 3.3f / 4095.0f) * VBAT_DIV_K;
   }
@@ -1163,18 +1159,15 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 //   }
 // }
 
-int32_t platform_imu_init(void)
-{
+int32_t platform_imu_init(void){
   return 0;
 }
 
-int32_t platform_imu_deinit(void)
-{
+int32_t platform_imu_deinit(void){
   return 0;
 }
 
-int32_t platform_imu_write(uint16_t Address, uint16_t Reg, uint8_t *Data, uint16_t Length)
-{
+int32_t platform_imu_write(uint16_t Address, uint16_t Reg, uint8_t *Data, uint16_t Length){
   (void)Address;
 
   uint8_t buf[256];
@@ -1194,8 +1187,7 @@ int32_t platform_imu_write(uint16_t Address, uint16_t Reg, uint8_t *Data, uint16
   return 0;
 }
 
-int32_t platform_imu_read(uint16_t Address, uint16_t Reg, uint8_t *Data, uint16_t Length)
-{
+int32_t platform_imu_read(uint16_t Address, uint16_t Reg, uint8_t *Data, uint16_t Length){
     (void)Address;
 
     uint8_t tx_buf[1 + Length];
@@ -1219,13 +1211,11 @@ int32_t platform_imu_read(uint16_t Address, uint16_t Reg, uint8_t *Data, uint16_
     return 0;
 }
 
-int32_t platform_get_tick(void)
-{
+int32_t platform_get_tick(void){
   return (int32_t)HAL_GetTick();
 }
 
-void platform_delay(uint32_t ms)
-{
+void platform_delay(uint32_t ms){
     HAL_Delay(ms);
 }
 
@@ -1240,8 +1230,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
   }
 }
 
-void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi)
-{
+void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi){
   if (hspi == &hspi2){
     // Wait until SPI fully finished
     while (hspi->Instance->SR & SPI_SR_BSY);

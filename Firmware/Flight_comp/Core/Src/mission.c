@@ -14,6 +14,8 @@ IMU_Data_t imu;
 extern BMP388_HandleTypeDef hbmp388;
 extern FATFS FatFs;
 
+volatile uint32_t time_us; // TO DO: add us timer with interrupts
+
 typedef enum
 {
     MISSION_READY = 0,
@@ -33,7 +35,7 @@ typedef struct __attribute__((packed)) {
     int16_t pitch, roll, yaw; // 6 bytes (DEG*10)
     uint8_t flight_state;     // 1 byte
     uint32_t timestamp;       // 4 bytes
-} TelemetryData_t; // Total: 19 bytes (MAX for BLE packet is 20 bytes)
+} TelemetryData_t; // Total: 19 bytes (MAX for BLE packet is 20 bytes) + 1 byte for RSSI on receiver side
 
 TelemetryData_t telemetry;
 
