@@ -7,14 +7,15 @@
 #include "fatfs.h"
 
 extern Buzzer_Handle hbuzz1;
+extern TIM_HandleTypeDef htim6;
 
-extern float ground_pressure;
+float ground_pressure;
 
 IMU_Data_t imu;
 extern BMP388_HandleTypeDef hbmp388;
 extern FATFS FatFs;
 
-volatile uint32_t time_us; // TO DO: add us timer with interrupts
+volatile uint32_t overflow; // TO DO: add us timer with interrupts
 
 typedef enum
 {
@@ -34,7 +35,7 @@ typedef struct __attribute__((packed)) {
     int16_t speed;            // 2 bytes (cm/s)
     int16_t pitch, roll, yaw; // 6 bytes (DEG*10)
     uint8_t flight_state;     // 1 byte
-    uint32_t timestamp;       // 4 bytes
+    uint32_t timestamp;       // 4 bytes (us)
 } TelemetryData_t; // Total: 19 bytes (MAX for BLE packet is 20 bytes) + 1 byte for RSSI on receiver side
 
 TelemetryData_t telemetry;
@@ -72,8 +73,9 @@ void Mission_Update(void)
     {
         case MISSION_READY:
             // LSM6DSO accel values are in mg so 3000 ~ 3 g
-            if (imu.ry > 3000.0f){
+            if (imu.ry > 300.0f){
                 mission_state = MISSION_ASCENT;
+                HAL_TIM_Base_Start_IT(&htim6); // Start 1 us timer for INS
                 f_mount(&FatFs, "", 1);
                 BUZZ(&hbuzz1, 100);
             }
@@ -105,4 +107,26 @@ void Mission_SafeMode(void){
     __disable_irq();
 
     while(1);
+}
+
+void Mission_IncTick(void){
+    overflow++;
+}
+
+uint32_t Mission_GetTick(void){
+    uint32_t high;
+    uint16_t low;
+
+    do {
+        high = overflow;
+        low  = __HAL_TIM_GET_COUNTER(&htim6); // Read the current timer count (16-bit)
+    } while (high != overflow);
+
+    return (high << 16) | low;
+}
+
+
+void Mission_BuildTelemetryPacket(uint8_t *buf){
+    telemetry.timestamp = Mission_GetTick();
+    memcpy(buf, &telemetry, sizeof(TelemetryData_t));
 }

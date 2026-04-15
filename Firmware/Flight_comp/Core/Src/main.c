@@ -76,6 +76,7 @@ DMA_HandleTypeDef hdma_spi2_tx;
 TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim4;
 TIM_HandleTypeDef htim5;
+TIM_HandleTypeDef htim6;
 TIM_HandleTypeDef htim7;
 DMA_HandleTypeDef hdma_tim2_ch2_ch4;
 
@@ -111,12 +112,6 @@ uint8_t gps_working_buf[1024];
 
 extern bool POST_fault_flags[];
 
-extern volatile uint32_t time_us; // TO DO: add us timer with interrupts
-
-// extern TelemetryData_t telemetry;
-
-float ground_pressure;
-
 uint32_t FreeSpace;
 FATFS FatFs;
 // extern SX1262 SX_stc;
@@ -140,6 +135,7 @@ static void MX_USART1_UART_Init(void);
 static void MX_CRC_Init(void);
 static void MX_TIM7_Init(void);
 static void MX_TIM2_Init(void);
+static void MX_TIM6_Init(void);
 /* USER CODE BEGIN PFP */
 void Get_Vbat(void);
 void platform_delay(uint32_t ms);
@@ -203,8 +199,8 @@ void LoRa_Init(void){
   SX1262_Init();
   SX1262_SetFrequency(433000000);
   SX1262_setModeReceive();
-  // uint8_t lora_data[] = "Hello, LoRa!";
-  // SX1262_Transmit(lora_data, sizeof(lora_data));
+  uint8_t lora_data[] = "Hello, LoRa!";
+  SX1262_Transmit(lora_data, sizeof(lora_data));
 
   /* 17 dbm, BW 250 kHz, CR_4_5, No CRC, SF7, use sync word 0x12 on SX1278*/
 }
@@ -244,6 +240,11 @@ void EEPROM_Init(void){
   }
 }
 
+void LoRa_TxTelemetry(void){
+  uint8_t telem_buf[19];
+  Mission_BuildTelemetryPacket(telem_buf);
+  SX1262_Transmit(telem_buf, sizeof(telem_buf));
+}
 /* USER CODE END 0 */
 
 /**
@@ -292,6 +293,7 @@ int main(void)
   MX_FATFS_Init();
   MX_TIM7_Init();
   MX_TIM2_Init();
+  MX_TIM6_Init();
   /* USER CODE BEGIN 2 */
   BUZZ(&hbuzz1, 300);
 
@@ -306,35 +308,23 @@ int main(void)
   Mission_Init();
   
   LED_Set_Color(0, 64, 0);
+
+  BUZZ(&hbuzz1, 300);
+
+  uint32_t tel_tmr = HAL_GetTick();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    HAL_Delay(1000);  // wait for conversion
-
-
-    // EE24_Read(&h24lc64, 0, data, 2, 100);
-
-    // Servo_SetAngle(&hservo1, servo_angle);
-    // servo_angle+=10;
-    // if(servo_angle > 180) servo_angle = 0;
-
-    if(gps.lat != 0 && gps.valid){
-      BUZZ(&hbuzz1, 300);
-    }
-
-    // HAL_Delay(250);
-    // SX1262_Transmit(lora_data, sizeof(lora_data));
-
-    // SX1262_HandleCallback(lora_buf, &received_len);
-    // SX1262_setModeReceive();
-    // if(received_len > 0){
+    // if(gps.lat != 0 && gps.valid){
     //   BUZZ(&hbuzz1, 300);
     // }
-
-    // SX1262_Transmit((uint8_t*)"salaMMMM", 4);
+    if(HAL_GetTick() - tel_tmr > 1000){
+      LoRa_TxTelemetry();
+      tel_tmr = HAL_GetTick();
+    }
 
     Mission_Update();
     /* USER CODE END WHILE */
@@ -918,6 +908,44 @@ static void MX_TIM5_Init(void)
 }
 
 /**
+  * @brief TIM6 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM6_Init(void)
+{
+
+  /* USER CODE BEGIN TIM6_Init 0 */
+
+  /* USER CODE END TIM6_Init 0 */
+
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM6_Init 1 */
+
+  /* USER CODE END TIM6_Init 1 */
+  htim6.Instance = TIM6;
+  htim6.Init.Prescaler = 72-1;
+  htim6.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim6.Init.Period = 65535;
+  htim6.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim6) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim6, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM6_Init 2 */
+
+  /* USER CODE END TIM6_Init 2 */
+
+}
+
+/**
   * @brief TIM7 Initialization Function
   * @param None
   * @retval None
@@ -1227,6 +1255,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
       HAL_GPIO_WritePin(BUZZER_GPIO_Port, BUZZER_Pin, GPIO_PIN_RESET);
       HAL_TIM_Base_Stop(&htim7);
     }
+  }else if(htim == &htim6){
+    Mission_IncTick();
   }
 }
 
