@@ -91,6 +91,7 @@ void Mission_Update(void)
             break;
 
         case MISSION_LANDED:
+            HAL_TIM_Base_Stop(&htim6); 
             f_mount(&FatFs, "", 0);
             break;
 

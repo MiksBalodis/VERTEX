@@ -33,7 +33,7 @@ void IMU_Fusion_Init(LSM6DSO_Object_t *imu)
     LSM6DSO_ACC_Enable(imu_handle);
     LSM6DSO_GYRO_Enable(imu_handle);
 
-    LSM6DSO_ACC_Enable_DRDY_On_INT1(imu_handle);
+    LSM6DSO_ACC_GYRO_Enable_DRDY_On_INT1(imu_handle);
 }
 
 void IMU_Fusion_CalibrateGyro(uint16_t samples)
@@ -98,9 +98,9 @@ void IMU_Fusion_Update(IMU_Data_t *imu_data)
         float sensor_y = (float)gyro_raw.y;
         float sensor_z = (float)gyro_raw.z;
 
-        float rocket_x = (-sensor_x - gx_bias)*0.070f;
-        float rocket_y = (-sensor_y - gy_bias)*0.070f;
-        float rocket_z =  (sensor_z - gz_bias)*0.070f;
+        float rocket_x = (-sensor_x - gx_bias);
+        float rocket_y = (-sensor_y - gy_bias);
+        float rocket_z =  (sensor_z - gz_bias);
 
         imu_data->gx = lowpass(imu_data->gx, rocket_x, 0.01f);
         imu_data->gy = lowpass(imu_data->gy, rocket_y, 0.01f);
@@ -109,17 +109,37 @@ void IMU_Fusion_Update(IMU_Data_t *imu_data)
 }
 
 void IMU_Fusion_IntegrateGyro(IMU_Integration_t *imu_integration,  uint32_t time){
-    LSM6DSO_Axes_t gyro_raw;
+    LSM6DSO_Axes_t gyro;
 
-    float dt = (float)(time - imu_integration->time) * 1e-6f; // us to seconds (0.000300s)
+    float dt = (float)(time - imu_integration->time) * 1e-6f;
 
-    if (LSM6DSO_GYRO_GetAxes(imu_handle, &gyro_raw) == LSM6DSO_OK) {
-        imu_integration->pitch += ((-(float)gyro_raw.x - gx_bias) * 0.070f) * dt;
-        imu_integration->yaw   += ((-(float)gyro_raw.y - gy_bias) * 0.070f) * dt;
-        imu_integration->roll  += ( ((float)gyro_raw.z - gz_bias) * 0.070f) * dt;
+    if (LSM6DSO_GYRO_GetAxes(imu_handle, &gyro) == LSM6DSO_OK) {
+        imu_integration->pitch += (float)(-(float)gyro.x * 1e-3f - gx_bias) * dt;
+        imu_integration->yaw   += (float)(-(float)gyro.y * 1e-3f  - gy_bias) * dt;
+        imu_integration->roll  += (float)((float)gyro.z * 1e-3f - gz_bias) * dt;
 
         imu_integration->time = time;
     }
+}
+
+
+int32_t LSM6DSO_ACC_GYRO_Enable_DRDY_On_INT1(LSM6DSO_Object_t *pObj)
+{
+  lsm6dso_pin_int1_route_t pin_int1_route;
+
+  /* Enable accelerometer DRDY Interrupt on INT1 */
+  if (lsm6dso_pin_int1_route_get(&(pObj->Ctx), &pin_int1_route) != LSM6DSO_OK)
+  {
+    return LSM6DSO_ERROR;
+  }
+  pin_int1_route.drdy_xl = 1;
+  pin_int1_route.drdy_g = 1;
+  if (lsm6dso_pin_int1_route_set(&(pObj->Ctx), pin_int1_route) != LSM6DSO_OK)
+  {
+    return LSM6DSO_ERROR;
+  }
+
+  return LSM6DSO_OK;
 }
 
 // IMU_Data_t IMU_Fusion_GetData(void)

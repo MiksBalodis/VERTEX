@@ -36,6 +36,7 @@ void IMU_Fusion_Init(LSM6DSO_Object_t *imu);
 void IMU_Fusion_CalibrateGyro(uint16_t samples);
 void IMU_Fusion_Update(IMU_Data_t *imu_data);
 void IMU_Fusion_IntegrateGyro(IMU_Integration_t *imu_integration, uint32_t time);
+int32_t LSM6DSO_ACC_GYRO_Enable_DRDY_On_INT1(LSM6DSO_Object_t *pObj);
 // IMU_Data_t IMU_Fusion_GetData(void);
 
 #endif
