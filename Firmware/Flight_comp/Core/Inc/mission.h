@@ -27,6 +27,7 @@ void Mission_SafeMode(void);
 void Mission_IncTick(void);
 uint32_t Mission_GetTick(void);
 void Mission_BuildTelemetryPacket(uint8_t *buf);
+void Mission_BuildRAWTelemetryPacket(uint8_t *buf);
 void Mission_IMU_DRDY(void);
 
 #endif

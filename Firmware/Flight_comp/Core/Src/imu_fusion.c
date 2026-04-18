@@ -1,6 +1,7 @@
 #include "imu_fusion.h"
 #include "main.h"
 #include "lsm6dso.h"
+#include <stdint.h>
 #include <string.h>
 
 static LSM6DSO_Object_t *imu_handle = NULL;
@@ -114,12 +115,19 @@ void IMU_Fusion_IntegrateGyro(IMU_Integration_t *imu_integration,  uint32_t time
     float dt = (float)(time - imu_integration->time) * 1e-6f;
 
     if (LSM6DSO_GYRO_GetAxes(imu_handle, &gyro) == LSM6DSO_OK) {
-        imu_integration->pitch += (float)(-(float)gyro.x * 1e-3f - gx_bias) * dt;
-        imu_integration->yaw   += (float)(-(float)gyro.y * 1e-3f  - gy_bias) * dt;
-        imu_integration->roll  += (float)((float)gyro.z * 1e-3f - gz_bias) * dt;
+        imu_integration->pitch += (float)(-(float)gyro.x  - gx_bias) * dt * 1e-3f;
+        imu_integration->yaw   += (float)(-(float)gyro.y  - gy_bias) * dt * 1e-3f ;
+        imu_integration->roll  += (float)((float)gyro.z - gz_bias) * dt * 1e-3f ;
 
         imu_integration->time = time;
     }
+}
+
+void IMU_Fusion_SetGyro(IMU_Integration_t *imu_integration, float gx, float gy, float gz, uint32_t time){
+    imu_integration->pitch = gx;
+    imu_integration->yaw   = gy;
+    imu_integration->roll  = gz;
+    imu_integration->time = time;
 }
 
 

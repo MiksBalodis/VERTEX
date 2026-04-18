@@ -30,6 +30,7 @@
   let isPlaying = false;
   let loadedFileName = "";
   let elapsedMs = 0;
+  let RSSI = 0;
 
   function flashTransition() {
     transitionFlash = true;
@@ -271,12 +272,102 @@
       flashTransition();
     }
   }
+
+  let port;
+  let reader;
+  let serialData = "";
+
+  async function connectSerial() {
+    try {
+      // 1. Request port from user
+      port = await navigator.serial.requestPort();
+      await port.open({ baudRate: 9600 });
+
+      // 2. Set up the stream reader
+      const decoder = new TextDecoderStream();
+      port.readable.pipeTo(decoder.writable);
+      reader = decoder.readable.getReader();
+
+      // 3. Read loop
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) break;
+
+        if(value.includes('\r\n')){
+          const lines = value.split('\r\n');
+          serialData += lines[0];
+          parseTelemetryFromSerial(serialData);
+          serialData = lines[1];
+        }else{
+          serialData += value;
+        }
+
+        console.log("Received serial data:", value);
+        
+
+      }
+    } catch (err) {
+      console.error("Serial error:", err);
+    }
+  }
+
+  function parseTelemetryFromSerial(data) {
+    const cleanHex = data.replace(/\s+/g, '');
+    const raw_bytes = hexToBytes(cleanHex);
+    if (raw_bytes.length < 20) {
+      console.warn("Received incomplete telemetry data");
+      console.warn("Raw data:", data);
+      console.warn("Parsed bytes:", raw_bytes);
+      return;
+    }
+
+    const view = new DataView(raw_bytes.buffer, raw_bytes.byteOffset, raw_bytes.byteLength);
+
+    telemetry.altitude =  view.getFloat32(0, true).toFixed(2);
+
+    // int16_t accel (2 bytes) - Offset 4
+    telemetry.acceleration = (view.getInt16(4, true) / 100).toFixed(2); // Convert cm/s^2 to m/s^2
+
+    // int16_t speed (2 bytes) - Offset 6
+    telemetry.speed = (view.getInt16(6, true) / 100).toFixed(2); // Convert cm/s to m/s
+
+    // int16_t pitch, roll, yaw (2 bytes each) - Offsets 8, 10, 12
+    telemetry.pitch = (view.getInt16(8, true) / 10).toFixed(1);
+    telemetry.roll = (view.getInt16(10, true) / 10).toFixed(1);
+    telemetry.yaw = (view.getInt16(12, true) / 10).toFixed(1);
+
+
+    switch (view.getUint8(14)) {
+      case 0: setState("READY"); break;
+      case 1: setState("ASCENT"); break;
+      case 2: setState("DESCENT"); break;
+      case 3: setState("LANDED"); break;
+      default: setState("SAFE", `Unknown flight state code: ${telemetry.flightState}`);
+    }
+
+    // uint32_t timestamp (4 bytes) - Offset 15
+    elapsedMs = (view.getUint32(15, true) / 1000).toFixed(0); // Convert us to ms
+
+    // int8_t RSSI (1 byte) - Offset 19
+    RSSI = view.getInt8(19)
+  }
+  function hexToBytes(hexString) {
+  const bytes = new Uint8Array(hexString.length / 2);
+  
+  for (let i = 0; i < hexString.length; i += 2) {
+    bytes[i / 2] = parseInt(hexString.substring(i, i + 2), 16);
+  }
+  
+  return bytes;
+}
 </script>
 
 <div class="app">
   <header>
     <div class="header-left">
       <div class="title">GROUND STATION</div>
+
+      <button on:click={connectSerial}>Connect to GS</button>
 
       <label class="file-picker">
         <span>Choose CSV</span>

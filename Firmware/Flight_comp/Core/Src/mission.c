@@ -41,6 +41,14 @@ typedef struct __attribute__((packed)) {
 
 TelemetryData_t telemetry;
 
+typedef struct __attribute__((packed)) {
+    float gx, gy, gz; // 12 bytes 
+    float rx, ry, rz; // 12 bytes 
+    uint32_t timestamp;       // 4 bytes (us)
+} RAW_TelemetryData_t; // Total: 28 bytes + 1 byte for RSSI on receiver side
+
+RAW_TelemetryData_t raw_telemetry;
+
 bool POST_fault_flags[FAULT_MAX] = {0};
 
 void Mission_Init(void)
@@ -74,9 +82,10 @@ void Mission_Update(void)
     {
         case MISSION_READY:
             // LSM6DSO accel values are in mg so 3000 ~ 3 g
-            if (imu.ry > 3000.0f){
+            if (imu.ry > 300.0f){
                 mission_state = MISSION_ASCENT;
                 HAL_TIM_Base_Start_IT(&htim6); // Start 1 us timer for INS
+                IMU_Fusion_SetGyro(&imu_integration, 0, 0, 0, Mission_GetTick()); // Set initial orientation to 0,0,0
                 f_mount(&FatFs, "", 1);
                 BUZZ(&hbuzz1, 100);
             }
@@ -133,7 +142,20 @@ void Mission_BuildTelemetryPacket(uint8_t *buf){
     telemetry.pitch = imu_integration.pitch * 10.0f; // Convert to DEG*10
     telemetry.roll = imu_integration.roll * 10.0f;  // Convert to DEG*10
     telemetry.yaw = imu_integration.yaw * 10.0f;   // Convert to DEG*10
+
     memcpy(buf, &telemetry, sizeof(TelemetryData_t));
+}
+
+void Mission_BuildRAWTelemetryPacket(uint8_t *buf){
+    raw_telemetry.timestamp = Mission_GetTick();
+    raw_telemetry.gx = imu.gx;
+    raw_telemetry.gy = imu.gy;
+    raw_telemetry.gz = imu.gz;
+    raw_telemetry.rx = imu.rx;
+    raw_telemetry.ry = imu.ry;
+    raw_telemetry.rz = imu.rz;
+
+    memcpy(buf, &raw_telemetry, sizeof(RAW_TelemetryData_t));
 }
 
 void Mission_IMU_DRDY(void){
