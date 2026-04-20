@@ -32,6 +32,10 @@ typedef struct {
     volatile uint32_t time;
 } IMU_Integration_t;
 
+typedef struct {
+    float w, x, y, z;
+} Quaternion;
+
 void IMU_Fusion_Init(LSM6DSO_Object_t *imu);
 void IMU_Fusion_CalibrateGyro(uint16_t samples);
 void IMU_Fusion_Update(IMU_Data_t *imu_data);

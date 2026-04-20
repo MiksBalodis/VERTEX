@@ -6,7 +6,7 @@
 
 static LSM6DSO_Object_t *imu_handle = NULL;
 // static IMU_Data_t imu_data;
-
+Quaternion quat = {1.0f, 0.0f, 0.0f, 0.0f};
 
 static float gx_bias = 0.0f;
 static float gy_bias = 0.0f;
@@ -109,24 +109,10 @@ void IMU_Fusion_Update(IMU_Data_t *imu_data)
     }
 }
 
-void IMU_Fusion_IntegrateGyro(IMU_Integration_t *imu_integration,  uint32_t time){
-    LSM6DSO_Axes_t gyro;
-
-    float dt = (float)(time - imu_integration->time) * 1e-6f;
-
-    if (LSM6DSO_GYRO_GetAxes(imu_handle, &gyro) == LSM6DSO_OK) {
-        imu_integration->pitch += (float)(-(float)gyro.x  - gx_bias) * dt * 1e-3f;
-        imu_integration->yaw   += (float)(-(float)gyro.y  - gy_bias) * dt * 1e-3f ;
-        imu_integration->roll  += (float)((float)gyro.z - gz_bias) * dt * 1e-3f ;
-
-        imu_integration->time = time;
-    }
-}
-
 void IMU_Fusion_SetGyro(IMU_Integration_t *imu_integration, float gx, float gy, float gz, uint32_t time){
     imu_integration->pitch = gx;
-    imu_integration->yaw   = gy;
-    imu_integration->roll  = gz;
+    imu_integration->roll   = gy;
+    imu_integration->yaw  = gz;
     imu_integration->time = time;
 }
 
@@ -148,6 +134,56 @@ int32_t LSM6DSO_ACC_GYRO_Enable_DRDY_On_INT1(LSM6DSO_Object_t *pObj)
   }
 
   return LSM6DSO_OK;
+}
+
+void quat_normalize(Quaternion *q) {
+    float magnitude = sqrtf(q->w * q->w + q->x * q->x + q->y * q->y + q->z * q->z);
+    if (magnitude > 0.00001f) {
+        q->w /= magnitude;
+        q->x /= magnitude;
+        q->y /= magnitude;
+        q->z /= magnitude;
+    }
+}
+
+void quat_update_from_dps(Quaternion *q, float gx, float gy, float gz, float dt) {
+    // 1. Convert DPS to Radians per second
+    float wx = gx * (M_PI / 180.0f);
+    float wy = gy * (M_PI / 180.0f);
+    float wz = gz * (M_PI / 180.0f);
+
+    // 2. Calculate the Quaternion Derivative (dq/dt = 0.5 * q * omega)
+    // This is the expanded form of quaternion multiplication where the 
+    // omega quaternion has a scalar (w) component of 0.
+    float qw = q->w, qx = q->x, qy = q->y, qz = q->z;
+
+    float dw = 0.5f * (-qx * wx - qy * wy - qz * wz);
+    float dx = 0.5f * ( qw * wx + qy * wz - qz * wy);
+    float dy = 0.5f * ( qw * wy - qx * wz + qz * wx);
+    float dz = 0.5f * ( qw * wz + qx * wy - qy * wx);
+
+    // 3. Integrate: q_new = q_old + (dq/dt * dt)
+    q->w += dw * dt;
+    q->x += dx * dt;
+    q->y += dy * dt;
+    q->z += dz * dt;
+
+    // 4. Normalize to maintain a valid rotation
+    quat_normalize(q);
+}
+
+void IMU_Fusion_IntegrateGyro(IMU_Integration_t *imu_integration,  uint32_t time){
+    LSM6DSO_Axes_t gyro;
+
+    float dt = (float)(time - imu_integration->time) * 1e-6f;
+
+    if (LSM6DSO_GYRO_GetAxes(imu_handle, &gyro) == LSM6DSO_OK) {
+        imu_integration->pitch += (float)(-(float)gyro.x  - gx_bias) * dt * 1e-3f;
+        imu_integration->roll   += (float)(-(float)gyro.y  - gy_bias) * dt * 1e-3f ;
+        imu_integration->yaw  += (float)((float)gyro.z - gz_bias) * dt * 1e-3f ;
+        quat_update_from_dps(&quat, (float)(-(float)gyro.x - gx_bias), (float)(-(float)gyro.y - gy_bias), (float)((float)gyro.z - gz_bias), dt);
+        imu_integration->time = time;
+    }
 }
 
 // IMU_Data_t IMU_Fusion_GetData(void)

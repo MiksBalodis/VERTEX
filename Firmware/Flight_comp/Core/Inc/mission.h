@@ -14,7 +14,7 @@ typedef enum
     PRS_Comm_Fail,
     FLASH_Comm_Fail,
     GNSS_Comm_Fail,
-    LORA_Comm_Fail,
+    LoRa_Comm_Fail,
     Vbat_UVLO,
     FS_Not_Found,
     FS_No_Space,

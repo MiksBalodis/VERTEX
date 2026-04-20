@@ -194,7 +194,10 @@ void LoRa_Init(void){
   SX1262_Get_st()->Busy_Port = LORA_IO0_GPIO_Port;
   SX1262_Get_st()->Busy_Pin = LORA_IO0_Pin;
 
-  SX1262_Init();
+  if(SX1262_Init() != 0){
+    POST_fault_flags[LoRa_Comm_Fail] = 1;
+    return;
+  }
   SX1262_SetFrequency(433000000);
   SX1262_setModeReceive();
   uint8_t lora_data[] = "Hello, LoRa!";
@@ -298,6 +301,8 @@ int main(void)
   MX_TIM6_Init();
   /* USER CODE BEGIN 2 */
   BUZZ(&hbuzz1, 300);
+
+  LED_Set_Color(64, 64, 0);
 
   EEPROM_Init();
   GPS_Init();
@@ -1139,6 +1144,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LORA_NRST_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PB4 */
+  GPIO_InitStruct.Pin = GPIO_PIN_4;
+  GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /* EXTI interrupt init*/
   HAL_NVIC_SetPriority(EXTI0_IRQn, 0, 0);

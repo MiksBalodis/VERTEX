@@ -113,11 +113,19 @@ void Mission_Update(void)
 void Mission_SafeMode(void){
     /*TO DO: show faults*/
 
-    LED_Set_Color(64, 0, 0);
-
-    __disable_irq();
-
-    while(1);
+    while(1){
+        for (uint8_t fault = 0; fault < FAULT_MAX; fault++){
+            if(POST_fault_flags[fault]){
+                for(uint8_t i = 0; i <= fault; i++){
+                    LED_Set_Color(64, 0, 0);
+                    HAL_Delay(500);
+                    LED_Set_Color(0, 0, 0);
+                    HAL_Delay(500);
+                }
+                HAL_Delay(1500);
+            }
+        }
+    }
 }
 
 void Mission_IncTick(void){

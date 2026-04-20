@@ -54,12 +54,17 @@ int SX1262_IsBusy(void)
 
 //**************************************************************************************************************************************************************//
 // wait for mdule to be free
-void SX1262_BusyWait(void)
+uint8_t SX1262_BusyWait(void)
 {
+	uint32_t t0 = HAL_GetTick();
 	while(HAL_GPIO_ReadPin(SX_stc.Busy_Port,SX_stc.Busy_Pin)) 
 	{
 		HAL_GPIO_ReadPin(SX_stc.Busy_Port, SX_stc.Busy_Pin);
+		if(HAL_GetTick() - t0 > 1000){
+			return 1; 
+		}
 	}
+	return 0;
 }
 
 //**************************************************************************************************************************************************************//
@@ -71,9 +76,11 @@ void SX1262_TxWait(void)
 
 //**************************************************************************************************************************************************************//
 // set command function
-void SX1262_Set_Command(uint8_t *cmnd_, uint8_t *ans_, uint16_t Len,uint32_t Time_out ,uint16_t Delay)
+uint8_t SX1262_Set_Command(uint8_t *cmnd_, uint8_t *ans_, uint16_t Len,uint32_t Time_out ,uint16_t Delay)
 {
-	SX1262_BusyWait();
+	if(SX1262_BusyWait()){
+		return 1; // Return error if busy wait times out
+	}
 
 	SX1262_CSLow();
 	err22 = HAL_SPI_TransmitReceive(&SX_stc.SPI, cmnd_, ans_, Len, Time_out); // 1 command byte, 1 wait, 2 response
@@ -83,6 +90,8 @@ void SX1262_Set_Command(uint8_t *cmnd_, uint8_t *ans_, uint16_t Len,uint32_t Tim
 	{
 		HAL_Delay(Delay);
 	}
+
+	return 0;
 }
 
 //**************************************************************************************************************************************************************//
@@ -233,7 +242,7 @@ void SX1262_Transmit(uint8_t* data, uint8_t len){
 
 //**************************************************************************************************************************************************************//
 //Initialize module
-void SX1262_Init(void){
+uint8_t SX1262_Init(void){
 
 	// Toggle reset
 	SX1262_CSHigh();
@@ -251,7 +260,9 @@ void SX1262_Init(void){
 		cmnd[1] = 0x00;        //  DIO3 outputs 1.6 V to supply the TCXO
 		cmnd[2] = 0x00;
 		cmnd[3] = 0x00;
-		SX1262_Set_Command(cmnd,answ,4,100,10);
+		if(SX1262_Set_Command(cmnd,answ,4,100,10)){
+			return 1;
+		}
 		//err22 = getstatus(SX);
 		//==================================================================
 	
@@ -259,6 +270,8 @@ void SX1262_Init(void){
 	{
 		SX1262_Radio_essental_Config();
 	}
+
+	return 0;
 }
 
 
@@ -340,17 +353,18 @@ uint8_t SX1262_waitForRadioCommandCompletion(uint32_t timeout)
 
 //**************************************************************************************************************************************************************//
 //go to standby mode
-void SX1262_setModeStandby(void)
+uint8_t SX1262_setModeStandby(void)
 {
-
+	cmnd[0] = 0x80;          //Opcode for "SetStatus" command
+	cmnd[1] = 0x01;          //Dummy byte, status will overwrite this byte (STDBY_XOSC 1)
 	
-		cmnd[0] = 0x80;          //Opcode for "SetStatus" command
-    cmnd[1] = 0x01;          //Dummy byte, status will overwrite this byte (STDBY_XOSC 1)
-		
-		SX1262_Set_Command(cmnd,answ,2,100,0);
+	if(SX1262_Set_Command(cmnd,answ,2,100,0)){
+		return 1;
+	}
 
-		SX1262_waitForRadioCommandCompletion(100);
+	SX1262_waitForRadioCommandCompletion(100);
 
+	return 0;
 }
 
 //**************************************************************************************************************************************************************//
