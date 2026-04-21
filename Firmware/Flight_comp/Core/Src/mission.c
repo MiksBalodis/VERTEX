@@ -166,6 +166,7 @@ void Mission_BuildRAWTelemetryPacket(uint8_t *buf){
     memcpy(buf, &raw_telemetry, sizeof(RAW_TelemetryData_t));
 }
 
+
 void Mission_IMU_DRDY(void){
     if (mission_state == MISSION_ASCENT) {
         IMU_Fusion_IntegrateGyro(&imu_integration, Mission_GetTick());

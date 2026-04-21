@@ -1,5 +1,6 @@
 #include "imu_fusion.h"
 #include "main.h"
+#include "stdlib.h"
 #include "lsm6dso.h"
 #include <stdint.h>
 #include <string.h>
@@ -21,6 +22,8 @@ void IMU_Fusion_Init(LSM6DSO_Object_t *imu)
 {
     imu_handle = imu;
     // memset(&imu_data, 0, sizeof(imu_data));
+    LSM6DSO_ACC_Enable(imu_handle);
+    LSM6DSO_GYRO_Enable(imu_handle);
 
     LSM6DSO_ACC_SetFullScale(imu_handle, LSM6DSO_ACC_SENSITIVITY_FS_16G);
     LSM6DSO_GYRO_SetFullScale(imu_handle, LSM6DSO_GYRO_SENSITIVITY_FS_2000DPS);
@@ -28,11 +31,8 @@ void IMU_Fusion_Init(LSM6DSO_Object_t *imu)
     LSM6DSO_ACC_SetOutputDataRate(imu_handle, IMU_ODR_3333_HZ);
     LSM6DSO_GYRO_SetOutputDataRate(imu_handle, IMU_ODR_3333_HZ);
 
-    LSM6DSO_ACC_Set_Filter_Mode(imu_handle, 0, IMU_ODR_DIV_20);
-    LSM6DSO_GYRO_Set_Filter_Mode(imu_handle, 0, IMU_ODR_DIV_20);
-
-    LSM6DSO_ACC_Enable(imu_handle);
-    LSM6DSO_GYRO_Enable(imu_handle);
+    // LSM6DSO_ACC_Set_Filter_Mode(imu_handle, 0, IMU_ODR_DIV_20);
+    // LSM6DSO_GYRO_Set_Filter_Mode(imu_handle, 0, IMU_ODR_DIV_20);
 
     LSM6DSO_ACC_GYRO_Enable_DRDY_On_INT1(imu_handle);
 }
@@ -126,7 +126,7 @@ int32_t LSM6DSO_ACC_GYRO_Enable_DRDY_On_INT1(LSM6DSO_Object_t *pObj)
   {
     return LSM6DSO_ERROR;
   }
-  pin_int1_route.drdy_xl = 1;
+  pin_int1_route.drdy_xl = 0;
   pin_int1_route.drdy_g = 1;
   if (lsm6dso_pin_int1_route_set(&(pObj->Ctx), pin_int1_route) != LSM6DSO_OK)
   {
@@ -175,7 +175,7 @@ void quat_update_from_dps(Quaternion *q, float gx, float gy, float gz, float dt)
 void IMU_Fusion_IntegrateGyro(IMU_Integration_t *imu_integration,  uint32_t time){
     LSM6DSO_Axes_t gyro;
 
-    float dt = (float)(time - imu_integration->time) * 1e-6f;
+    float dt = (float)abs((time - imu_integration->time)) * 1e-6f;
 
     if (LSM6DSO_GYRO_GetAxes(imu_handle, &gyro) == LSM6DSO_OK) {
         imu_integration->pitch += (float)(-(float)gyro.x  - gx_bias) * dt * 1e-3f;

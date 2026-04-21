@@ -6,7 +6,7 @@
 
 #define IMU_ODR_208_HZ  208.0f
 #define IMU_ODR_3333_HZ  3333.0f
-#define IMU_ODR_DIV_20  0x02
+#define IMU_ODR_DIV_20  0x01
 
 typedef struct {
     float rx;   // rocket right = -sensor_x

@@ -49,6 +49,9 @@
 #define VBAT_DIV_K  2.54
 
 #define LSM6DSO_I2C_ADDR (0x6A << 1)
+
+#define Servo1_Home 86
+#define Servo2_Home 75
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -228,6 +231,9 @@ void FatFs_Test(void){
 void Servo_Init_All(void){
   Servo_Init(&hservo1, &htim5, TIM_CHANNEL_1);
   Servo_Init(&hservo2, &htim5, TIM_CHANNEL_2);
+
+  Servo_SetAngle(&hservo1, Servo1_Home);
+  Servo_SetAngle(&hservo2, Servo2_Home);
 }
 
 void GPS_Init(void){
@@ -1178,6 +1184,7 @@ void HAL_SPI_TxRxCpltCallback(SPI_HandleTypeDef *hspi){
   }
 }
 
+volatile uint32_t inttime;
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
   if(GPIO_Pin == LORA_DIO1_Pin){
     BUZZ(&hbuzz1, 100);
