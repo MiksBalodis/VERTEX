@@ -248,13 +248,13 @@ void EEPROM_Init(void){
 }
 
 void LoRa_TxTelemetry(void){
-  uint8_t telem_buf[19];
-  Mission_BuildTelemetryPacket(telem_buf);
-  SX1262_Transmit(telem_buf, sizeof(telem_buf));
+  // uint8_t telem_buf[19];
+  // Mission_BuildTelemetryPacket(telem_buf);
+  // SX1262_Transmit(telem_buf, sizeof(telem_buf));
 
-  // uint8_t raw_telem_buf[28];
-  // Mission_BuildRAWTelemetryPacket(raw_telem_buf);
-  // SX1262_Transmit(raw_telem_buf, sizeof(raw_telem_buf));
+  uint8_t raw_telem_buf[37];
+  Mission_BuildRAWTelemetryPacket(raw_telem_buf);
+  SX1262_Transmit(raw_telem_buf, sizeof(raw_telem_buf));
 }
 /* USER CODE END 0 */
 
@@ -334,7 +334,7 @@ int main(void)
     // if(gps.lat != 0 && gps.valid){
     //   BUZZ(&hbuzz1, 300);
     // }
-    if(HAL_GetTick() - tel_tmr > 1000){
+    if(HAL_GetTick() - tel_tmr > 100){
       LoRa_TxTelemetry();
       tel_tmr = HAL_GetTick();
     }

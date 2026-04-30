@@ -15,6 +15,7 @@ IMU_Data_t imu;
 IMU_Integration_t imu_integration;
 extern BMP388_HandleTypeDef hbmp388;
 extern FATFS FatFs;
+extern volatile Quaternion quat;
 
 volatile uint32_t overflow; // TO DO: add us timer with interrupts
 
@@ -42,10 +43,12 @@ typedef struct __attribute__((packed)) {
 TelemetryData_t telemetry;
 
 typedef struct __attribute__((packed)) {
-    float gx, gy, gz; // 12 bytes 
+    float w, x, y, z;
     float rx, ry, rz; // 12 bytes 
+    uint8_t flight_state;     // 1 byte
+    float altitude;           // 4 bytes
     uint32_t timestamp;       // 4 bytes (us)
-} RAW_TelemetryData_t; // Total: 28 bytes + 1 byte for RSSI on receiver side
+} RAW_TelemetryData_t; // Total: 37 bytes + 1 byte for RSSI on receiver side
 
 RAW_TelemetryData_t raw_telemetry;
 
@@ -77,6 +80,9 @@ void Mission_Update(void)
 
     telemetry.flight_state = mission_state;
     telemetry.altitude = BMP388_FindAltitude(ground_pressure, prs);
+
+    raw_telemetry.flight_state = mission_state;
+    raw_telemetry.altitude = telemetry.altitude;
 
     switch (mission_state)
     {
@@ -156,9 +162,11 @@ void Mission_BuildTelemetryPacket(uint8_t *buf){
 
 void Mission_BuildRAWTelemetryPacket(uint8_t *buf){
     raw_telemetry.timestamp = Mission_GetTick();
-    raw_telemetry.gx = imu.gx;
-    raw_telemetry.gy = imu.gy;
-    raw_telemetry.gz = imu.gz;
+    raw_telemetry.w = quat.w;
+    raw_telemetry.x = quat.x;
+    raw_telemetry.y = quat.y;
+    raw_telemetry.z = quat.z;
+
     raw_telemetry.rx = imu.rx;
     raw_telemetry.ry = imu.ry;
     raw_telemetry.rz = imu.rz;

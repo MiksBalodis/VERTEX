@@ -311,54 +311,93 @@
     }
   }
 
-  function parseTelemetryFromSerial(data) {
-    const cleanHex = data.replace(/\s+/g, '');
-    const raw_bytes = hexToBytes(cleanHex);
-    if (raw_bytes.length < 20) {
-      console.warn("Received incomplete telemetry data");
-      console.warn("Raw data:", data);
-      console.warn("Parsed bytes:", raw_bytes);
-      return;
-    }
+function parseTelemetryFromSerial(data) {
+  const cleanHex = data.replace(/\s+/g, '');
+  const raw_bytes = hexToBytes(cleanHex);
 
-    const view = new DataView(raw_bytes.buffer, raw_bytes.byteOffset, raw_bytes.byteLength);
-
-    telemetry.altitude =  view.getFloat32(0, true).toFixed(2);
-
-    // int16_t accel (2 bytes) - Offset 4
-    telemetry.acceleration = (view.getInt16(4, true) / 100).toFixed(2); // Convert cm/s^2 to m/s^2
-
-    // int16_t speed (2 bytes) - Offset 6
-    telemetry.speed = (view.getInt16(6, true) / 100).toFixed(2); // Convert cm/s to m/s
-
-    // int16_t pitch, roll, yaw (2 bytes each) - Offsets 8, 10, 12
-    telemetry.pitch = (view.getInt16(8, true) / 10).toFixed(1);
-    telemetry.roll = (view.getInt16(10, true) / 10).toFixed(1);
-    telemetry.yaw = (view.getInt16(12, true) / 10).toFixed(1);
-
-
-    switch (view.getUint8(14)) {
-      case 0: setState("READY"); break;
-      case 1: setState("ASCENT"); break;
-      case 2: setState("DESCENT"); break;
-      case 3: setState("LANDED"); break;
-      default: setState("SAFE", `Unknown flight state code: ${telemetry.flightState}`);
-    }
-
-    // uint32_t timestamp (4 bytes) - Offset 15
-    elapsedMs = (view.getUint32(15, true) / 1000).toFixed(0); // Convert us to ms
-
-    // int8_t RSSI (1 byte) - Offset 19
-    RSSI = view.getInt8(19)
+  // New expected length: 28 (quat + gyro) + 1 (state) + 4 (alt) + 4 (time) + 1 (rssi) = 38 bytes
+  if (raw_bytes.length < 37) {
+    console.warn("Received incomplete telemetry data. Expected 38, got:", raw_bytes.length);
+    return;
   }
-  function hexToBytes(hexString) {
+
+  const view = new DataView(raw_bytes.buffer, raw_bytes.byteOffset, raw_bytes.byteLength);
+
+  // 1. Extract Quaternion (Offsets 0, 4, 8, 12)
+  const q = {
+    w: view.getFloat32(0, true),
+    x: view.getFloat32(4, true),
+    y: view.getFloat32(8, true),
+    z: view.getFloat32(12, true)
+  };
+
+  // 2. Convert Quaternion to Euler (Roll, Pitch, Yaw)
+  const euler = toEulerAngles(q);
+  telemetry.roll = (euler.roll * (180 / Math.PI)).toFixed(1);
+  telemetry.pitch = (euler.pitch * (180 / Math.PI)).toFixed(1);
+  telemetry.yaw = (euler.yaw * (180 / Math.PI)).toFixed(1);
+
+  // 3. Extract Gyro/Rotation Rates (Offsets 16, 20, 24)
+  telemetry.rx = view.getFloat32(16, true).toFixed(2);
+  telemetry.ry = view.getFloat32(20, true).toFixed(2);
+  telemetry.rz = view.getFloat32(24, true).toFixed(2);
+
+  // 4. Flight State (Offset 28)
+  const stateCode = view.getUint8(28);
+  switch (stateCode) {
+    case 0: setState("READY"); break;
+    case 1: setState("ASCENT"); break;
+    case 2: setState("DESCENT"); break;
+    case 3: setState("LANDED"); break;
+    default: setState("SAFE", `Unknown state: ${stateCode}`);
+  }
+
+  // 5. Altitude (Offset 29)
+  telemetry.altitude = view.getFloat32(29, true).toFixed(2);
+
+  // 6. Timestamp (Offset 33) - Converting us to ms
+  elapsedMs = (view.getUint32(33, true) / 1000).toFixed(0);
+
+  // 7. RSSI (Offset 37 - The extra byte added by receiver)
+  // RSSI = view.getInt8(37);
+}
+function hexToBytes(hexString) {
   const bytes = new Uint8Array(hexString.length / 2);
-  
+
   for (let i = 0; i < hexString.length; i += 2) {
     bytes[i / 2] = parseInt(hexString.substring(i, i + 2), 16);
   }
-  
+
   return bytes;
+} 
+
+function toEulerAngles(q) {
+    const angles = {
+        roll: 0,
+        pitch: 0,
+        yaw: 0
+    };
+
+    // Roll (x-axis rotation)
+    const sinr_cosp = 2 * (q.w * q.x + q.y * q.z);
+    const cosr_cosp = 1 - 2 * (q.x * q.x + q.y * q.y);
+    angles.roll = Math.atan2(sinr_cosp, cosr_cosp);
+
+    // Pitch (y-axis rotation)
+    const sinp = 2 * (q.w * q.y - q.z * q.x);
+    if (Math.abs(sinp) >= 1) {
+        // Use 90 degrees if out of range (Gimbal Lock)
+        angles.pitch = (Math.PI / 2) * Math.sign(sinp);
+    } else {
+        angles.pitch = Math.asin(sinp);
+    }
+
+    // Yaw (z-axis rotation)
+    const siny_cosp = 2 * (q.w * q.z + q.x * q.y);
+    const cosy_cosp = 1 - 2 * (q.y * q.y + q.z * q.z);
+    angles.yaw = Math.atan2(siny_cosp, cosy_cosp);
+
+    return angles;
 }
 </script>
 

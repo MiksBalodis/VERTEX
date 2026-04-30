@@ -160,13 +160,13 @@ int main(void)
 				SX1278_read(&SX1278, (uint8_t*) buffer, ret);
         HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
 
-        buffer[19] = SX1278_RSSI(&SX1278); // Append RSSI to the end of the buffer
+        // buffer[19] = SX1278_RSSI(&SX1278); // Append RSSI to the end of the buffer
 
-        char hex_log[64]; // (21 bytes * 2 chars) + 2 for \r\n + 1 for null = 45
+        char hex_log[128]; // (21 bytes * 2 chars) + 2 for \r\n + 1 for null = 45
         int pos = 0;
         uint8_t *byte_ptr = (uint8_t *)&buffer;
 
-        for (int i = 0; i < sizeof(TelemetryData_t); i++) {
+        for (int i = 0; i < ret; i++) {
             pos += sprintf(&hex_log[pos], "%02X ", byte_ptr[i]);
         }
         sprintf(&hex_log[pos], "\r\n");

@@ -7,7 +7,7 @@
 
 static LSM6DSO_Object_t *imu_handle = NULL;
 // static IMU_Data_t imu_data;
-Quaternion quat = {1.0f, 0.0f, 0.0f, 0.0f};
+volatile Quaternion quat = {1.0f, 0.0f, 0.0f, 0.0f};
 
 static float gx_bias = 0.0f;
 static float gy_bias = 0.0f;
@@ -114,6 +114,11 @@ void IMU_Fusion_SetGyro(IMU_Integration_t *imu_integration, float gx, float gy, 
     imu_integration->roll   = gy;
     imu_integration->yaw  = gz;
     imu_integration->time = time;
+
+    quat.w = 1.0f;
+    quat.x = 0.0f;
+    quat.y = 0.0f;
+    quat.z = 0.0f;
 }
 
 
@@ -178,10 +183,17 @@ void IMU_Fusion_IntegrateGyro(IMU_Integration_t *imu_integration,  uint32_t time
     float dt = (float)abs((time - imu_integration->time)) * 1e-6f;
 
     if (LSM6DSO_GYRO_GetAxes(imu_handle, &gyro) == LSM6DSO_OK) {
-        imu_integration->pitch += (float)(-(float)gyro.x  - gx_bias) * dt * 1e-3f;
-        imu_integration->roll   += (float)(-(float)gyro.y  - gy_bias) * dt * 1e-3f ;
-        imu_integration->yaw  += (float)((float)gyro.z - gz_bias) * dt * 1e-3f ;
-        quat_update_from_dps(&quat, (float)(-(float)gyro.x - gx_bias), (float)(-(float)gyro.y - gy_bias), (float)((float)gyro.z - gz_bias), dt);
+// Convert raw milli-DPS to standard DPS
+        float gx = (-(float)gyro.x - gx_bias) * 1e-3f;
+        float gy = (-(float)gyro.y - gy_bias) * 1e-3f;
+        float gz = ((float)gyro.z - gz_bias) * 1e-3f;
+
+        // Use the scaled DPS for both Euler (for debug) and Quaternion
+        imu_integration->pitch += gx * dt;
+        imu_integration->roll  += gy * dt;
+        imu_integration->yaw   += gz * dt;
+
+        quat_update_from_dps(&quat, gx, gy, gz, dt);
         imu_integration->time = time;
     }
 }
