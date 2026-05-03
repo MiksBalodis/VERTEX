@@ -1,4 +1,8 @@
 <script>
+  import { onMount, onDestroy } from "svelte";
+  import * as THREE from "three";
+  import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+
   const states = ["IDLE", "READY", "ASCENT", "DESCENT", "LANDED", "SAFE"];
 
   const stateStatusMap = {
@@ -24,32 +28,73 @@
   };
 
   let errors = [];
-  let csvRows = [];
-  let currentIndex = -1;
-  let playbackTimer = null;
-  let isPlaying = false;
-  let loadedFileName = "";
   let elapsedMs = 0;
   let RSSI = 0;
+
+  let gps = {
+    lat: null,
+    lon: null
+  };
+
+  let gpsHome = null;
+  let gpsPath = [];
+
+  const MAX_GPS_POINTS = 300;
+  const MAP_RANGE_METERS = 150;
+
+  const MAX_GRAPH_POINTS = 60;
+  let pitchHistory = [];
+  let yawHistory = [];
+  let rollHistory = [];
+
+  let threeContainer;
+  let scene;
+  let camera;
+  let renderer;
+  let controls;
+  let rocketGroup;
+  let animationFrame;
+  let resizeObserver;
+
+  function isRocketFlying() {
+    return missionState === "ASCENT" || missionState === "DESCENT";
+  }
 
   function flashTransition() {
     transitionFlash = true;
     setTimeout(() => (transitionFlash = false), 300);
   }
 
+  function clearFlightTracking() {
+    pitchHistory = [];
+    yawHistory = [];
+    rollHistory = [];
+    gpsHome = null;
+    gpsPath = [];
+  }
+
   function setState(state, statusText = null) {
     const normalizedState = (state || "").trim().toUpperCase();
+    const wasFlying = isRocketFlying();
 
     if (!states.includes(normalizedState)) {
       missionState = "SAFE";
       systemStatus = `Unknown mission state: ${state}`;
+      clearFlightTracking();
       flashTransition();
       return;
     }
 
     const changed = missionState !== normalizedState;
+
     missionState = normalizedState;
     systemStatus = statusText?.trim() || stateStatusMap[normalizedState] || "Unknown system state.";
+
+    const nowFlying = isRocketFlying();
+
+    if (changed && nowFlying && !wasFlying) {
+      clearFlightTracking();
+    }
 
     if (changed) flashTransition();
   }
@@ -63,60 +108,10 @@
     return `T+ ${hours}:${minutes}:${seconds}`;
   }
 
-  function parseNumeric(value) {
-    if (value == null) return "--";
-    const trimmed = String(value).trim();
-
-    if (trimmed === "") return "--";
-    if (trimmed.toLowerCase() === "nan") return "NaN";
-
-    const num = Number(trimmed);
-    if (!Number.isFinite(num)) return trimmed;
-
-    return num.toFixed(1);
-  }
-
-  function parseErrorFlags(errorFlags) {
-    const raw = (errorFlags || "").trim();
-    if (!raw || raw === "NONE") return [];
-
-    return raw
-      .split("|")
-      .map((flag) => flag.trim())
-      .filter(Boolean);
-  }
-
-  function applyRow(row) {
-    if (!row) return;
-
-    elapsedMs = Number(row.time_ms) || 0;
-
-    setState(row.state, row.status_text);
-
-    telemetry = {
-      pitch: parseNumeric(row.pitch),
-      yaw: parseNumeric(row.yaw),
-      roll: parseNumeric(row.roll),
-      altitude: parseNumeric(row.altitude),
-      speed: parseNumeric(row.speed),
-      acceleration: parseNumeric(row.acceleration)
-    };
-
-    errors = parseErrorFlags(row.error_flags);
-  }
-
-  function stopPlayback() {
-    isPlaying = false;
-    if (playbackTimer) {
-      clearTimeout(playbackTimer);
-      playbackTimer = null;
-    }
-  }
-
   function resetDisplay() {
-    stopPlayback();
     missionState = "IDLE";
     systemStatus = stateStatusMap.IDLE;
+
     telemetry = {
       pitch: "--",
       yaw: "--",
@@ -125,152 +120,115 @@
       speed: "--",
       acceleration: "--"
     };
+
     errors = [];
     elapsedMs = 0;
-    currentIndex = -1;
+    RSSI = 0;
+
+    gps = {
+      lat: null,
+      lon: null
+    };
+
+    clearFlightTracking();
   }
 
-  function playCsv() {
-    if (!csvRows.length || isPlaying) return;
+  function pushHistory(history, value) {
+    if (!Number.isFinite(value)) return history;
 
-    if (currentIndex < 0) {
-      currentIndex = 0;
-      applyRow(csvRows[0]);
+    const updated = [...history, value];
+
+    if (updated.length > MAX_GRAPH_POINTS) {
+      updated.shift();
     }
 
-    isPlaying = true;
-    scheduleNextStep();
+    return updated;
   }
 
-  function scheduleNextStep() {
-    if (!isPlaying) return;
+  function buildGraphPoints(values, width = 100, height = 42) {
+    if (!values.length) return "";
 
-    if (currentIndex >= csvRows.length - 1) {
-      stopPlayback();
-      return;
+    let min = Math.min(...values);
+    let max = Math.max(...values);
+
+    if (min === max) {
+      min -= 1;
+      max += 1;
     }
 
-    const currentRow = csvRows[currentIndex];
-    const nextRow = csvRows[currentIndex + 1];
-
-    const currentTime = Number(currentRow?.time_ms) || 0;
-    const nextTime = Number(nextRow?.time_ms) || 0;
-    const deltaMs = Math.max(1, nextTime - currentTime);
-
-    playbackTimer = setTimeout(() => {
-      currentIndex += 1;
-      applyRow(csvRows[currentIndex]);
-      scheduleNextStep();
-    }, deltaMs);
+    return values
+      .map((value, index) => {
+        const x = values.length === 1 ? 0 : (index / (values.length - 1)) * width;
+        const y = height - ((value - min) / (max - min)) * height;
+        return `${x},${y}`;
+      })
+      .join(" ");
   }
 
-  function splitCsvLine(line) {
-    const result = [];
-    let current = "";
-    let insideQuotes = false;
-
-    for (let i = 0; i < line.length; i++) {
-      const char = line[i];
-      const nextChar = line[i + 1];
-
-      if (char === '"' && insideQuotes && nextChar === '"') {
-        current += '"';
-        i++;
-      } else if (char === '"') {
-        insideQuotes = !insideQuotes;
-      } else if (char === "," && !insideQuotes) {
-        result.push(current);
-        current = "";
-      } else {
-        current += char;
-      }
-    }
-
-    result.push(current);
-    return result;
+  function isValidGps(lat, lon) {
+    return (
+      Number.isFinite(lat) &&
+      Number.isFinite(lon) &&
+      lat >= -90 &&
+      lat <= 90 &&
+      lon >= -180 &&
+      lon <= 180 &&
+      !(lat === 0 && lon === 0)
+    );
   }
 
-  function parseCsv(text) {
-    const lines = text
-      .split(/\r?\n/)
-      .map((line) => line.trim())
-      .filter(Boolean);
+  function gpsToMapPoint(lat, lon, width = 100, height = 100) {
+    if (!gpsHome) return null;
 
-    if (lines.length < 2) {
-      throw new Error("CSV file is empty or missing data rows.");
-    }
+    const metersPerDegreeLat = 111320;
+    const metersPerDegreeLon = 111320 * Math.cos((gpsHome.lat * Math.PI) / 180);
 
-    const headers = splitCsvLine(lines[0]).map((h) => h.trim());
+    const dx = (lon - gpsHome.lon) * metersPerDegreeLon;
+    const dy = (lat - gpsHome.lat) * metersPerDegreeLat;
 
-    const requiredHeaders = [
-      "time_ms",
-      "state",
-      "pitch",
-      "yaw",
-      "roll",
-      "altitude",
-      "speed",
-      "acceleration",
-      "error_flags",
-      "status_text"
-    ];
+    const x = 50 + (dx / MAP_RANGE_METERS) * 45;
+    const y = 50 - (dy / MAP_RANGE_METERS) * 45;
 
-    const missing = requiredHeaders.filter((header) => !headers.includes(header));
-    if (missing.length > 0) {
-      throw new Error(`Missing columns: ${missing.join(", ")}`);
-    }
-
-    const rows = [];
-
-    for (let i = 1; i < lines.length; i++) {
-      const values = splitCsvLine(lines[i]);
-      if (values.length !== headers.length) continue;
-
-      const row = {};
-      headers.forEach((header, idx) => {
-        row[header] = values[idx];
-      });
-
-      rows.push(row);
-    }
-
-    rows.sort((a, b) => (Number(a.time_ms) || 0) - (Number(b.time_ms) || 0));
-    return rows;
+    return {
+      x: Math.max(2, Math.min(98, x)),
+      y: Math.max(2, Math.min(98, y)),
+      dx,
+      dy
+    };
   }
 
-  async function handleFileChange(event) {
-    const file = event.target.files?.[0];
-    if (!file) return;
+  function buildGpsPath(points) {
+    return points.map((point) => `${point.x},${point.y}`).join(" ");
+  }
 
-    try {
-      const text = await file.text();
-      csvRows = parseCsv(text);
-      loadedFileName = file.name;
-      resetDisplay();
+  function addGpsPoint(lat, lon) {
+    if (!isValidGps(lat, lon)) return;
 
-      if (csvRows.length > 0) {
-        currentIndex = 0;
-        applyRow(csvRows[0]);
-      }
-    } catch (error) {
-      csvRows = [];
-      loadedFileName = file.name;
-      stopPlayback();
-      missionState = "SAFE";
-      systemStatus = `CSV load error: ${error.message}`;
-      errors = ["CSV_PARSE_ERROR"];
-      telemetry = {
-        pitch: "--",
-        yaw: "--",
-        roll: "--",
-        altitude: "--",
-        speed: "--",
-        acceleration: "--"
-      };
-      elapsedMs = 0;
-      currentIndex = -1;
-      flashTransition();
+    gps = { lat, lon };
+
+    if (!isRocketFlying()) return;
+
+    if (!gpsHome) {
+      gpsHome = { lat, lon };
     }
+
+    const point = gpsToMapPoint(lat, lon);
+
+    if (!point) return;
+
+    gpsPath = [...gpsPath, point];
+
+    if (gpsPath.length > MAX_GPS_POINTS) {
+      gpsPath.shift();
+    }
+  }
+
+  function addFlightGraphPoint(pitchDeg, yawDeg, rollDeg) {
+    if (!isRocketFlying()) return;
+
+    pitchHistory = pushHistory(pitchHistory, pitchDeg);
+    yawHistory = pushHistory(yawHistory, yawDeg);
+    rollHistory = pushHistory(rollHistory, rollDeg);
   }
 
   let port;
@@ -279,143 +237,391 @@
 
   async function connectSerial() {
     try {
-      // 1. Request port from user
       port = await navigator.serial.requestPort();
       await port.open({ baudRate: 9600 });
 
-      // 2. Set up the stream reader
       const decoder = new TextDecoderStream();
       port.readable.pipeTo(decoder.writable);
       reader = decoder.readable.getReader();
 
-      // 3. Read loop
       while (true) {
         const { value, done } = await reader.read();
         if (done) break;
+        if (!value) continue;
 
-        if(value.includes('\r\n')){
-          const lines = value.split('\r\n');
+        if (value.includes("\r\n")) {
+          const lines = value.split("\r\n");
+
           serialData += lines[0];
           parseTelemetryFromSerial(serialData);
-          serialData = lines[1];
-        }else{
+
+          serialData = lines[1] || "";
+        } else {
           serialData += value;
         }
 
         console.log("Received serial data:", value);
-        
-
       }
     } catch (err) {
       console.error("Serial error:", err);
+      setState("SAFE", `Serial error: ${err.message || err}`);
     }
   }
 
-function parseTelemetryFromSerial(data) {
-  const cleanHex = data.replace(/\s+/g, '');
-  const raw_bytes = hexToBytes(cleanHex);
+  function parseTelemetryFromSerial(data) {
+    const cleanHex = data.replace(/\s+/g, "");
+    const raw_bytes = hexToBytes(cleanHex);
 
-  // New expected length: 28 (quat + gyro) + 1 (state) + 4 (alt) + 4 (time) + 1 (rssi) = 38 bytes
-  if (raw_bytes.length < 37) {
-    console.warn("Received incomplete telemetry data. Expected 38, got:", raw_bytes.length);
-    return;
-  }
+    if (raw_bytes.length < 37) {
+      console.warn("Received incomplete telemetry data. Expected at least 37 bytes, got:", raw_bytes.length);
+      return;
+    }
 
-  const view = new DataView(raw_bytes.buffer, raw_bytes.byteOffset, raw_bytes.byteLength);
+    const view = new DataView(raw_bytes.buffer, raw_bytes.byteOffset, raw_bytes.byteLength);
 
-  // 1. Extract Quaternion (Offsets 0, 4, 8, 12)
-  const q = {
-    w: view.getFloat32(0, true),
-    x: view.getFloat32(4, true),
-    y: view.getFloat32(8, true),
-    z: view.getFloat32(12, true)
-  };
-
-  // 2. Convert Quaternion to Euler (Roll, Pitch, Yaw)
-  const euler = toEulerAngles(q);
-  telemetry.roll = (euler.roll * (180 / Math.PI)).toFixed(1);
-  telemetry.pitch = (euler.pitch * (180 / Math.PI)).toFixed(1);
-  telemetry.yaw = (euler.yaw * (180 / Math.PI)).toFixed(1);
-
-  // 3. Extract Gyro/Rotation Rates (Offsets 16, 20, 24)
-  telemetry.rx = view.getFloat32(16, true).toFixed(2);
-  telemetry.ry = view.getFloat32(20, true).toFixed(2);
-  telemetry.rz = view.getFloat32(24, true).toFixed(2);
-
-  // 4. Flight State (Offset 28)
-  const stateCode = view.getUint8(28);
-  switch (stateCode) {
-    case 0: setState("READY"); break;
-    case 1: setState("ASCENT"); break;
-    case 2: setState("DESCENT"); break;
-    case 3: setState("LANDED"); break;
-    default: setState("SAFE", `Unknown state: ${stateCode}`);
-  }
-
-  // 5. Altitude (Offset 29)
-  telemetry.altitude = view.getFloat32(29, true).toFixed(2);
-
-  // 6. Timestamp (Offset 33) - Converting us to ms
-  elapsedMs = (view.getUint32(33, true) / 1000).toFixed(0);
-
-  // 7. RSSI (Offset 37 - The extra byte added by receiver)
-  // RSSI = view.getInt8(37);
-}
-function hexToBytes(hexString) {
-  const bytes = new Uint8Array(hexString.length / 2);
-
-  for (let i = 0; i < hexString.length; i += 2) {
-    bytes[i / 2] = parseInt(hexString.substring(i, i + 2), 16);
-  }
-
-  return bytes;
-} 
-
-function toEulerAngles(q) {
-    const angles = {
-        roll: 0,
-        pitch: 0,
-        yaw: 0
+    const q = {
+      w: view.getFloat32(0, true),
+      x: view.getFloat32(4, true),
+      y: view.getFloat32(8, true),
+      z: view.getFloat32(12, true)
     };
 
-    // Roll (x-axis rotation)
+    const euler = toEulerAngles(q);
+    const rollDeg = euler.roll * (180 / Math.PI);
+    const pitchDeg = euler.pitch * (180 / Math.PI);
+    const yawDeg = euler.yaw * (180 / Math.PI);
+
+    telemetry.roll = rollDeg.toFixed(1);
+    telemetry.pitch = pitchDeg.toFixed(1);
+    telemetry.yaw = yawDeg.toFixed(1);
+
+    const rx = view.getFloat32(16, true);
+    const ry = view.getFloat32(20, true);
+    const rz = view.getFloat32(24, true);
+    console.log("Rotation rates:", { rx, ry, rz });
+
+    const stateCode = view.getUint8(28);
+
+    switch (stateCode) {
+      case 0:
+        setState("READY");
+        break;
+      case 1:
+        setState("ASCENT");
+        break;
+      case 2:
+        setState("DESCENT");
+        break;
+      case 3:
+        setState("LANDED");
+        break;
+      default:
+        setState("SAFE", `Unknown state: ${stateCode}`);
+    }
+
+    addFlightGraphPoint(pitchDeg, yawDeg, rollDeg);
+
+    telemetry.altitude = view.getFloat32(29, true).toFixed(2);
+    elapsedMs = Number((view.getUint32(33, true) / 1000).toFixed(0));
+
+    if (raw_bytes.length >= 45) {
+      const lat = view.getFloat32(37, true);
+      const lon = view.getFloat32(41, true);
+
+      addGpsPoint(lat, lon);
+    }
+
+    // If later you actually receive RSSI as an extra byte after GPS, enable this:
+    // if (raw_bytes.length >= 46) RSSI = view.getInt8(45);
+  }
+
+  function hexToBytes(hexString) {
+    if (!hexString || hexString.length % 2 !== 0) {
+      return new Uint8Array(0);
+    }
+
+    const bytes = new Uint8Array(hexString.length / 2);
+
+    for (let i = 0; i < hexString.length; i += 2) {
+      const byte = parseInt(hexString.substring(i, i + 2), 16);
+
+      if (Number.isNaN(byte)) {
+        return new Uint8Array(0);
+      }
+
+      bytes[i / 2] = byte;
+    }
+
+    return bytes;
+  }
+
+  function toEulerAngles(q) {
+    const angles = {
+      roll: 0,
+      pitch: 0,
+      yaw: 0
+    };
+
     const sinr_cosp = 2 * (q.w * q.x + q.y * q.z);
     const cosr_cosp = 1 - 2 * (q.x * q.x + q.y * q.y);
     angles.roll = Math.atan2(sinr_cosp, cosr_cosp);
 
-    // Pitch (y-axis rotation)
     const sinp = 2 * (q.w * q.y - q.z * q.x);
+
     if (Math.abs(sinp) >= 1) {
-        // Use 90 degrees if out of range (Gimbal Lock)
-        angles.pitch = (Math.PI / 2) * Math.sign(sinp);
+      angles.pitch = (Math.PI / 2) * Math.sign(sinp);
     } else {
-        angles.pitch = Math.asin(sinp);
+      angles.pitch = Math.asin(sinp);
     }
 
-    // Yaw (z-axis rotation)
     const siny_cosp = 2 * (q.w * q.z + q.x * q.y);
     const cosy_cosp = 1 - 2 * (q.y * q.y + q.z * q.z);
     angles.yaw = Math.atan2(siny_cosp, cosy_cosp);
 
     return angles;
-}
+  }
+
+  function angleValue(value) {
+    const num = Number(value);
+    return Number.isFinite(num) ? num : 0;
+  }
+
+  function createFin(material) {
+    const finShape = new THREE.Shape();
+
+    finShape.moveTo(0.0, -0.32);
+    finShape.lineTo(0.0, 0.24);
+    finShape.lineTo(0.26, 0.08);
+    finShape.lineTo(0.34, -0.32);
+    finShape.lineTo(0.0, -0.32);
+
+    const finGeometry = new THREE.ExtrudeGeometry(finShape, {
+      depth: 0.035,
+      bevelEnabled: false
+    });
+
+    finGeometry.translate(0, 0, -0.0175);
+    finGeometry.computeVertexNormals();
+
+    const fin = new THREE.Mesh(finGeometry, material);
+
+    return fin;
+  }
+
+  function createRocketModel() {
+    const group = new THREE.Group();
+
+    const whiteMaterial = new THREE.MeshStandardMaterial({
+      color: 0xf8fafc,
+      roughness: 0.34,
+      metalness: 0.05,
+      side: THREE.DoubleSide
+    });
+
+    const redMaterial = new THREE.MeshStandardMaterial({
+      color: 0xdc2626,
+      roughness: 0.32,
+      metalness: 0.05
+    });
+
+    const blackMaterial = new THREE.MeshStandardMaterial({
+      color: 0x111827,
+      roughness: 0.42,
+      metalness: 0.12,
+      side: THREE.DoubleSide
+    });
+
+    const bodyRadius = 0.22;
+    const bodyLength = 3.1;
+    const bodyTop = bodyLength / 2;
+    const bodyBottom = -bodyLength / 2;
+
+    const body = new THREE.Mesh(
+      new THREE.CylinderGeometry(bodyRadius, bodyRadius, bodyLength, 96),
+      whiteMaterial
+    );
+
+    body.position.y = 0;
+    group.add(body);
+
+    const noseHeight = 0.85;
+    const nosePoints = [];
+
+    for (let i = 0; i <= 18; i++) {
+      const t = i / 18;
+      const y = t * noseHeight;
+      const radius = bodyRadius * Math.sin((1 - t) * Math.PI / 2);
+
+      nosePoints.push(new THREE.Vector2(radius, y));
+    }
+
+    const nose = new THREE.Mesh(
+      new THREE.LatheGeometry(nosePoints, 96),
+      redMaterial
+    );
+
+    nose.position.y = bodyTop;
+    group.add(nose);
+
+    const upperRing = new THREE.Mesh(
+      new THREE.CylinderGeometry(bodyRadius + 0.008, bodyRadius + 0.008, 0.06, 96),
+      blackMaterial
+    );
+
+    upperRing.position.y = 0.72;
+    group.add(upperRing);
+
+    const lowerRing = new THREE.Mesh(
+      new THREE.CylinderGeometry(bodyRadius + 0.008, bodyRadius + 0.008, 0.06, 96),
+      blackMaterial
+    );
+
+    lowerRing.position.y = -0.82;
+    group.add(lowerRing);
+
+    const finY = bodyBottom + 0.3;
+    const finAngles = [
+      0,
+      Math.PI / 2,
+      Math.PI,
+      (3 * Math.PI) / 2
+    ];
+
+    finAngles.forEach((angle) => {
+      const fin = createFin(blackMaterial);
+
+      fin.position.set(
+        Math.cos(angle) * (bodyRadius + 0.002),
+        finY,
+        Math.sin(angle) * (bodyRadius + 0.002)
+      );
+
+      fin.rotation.y = -angle;
+
+      group.add(fin);
+    });
+
+    return group;
+  }
+
+  function resizeThreeView() {
+    if (!threeContainer || !camera || !renderer) return;
+
+    const width = threeContainer.clientWidth || 260;
+    const height = threeContainer.clientHeight || 230;
+
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+    renderer.setSize(width, height);
+  }
+
+  function initThreeView() {
+    if (!threeContainer) return;
+
+    scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x111827);
+
+    const width = threeContainer.clientWidth || 260;
+    const height = threeContainer.clientHeight || 230;
+
+    camera = new THREE.PerspectiveCamera(38, width / height, 0.1, 100);
+    camera.position.set(2.45, 1.45, 3.35);
+
+    renderer = new THREE.WebGLRenderer({
+      antialias: true
+    });
+
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.setSize(width, height);
+    threeContainer.appendChild(renderer.domElement);
+
+    controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.08;
+    controls.enablePan = false;
+    controls.minDistance = 2.2;
+    controls.maxDistance = 7;
+    controls.target.set(0, 0.15, 0);
+
+    scene.add(new THREE.AmbientLight(0xffffff, 0.75));
+
+    const mainLight = new THREE.DirectionalLight(0xffffff, 1.55);
+    mainLight.position.set(4, 5, 3);
+    scene.add(mainLight);
+
+    const sideLight = new THREE.DirectionalLight(0x93c5fd, 0.4);
+    sideLight.position.set(-3, 2, -4);
+    scene.add(sideLight);
+
+    rocketGroup = createRocketModel();
+    scene.add(rocketGroup);
+
+    const grid = new THREE.GridHelper(4, 8, 0x475569, 0x263241);
+    grid.position.y = -1.65;
+
+    grid.material.transparent = true;
+    grid.material.opacity = 0.4;
+    grid.material.depthWrite = false;
+
+    scene.add(grid);
+
+    resizeObserver = new ResizeObserver(resizeThreeView);
+    resizeObserver.observe(threeContainer);
+
+    animateThreeView();
+  }
+
+  function animateThreeView() {
+    animationFrame = requestAnimationFrame(animateThreeView);
+
+    if (rocketGroup) {
+      const pitch = THREE.MathUtils.degToRad(angleValue(telemetry.pitch));
+      const yaw = THREE.MathUtils.degToRad(angleValue(telemetry.yaw));
+      const roll = THREE.MathUtils.degToRad(angleValue(telemetry.roll));
+
+      rocketGroup.rotation.order = "ZXY";
+      rocketGroup.rotation.x = pitch;
+      rocketGroup.rotation.z = yaw;
+      rocketGroup.rotation.y = roll;
+    }
+
+    if (controls) controls.update();
+    if (renderer && scene && camera) renderer.render(scene, camera);
+  }
+
+  onMount(() => {
+    initThreeView();
+  });
+
+  onDestroy(() => {
+    if (animationFrame) cancelAnimationFrame(animationFrame);
+    if (resizeObserver) resizeObserver.disconnect();
+    if (controls) controls.dispose();
+
+    if (renderer) {
+      renderer.dispose();
+
+      if (renderer.domElement?.parentNode) {
+        renderer.domElement.parentNode.removeChild(renderer.domElement);
+      }
+    }
+  });
+
+  $: flying = missionState === "ASCENT" || missionState === "DESCENT";
+
+  $: pitchGraphPoints = buildGraphPoints(pitchHistory);
+  $: yawGraphPoints = buildGraphPoints(yawHistory);
+  $: rollGraphPoints = buildGraphPoints(rollHistory);
+
+  $: gpsPathPoints = buildGpsPath(gpsPath);
+  $: currentGpsPoint = gpsPath.length > 0 ? gpsPath[gpsPath.length - 1] : null;
 </script>
 
 <div class="app">
   <header>
     <div class="header-left">
       <div class="title">GROUND STATION</div>
-
       <button on:click={connectSerial}>Connect to GS</button>
-
-      <label class="file-picker">
-        <span>Choose CSV</span>
-        <input type="file" accept=".csv,text/csv" on:change={handleFileChange} />
-      </label>
-
-      {#if loadedFileName}
-        <div class="file-name">{loadedFileName}</div>
-      {/if}
     </div>
 
     <div class="states">
@@ -441,27 +647,120 @@ function toEulerAngles(q) {
     <div class="column">
       <div class="panel view">
         <div class="panel-title">3D VEHICLE VIEW</div>
+
+        <div class="three-view" bind:this={threeContainer}></div>
       </div>
 
       <div class="panel map">
         <div class="panel-title">MISSION MAP</div>
+
+        <div class="map-stage">
+          <svg class="mission-map-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <line x1="0" y1="50" x2="100" y2="50" class="map-axis" />
+            <line x1="50" y1="0" x2="50" y2="100" class="map-axis" />
+
+            <circle cx="50" cy="50" r="15" class="map-range" />
+            <circle cx="50" cy="50" r="30" class="map-range" />
+            <circle cx="50" cy="50" r="45" class="map-range" />
+
+            {#if flying}
+              <text x="51.5" y="48" class="map-home-label">HOME</text>
+              <circle cx="50" cy="50" r="1.4" class="map-home" />
+
+              {#if gpsPath.length > 1}
+                <polyline points={gpsPathPoints} class="map-path" />
+              {/if}
+
+              {#if currentGpsPoint}
+                <circle
+                  cx={currentGpsPoint.x}
+                  cy={currentGpsPoint.y}
+                  r="0.5"
+                  class="map-rocket"
+                />
+              {/if}
+            {/if}
+          </svg>
+
+          {#if !flying}
+            <div class="map-idle">
+              GPS map tracking starts during ASCENT or DESCENT.
+            </div>
+          {/if}
+        </div>
+
+        <div class="map-readout">
+          {#if gps.lat !== null && gps.lon !== null}
+            LAT {gps.lat.toFixed(6)} · LON {gps.lon.toFixed(6)}
+          {:else}
+            Waiting for GPS fix
+          {/if}
+        </div>
       </div>
     </div>
 
     <div class="column telemetry">
       <div class="panel metric">
         <div class="label">PITCH (°)</div>
-        <div class="value" class:invalid={telemetry.pitch === "NaN"}>{telemetry.pitch}</div>
+        <div class="value">{telemetry.pitch}</div>
+
+        <div class="graph-stage">
+          <svg class="mini-graph" viewBox="0 0 100 42" preserveAspectRatio="none">
+            <line x1="0" y1="10.5" x2="100" y2="10.5" class="graph-grid" />
+            <line x1="0" y1="21" x2="100" y2="21" class="graph-axis" />
+            <line x1="0" y1="31.5" x2="100" y2="31.5" class="graph-grid" />
+
+            <line x1="25" y1="0" x2="25" y2="42" class="graph-grid" />
+            <line x1="50" y1="0" x2="50" y2="42" class="graph-grid" />
+            <line x1="75" y1="0" x2="75" y2="42" class="graph-grid" />
+
+            {#if flying}
+              <polyline points={pitchGraphPoints} fill="none" class="graph-line" />
+            {/if}
+          </svg>
+        </div>
       </div>
 
       <div class="panel metric">
         <div class="label">YAW (°)</div>
-        <div class="value" class:invalid={telemetry.yaw === "NaN"}>{telemetry.yaw}</div>
+        <div class="value">{telemetry.yaw}</div>
+
+        <div class="graph-stage">
+          <svg class="mini-graph" viewBox="0 0 100 42" preserveAspectRatio="none">
+            <line x1="0" y1="10.5" x2="100" y2="10.5" class="graph-grid" />
+            <line x1="0" y1="21" x2="100" y2="21" class="graph-axis" />
+            <line x1="0" y1="31.5" x2="100" y2="31.5" class="graph-grid" />
+
+            <line x1="25" y1="0" x2="25" y2="42" class="graph-grid" />
+            <line x1="50" y1="0" x2="50" y2="42" class="graph-grid" />
+            <line x1="75" y1="0" x2="75" y2="42" class="graph-grid" />
+
+            {#if flying}
+              <polyline points={yawGraphPoints} fill="none" class="graph-line" />
+            {/if}
+          </svg>
+        </div>
       </div>
 
       <div class="panel metric">
         <div class="label">ROLL (°)</div>
-        <div class="value" class:invalid={telemetry.roll === "NaN"}>{telemetry.roll}</div>
+        <div class="value">{telemetry.roll}</div>
+
+        <div class="graph-stage">
+          <svg class="mini-graph" viewBox="0 0 100 42" preserveAspectRatio="none">
+            <line x1="0" y1="10.5" x2="100" y2="10.5" class="graph-grid" />
+            <line x1="0" y1="21" x2="100" y2="21" class="graph-axis" />
+            <line x1="0" y1="31.5" x2="100" y2="31.5" class="graph-grid" />
+
+            <line x1="25" y1="0" x2="25" y2="42" class="graph-grid" />
+            <line x1="50" y1="0" x2="50" y2="42" class="graph-grid" />
+            <line x1="75" y1="0" x2="75" y2="42" class="graph-grid" />
+
+            {#if flying}
+              <polyline points={rollGraphPoints} fill="none" class="graph-line" />
+            {/if}
+          </svg>
+        </div>
       </div>
 
       <div class="panel metric">
@@ -483,7 +782,6 @@ function toEulerAngles(q) {
     <div class="column">
       <div class="panel control">
         <div class="panel-title">FLIGHT CONTROL</div>
-        <button class="control-btn" type="button" on:click={playCsv}>PLAY</button>
       </div>
 
       <div class="panel errors">
@@ -537,32 +835,20 @@ function toEulerAngles(q) {
   .title {
     font-size: 14px;
     letter-spacing: 1px;
-    font-weight: 600;
     white-space: nowrap;
   }
 
-  .file-picker {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  button {
+    background: #151c26;
+    border: 1px solid #2a3442;
+    color: #cbd5e1;
+    padding: 6px 12px;
     font-size: 12px;
-    color: #94a3b8;
-    white-space: nowrap;
+    cursor: pointer;
   }
 
-  .file-picker input {
-    font-size: 12px;
-    color: #94a3b8;
-    max-width: 180px;
-  }
-
-  .file-name {
-    font-size: 11px;
-    color: #64748b;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 160px;
+  button:hover {
+    background: #1d2632;
   }
 
   .states {
@@ -571,11 +857,8 @@ function toEulerAngles(q) {
   }
 
   .states button {
-    background: #151c26;
-    border: 1px solid #2a3442;
     color: #94a3b8;
     padding: 6px 14px;
-    font-size: 12px;
     transition: 0.15s;
     cursor: default;
   }
@@ -594,7 +877,7 @@ function toEulerAngles(q) {
 
   .timer {
     font-family: monospace;
-    font-size: 13px;
+    font-size: 16px;
     color: #94a3b8;
     white-space: nowrap;
   }
@@ -638,11 +921,106 @@ function toEulerAngles(q) {
   }
 
   .view {
-    height: 220px;
+    aspect-ratio: 1 / 0.75;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .three-view {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 24px);
+    background: #111827;
+    overflow: hidden;
+  }
+
+  .three-view canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
   }
 
   .map {
-    height: 280px;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .map-stage {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 34px);
+  }
+
+  .mission-map-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: #111827;
+    border: 1px solid #1f2937;
+  }
+
+  .map-idle {
+    position: absolute;
+    inset: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    font-family: monospace;
+    font-size: 12px;
+    text-align: center;
+    padding: 14px;
+    pointer-events: none;
+  }
+
+  .map-axis {
+    stroke: #334155;
+    stroke-width: 0.35;
+    opacity: 0.7;
+  }
+
+  .map-range {
+    fill: none;
+    stroke: #263241;
+    stroke-width: 0.45;
+    opacity: 0.75;
+  }
+
+  .map-path {
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 0.65;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0.9;
+  }
+
+  .map-rocket {
+    fill: rgb(92, 92, 92);
+    stroke: rgb(92, 92, 92);
+    stroke-width: 0.8;
+  }
+
+  .map-home {
+    fill: #64748b;
+    opacity: 0.9;
+  }
+
+  .map-home-label {
+    fill: #64748b;
+    font-size: 3px;
+    font-family: monospace;
+  }
+
+  .map-readout {
+    margin-top: 8px;
+    font-size: 11px;
+    color: #64748b;
+    font-family: monospace;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .telemetry {
@@ -651,15 +1029,59 @@ function toEulerAngles(q) {
     gap: 18px;
   }
 
+  .metric {
+    display: flex;
+    flex-direction: column;
+    min-height: 145px;
+  }
+
   .metric .label {
     font-size: 11px;
     color: #8b98a8;
   }
 
   .metric .value {
-    font-size: 22px;
+    font-size: 26px;
     font-family: monospace;
     margin-top: 6px;
+    margin-bottom: 14px;
+  }
+
+  .graph-stage {
+    width: 100%;
+    flex: 1;
+    min-height: 70px;
+  }
+
+  .mini-graph {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: transparent;
+    border: none;
+    border-top: 1px solid #1f2937;
+    padding-top: 8px;
+    margin-top: 2px;
+  }
+
+  .graph-grid {
+    stroke: #263241;
+    stroke-width: 0.25;
+    opacity: 0.45;
+  }
+
+  .graph-axis {
+    stroke: #334155;
+    stroke-width: 0.35;
+    opacity: 0.65;
+  }
+
+  .graph-line {
+    stroke: #ffffff;
+    stroke-width: 0.25;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0.95;
   }
 
   .metric .value.invalid {

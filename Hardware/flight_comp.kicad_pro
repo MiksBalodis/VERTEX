@@ -520,7 +520,7 @@
       "plot": "C:/Users/kroko/Desktop/Flight_computer/Production/",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "flight_comp.step",
       "svg": "",
       "vrml": ""
     },
