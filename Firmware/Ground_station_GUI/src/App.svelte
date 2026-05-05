@@ -281,9 +281,9 @@
 
     const q = {
       w: view.getFloat32(0, true),
-      x: view.getFloat32(4, true),
-      y: view.getFloat32(8, true),
-      z: view.getFloat32(12, true)
+      z: view.getFloat32(4, true),
+      x: view.getFloat32(8, true),
+      y: view.getFloat32(12, true)
     };
 
     const euler = toEulerAngles(q);
