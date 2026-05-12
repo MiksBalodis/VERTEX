@@ -145,25 +145,28 @@
     return updated;
   }
 
-  function buildGraphPoints(values, width = 100, height = 42) {
-    if (!values.length) return "";
+function buildGraphPoints(values, width = 100, height = 42, defaultRangeDeg = 30) {
+  if (!values.length) return "";
 
-    let min = Math.min(...values);
-    let max = Math.max(...values);
+  const maxAbsValue = Math.max(...values.map((value) => Math.abs(value)));
 
-    if (min === max) {
-      min -= 1;
-      max += 1;
-    }
+  /*
+    Default scale is ±30 degrees.
+  */
 
-    return values
-      .map((value, index) => {
-        const x = values.length === 1 ? 0 : (index / (values.length - 1)) * width;
-        const y = height - ((value - min) / (max - min)) * height;
-        return `${x},${y}`;
-      })
-      .join(" ");
-  }
+  const range = Math.max(defaultRangeDeg, maxAbsValue);
+
+  const min = -range;
+  const max = range;
+
+  return values
+    .map((value, index) => {
+      const x = values.length === 1 ? 0 : (index / (values.length - 1)) * width;
+      const y = height - ((value - min) / (max - min)) * height;
+      return `${x},${y}`;
+    })
+    .join(" ");
+}
 
   function isValidGps(lat, lon) {
     return (
@@ -272,18 +275,22 @@
     const cleanHex = data.replace(/\s+/g, "");
     const raw_bytes = hexToBytes(cleanHex);
 
-    if (raw_bytes.length < 37) {
-      console.warn("Received incomplete telemetry data. Expected at least 37 bytes, got:", raw_bytes.length);
+    if (raw_bytes.length < 49) {
+      console.warn("Received incomplete telemetry data. Expected at least 49 bytes, got:", raw_bytes.length);
       return;
     }
 
     const view = new DataView(raw_bytes.buffer, raw_bytes.byteOffset, raw_bytes.byteLength);
 
+    /*
+      Firmware sends quaternion in this order:
+      bytes 0–15 = w, x, y, z
+    */
     const q = {
       w: view.getFloat32(0, true),
-      z: view.getFloat32(4, true),
-      x: view.getFloat32(8, true),
-      y: view.getFloat32(12, true)
+      x: view.getFloat32(4, true),
+      y: view.getFloat32(8, true),
+      z: view.getFloat32(12, true)
     };
 
     const euler = toEulerAngles(q);
@@ -295,11 +302,37 @@
     telemetry.pitch = pitchDeg.toFixed(1);
     telemetry.yaw = yawDeg.toFixed(1);
 
+    /*
+      bytes 16–27 = rx, ry, rz
+      In your firmware these are currently:
+      raw_telemetry.rx = imu.rx;
+      raw_telemetry.ry = imu.ry;
+      raw_telemetry.rz = imu.rz;
+
+      Assuming they are acceleration values in mg,
+      this calculates total acceleration magnitude in m/s².
+    */
     const rx = view.getFloat32(16, true);
     const ry = view.getFloat32(20, true);
     const rz = view.getFloat32(24, true);
-    console.log("Rotation rates:", { rx, ry, rz });
 
+    const accelerationMg = Math.sqrt(rx * rx + ry * ry + rz * rz);
+    const accelerationMps2 = (accelerationMg * 9.80665) / 1000.0;
+
+    telemetry.acceleration = accelerationMps2.toFixed(2);
+
+    console.log("IMU rx/ry/rz:", { rx, ry, rz });
+
+    /*
+      byte 28 = flight state
+      Firmware:
+      0 = READY
+      1 = ASCENT
+      2 = DESCENT
+      3 = LANDED
+      4 = IDLE
+      anything else = SAFE
+    */
     const stateCode = view.getUint8(28);
 
     switch (stateCode) {
@@ -315,24 +348,41 @@
       case 3:
         setState("LANDED");
         break;
+      case 4:
+        setState("IDLE");
+        break;
       default:
         setState("SAFE", `Unknown state: ${stateCode}`);
     }
 
     addFlightGraphPoint(pitchDeg, yawDeg, rollDeg);
 
+    /*
+      bytes 29–32 = altitude, float32
+      bytes 33–36 = timestamp, uint32 us
+      bytes 37–40 = latitude, float32
+      bytes 41–44 = longitude, float32
+      bytes 45–48 = vertical speed, float32
+    */
     telemetry.altitude = view.getFloat32(29, true).toFixed(2);
+
     elapsedMs = Number((view.getUint32(33, true) / 1000).toFixed(0));
 
-    if (raw_bytes.length >= 45) {
-      const lat = view.getFloat32(37, true);
-      const lon = view.getFloat32(41, true);
+    const lat = view.getFloat32(37, true);
+    const lon = view.getFloat32(41, true);
 
-      addGpsPoint(lat, lon);
+    addGpsPoint(lat, lon);
+
+    const verticalSpeed = view.getFloat32(45, true);
+    telemetry.speed = verticalSpeed.toFixed(2);
+
+    /*
+      Optional: if receiver later appends RSSI after the 49-byte packet,
+      RSSI would be byte 49.
+    */
+    if (raw_bytes.length >= 50) {
+      RSSI = view.getInt8(49);
     }
-
-    // If later you actually receive RSSI as an extra byte after GPS, enable this:
-    // if (raw_bytes.length >= 46) RSSI = view.getInt8(45);
   }
 
   function hexToBytes(hexString) {
@@ -769,7 +819,7 @@
       </div>
 
       <div class="panel metric">
-        <div class="label">SPEED (m/s)</div>
+        <div class="label">VERTICAL SPEED (m/s)</div>
         <div class="value">{telemetry.speed}</div>
       </div>
 
