@@ -252,7 +252,7 @@ void LoRa_TxTelemetry(void){
   // Mission_BuildTelemetryPacket(telem_buf);
   // SX1262_Transmit(telem_buf, sizeof(telem_buf));
 
-  uint8_t raw_telem_buf[49];
+  uint8_t raw_telem_buf[54];   /* Extended packet: +battery_voltage(4) +sat_count(1) */
   Mission_BuildRAWTelemetryPacket(raw_telem_buf);
   SX1262_Transmit(raw_telem_buf, sizeof(raw_telem_buf));
 }

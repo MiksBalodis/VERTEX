@@ -27,6 +27,10 @@
     acceleration: "--"
   };
 
+  /* New fields */
+  let batteryVoltage = "--";
+  let satelliteCount = "--";
+
   let errors = [];
   let elapsedMs = 0;
   let RSSI = 0;
@@ -121,6 +125,9 @@
       acceleration: "--"
     };
 
+    batteryVoltage = "--";
+    satelliteCount = "--";
+
     errors = [];
     elapsedMs = 0;
     RSSI = 0;
@@ -145,17 +152,11 @@
     return updated;
   }
 
-function buildGraphPoints(values, width = 100, height = 42, defaultRangeDeg = 30) {
+function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30) {
   if (!values.length) return "";
 
   const maxAbsValue = Math.max(...values.map((value) => Math.abs(value)));
-
-  /*
-    Default scale is ±30 degrees.
-  */
-
   const range = Math.max(defaultRangeDeg, maxAbsValue);
-
   const min = -range;
   const max = range;
 
@@ -262,8 +263,6 @@ function buildGraphPoints(values, width = 100, height = 42, defaultRangeDeg = 30
         } else {
           serialData += value;
         }
-
-        console.log("Received serial data:", value);
       }
     } catch (err) {
       console.error("Serial error:", err);
@@ -275,17 +274,20 @@ function buildGraphPoints(values, width = 100, height = 42, defaultRangeDeg = 30
     const cleanHex = data.replace(/\s+/g, "");
     const raw_bytes = hexToBytes(cleanHex);
 
-    if (raw_bytes.length < 49) {
-      console.warn("Received incomplete telemetry data. Expected at least 49 bytes, got:", raw_bytes.length);
+    /*
+      Extended packet is 54 bytes.
+      Bytes 0–48 are identical to the original 49-byte packet.
+      Bytes 49–52: battery_voltage (float32, little-endian)
+      Byte  53:    satellite_count (uint8)
+    */
+    if (raw_bytes.length < 54) {
+      console.warn("Received incomplete telemetry data. Expected 54 bytes, got:", raw_bytes.length);
       return;
     }
 
     const view = new DataView(raw_bytes.buffer, raw_bytes.byteOffset, raw_bytes.byteLength);
 
-    /*
-      Firmware sends quaternion in this order:
-      bytes 0–15 = w, x, y, z
-    */
+    /* --- Quaternion → Euler → IMU orientation display --- */
     const q = {
       w: view.getFloat32(0, true),
       x: view.getFloat32(4, true),
@@ -294,94 +296,64 @@ function buildGraphPoints(values, width = 100, height = 42, defaultRangeDeg = 30
     };
 
     const euler = toEulerAngles(q);
-    const rollDeg = euler.roll * (180 / Math.PI);
+    const rollDeg  = euler.roll  * (180 / Math.PI);
     const pitchDeg = euler.pitch * (180 / Math.PI);
-    const yawDeg = euler.yaw * (180 / Math.PI);
+    const yawDeg   = euler.yaw   * (180 / Math.PI);
 
-    telemetry.roll = rollDeg.toFixed(1);
+    /* IMU orientation: pitch, yaw, roll from quaternion */
+    telemetry.roll  = rollDeg.toFixed(1);
     telemetry.pitch = pitchDeg.toFixed(1);
-    telemetry.yaw = yawDeg.toFixed(1);
+    telemetry.yaw   = yawDeg.toFixed(1);
 
-    /*
-      bytes 16–27 = rx, ry, rz
-      In your firmware these are currently:
-      raw_telemetry.rx = imu.rx;
-      raw_telemetry.ry = imu.ry;
-      raw_telemetry.rz = imu.rz;
-
-      Assuming they are acceleration values in mg,
-      this calculates total acceleration magnitude in m/s².
-    */
+    /* --- Accelerometer → total acceleration magnitude --- */
     const rx = view.getFloat32(16, true);
     const ry = view.getFloat32(20, true);
     const rz = view.getFloat32(24, true);
 
-    const accelerationMg = Math.sqrt(rx * rx + ry * ry + rz * rz);
+    const accelerationMg   = Math.sqrt(rx * rx + ry * ry + rz * rz);
     const accelerationMps2 = (accelerationMg * 9.80665) / 1000.0;
 
     telemetry.acceleration = accelerationMps2.toFixed(2);
 
-    console.log("IMU rx/ry/rz:", { rx, ry, rz });
-
-    /*
-      byte 28 = flight state
-      Firmware:
-      0 = READY
-      1 = ASCENT
-      2 = DESCENT
-      3 = LANDED
-      4 = IDLE
-      anything else = SAFE
-    */
+    /* --- Flight state --- */
     const stateCode = view.getUint8(28);
 
     switch (stateCode) {
-      case 0:
-        setState("READY");
-        break;
-      case 1:
-        setState("ASCENT");
-        break;
-      case 2:
-        setState("DESCENT");
-        break;
-      case 3:
-        setState("LANDED");
-        break;
-      case 4:
-        setState("IDLE");
-        break;
-      default:
-        setState("SAFE", `Unknown state: ${stateCode}`);
+      case 0: setState("READY");   break;
+      case 1: setState("ASCENT");  break;
+      case 2: setState("DESCENT"); break;
+      case 3: setState("LANDED");  break;
+      case 4: setState("IDLE");    break;
+      default: setState("SAFE", `Unknown state: ${stateCode}`);
     }
 
     addFlightGraphPoint(pitchDeg, yawDeg, rollDeg);
 
-    /*
-      bytes 29–32 = altitude, float32
-      bytes 33–36 = timestamp, uint32 us
-      bytes 37–40 = latitude, float32
-      bytes 41–44 = longitude, float32
-      bytes 45–48 = vertical speed, float32
-    */
+    /* --- Barometric altitude (Kalman-filtered on firmware side) --- */
     telemetry.altitude = view.getFloat32(29, true).toFixed(2);
 
+    /* --- Timestamp --- */
     elapsedMs = Number((view.getUint32(33, true) / 1000).toFixed(0));
 
+    /* --- GPS --- */
     const lat = view.getFloat32(37, true);
     const lon = view.getFloat32(41, true);
-
     addGpsPoint(lat, lon);
 
-    const verticalSpeed = view.getFloat32(45, true);
-    telemetry.speed = verticalSpeed.toFixed(2);
+    /* --- Vertical speed (Kalman-filtered on firmware side) --- */
+    telemetry.speed = view.getFloat32(45, true).toFixed(2);
 
-    /*
-      Optional: if receiver later appends RSSI after the 49-byte packet,
-      RSSI would be byte 49.
-    */
-    if (raw_bytes.length >= 50) {
-      RSSI = view.getInt8(49);
+    /* --- Battery voltage (NEW – bytes 49–52) --- */
+    const batV = view.getFloat32(49, true);
+    batteryVoltage = Number.isFinite(batV) ? batV.toFixed(2) : "--";
+
+    /* --- Satellite count (NEW – byte 53) --- */
+    const sat = view.getUint8(53);
+    satelliteCount = sat;
+
+    /* --- Optional RSSI (byte 54 if sender appends it) --- */
+    if (raw_bytes.length >= 55) {
+      RSSI = view.getInt8(54);
     }
   }
 
@@ -406,18 +378,13 @@ function buildGraphPoints(values, width = 100, height = 42, defaultRangeDeg = 30
   }
 
   function toEulerAngles(q) {
-    const angles = {
-      roll: 0,
-      pitch: 0,
-      yaw: 0
-    };
+    const angles = { roll: 0, pitch: 0, yaw: 0 };
 
     const sinr_cosp = 2 * (q.w * q.x + q.y * q.z);
     const cosr_cosp = 1 - 2 * (q.x * q.x + q.y * q.y);
     angles.roll = Math.atan2(sinr_cosp, cosr_cosp);
 
     const sinp = 2 * (q.w * q.y - q.z * q.x);
-
     if (Math.abs(sinp) >= 1) {
       angles.pitch = (Math.PI / 2) * Math.sign(sinp);
     } else {
@@ -434,6 +401,24 @@ function buildGraphPoints(values, width = 100, height = 42, defaultRangeDeg = 30
   function angleValue(value) {
     const num = Number(value);
     return Number.isFinite(num) ? num : 0;
+  }
+
+  /* Battery voltage colour coding */
+  function batClass(v) {
+    const n = parseFloat(v);
+    if (!Number.isFinite(n)) return "";
+    if (n < 3.5)  return "crit";
+    if (n < 3.7)  return "warn";
+    return "ok";
+  }
+
+  /* Satellite count colour coding */
+  function satClass(s) {
+    const n = parseInt(s);
+    if (!Number.isFinite(n)) return "";
+    if (n < 4)  return "crit";
+    if (n < 6)  return "warn";
+    return "ok";
   }
 
   function createFin(material) {
@@ -454,7 +439,6 @@ function buildGraphPoints(values, width = 100, height = 42, defaultRangeDeg = 30
     finGeometry.computeVertexNormals();
 
     const fin = new THREE.Mesh(finGeometry, material);
-
     return fin;
   }
 
@@ -462,54 +446,36 @@ function buildGraphPoints(values, width = 100, height = 42, defaultRangeDeg = 30
     const group = new THREE.Group();
 
     const whiteMaterial = new THREE.MeshStandardMaterial({
-      color: 0xf8fafc,
-      roughness: 0.34,
-      metalness: 0.05,
-      side: THREE.DoubleSide
+      color: 0xf8fafc, roughness: 0.34, metalness: 0.05, side: THREE.DoubleSide
     });
-
     const redMaterial = new THREE.MeshStandardMaterial({
-      color: 0xdc2626,
-      roughness: 0.32,
-      metalness: 0.05
+      color: 0xdc2626, roughness: 0.32, metalness: 0.05
     });
-
     const blackMaterial = new THREE.MeshStandardMaterial({
-      color: 0x111827,
-      roughness: 0.42,
-      metalness: 0.12,
-      side: THREE.DoubleSide
+      color: 0x111827, roughness: 0.42, metalness: 0.12, side: THREE.DoubleSide
     });
 
     const bodyRadius = 0.22;
     const bodyLength = 3.1;
-    const bodyTop = bodyLength / 2;
+    const bodyTop    = bodyLength / 2;
     const bodyBottom = -bodyLength / 2;
 
     const body = new THREE.Mesh(
       new THREE.CylinderGeometry(bodyRadius, bodyRadius, bodyLength, 96),
       whiteMaterial
     );
-
     body.position.y = 0;
     group.add(body);
 
     const noseHeight = 0.85;
     const nosePoints = [];
-
     for (let i = 0; i <= 18; i++) {
       const t = i / 18;
       const y = t * noseHeight;
       const radius = bodyRadius * Math.sin((1 - t) * Math.PI / 2);
-
       nosePoints.push(new THREE.Vector2(radius, y));
     }
-
-    const nose = new THREE.Mesh(
-      new THREE.LatheGeometry(nosePoints, 96),
-      redMaterial
-    );
-
+    const nose = new THREE.Mesh(new THREE.LatheGeometry(nosePoints, 96), redMaterial);
     nose.position.y = bodyTop;
     group.add(nose);
 
@@ -517,7 +483,6 @@ function buildGraphPoints(values, width = 100, height = 42, defaultRangeDeg = 30
       new THREE.CylinderGeometry(bodyRadius + 0.008, bodyRadius + 0.008, 0.06, 96),
       blackMaterial
     );
-
     upperRing.position.y = 0.72;
     group.add(upperRing);
 
@@ -525,29 +490,19 @@ function buildGraphPoints(values, width = 100, height = 42, defaultRangeDeg = 30
       new THREE.CylinderGeometry(bodyRadius + 0.008, bodyRadius + 0.008, 0.06, 96),
       blackMaterial
     );
-
     lowerRing.position.y = -0.82;
     group.add(lowerRing);
 
     const finY = bodyBottom + 0.3;
-    const finAngles = [
-      0,
-      Math.PI / 2,
-      Math.PI,
-      (3 * Math.PI) / 2
-    ];
-
+    const finAngles = [0, Math.PI / 2, Math.PI, (3 * Math.PI) / 2];
     finAngles.forEach((angle) => {
       const fin = createFin(blackMaterial);
-
       fin.position.set(
         Math.cos(angle) * (bodyRadius + 0.002),
         finY,
         Math.sin(angle) * (bodyRadius + 0.002)
       );
-
       fin.rotation.y = -angle;
-
       group.add(fin);
     });
 
@@ -556,10 +511,8 @@ function buildGraphPoints(values, width = 100, height = 42, defaultRangeDeg = 30
 
   function resizeThreeView() {
     if (!threeContainer || !camera || !renderer) return;
-
-    const width = threeContainer.clientWidth || 260;
-    const height = threeContainer.clientHeight || 230;
-
+    const width  = threeContainer.clientWidth  || 260;
+    const height = threeContainer.clientHeight || 200;
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
     renderer.setSize(width, height);
@@ -571,26 +524,23 @@ function buildGraphPoints(values, width = 100, height = 42, defaultRangeDeg = 30
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0x111827);
 
-    const width = threeContainer.clientWidth || 260;
-    const height = threeContainer.clientHeight || 230;
+    const width  = threeContainer.clientWidth  || 260;
+    const height = threeContainer.clientHeight || 200;
 
     camera = new THREE.PerspectiveCamera(38, width / height, 0.1, 100);
     camera.position.set(2.45, 1.45, 3.35);
 
-    renderer = new THREE.WebGLRenderer({
-      antialias: true
-    });
-
+    renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     renderer.setSize(width, height);
     threeContainer.appendChild(renderer.domElement);
 
     controls = new OrbitControls(camera, renderer.domElement);
-    controls.enableDamping = true;
-    controls.dampingFactor = 0.08;
-    controls.enablePan = false;
-    controls.minDistance = 2.2;
-    controls.maxDistance = 7;
+    controls.enableDamping  = true;
+    controls.dampingFactor  = 0.08;
+    controls.enablePan      = false;
+    controls.minDistance    = 2.2;
+    controls.maxDistance    = 7;
     controls.target.set(0, 0.15, 0);
 
     scene.add(new THREE.AmbientLight(0xffffff, 0.75));
@@ -608,11 +558,9 @@ function buildGraphPoints(values, width = 100, height = 42, defaultRangeDeg = 30
 
     const grid = new THREE.GridHelper(4, 8, 0x475569, 0x263241);
     grid.position.y = -1.65;
-
     grid.material.transparent = true;
-    grid.material.opacity = 0.4;
-    grid.material.depthWrite = false;
-
+    grid.material.opacity     = 0.4;
+    grid.material.depthWrite  = false;
     scene.add(grid);
 
     resizeObserver = new ResizeObserver(resizeThreeView);
@@ -626,8 +574,8 @@ function buildGraphPoints(values, width = 100, height = 42, defaultRangeDeg = 30
 
     if (rocketGroup) {
       const pitch = THREE.MathUtils.degToRad(angleValue(telemetry.pitch));
-      const yaw = THREE.MathUtils.degToRad(angleValue(telemetry.yaw));
-      const roll = THREE.MathUtils.degToRad(angleValue(telemetry.roll));
+      const yaw   = THREE.MathUtils.degToRad(angleValue(telemetry.yaw));
+      const roll  = THREE.MathUtils.degToRad(angleValue(telemetry.roll));
 
       rocketGroup.rotation.order = "ZXY";
       rocketGroup.rotation.x = pitch;
@@ -639,18 +587,14 @@ function buildGraphPoints(values, width = 100, height = 42, defaultRangeDeg = 30
     if (renderer && scene && camera) renderer.render(scene, camera);
   }
 
-  onMount(() => {
-    initThreeView();
-  });
+  onMount(() => { initThreeView(); });
 
   onDestroy(() => {
     if (animationFrame) cancelAnimationFrame(animationFrame);
     if (resizeObserver) resizeObserver.disconnect();
     if (controls) controls.dispose();
-
     if (renderer) {
       renderer.dispose();
-
       if (renderer.domElement?.parentNode) {
         renderer.domElement.parentNode.removeChild(renderer.domElement);
       }
@@ -660,11 +604,11 @@ function buildGraphPoints(values, width = 100, height = 42, defaultRangeDeg = 30
   $: flying = missionState === "ASCENT" || missionState === "DESCENT";
 
   $: pitchGraphPoints = buildGraphPoints(pitchHistory);
-  $: yawGraphPoints = buildGraphPoints(yawHistory);
-  $: rollGraphPoints = buildGraphPoints(rollHistory);
+  $: yawGraphPoints   = buildGraphPoints(yawHistory);
+  $: rollGraphPoints  = buildGraphPoints(rollHistory);
 
-  $: gpsPathPoints = buildGpsPath(gpsPath);
-  $: currentGpsPoint = gpsPath.length > 0 ? gpsPath[gpsPath.length - 1] : null;
+  $: gpsPathPoints    = buildGpsPath(gpsPath);
+  $: currentGpsPoint  = gpsPath.length > 0 ? gpsPath[gpsPath.length - 1] : null;
 </script>
 
 <div class="app">
@@ -694,10 +638,12 @@ function buildGraphPoints(values, width = 100, height = 42, defaultRangeDeg = 30
   </div>
 
   <main>
+    <!-- ================================================================
+         LEFT COLUMN – 3D view + map
+    ================================================================ -->
     <div class="column">
       <div class="panel view">
         <div class="panel-title">3D VEHICLE VIEW</div>
-
         <div class="three-view" bind:this={threeContainer}></div>
       </div>
 
@@ -722,20 +668,13 @@ function buildGraphPoints(values, width = 100, height = 42, defaultRangeDeg = 30
               {/if}
 
               {#if currentGpsPoint}
-                <circle
-                  cx={currentGpsPoint.x}
-                  cy={currentGpsPoint.y}
-                  r="0.5"
-                  class="map-rocket"
-                />
+                <circle cx={currentGpsPoint.x} cy={currentGpsPoint.y} r="0.5" class="map-rocket" />
               {/if}
             {/if}
           </svg>
 
           {#if !flying}
-            <div class="map-idle">
-              GPS map tracking starts during ASCENT or DESCENT.
-            </div>
+            <div class="map-idle">GPS map tracking starts during ASCENT or DESCENT.</div>
           {/if}
         </div>
 
@@ -749,21 +688,23 @@ function buildGraphPoints(values, width = 100, height = 42, defaultRangeDeg = 30
       </div>
     </div>
 
+    <!-- ================================================================
+         CENTRE COLUMN – telemetry metrics (2×3 grid)
+         IMU orientation: PITCH, YAW, ROLL (from quaternion)
+         Barometric altitude, vertical speed, vertical acceleration
+    ================================================================ -->
     <div class="column telemetry">
       <div class="panel metric">
         <div class="label">PITCH (°)</div>
         <div class="value">{telemetry.pitch}</div>
-
         <div class="graph-stage">
-          <svg class="mini-graph" viewBox="0 0 100 42" preserveAspectRatio="none">
-            <line x1="0" y1="10.5" x2="100" y2="10.5" class="graph-grid" />
-            <line x1="0" y1="21" x2="100" y2="21" class="graph-axis" />
-            <line x1="0" y1="31.5" x2="100" y2="31.5" class="graph-grid" />
-
-            <line x1="25" y1="0" x2="25" y2="42" class="graph-grid" />
-            <line x1="50" y1="0" x2="50" y2="42" class="graph-grid" />
-            <line x1="75" y1="0" x2="75" y2="42" class="graph-grid" />
-
+          <svg class="mini-graph" viewBox="0 0 100 36" preserveAspectRatio="none">
+            <line x1="0" y1="9"  x2="100" y2="9"  class="graph-grid" />
+            <line x1="0" y1="18" x2="100" y2="18" class="graph-axis" />
+            <line x1="0" y1="27" x2="100" y2="27" class="graph-grid" />
+            <line x1="25" y1="0" x2="25" y2="36" class="graph-grid" />
+            <line x1="50" y1="0" x2="50" y2="36" class="graph-grid" />
+            <line x1="75" y1="0" x2="75" y2="36" class="graph-grid" />
             {#if flying}
               <polyline points={pitchGraphPoints} fill="none" class="graph-line" />
             {/if}
@@ -774,17 +715,14 @@ function buildGraphPoints(values, width = 100, height = 42, defaultRangeDeg = 30
       <div class="panel metric">
         <div class="label">YAW (°)</div>
         <div class="value">{telemetry.yaw}</div>
-
         <div class="graph-stage">
-          <svg class="mini-graph" viewBox="0 0 100 42" preserveAspectRatio="none">
-            <line x1="0" y1="10.5" x2="100" y2="10.5" class="graph-grid" />
-            <line x1="0" y1="21" x2="100" y2="21" class="graph-axis" />
-            <line x1="0" y1="31.5" x2="100" y2="31.5" class="graph-grid" />
-
-            <line x1="25" y1="0" x2="25" y2="42" class="graph-grid" />
-            <line x1="50" y1="0" x2="50" y2="42" class="graph-grid" />
-            <line x1="75" y1="0" x2="75" y2="42" class="graph-grid" />
-
+          <svg class="mini-graph" viewBox="0 0 100 36" preserveAspectRatio="none">
+            <line x1="0" y1="9"  x2="100" y2="9"  class="graph-grid" />
+            <line x1="0" y1="18" x2="100" y2="18" class="graph-axis" />
+            <line x1="0" y1="27" x2="100" y2="27" class="graph-grid" />
+            <line x1="25" y1="0" x2="25" y2="36" class="graph-grid" />
+            <line x1="50" y1="0" x2="50" y2="36" class="graph-grid" />
+            <line x1="75" y1="0" x2="75" y2="36" class="graph-grid" />
             {#if flying}
               <polyline points={yawGraphPoints} fill="none" class="graph-line" />
             {/if}
@@ -795,17 +733,14 @@ function buildGraphPoints(values, width = 100, height = 42, defaultRangeDeg = 30
       <div class="panel metric">
         <div class="label">ROLL (°)</div>
         <div class="value">{telemetry.roll}</div>
-
         <div class="graph-stage">
-          <svg class="mini-graph" viewBox="0 0 100 42" preserveAspectRatio="none">
-            <line x1="0" y1="10.5" x2="100" y2="10.5" class="graph-grid" />
-            <line x1="0" y1="21" x2="100" y2="21" class="graph-axis" />
-            <line x1="0" y1="31.5" x2="100" y2="31.5" class="graph-grid" />
-
-            <line x1="25" y1="0" x2="25" y2="42" class="graph-grid" />
-            <line x1="50" y1="0" x2="50" y2="42" class="graph-grid" />
-            <line x1="75" y1="0" x2="75" y2="42" class="graph-grid" />
-
+          <svg class="mini-graph" viewBox="0 0 100 36" preserveAspectRatio="none">
+            <line x1="0" y1="9"  x2="100" y2="9"  class="graph-grid" />
+            <line x1="0" y1="18" x2="100" y2="18" class="graph-axis" />
+            <line x1="0" y1="27" x2="100" y2="27" class="graph-grid" />
+            <line x1="25" y1="0" x2="25" y2="36" class="graph-grid" />
+            <line x1="50" y1="0" x2="50" y2="36" class="graph-grid" />
+            <line x1="75" y1="0" x2="75" y2="36" class="graph-grid" />
             {#if flying}
               <polyline points={rollGraphPoints} fill="none" class="graph-line" />
             {/if}
@@ -813,26 +748,38 @@ function buildGraphPoints(values, width = 100, height = 42, defaultRangeDeg = 30
         </div>
       </div>
 
-      <div class="panel metric">
-        <div class="label">BAROMETRIC ALTITUDE (m)</div>
+      <div class="panel metric no-graph">
+        <div class="label">BARO ALTITUDE (m)</div>
         <div class="value">{telemetry.altitude}</div>
       </div>
 
-      <div class="panel metric">
+      <div class="panel metric no-graph">
         <div class="label">VERTICAL SPEED (m/s)</div>
         <div class="value">{telemetry.speed}</div>
       </div>
 
-      <div class="panel metric">
-        <div class="label">ACCELERATION (m/s²)</div>
+      <div class="panel metric no-graph">
+        <div class="label">VERT. ACCELERATION (m/s²)</div>
         <div class="value">{telemetry.acceleration}</div>
       </div>
     </div>
 
-    <div class="column">
-      <div class="panel control">
-        <div class="panel-title">FLIGHT CONTROL</div>
+    <!-- ================================================================
+         RIGHT COLUMN – battery + satellites (small, top) + control + errors
+    ================================================================ -->
+    <div class="column right-col">
+      <!-- Two small status blocks side by side at the top -->
+      <div class="small-panels-row">
+        <div class="panel small-metric">
+          <div class="label">BATTERY (V)</div>
+          <div class="value small-value {batClass(batteryVoltage)}">{batteryVoltage}</div>
+        </div>
+        <div class="panel small-metric">
+          <div class="label">SATELLITES</div>
+          <div class="value small-value {satClass(satelliteCount)}">{satelliteCount}</div>
+        </div>
       </div>
+
 
       <div class="panel errors">
         <div class="panel-title">SYSTEM ERRORS</div>
@@ -857,22 +804,26 @@ function buildGraphPoints(values, width = 100, height = 42, defaultRangeDeg = 30
     font-family: "Segoe UI", Arial, sans-serif;
     background: #0e131a;
     color: #cbd5e1;
+    /* Prevent any scrollbar from appearing on the body */
+    overflow: hidden;
   }
 
   .app {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    overflow: hidden;
   }
 
   header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 28px;
+    padding: 10px 22px;
     background: #111821;
     border-bottom: 1px solid #1f2937;
     gap: 14px;
+    flex-shrink: 0;
   }
 
   .header-left {
@@ -883,7 +834,7 @@ function buildGraphPoints(values, width = 100, height = 42, defaultRangeDeg = 30
   }
 
   .title {
-    font-size: 14px;
+    font-size: 13px;
     letter-spacing: 1px;
     white-space: nowrap;
   }
@@ -892,8 +843,8 @@ function buildGraphPoints(values, width = 100, height = 42, defaultRangeDeg = 30
     background: #151c26;
     border: 1px solid #2a3442;
     color: #cbd5e1;
-    padding: 6px 12px;
-    font-size: 12px;
+    padding: 5px 10px;
+    font-size: 11px;
     cursor: pointer;
   }
 
@@ -903,12 +854,12 @@ function buildGraphPoints(values, width = 100, height = 42, defaultRangeDeg = 30
 
   .states {
     display: flex;
-    gap: 6px;
+    gap: 5px;
   }
 
   .states button {
     color: #94a3b8;
-    padding: 6px 14px;
+    padding: 5px 12px;
     transition: 0.15s;
     cursor: default;
   }
@@ -927,16 +878,17 @@ function buildGraphPoints(values, width = 100, height = 42, defaultRangeDeg = 30
 
   .timer {
     font-family: monospace;
-    font-size: 16px;
+    font-size: 15px;
     color: #94a3b8;
     white-space: nowrap;
   }
 
   .status-strip {
-    padding: 8px 28px;
+    padding: 5px 22px;
     background: #0f1620;
     border-bottom: 1px solid #1f2937;
-    font-size: 13px;
+    font-size: 12px;
+    flex-shrink: 0;
   }
 
   .status-strip.flash {
@@ -946,40 +898,50 @@ function buildGraphPoints(values, width = 100, height = 42, defaultRangeDeg = 30
   main {
     flex: 1;
     display: grid;
-    grid-template-columns: 1fr 1.2fr 0.9fr;
-    gap: 18px;
-    padding: 18px;
+    grid-template-columns: minmax(280px, 1fr) minmax(440px, 1.22fr) minmax(240px, 0.82fr);
+    gap: 12px;
+    padding: 12px;
+    min-height: 0;
+    overflow: hidden;
   }
 
   .column {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  /* The left column is a stable two-row layout. */
+  main > .column:first-child {
+    display: grid;
+    grid-template-rows: minmax(210px, 0.82fr) minmax(260px, 1.18fr);
+    gap: 12px;
   }
 
   .panel {
     background: #131a23;
     border: 1px solid #1f2937;
-    padding: 14px;
+    padding: 10px;
   }
 
   .panel-title {
-    font-size: 11px;
+    font-size: 10px;
     letter-spacing: 1px;
     color: #8b98a8;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
+  /* ── Left column ──────────────────────────────────────────────── */
   .view {
-    aspect-ratio: 1 / 0.75;
-    height: auto;
+    min-height: 0;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
 
   .three-view {
     position: relative;
     width: 100%;
-    height: calc(100% - 24px);
+    height: calc(100% - 20px);
     background: #111827;
     overflow: hidden;
   }
@@ -991,15 +953,18 @@ function buildGraphPoints(values, width = 100, height = 42, defaultRangeDeg = 30
   }
 
   .map {
-    height: 500px;
+    flex: 1;
+    min-height: 0;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
 
   .map-stage {
     position: relative;
-    width: 100%;
-    height: calc(100% - 34px);
+    flex: 1;
+    min-height: 0;
   }
 
   .mission-map-svg {
@@ -1018,54 +983,23 @@ function buildGraphPoints(values, width = 100, height = 42, defaultRangeDeg = 30
     justify-content: center;
     color: #64748b;
     font-family: monospace;
-    font-size: 12px;
+    font-size: 11px;
     text-align: center;
-    padding: 14px;
+    padding: 10px;
     pointer-events: none;
   }
 
-  .map-axis {
-    stroke: #334155;
-    stroke-width: 0.35;
-    opacity: 0.7;
-  }
-
-  .map-range {
-    fill: none;
-    stroke: #263241;
-    stroke-width: 0.45;
-    opacity: 0.75;
-  }
-
-  .map-path {
-    fill: none;
-    stroke: #ffffff;
-    stroke-width: 0.65;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    opacity: 0.9;
-  }
-
-  .map-rocket {
-    fill: rgb(92, 92, 92);
-    stroke: rgb(92, 92, 92);
-    stroke-width: 0.8;
-  }
-
-  .map-home {
-    fill: #64748b;
-    opacity: 0.9;
-  }
-
-  .map-home-label {
-    fill: #64748b;
-    font-size: 3px;
-    font-family: monospace;
-  }
+  .map-axis { stroke: #334155; stroke-width: 0.35; opacity: 0.7; }
+  .map-range { fill: none; stroke: #263241; stroke-width: 0.45; opacity: 0.75; }
+  .map-path { fill: none; stroke: #ffffff; stroke-width: 0.65; stroke-linecap: round; stroke-linejoin: round; opacity: 0.9; }
+  .map-rocket { fill: rgb(92,92,92); stroke: rgb(92,92,92); stroke-width: 0.8; }
+  .map-home { fill: #64748b; opacity: 0.9; }
+  .map-home-label { fill: #64748b; font-size: 3px; font-family: monospace; }
 
   .map-readout {
-    margin-top: 8px;
-    font-size: 11px;
+    flex-shrink: 0;
+    margin-top: 6px;
+    font-size: 10px;
     color: #64748b;
     font-family: monospace;
     white-space: nowrap;
@@ -1073,34 +1007,49 @@ function buildGraphPoints(values, width = 100, height = 42, defaultRangeDeg = 30
     text-overflow: ellipsis;
   }
 
+  /* ── Centre telemetry column ──────────────────────────────────── */
   .telemetry {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    min-height: 0;
   }
 
   .metric {
     display: flex;
     flex-direction: column;
-    min-height: 145px;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
   }
 
   .metric .label {
-    font-size: 11px;
+    font-size: 10px;
     color: #8b98a8;
+    display: flex;
+    align-items: center;
+    gap: 5px;
   }
 
+
   .metric .value {
-    font-size: 26px;
+    font-size: 22px;
     font-family: monospace;
-    margin-top: 6px;
-    margin-bottom: 14px;
+    margin-top: 4px;
+    margin-bottom: 8px;
+  }
+
+  /* Values without graphs still fill the same row height as the graph blocks. */
+  .metric.no-graph .value {
+    margin-top: 10px;
+    font-size: 30px;
   }
 
   .graph-stage {
     width: 100%;
     flex: 1;
-    min-height: 70px;
+    min-height: 50px;
   }
 
   .mini-graph {
@@ -1110,67 +1059,126 @@ function buildGraphPoints(values, width = 100, height = 42, defaultRangeDeg = 30
     background: transparent;
     border: none;
     border-top: 1px solid #1f2937;
-    padding-top: 8px;
+    padding-top: 6px;
     margin-top: 2px;
   }
 
-  .graph-grid {
-    stroke: #263241;
-    stroke-width: 0.25;
-    opacity: 0.45;
+  .graph-grid { stroke: #263241; stroke-width: 0.25; opacity: 0.45; }
+  .graph-axis { stroke: #334155; stroke-width: 0.35; opacity: 0.65; }
+  .graph-line { stroke: #ffffff; stroke-width: 0.25; stroke-linecap: round; stroke-linejoin: round; opacity: 0.95; }
+
+  /* ── Right column ─────────────────────────────────────────────── */
+  .right-col {
+    display: grid;
+    grid-template-rows: 112px minmax(0, 1fr);
+    gap: 12px;
+    min-height: 0;
   }
 
-  .graph-axis {
-    stroke: #334155;
-    stroke-width: 0.35;
-    opacity: 0.65;
+  /* Battery and satellites stay aligned and are large enough to read at a glance. */
+  .small-panels-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    min-height: 0;
   }
 
-  .graph-line {
-    stroke: #ffffff;
-    stroke-width: 0.25;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    opacity: 0.95;
+  .small-metric {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+    min-height: 0;
+    padding: 14px;
   }
 
-  .metric .value.invalid {
-    color: #f59e0b;
+  .small-metric .label {
+    font-size: 11px;
+    color: #8b98a8;
+    margin-bottom: 8px;
   }
 
-  .control-btn {
-    width: 100%;
-    margin-top: 8px;
-    padding: 8px;
-    background: #151c26;
-    border: 1px solid #2a3442;
+  .small-value {
+    font-size: 29px;
+    line-height: 1;
+    font-family: monospace;
     color: #cbd5e1;
-    font-size: 12px;
-    cursor: pointer;
   }
 
-  .control-btn:hover {
-    background: #1d2632;
-  }
+  /* Colour states for battery & satellite count */
+  .small-value.ok   { color: #4ade80; }
+  .small-value.warn { color: #fbbf24; }
+  .small-value.crit { color: #f87171; }
+
 
   .errors {
     flex: 1;
     overflow: auto;
+    min-height: 0;
   }
 
   .no-errors {
-    font-size: 12px;
+    font-size: 11px;
     color: #64748b;
   }
 
-  ul {
-    padding-left: 16px;
-    margin: 0;
-  }
+  ul { padding-left: 14px; margin: 0; }
 
   li {
-    font-size: 12px;
+    font-size: 11px;
     color: #ef4444;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
   }
+  @media (max-width: 1180px) {
+    main {
+      grid-template-columns: minmax(250px, 0.95fr) minmax(400px, 1.2fr) minmax(215px, 0.78fr);
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .column,
+    main > .column:first-child,
+    .telemetry,
+    .right-col {
+      gap: 10px;
+    }
+
+    .panel {
+      padding: 9px;
+    }
+
+    .small-value {
+      font-size: 26px;
+    }
+  }
+
+  @media (max-width: 980px) {
+    :global(body) {
+      overflow: auto;
+    }
+
+    .app {
+      height: auto;
+      min-height: 100vh;
+      overflow: visible;
+    }
+
+    main {
+      grid-template-columns: 1fr;
+      overflow: visible;
+    }
+
+    main > .column:first-child {
+      grid-template-rows: 300px 360px;
+    }
+
+    .telemetry {
+      grid-template-rows: repeat(3, 150px);
+    }
+
+    .right-col {
+      grid-template-rows: 112px 220px;
+    }
+  }
+
 </style>
