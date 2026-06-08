@@ -27,7 +27,6 @@
     acceleration: "--"
   };
 
-  /* New fields */
   let batteryVoltage = "--";
   let satelliteCount = "--";
 
@@ -274,12 +273,6 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
     const cleanHex = data.replace(/\s+/g, "");
     const raw_bytes = hexToBytes(cleanHex);
 
-    /*
-      Extended packet is 54 bytes.
-      Bytes 0–48 are identical to the original 49-byte packet.
-      Bytes 49–52: battery_voltage (float32, little-endian)
-      Byte  53:    satellite_count (uint8)
-    */
     if (raw_bytes.length < 54) {
       console.warn("Received incomplete telemetry data. Expected 54 bytes, got:", raw_bytes.length);
       return;
@@ -287,7 +280,6 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
 
     const view = new DataView(raw_bytes.buffer, raw_bytes.byteOffset, raw_bytes.byteLength);
 
-    /* --- Quaternion → Euler → IMU orientation display --- */
     const q = {
       w: view.getFloat32(0, true),
       x: view.getFloat32(4, true),
@@ -300,12 +292,10 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
     const pitchDeg = euler.pitch * (180 / Math.PI);
     const yawDeg   = euler.yaw   * (180 / Math.PI);
 
-    /* IMU orientation: pitch, yaw, roll from quaternion */
     telemetry.roll  = rollDeg.toFixed(1);
     telemetry.pitch = pitchDeg.toFixed(1);
     telemetry.yaw   = yawDeg.toFixed(1);
 
-    /* --- Accelerometer → total acceleration magnitude --- */
     const rx = view.getFloat32(16, true);
     const ry = view.getFloat32(20, true);
     const rz = view.getFloat32(24, true);
@@ -315,7 +305,6 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
 
     telemetry.acceleration = accelerationMps2.toFixed(2);
 
-    /* --- Flight state --- */
     const stateCode = view.getUint8(28);
 
     switch (stateCode) {
@@ -329,29 +318,22 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
 
     addFlightGraphPoint(pitchDeg, yawDeg, rollDeg);
 
-    /* --- Barometric altitude (Kalman-filtered on firmware side) --- */
     telemetry.altitude = view.getFloat32(29, true).toFixed(2);
 
-    /* --- Timestamp --- */
     elapsedMs = Number((view.getUint32(33, true) / 1000).toFixed(0));
 
-    /* --- GPS --- */
     const lat = view.getFloat32(37, true);
     const lon = view.getFloat32(41, true);
     addGpsPoint(lat, lon);
 
-    /* --- Vertical speed (Kalman-filtered on firmware side) --- */
     telemetry.speed = view.getFloat32(45, true).toFixed(2);
 
-    /* --- Battery voltage (NEW – bytes 49–52) --- */
     const batV = view.getFloat32(49, true);
     batteryVoltage = Number.isFinite(batV) ? batV.toFixed(2) : "--";
 
-    /* --- Satellite count (NEW – byte 53) --- */
     const sat = view.getUint8(53);
     satelliteCount = sat;
 
-    /* --- Optional RSSI (byte 54 if sender appends it) --- */
     if (raw_bytes.length >= 55) {
       RSSI = view.getInt8(54);
     }
@@ -403,7 +385,6 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
     return Number.isFinite(num) ? num : 0;
   }
 
-  /* Battery voltage colour coding */
   function batClass(v) {
     const n = parseFloat(v);
     if (!Number.isFinite(n)) return "";
@@ -412,7 +393,6 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
     return "ok";
   }
 
-  /* Satellite count colour coding */
   function satClass(s) {
     const n = parseInt(s);
     if (!Number.isFinite(n)) return "";
@@ -780,7 +760,6 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
         </div>
       </div>
 
-
       <div class="panel errors">
         <div class="panel-title">SYSTEM ERRORS</div>
 
@@ -804,7 +783,7 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
     font-family: "Segoe UI", Arial, sans-serif;
     background: #0e131a;
     color: #cbd5e1;
-    /* Prevent any scrollbar from appearing on the body */
+
     overflow: hidden;
   }
 
@@ -910,7 +889,6 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
     overflow: hidden;
   }
 
-  /* The left column is a stable two-row layout. */
   main > .column:first-child {
     display: grid;
     grid-template-rows: minmax(210px, 0.82fr) minmax(260px, 1.18fr);
@@ -930,7 +908,6 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
     margin-bottom: 8px;
   }
 
-  /* ── Left column ──────────────────────────────────────────────── */
   .view {
     min-height: 0;
     overflow: hidden;
@@ -1007,7 +984,6 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
     text-overflow: ellipsis;
   }
 
-  /* ── Centre telemetry column ──────────────────────────────────── */
   .telemetry {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1032,7 +1008,6 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
     gap: 5px;
   }
 
-
   .metric .value {
     font-size: 22px;
     font-family: monospace;
@@ -1040,7 +1015,6 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
     margin-bottom: 8px;
   }
 
-  /* Values without graphs still fill the same row height as the graph blocks. */
   .metric.no-graph .value {
     margin-top: 10px;
     font-size: 30px;
@@ -1067,7 +1041,6 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
   .graph-axis { stroke: #334155; stroke-width: 0.35; opacity: 0.65; }
   .graph-line { stroke: #ffffff; stroke-width: 0.25; stroke-linecap: round; stroke-linejoin: round; opacity: 0.95; }
 
-  /* ── Right column ─────────────────────────────────────────────── */
   .right-col {
     display: grid;
     grid-template-rows: 112px minmax(0, 1fr);
@@ -1075,7 +1048,6 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
     min-height: 0;
   }
 
-  /* Battery and satellites stay aligned and are large enough to read at a glance. */
   .small-panels-row {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1105,11 +1077,9 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
     color: #cbd5e1;
   }
 
-  /* Colour states for battery & satellite count */
   .small-value.ok   { color: #4ade80; }
   .small-value.warn { color: #fbbf24; }
   .small-value.crit { color: #f87171; }
-
 
   .errors {
     flex: 1;

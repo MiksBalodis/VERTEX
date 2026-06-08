@@ -252,7 +252,7 @@ void LoRa_TxTelemetry(void){
   // Mission_BuildTelemetryPacket(telem_buf);
   // SX1262_Transmit(telem_buf, sizeof(telem_buf));
 
-  uint8_t raw_telem_buf[54];   /* Extended packet: +battery_voltage(4) +sat_count(1) */
+  uint8_t raw_telem_buf[54];
   Mission_BuildRAWTelemetryPacket(raw_telem_buf);
   SX1262_Transmit(raw_telem_buf, sizeof(raw_telem_buf));
 }
@@ -319,7 +319,7 @@ int main(void)
   FatFs_Test();
 
   Mission_Init();
-  
+
   LED_Set_Color(0, 64, 0);
 
   BUZZ(&hbuzz1, 300);
