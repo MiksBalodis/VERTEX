@@ -88,12 +88,14 @@ Core/Src/lsm6dso_reg.c \
 Core/Src/main.c \
 Core/Src/mission.c \
 Core/Src/neopixel.c \
+Core/Src/sensor_filter.c \
 Core/Src/servo.c \
 Core/Src/stm32f4xx_hal_msp.c \
 Core/Src/stm32f4xx_it.c \
 Core/Src/syscalls.c \
 Core/Src/sysmem.c \
 Core/Src/system_stm32f4xx.c \
+Core/Src/tvc_servo.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c \
@@ -114,6 +116,7 @@ Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c \
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c \

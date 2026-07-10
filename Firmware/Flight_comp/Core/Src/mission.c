@@ -6,6 +6,8 @@
 #include "BMP388.h"
 #include "fatfs.h"
 #include "sensor_filter.h"
+#include "servo.h"
+#include "tvc_servo.h"
 #include "gps.h"
 
 #include <string.h>
@@ -29,7 +31,7 @@ static GpsFilter_t gps_filter;
 static float filtered_gps_lat = 0.0f;
 static float filtered_gps_lon = 0.0f;
 
-#define LAUNCH_ACCEL_THRESHOLD_MG      300.0f
+#define LAUNCH_ACCEL_THRESHOLD_MG      900.0f
 #define LAUNCH_CONFIRMATION_SAMPLES    3
 
 static uint8_t launch_confirm_counter = 0;
@@ -37,12 +39,28 @@ static uint8_t launch_confirm_counter = 0;
 IMU_Data_t        imu;
 IMU_Integration_t imu_integration;
 
+TVC_t tvc;
+
 extern BMP388_HandleTypeDef hbmp388;
 extern FATFS FatFs;
+FIL telemetry_file;
+extern uint32_t flight_rand_id;
 extern volatile Quaternion quat;
 extern float battery_v;
 
 volatile uint32_t overflow;
+
+extern servo_t hservo1, hservo2, hservo3;
+
+float max_altitude = 0.0f;
+
+uint32_t last_telemetry_tst = 0;
+
+uint32_t led_tmr = 0;
+
+uint32_t freefall_tmr = 0;
+
+bool is_flash_ready = false;
 
 typedef enum
 {
@@ -122,6 +140,16 @@ void Mission_Init(void)
     previous_update_ms    = 0;
     launch_confirm_counter = 0;
     ground_pressure       = 101325.0f;
+
+    TVC_Init(&tvc,
+              &hservo1,
+              &hservo2,
+              Servo1_Home,
+              Servo2_Home,
+              0.5f, 0.0f, 0.0f,
+              TVC_MAX_DEFLECTION_DEG);
+
+    TVC_Disable(&tvc);
 }
 
 void Mission_Update(void)
@@ -232,7 +260,37 @@ void Mission_Update(void)
 
                 IMU_Fusion_SetGyro(&imu_integration, 0, 0, 0, Mission_GetTick());
 
-                f_mount(&FatFs, "", 1);
+                TVC_Reset(&tvc);
+                TVC_Enable(&tvc);
+
+                FRESULT res;
+                char filename[14];
+                res = f_mount(&FatFs, "", 1);
+                if (res != FR_OK){
+                    LED_Set_Color(64, 0, 0);
+                    break;
+                }
+
+                snprintf(filename, sizeof(filename), "LOG_%04lX.CSV", flight_rand_id & 0xFFFF);
+                res = f_open(&telemetry_file, filename, FA_CREATE_ALWAYS | FA_WRITE);
+                if(res != FR_OK){
+                    LED_Set_Color(64, 0, 0);
+                    break;
+                }
+
+                const char *header =
+                    "w,x,y,z,rx,ry,rz,flight_state,altitude,timestamp,"
+                    "lat,lon,vertical_speed,battery_voltage,sat_count\r\n";
+
+                UINT bw;
+                res = f_write(&telemetry_file, header, strlen(header), &bw);
+                if(res != FR_OK){
+                    LED_Set_Color(64, 0, 0);
+                    break;
+                }
+                // f_close(&telemetry_file);
+
+                is_flash_ready = true;
                 BUZZ(&hbuzz1, 100);
             }
 
@@ -240,9 +298,45 @@ void Mission_Update(void)
             break;
 
         case MISSION_ASCENT:
+            TVC_Update(&tvc,
+                       imu_integration.pitch,
+                       imu.gx,
+                       imu_integration.yaw,
+                       imu.gz,
+                       dt_s);
+            // If PRS is not valid, use timeout for decent
+            if(Mission_GetTick() > (MAX_ASCENT_TIME_S * 1000000)){
+                mission_state = MISSION_DECENT;
+                freefall_tmr = Mission_GetTick();
+            }
+
+            if(est_altitude > max_altitude){
+                max_altitude = est_altitude;
+            }
+
+            if(max_altitude - est_altitude > DECENT_DETECTION_ALTITUDE_M){
+                mission_state = MISSION_DECENT;
+                freefall_tmr = Mission_GetTick();
+            }
+
+            if(Mission_GetTick() - last_telemetry_tst > 100000 && is_flash_ready){
+                Mission_SaveTelemetry();
+                last_telemetry_tst = Mission_GetTick();
+            }
             break;
 
         case MISSION_DECENT:
+            if(est_altitude < LANDING_DETECTION_ALTITUDE_M){
+                mission_state = MISSION_LANDED;
+            }
+
+            if(Mission_GetTick() > (MAX_DECENT_TIME_S * 1000000)){
+                mission_state = MISSION_DECENT;
+            }
+
+            if(Mission_GetTick() - freefall_tmr > (FEEFALL_TIME_S * 1000000)){
+                Servo_SetAngle(&hservo3, Parachute_Servo_Deploy);
+            }
             break;
 
         case MISSION_POST_FAIL:
@@ -251,7 +345,9 @@ void Mission_Update(void)
 
         case MISSION_LANDED:
             HAL_TIM_Base_Stop(&htim6);
+            f_close(&telemetry_file);
             f_mount(&FatFs, "", 0);
+            LED_Set_Color(0, 0, 64);
             break;
 
         default:
@@ -334,4 +430,65 @@ void Mission_IMU_DRDY(void)
 {
     if (mission_state == MISSION_ASCENT)
         IMU_Fusion_IntegrateGyro(&imu_integration, Mission_GetTick());
+}
+
+void Mission_SaveTelemetry(void){
+    UINT bw;
+    static char line[256];
+    uint8_t tmp[54];
+    Mission_BuildRAWTelemetryPacket(tmp);
+
+    int32_t w  = (int32_t)(raw_telemetry.w  * 1000000.0f);
+    int32_t x  = (int32_t)(raw_telemetry.x  * 1000000.0f);
+    int32_t y  = (int32_t)(raw_telemetry.y  * 1000000.0f);
+    int32_t z  = (int32_t)(raw_telemetry.z  * 1000000.0f);
+
+    int32_t rx = (int32_t)(raw_telemetry.rx * 1000000.0f);
+    int32_t ry = (int32_t)(raw_telemetry.ry * 1000000.0f);
+    int32_t rz = (int32_t)(raw_telemetry.rz * 1000000.0f);
+
+    int32_t altitude = (int32_t)(raw_telemetry.altitude * 100.0f);
+
+    int32_t lat = (int32_t)(raw_telemetry.lat * 10000000.0f);
+    int32_t lon = (int32_t)(raw_telemetry.lon * 10000000.0f);
+
+    int32_t vertical_speed = (int32_t)(raw_telemetry.vertical_speed * 100.0f);
+    int32_t battery_voltage = (int32_t)(raw_telemetry.battery_voltage * 100.0f);
+
+
+    int len = snprintf(
+        line, sizeof(line),
+        "%ld,%ld,%ld,%ld,"
+        "%ld,%ld,%ld,"
+        "%u,"
+        "%ld,"
+        "%lu,"
+        "%ld,%ld,"
+        "%ld,"
+        "%ld,"
+        "%u\r\n",
+
+        w,
+        x,
+        y,
+        z,
+        rx,
+        ry,
+        rz,
+        raw_telemetry.flight_state,
+        altitude,
+        (unsigned long)raw_telemetry.timestamp,
+        lat,
+        lon,
+        vertical_speed,
+        battery_voltage,
+        raw_telemetry.sat_count
+    );
+
+    if(len < 0){return;}
+    FRESULT res = f_write(&telemetry_file, line, len, &bw);
+    if(res != FR_OK){
+        LED_Set_Color(64, 0, 0);
+        is_flash_ready = false;
+    }
 }

@@ -36,7 +36,7 @@
 #include "mission.h"
 #include <string.h>
 #include "stdbool.h"
-// #include "gps.h"
+#include "tvc_servo.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -46,12 +46,9 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define VBAT_DIV_K  2.54
+#define VBAT_DIV_K  4.13
 
 #define LSM6DSO_I2C_ADDR (0x6A << 1)
-
-#define Servo1_Home 86
-#define Servo2_Home 75
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -61,12 +58,15 @@
 
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
+DMA_HandleTypeDef hdma_adc1;
 
 CRC_HandleTypeDef hcrc;
 
 I2C_HandleTypeDef hi2c1;
 I2C_HandleTypeDef hi2c2;
 I2C_HandleTypeDef hi2c3;
+
+RNG_HandleTypeDef hrng;
 
 RTC_HandleTypeDef hrtc;
 
@@ -118,6 +118,7 @@ extern bool POST_fault_flags[];
 uint32_t FreeSpace;
 FATFS FatFs;
 // extern SX1262 SX_stc;
+uint32_t flight_rand_id;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -139,6 +140,7 @@ static void MX_CRC_Init(void);
 static void MX_TIM7_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_TIM6_Init(void);
+static void MX_RNG_Init(void);
 /* USER CODE BEGIN PFP */
 void Get_Vbat(void);
 void platform_delay(uint32_t ms);
@@ -231,9 +233,11 @@ void FatFs_Test(void){
 void Servo_Init_All(void){
   Servo_Init(&hservo1, &htim5, TIM_CHANNEL_1);
   Servo_Init(&hservo2, &htim5, TIM_CHANNEL_2);
+  Servo_Init(&hservo3, &htim5, TIM_CHANNEL_3);
 
   Servo_SetAngle(&hservo1, Servo1_Home);
   Servo_SetAngle(&hservo2, Servo2_Home);
+  Servo_SetAngle(&hservo3, Parachute_Servo_Home);
 }
 
 void GPS_Init(void){
@@ -305,6 +309,7 @@ int main(void)
   MX_TIM7_Init();
   MX_TIM2_Init();
   MX_TIM6_Init();
+  MX_RNG_Init();
   /* USER CODE BEGIN 2 */
   BUZZ(&hbuzz1, 300);
 
@@ -317,6 +322,8 @@ int main(void)
   LoRa_Init();
   Servo_Init_All();
   FatFs_Test();
+
+  HAL_RNG_GenerateRandomNumber(&hrng, &flight_rand_id);
 
   Mission_Init();
 
@@ -340,6 +347,8 @@ int main(void)
     }
 
     Mission_Update();
+
+    Get_Vbat();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -434,7 +443,7 @@ static void MX_ADC1_Init(void)
   */
   sConfig.Channel = ADC_CHANNEL_4;
   sConfig.Rank = 1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+  sConfig.SamplingTime = ADC_SAMPLETIME_84CYCLES;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();
@@ -570,6 +579,32 @@ static void MX_I2C3_Init(void)
   /* USER CODE BEGIN I2C3_Init 2 */
 
   /* USER CODE END I2C3_Init 2 */
+
+}
+
+/**
+  * @brief RNG Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_RNG_Init(void)
+{
+
+  /* USER CODE BEGIN RNG_Init 0 */
+
+  /* USER CODE END RNG_Init 0 */
+
+  /* USER CODE BEGIN RNG_Init 1 */
+
+  /* USER CODE END RNG_Init 1 */
+  hrng.Instance = RNG;
+  if (HAL_RNG_Init(&hrng) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN RNG_Init 2 */
+
+  /* USER CODE END RNG_Init 2 */
 
 }
 
@@ -1049,6 +1084,9 @@ static void MX_DMA_Init(void)
   /* DMA1_Stream6_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Stream6_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA1_Stream6_IRQn);
+  /* DMA2_Stream0_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA2_Stream0_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Stream0_IRQn);
   /* DMA2_Stream2_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA2_Stream2_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA2_Stream2_IRQn);

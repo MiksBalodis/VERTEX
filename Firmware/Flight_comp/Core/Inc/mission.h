@@ -6,6 +6,14 @@
 
 #define MIN_FLASH_SPACE_KB  1024
 
+#define MAX_ASCENT_TIME_S  20
+#define MAX_DECENT_TIME_S  720
+
+#define FEEFALL_TIME_S  10
+
+#define LANDING_DETECTION_ALTITUDE_M  1.0f
+#define DECENT_DETECTION_ALTITUDE_M  5.0f
+
 // Power-on self-test
 typedef enum
 {
@@ -29,5 +37,6 @@ uint32_t Mission_GetTick(void);
 void Mission_BuildTelemetryPacket(uint8_t *buf);
 void Mission_BuildRAWTelemetryPacket(uint8_t *buf);
 void Mission_IMU_DRDY(void);
+void Mission_SaveTelemetry(void);
 
 #endif

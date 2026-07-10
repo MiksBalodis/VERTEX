@@ -162,7 +162,7 @@ int main(void)
 
         // buffer[19] = SX1278_RSSI(&SX1278); // Append RSSI to the end of the buffer
 
-        char hex_log[128]; // (21 bytes * 2 chars) + 2 for \r\n + 1 for null = 45
+        char hex_log[256]; // (21 bytes * 2 chars) + 2 for \r\n + 1 for null = 45
         int pos = 0;
         uint8_t *byte_ptr = (uint8_t *)&buffer;
 

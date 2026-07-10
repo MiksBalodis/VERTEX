@@ -57,6 +57,8 @@
 
 /* External variables --------------------------------------------------------*/
 extern PCD_HandleTypeDef hpcd_USB_OTG_FS;
+extern DMA_HandleTypeDef hdma_adc1;
+extern ADC_HandleTypeDef hadc1;
 extern DMA_HandleTypeDef hdma_spi2_rx;
 extern DMA_HandleTypeDef hdma_spi2_tx;
 extern SPI_HandleTypeDef hspi2;
@@ -280,6 +282,20 @@ void DMA1_Stream6_IRQHandler(void)
 }
 
 /**
+  * @brief This function handles ADC1, ADC2 and ADC3 global interrupts.
+  */
+void ADC_IRQHandler(void)
+{
+  /* USER CODE BEGIN ADC_IRQn 0 */
+
+  /* USER CODE END ADC_IRQn 0 */
+  HAL_ADC_IRQHandler(&hadc1);
+  /* USER CODE BEGIN ADC_IRQn 1 */
+
+  /* USER CODE END ADC_IRQn 1 */
+}
+
+/**
   * @brief This function handles EXTI line[9:5] interrupts.
   */
 void EXTI9_5_IRQHandler(void)
@@ -385,6 +401,20 @@ void TIM7_IRQHandler(void)
   /* USER CODE BEGIN TIM7_IRQn 1 */
 
   /* USER CODE END TIM7_IRQn 1 */
+}
+
+/**
+  * @brief This function handles DMA2 stream0 global interrupt.
+  */
+void DMA2_Stream0_IRQHandler(void)
+{
+  /* USER CODE BEGIN DMA2_Stream0_IRQn 0 */
+
+  /* USER CODE END DMA2_Stream0_IRQn 0 */
+  HAL_DMA_IRQHandler(&hdma_adc1);
+  /* USER CODE BEGIN DMA2_Stream0_IRQn 1 */
+
+  /* USER CODE END DMA2_Stream0_IRQn 1 */
 }
 
 /**
