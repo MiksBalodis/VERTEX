@@ -288,8 +288,8 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
     };
 
     const euler = toEulerAngles(q);
-    const rollDeg  = euler.roll  * (180 / Math.PI);
-    const pitchDeg = euler.pitch * (180 / Math.PI);
+    const pitchDeg = euler.roll  * (180 / Math.PI);
+    const rollDeg  = euler.pitch * (180 / Math.PI);
     const yawDeg   = euler.yaw   * (180 / Math.PI);
 
     telemetry.roll  = rollDeg.toFixed(1);

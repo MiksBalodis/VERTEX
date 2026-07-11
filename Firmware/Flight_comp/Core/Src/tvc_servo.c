@@ -1,6 +1,6 @@
 #include "tvc_servo.h"
 #include <stddef.h>   /* NULL */
-#include <math.h>     /* isfinite */
+#include <math.h>     /* isfinite, sinf, cosf */
 
 /* =========================================================================
    Internal helpers
@@ -72,7 +72,11 @@ static float pid_step(TVC_PID_t *pid, float error, float rate_mdps, float dt_s)
     pid->integrator  = clampf(pid->integrator, pid->i_limit);
     float i_term     = pid->Ki * pid->integrator;
 
-    /* --- D term: rate feedback directly from gyro --- */
+    /* --- D term: rate feedback directly from gyro ---
+       NOTE: the caller passes the NEGATED rate, because d(error)/dt = -rate
+       (the setpoint is a constant 0). The old code passed +rate, which made
+       the D term positive feedback on angular rate -- it accelerated the
+       divergence instead of damping it. */
     float d_term = pid->Kd * rate_mdps;
 
     /* --- Sum and clamp to mechanical travel limit --- */
@@ -154,6 +158,7 @@ void TVC_Update(TVC_t *tvc,
                 float  pitch_rate_mdps,
                 float  yaw_angle,
                 float  yaw_rate_mdps,
+                float  roll_angle_deg,
                 float  dt_s)
 {
     if (tvc == NULL) return;
@@ -203,8 +208,10 @@ void TVC_Update(TVC_t *tvc,
     float pitch_error = -pitch_angle;
     float yaw_error   = -yaw_angle;
 
-    float pitch_out = pid_step(&tvc->pitch, pitch_error, pitch_rate_mdps, dt_s);
-    float yaw_out   = pid_step(&tvc->yaw,   yaw_error,   yaw_rate_mdps,   dt_s);
+    /* d(error)/dt = -rate. Passing +rate here was a sign bug: with any
+       Kd > 0 it made the D term REINFORCE the tumble. */
+    float pitch_out = pid_step(&tvc->pitch, pitch_error, -pitch_rate_mdps, dt_s);
+    float yaw_out   = pid_step(&tvc->yaw,   yaw_error,   -yaw_rate_mdps,   dt_s);
 
     /* ------------------------------------------------------------------
        Convert PID output to servo angle and command actuators.
@@ -216,11 +223,27 @@ void TVC_Update(TVC_t *tvc,
        Both are within the 0–180 deg SG90 range for the home angles used
        (86 and 75 deg), so no second clamp is needed here.
        ------------------------------------------------------------------ */
+    /* ------------------------------------------------------------------
+       Roll compensation.
+
+       The gimbal axes are body-fixed and the rocket WILL roll (thrust
+       misalignment, fin cant). The pitch/yaw errors above are integrated
+       from body rates, so once roll is non-zero the 'pitch' servo is no
+       longer aligned with the pitch error. Rotate the command back into
+       the gimbal frame by the roll angle.
+       ------------------------------------------------------------------ */
+    float roll_rad = roll_angle_deg * 0.01745329252f;
+    float cr = cosf(roll_rad);
+    float sr = sinf(roll_rad);
+
+    float cmd_pitch = clampf( pitch_out * cr + yaw_out * sr, TVC_MAX_DEFLECTION_DEG);
+    float cmd_yaw   = clampf(-pitch_out * sr + yaw_out * cr, TVC_MAX_DEFLECTION_DEG);
+
     if (tvc->pitch_servo != NULL)
-        Servo_SetAngleFine(tvc->pitch_servo, tvc->pitch_home + pitch_out);
+        Servo_SetAngleFine(tvc->pitch_servo, tvc->pitch_home + cmd_pitch);
 
     if (tvc->yaw_servo != NULL)
-        Servo_SetAngleFine(tvc->yaw_servo, tvc->yaw_home + yaw_out);
+        Servo_SetAngleFine(tvc->yaw_servo, tvc->yaw_home + cmd_yaw);
 }
 
 float TVC_GetPitchOutput(const TVC_t *tvc)

@@ -224,7 +224,16 @@ void VertKF_Init(VertKF_t *kf,
     kf->ground_alt_msl   = 0.0f;
     kf->ground_alt_valid = false;
 
+    kf->g_ref_mg = 1000.0f;
+
     kf->initialized = false;
+}
+
+void VertKF_SetGravityRef(VertKF_t *kf, float g_ref_mg)
+{
+    if (kf == NULL) return;
+    if (g_ref_mg < 700.0f || g_ref_mg > 1300.0f) return;   /* refuse garbage */
+    kf->g_ref_mg = g_ref_mg;
 }
 
 void VertKF_Reset(VertKF_t *kf, float baro_alt_agl)
@@ -293,7 +302,10 @@ void VertKF_Update(VertKF_t   *kf,
                        + R11 * imu_ry_mg
                        + R12 * imu_rz_mg;
 
-    float a_net_mps2 = (a_world_y_mg - 1000.0f) * 0.001f * VERT_KF_GRAVITY_MPS2;
+    /* Subtract the gravity we actually measured on the pad, not a hard-coded
+       1000 mg. A 335 mg error here became a permanent -3.3 m/s^2 bias in the
+       process model, which is exactly what drove the velocity negative. */
+    float a_net_mps2 = (a_world_y_mg - kf->g_ref_mg) * 0.001f * VERT_KF_GRAVITY_MPS2;
 
     float dt2 = dt_s * dt_s;
 

@@ -67,6 +67,10 @@ typedef struct
     float ground_alt_msl;
     bool  ground_alt_valid;
 
+    /* Gravity as actually measured on the pad [mg]. Replaces the hard-coded
+       1000.0f that VertKF_Update() used to subtract. */
+    float g_ref_mg;
+
     bool initialized;
 } VertKF_t;
 
@@ -100,6 +104,7 @@ void VertKF_Init(VertKF_t *kf,
                  float r_gps);
 
 void VertKF_Reset(VertKF_t *kf, float baro_alt_agl);
+void VertKF_SetGravityRef(VertKF_t *kf, float g_ref_mg);
 
 void VertKF_UpdateGroundGpsAlt(VertKF_t *kf, float gps_alt_msl);
 

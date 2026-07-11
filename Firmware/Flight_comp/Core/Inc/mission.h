@@ -6,10 +6,12 @@
 
 #define MIN_FLASH_SPACE_KB  1024
 
-#define MAX_ASCENT_TIME_S  20
-#define MAX_DECENT_TIME_S  720
+#define MAX_ASCENT_TIME_S  10
+#define MAX_DECENT_TIME_S  50
 
-#define FEEFALL_TIME_S  10
+#define IDLE_TIMEOUT_S     60
+
+#define FEEFALL_TIME_S  0
 
 #define LANDING_DETECTION_ALTITUDE_M  1.0f
 #define DECENT_DETECTION_ALTITUDE_M  5.0f
@@ -36,7 +38,12 @@ void Mission_IncTick(void);
 uint32_t Mission_GetTick(void);
 void Mission_BuildTelemetryPacket(uint8_t *buf);
 void Mission_BuildRAWTelemetryPacket(uint8_t *buf);
-void Mission_IMU_DRDY(void);
+
+/* Fixed-rate control loop (TIM3 ISR). Owns SPI2 / the IMU. */
+void Mission_ControlTick(void);
+void Mission_StartControlLoop(void);
+void Mission_StopControlLoop(void);
+float Mission_GetGravityRefMg(void);
 void Mission_SaveTelemetry(void);
 
 #endif

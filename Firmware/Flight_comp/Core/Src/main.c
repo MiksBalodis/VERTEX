@@ -46,7 +46,15 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define VBAT_DIV_K  4.13
+/* ---------------------------------------------------------------------------
+   !!! MEASURE THIS. Do not trust the schematic.
+   !!! With the 3S LiFePO4 connected: DMM across the pack (V_pack) and at the
+   !!! ADC pin (V_pin), then VBAT_DIV_K = V_pack / V_pin.
+   !!! The old 4.13 reported 7.89 V for a pack that should sit near 9.9 V.
+   --------------------------------------------------------------------------- */
+#define VBAT_DIV_K   4.13f
+#define VBAT_LP_ALPHA 0.05f   /* the pack sags hard under servo/LoRa current pulses */
+
 
 #define LSM6DSO_I2C_ADDR (0x6A << 1)
 /* USER CODE END PD */
@@ -87,6 +95,7 @@ UART_HandleTypeDef huart1;
 DMA_HandleTypeDef hdma_usart1_rx;
 
 /* USER CODE BEGIN PV */
+TIM_HandleTypeDef htim3;          /* 400 Hz control loop */
 LSM6DSO_Object_t hlsm6dso1;
 LSM6DSO_IO_t lsm6dso_io;
 
@@ -142,6 +151,9 @@ static void MX_TIM2_Init(void);
 static void MX_TIM6_Init(void);
 static void MX_RNG_Init(void);
 /* USER CODE BEGIN PFP */
+void Ctrl_Timer_Init(void);
+void Ctrl_Timer_Start(void);
+void Ctrl_Timer_Stop(void);
 void Get_Vbat(void);
 void platform_delay(uint32_t ms);
 
@@ -183,7 +195,7 @@ void IMU_Init(void){
     if (LSM6DSO_Init(&hlsm6dso1) == LSM6DSO_OK){
       IMU_Fusion_Init(&hlsm6dso1);
       HAL_Delay(100);
-      IMU_Fusion_CalibrateGyro(200);
+      // IMU_Fusion_CalibrateGyro(200);
     }
   }else{
     POST_fault_flags[IMU_Comm_Fail] = 1;
@@ -326,6 +338,10 @@ int main(void)
   HAL_RNG_GenerateRandomNumber(&hrng, &flight_rand_id);
 
   Mission_Init();
+
+  /* Configured now, started later by Mission_StartControlLoop() -- gyro bias
+     calibration must have SPI2 to itself first. */
+  Ctrl_Timer_Init();
 
   LED_Set_Color(0, 64, 0);
 
@@ -1226,14 +1242,22 @@ volatile uint32_t inttime;
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
   if(GPIO_Pin == LORA_DIO1_Pin){
     BUZZ(&hbuzz1, 100);
-  }else if (GPIO_Pin == IMU_INT1_Pin) {
-    Mission_IMU_DRDY();
   }
+  /* IMU_INT1 / DRDY is deliberately NOT handled any more. It used to fire at
+     3333 Hz and do blocking SPI2 reads from interrupt context while the main
+     loop was mid-transaction on the same bus. The IMU is now read from
+     Mission_ControlTick() only. */
 }
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc){
   if(hadc->Instance == ADC1){
-    battery_v = (adc_buff[0] * 3.3f / 4095.0f) * VBAT_DIV_K;
+    /* 12-bit full scale is 4096, not 4095. And filter it: a single instantaneous
+       sample lands wherever the pack happens to be during a servo or LoRa TX
+       current spike. */
+    float v = ((float)(adc_buff[0] & 0x0FFF) * 3.3f / 4096.0f) * VBAT_DIV_K;
+
+    if (battery_v <= 0.0f) battery_v = v;                       /* first sample */
+    else battery_v += VBAT_LP_ALPHA * (v - battery_v);
   }
 }
 
@@ -1317,6 +1341,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
     }
   }else if(htim == &htim6){
     Mission_IncTick();
+  }else if(htim == &htim3){
+    Mission_ControlTick();
   }
 }
 
@@ -1329,6 +1355,53 @@ void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi){
     IMU_NSS_GPIO_Port->BSRR = IMU_NSS_Pin;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   400 Hz control loop timer (TIM3).
+
+   TIM3 is on APB1. With SYSCLK = 144 MHz and APB1 = /4, the APB1 TIMER clock is
+   72 MHz (same as TIM6, which uses prescaler 72-1 for its 1 us tick).
+
+     72 MHz / 72 = 1 MHz;  1 MHz / 2500 = 400 Hz
+   --------------------------------------------------------------------------- */
+void Ctrl_Timer_Init(void)
+{
+  __HAL_RCC_TIM3_CLK_ENABLE();
+
+  htim3.Instance               = TIM3;
+  htim3.Init.Prescaler         = 72 - 1;      /* -> 1 MHz  */
+  htim3.Init.CounterMode       = TIM_COUNTERMODE_UP;
+  htim3.Init.Period            = 2500 - 1;    /* -> 400 Hz */
+  htim3.Init.ClockDivision     = TIM_CLOCKDIVISION_DIV1;
+  htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+
+  if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /* Above the SD/LoRa/GPS work in the main loop, but leave room for anything
+     that must pre-empt it. The ISR does two short SPI2 reads (~25 us at 9 MHz). */
+  HAL_NVIC_SetPriority(TIM3_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(TIM3_IRQn);
+}
+
+void Ctrl_Timer_Start(void)
+{
+  __HAL_TIM_SET_COUNTER(&htim3, 0);
+  HAL_TIM_Base_Start_IT(&htim3);
+}
+
+void Ctrl_Timer_Stop(void)
+{
+  HAL_TIM_Base_Stop_IT(&htim3);
+}
+
+void TIM3_IRQHandler(void)
+{
+  HAL_TIM_IRQHandler(&htim3);
+}
+
 /* USER CODE END 4 */
 
 /**

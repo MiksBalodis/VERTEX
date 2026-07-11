@@ -142,11 +142,15 @@ void Error_Handler(void);
 #define SERVO6_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
-#define Servo1_Home 90
+void Ctrl_Timer_Init(void);
+void Ctrl_Timer_Start(void);
+void Ctrl_Timer_Stop(void);
+
+#define Servo1_Home 117
 #define Servo2_Home 90
 
-#define Parachute_Servo_Home 90
-#define Parachute_Servo_Deploy 0
+#define Parachute_Servo_Home 0
+#define Parachute_Servo_Deploy 90
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
