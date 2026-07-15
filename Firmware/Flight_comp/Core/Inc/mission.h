@@ -9,7 +9,7 @@
 #define MAX_ASCENT_TIME_S  10
 #define MAX_DECENT_TIME_S  50
 
-#define IDLE_TIMEOUT_S     60
+#define IDLE_TIMEOUT_S     180
 
 #define FEEFALL_TIME_S  0
 

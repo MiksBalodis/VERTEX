@@ -37,7 +37,7 @@ static float filtered_gps_lon = 0.0f;
    The threshold is now NET of gravity. The old code compared imu.ry (which
    reads ~1 g at rest) against 900 mg, so it self-triggered on the bench.
    --------------------------------------------------------------------------- */
-#define LAUNCH_NET_ACCEL_THRESHOLD_MG  2000.0f   /* 2 g net -- tune to your motor */
+#define LAUNCH_NET_ACCEL_THRESHOLD_MG  1500.0f   /* 2 g net -- tune to your motor */
 #define LAUNCH_CONFIRMATION_SAMPLES    3
 
 /* ---------------------------------------------------------------------------
