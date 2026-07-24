@@ -59,6 +59,51 @@
   let animationFrame;
   let resizeObserver;
 
+  let gridHelper;
+
+  /* Theme. CSS colours are defined as custom properties in the stylesheet
+     below and switched via the data-theme attribute on the document root.
+     The 3D viewport is WebGL, so its colours have to be set from JS instead -
+     keep these in sync with the --viewport-bg / --axis / --gridline values. */
+  const THREE_THEME = {
+    light: { bg: 0xe2e8f0, gridMajor: 0x94a3b8, gridMinor: 0xcbd5e1 },
+    dark:  { bg: 0x111827, gridMajor: 0x475569, gridMinor: 0x263241 }
+  };
+
+  let theme = "light";
+
+  function toggleTheme() {
+    theme = theme === "dark" ? "light" : "dark";
+    try {
+      localStorage.setItem("gs-theme", theme);
+    } catch (e) {
+      /* private mode / storage disabled - the toggle still works, it just
+         won't be remembered across reloads. */
+    }
+  }
+
+  function applyThreeTheme() {
+    if (!scene) return;
+    const palette = THREE_THEME[theme];
+
+    scene.background = new THREE.Color(palette.bg);
+
+    /* GridHelper bakes its colours into vertex attributes, so recolouring
+       means rebuilding it rather than reassigning a material colour. */
+    if (gridHelper) {
+      scene.remove(gridHelper);
+      gridHelper.geometry.dispose();
+      gridHelper.material.dispose();
+    }
+
+    gridHelper = new THREE.GridHelper(4, 8, palette.gridMajor, palette.gridMinor);
+    gridHelper.position.y = -1.65;
+    gridHelper.material.transparent = true;
+    gridHelper.material.opacity     = 0.4;
+    gridHelper.material.depthWrite  = false;
+    scene.add(gridHelper);
+  }
+
   function isRocketFlying() {
     return missionState === "ASCENT" || missionState === "DESCENT";
   }
@@ -502,7 +547,6 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
     if (!threeContainer) return;
 
     scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x111827);
 
     const width  = threeContainer.clientWidth  || 260;
     const height = threeContainer.clientHeight || 200;
@@ -536,12 +580,7 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
     rocketGroup = createRocketModel();
     scene.add(rocketGroup);
 
-    const grid = new THREE.GridHelper(4, 8, 0x475569, 0x263241);
-    grid.position.y = -1.65;
-    grid.material.transparent = true;
-    grid.material.opacity     = 0.4;
-    grid.material.depthWrite  = false;
-    scene.add(grid);
+    applyThreeTheme();
 
     resizeObserver = new ResizeObserver(resizeThreeView);
     resizeObserver.observe(threeContainer);
@@ -567,7 +606,15 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
     if (renderer && scene && camera) renderer.render(scene, camera);
   }
 
-  onMount(() => { initThreeView(); });
+  onMount(() => {
+    try {
+      const stored = localStorage.getItem("gs-theme");
+      if (stored === "dark" || stored === "light") theme = stored;
+    } catch (e) {
+      /* ignore - fall back to the default */
+    }
+    initThreeView();
+  });
 
   onDestroy(() => {
     if (animationFrame) cancelAnimationFrame(animationFrame);
@@ -580,6 +627,12 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
       }
     }
   });
+
+  $: if (typeof document !== "undefined") {
+    document.documentElement.dataset.theme = theme;
+  }
+
+  $: if (scene && theme) applyThreeTheme();
 
   $: flying = missionState === "ASCENT" || missionState === "DESCENT";
 
@@ -596,6 +649,14 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
     <div class="header-left">
       <div class="title">GROUND STATION</div>
       <button on:click={connectSerial}>Connect to GS</button>
+      <button
+        class="theme-toggle"
+        on:click={toggleTheme}
+        title="Switch between light and dark theme"
+        type="button"
+      >
+        {theme === "dark" ? "☀ Light" : "☾ Dark"}
+      </button>
     </div>
 
     <div class="states">
@@ -778,11 +839,81 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
 </div>
 
 <style>
+  /* ------------------------------------------------------------------
+     THEME PALETTES
+     Light is the default. [data-theme="dark"] on <html> overrides it.
+     Only colour values live up here - every layout rule below is shared
+     between the two themes.
+  ------------------------------------------------------------------ */
+  :global(:root) {
+    --bg:           #f5f7fa;
+    --text:         #1f2937;
+    --header-bg:    #ffffff;
+    --panel-bg:     #ffffff;
+    --border:       #d8dee7;
+    --btn-bg:       #ffffff;
+    --btn-border:   #cbd5e1;
+    --btn-hover:    #eef1f5;
+    --muted:        #64748b;
+    --label:        #64748b;
+    --state-bg:     #dbe2ea;
+    --state-text:   #0f172a;
+    --state-border: #9aa8ba;
+    --safe-bg:      #fee2e2;
+    --safe-border:  #fca5a5;
+    --safe-text:    #991b1b;
+    --strip-bg:     #eef1f5;
+    --strip-flash:  #dbe3ee;
+    --viewport-bg:  #e2e8f0;
+    --map-bg:       #f8fafc;
+    --map-idle:     #94a3b8;
+    --axis:         #94a3b8;
+    --gridline:     #cbd5e1;
+    --trace:        #1f2937;
+    --dim:          #64748b;
+    --ok:           #16a34a;
+    --warn:         #b45309;
+    --crit:         #dc2626;
+    --error:        #dc2626;
+  }
+
+  :global(:root[data-theme="dark"]) {
+    --bg:           #0e131a;
+    --text:         #cbd5e1;
+    --header-bg:    #111821;
+    --panel-bg:     #131a23;
+    --border:       #1f2937;
+    --btn-bg:       #151c26;
+    --btn-border:   #2a3442;
+    --btn-hover:    #1d2632;
+    --muted:        #94a3b8;
+    --label:        #8b98a8;
+    --state-bg:     #2c394a;
+    --state-text:   #ffffff;
+    --state-border: #3b4758;
+    --safe-bg:      #4b1f1f;
+    --safe-border:  #7f1d1d;
+    --safe-text:    #fecaca;
+    --strip-bg:     #0f1620;
+    --strip-flash:  #1c2633;
+    --viewport-bg:  #111827;
+    --map-bg:       #111827;
+    --map-idle:     #64748b;
+    --axis:         #334155;
+    --gridline:     #263241;
+    --trace:        #ffffff;
+    --dim:          #64748b;
+    --ok:           #4ade80;
+    --warn:         #fbbf24;
+    --crit:         #f87171;
+    --error:        #ef4444;
+  }
+
   :global(body) {
     margin: 0;
     font-family: "Segoe UI", Arial, sans-serif;
-    background: #0e131a;
-    color: #cbd5e1;
+    background: var(--bg);
+    color: var(--text);
 
     overflow: hidden;
   }
@@ -799,8 +930,8 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
     align-items: center;
     justify-content: space-between;
     padding: 10px 22px;
-    background: #111821;
-    border-bottom: 1px solid #1f2937;
+    background: var(--header-bg);
+    border-bottom: 1px solid var(--border);
     gap: 14px;
     flex-shrink: 0;
   }
@@ -819,16 +950,22 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
   }
 
   button {
-    background: #151c26;
-    border: 1px solid #2a3442;
-    color: #cbd5e1;
+    background: var(--btn-bg);
+    border: 1px solid var(--btn-border);
+    color: var(--text);
     padding: 5px 10px;
     font-size: 11px;
     cursor: pointer;
   }
 
   button:hover {
-    background: #1d2632;
+    background: var(--btn-hover);
+  }
+
+  /* Fixed width so swapping the label doesn't shift the header around. */
+  .theme-toggle {
+    min-width: 74px;
+    white-space: nowrap;
   }
 
   .states {
@@ -837,41 +974,41 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
   }
 
   .states button {
-    color: #94a3b8;
+    color: var(--muted);
     padding: 5px 12px;
     transition: 0.15s;
     cursor: default;
   }
 
   .states button.selected {
-    background: #2c394a;
-    color: white;
-    border-color: #3b4758;
+    background: var(--state-bg);
+    color: var(--state-text);
+    border-color: var(--state-border);
   }
 
   .states button.safe-state.selected {
-    background: #4b1f1f;
-    border-color: #7f1d1d;
-    color: #fecaca;
+    background: var(--safe-bg);
+    border-color: var(--safe-border);
+    color: var(--safe-text);
   }
 
   .timer {
     font-family: monospace;
     font-size: 15px;
-    color: #94a3b8;
+    color: var(--muted);
     white-space: nowrap;
   }
 
   .status-strip {
     padding: 5px 22px;
-    background: #0f1620;
-    border-bottom: 1px solid #1f2937;
+    background: var(--strip-bg);
+    border-bottom: 1px solid var(--border);
     font-size: 12px;
     flex-shrink: 0;
   }
 
   .status-strip.flash {
-    background: #1c2633;
+    background: var(--strip-flash);
   }
 
   main {
@@ -896,15 +1033,15 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
   }
 
   .panel {
-    background: #131a23;
-    border: 1px solid #1f2937;
+    background: var(--panel-bg);
+    border: 1px solid var(--border);
     padding: 10px;
   }
 
   .panel-title {
     font-size: 10px;
     letter-spacing: 1px;
-    color: #8b98a8;
+    color: var(--label);
     margin-bottom: 8px;
   }
 
@@ -919,7 +1056,7 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
     position: relative;
     width: 100%;
     height: calc(100% - 20px);
-    background: #111827;
+    background: var(--viewport-bg);
     overflow: hidden;
   }
 
@@ -948,8 +1085,8 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
     width: 100%;
     height: 100%;
     display: block;
-    background: #111827;
-    border: 1px solid #1f2937;
+    background: var(--map-bg);
+    border: 1px solid var(--border);
   }
 
   .map-idle {
@@ -958,7 +1095,7 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #64748b;
+    color: var(--map-idle);
     font-family: monospace;
     font-size: 11px;
     text-align: center;
@@ -966,18 +1103,18 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
     pointer-events: none;
   }
 
-  .map-axis { stroke: #334155; stroke-width: 0.35; opacity: 0.7; }
-  .map-range { fill: none; stroke: #263241; stroke-width: 0.45; opacity: 0.75; }
-  .map-path { fill: none; stroke: #ffffff; stroke-width: 0.65; stroke-linecap: round; stroke-linejoin: round; opacity: 0.9; }
+  .map-axis { stroke: var(--axis); stroke-width: 0.35; opacity: 0.7; }
+  .map-range { fill: none; stroke: var(--gridline); stroke-width: 0.45; opacity: 0.75; }
+  .map-path { fill: none; stroke: var(--trace); stroke-width: 0.65; stroke-linecap: round; stroke-linejoin: round; opacity: 0.9; }
   .map-rocket { fill: rgb(92,92,92); stroke: rgb(92,92,92); stroke-width: 0.8; }
-  .map-home { fill: #64748b; opacity: 0.9; }
-  .map-home-label { fill: #64748b; font-size: 3px; font-family: monospace; }
+  .map-home { fill: var(--dim); opacity: 0.9; }
+  .map-home-label { fill: var(--dim); font-size: 3px; font-family: monospace; }
 
   .map-readout {
     flex-shrink: 0;
     margin-top: 6px;
     font-size: 10px;
-    color: #64748b;
+    color: var(--dim);
     font-family: monospace;
     white-space: nowrap;
     overflow: hidden;
@@ -1002,7 +1139,7 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
 
   .metric .label {
     font-size: 10px;
-    color: #8b98a8;
+    color: var(--label);
     display: flex;
     align-items: center;
     gap: 5px;
@@ -1032,14 +1169,14 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
     display: block;
     background: transparent;
     border: none;
-    border-top: 1px solid #1f2937;
+    border-top: 1px solid var(--border);
     padding-top: 6px;
     margin-top: 2px;
   }
 
-  .graph-grid { stroke: #263241; stroke-width: 0.25; opacity: 0.45; }
-  .graph-axis { stroke: #334155; stroke-width: 0.35; opacity: 0.65; }
-  .graph-line { stroke: #ffffff; stroke-width: 0.25; stroke-linecap: round; stroke-linejoin: round; opacity: 0.95; }
+  .graph-grid { stroke: var(--gridline); stroke-width: 0.25; opacity: 0.45; }
+  .graph-axis { stroke: var(--axis); stroke-width: 0.35; opacity: 0.65; }
+  .graph-line { stroke: var(--trace); stroke-width: 0.25; stroke-linecap: round; stroke-linejoin: round; opacity: 0.95; }
 
   .right-col {
     display: grid;
@@ -1066,7 +1203,7 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
 
   .small-metric .label {
     font-size: 11px;
-    color: #8b98a8;
+    color: var(--label);
     margin-bottom: 8px;
   }
 
@@ -1074,12 +1211,12 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
     font-size: 29px;
     line-height: 1;
     font-family: monospace;
-    color: #cbd5e1;
+    color: var(--text);
   }
 
-  .small-value.ok   { color: #4ade80; }
-  .small-value.warn { color: #fbbf24; }
-  .small-value.crit { color: #f87171; }
+  .small-value.ok   { color: var(--ok); }
+  .small-value.warn { color: var(--warn); }
+  .small-value.crit { color: var(--crit); }
 
   .errors {
     flex: 1;
@@ -1089,14 +1226,14 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
 
   .no-errors {
     font-size: 11px;
-    color: #64748b;
+    color: var(--dim);
   }
 
   ul { padding-left: 14px; margin: 0; }
 
   li {
     font-size: 11px;
-    color: #ef4444;
+    color: var(--error);
     margin-bottom: 5px;
   }
   @media (max-width: 1180px) {
