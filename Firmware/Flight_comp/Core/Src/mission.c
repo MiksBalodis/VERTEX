@@ -86,6 +86,7 @@ uint32_t last_telemetry_tst = 0;
 
 uint32_t led_tmr = 0;
 uint32_t idle_tmr = 0;
+uint32_t calib_tmr = 0;
 uint32_t freefall_tmr = 0;
 
 bool is_flash_ready = false;
@@ -106,7 +107,12 @@ typedef enum
     MISSION_DECENT,
     MISSION_LANDED,
     MISSION_IDLE,
-    MISSION_POST_FAIL
+    MISSION_POST_FAIL,
+    /* Appended at the end on purpose: the ground-station GUI decodes the flight
+       state by its numeric value (0=READY..4=IDLE,5=POST_FAIL). Inserting this
+       in the middle would renumber every state after it and mislabel telemetry.
+       New value = 6; the GUI has a matching case 6 -> "CALIBRATION". */
+    MISSION_CALIBRATION
 } MissionState_t;
 
 static volatile MissionState_t mission_state = MISSION_READY;
@@ -302,8 +308,28 @@ void Mission_Update(void)
     switch (mission_state)
     {
         case MISSION_IDLE:
+            /* Free-handling window. The vehicle may be moved around freely here:
+               NO calibration happens in this state. After IDLE_TIMEOUT_S we hand
+               off to the calibration window instead of arming directly. */
             if(HAL_GetTick()-idle_tmr > IDLE_TIMEOUT_S*1000){
-                mission_state = MISSION_READY;
+                mission_state = MISSION_CALIBRATION;
+                calib_tmr = HAL_GetTick();
+
+                /* Cue the operator to set the vehicle down and hold it still:
+                   amber LED + a short beep. Calibration runs at the end of this
+                   window, so anything you do before then is fine. */
+                LED_Set_Color(64, 32, 0);
+                BUZZ(&hbuzz1, 200);
+            }
+            break;
+
+        case MISSION_CALIBRATION:
+            /* Hold-still window. Sampling the gyro bias and gravity reference
+               requires the vehicle to be stationary, so we wait out the whole
+               CALIBRATION_TIMEOUT_S and take the sample at the very end, when the
+               IMU has thermally settled and the operator has stopped handling it.
+               Then we arm to READY. */
+            if(HAL_GetTick()-calib_tmr > CALIBRATION_TIMEOUT_S*1000){
 
                 /* Control loop is still stopped here, so the main loop has SPI2
                    to itself. Both of these block. */
@@ -313,6 +339,13 @@ void Mission_Update(void)
 
                 /* From here on, Mission_ControlTick() owns the IMU bus. */
                 Mission_StartControlLoop();
+
+                /* Arm now, before the SD setup. Logging is not flight-critical:
+                   if the card fails below we still fly (red LED, no log) exactly
+                   as before, and we never re-enter this block to re-run the
+                   blocking calibration. Two short beeps mark "armed". */
+                mission_state = MISSION_READY;
+                BUZZ(&hbuzz1, 100);
 
                 FRESULT res;
                 char filename[14];
@@ -344,6 +377,7 @@ void Mission_Update(void)
                 is_flash_ready = true;
             }
             break;
+
         case MISSION_READY:
             /* NET of gravity. imu.ry reads ~+1 g sitting on the pad. */
             if ((imu_s.ry - g_ref_mg) > LAUNCH_NET_ACCEL_THRESHOLD_MG)

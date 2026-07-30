@@ -3,10 +3,11 @@
   import * as THREE from "three";
   import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
-  const states = ["IDLE", "READY", "ASCENT", "DESCENT", "LANDED", "SAFE"];
+  const states = ["IDLE", "CALIBRATION", "READY", "ASCENT", "DESCENT", "LANDED", "SAFE"];
 
   const stateStatusMap = {
     IDLE: "Systems safe. Awaiting command.",
+    CALIBRATION: "Calibrating. Hold the vehicle still.",
     READY: "Vehicle armed. Pre-launch checks complete.",
     ASCENT: "Launch detected. Stabilization active.",
     DESCENT: "Descent phase active.",
@@ -358,6 +359,7 @@ function buildGraphPoints(values, width = 100, height = 36, defaultRangeDeg = 30
       case 2: setState("DESCENT"); break;
       case 3: setState("LANDED");  break;
       case 4: setState("IDLE");    break;
+      case 6: setState("CALIBRATION"); break;
       default: setState("SAFE", `Unknown state: ${stateCode}`);
     }
 
