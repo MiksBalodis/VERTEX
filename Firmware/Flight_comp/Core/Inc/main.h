@@ -146,8 +146,10 @@ void Ctrl_Timer_Init(void);
 void Ctrl_Timer_Start(void);
 void Ctrl_Timer_Stop(void);
 
-#define Servo1_Home 117
-#define Servo2_Home 90
+/* TVC servo homes: with the KST 0..120 deg map, 60 = mechanical center (1500 us).
+   RE-TRIM after mounting: set each so the nozzle is physically centred. */
+#define Servo1_Home 60
+#define Servo2_Home 60
 
 #define Parachute_Servo_Home 0
 #define Parachute_Servo_Deploy 90

@@ -247,6 +247,14 @@ void Servo_Init_All(void){
   Servo_Init(&hservo2, &htim5, TIM_CHANNEL_2);
   Servo_Init(&hservo3, &htim5, TIM_CHANNEL_3);
 
+  /* TVC servos = KST X10 Mini Pro-A: 900..2100 us -> -60..+60 deg (1500 us =
+     center). Map software 0..120 deg to that range, so 1 software deg = 1 servo
+     deg and 60 deg = mechanical center. Restrict the us limits here if you want
+     less travel. hservo3 (parachute) is left on its default map, so its deploy
+     pulse is unchanged. */
+  Servo_SetLimitsUS(&hservo1, 0.0f, 120.0f, 900, 2100);
+  Servo_SetLimitsUS(&hservo2, 0.0f, 120.0f, 900, 2100);
+
   Servo_SetAngle(&hservo1, Servo1_Home);
   Servo_SetAngle(&hservo2, Servo2_Home);
   Servo_SetAngle(&hservo3, Parachute_Servo_Home);

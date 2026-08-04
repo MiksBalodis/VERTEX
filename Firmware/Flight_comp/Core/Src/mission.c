@@ -372,6 +372,7 @@ void Mission_Update(void)
                     LED_Set_Color(64, 0, 0);
                     break;
                 }
+                f_sync(&telemetry_file);
                 // f_close(&telemetry_file);
 
                 is_flash_ready = true;
@@ -407,6 +408,14 @@ void Mission_Update(void)
                 tvc_armed = true;
 
                 BUZZ(&hbuzz1, 100);
+            }
+
+            /* Log at 10 Hz while armed and sitting on the pad/bench. Without
+               this the SD file only ever gets data during ASCENT, so a bench
+               test (no launch) produces an empty log. */
+            if(Mission_GetTick() - last_telemetry_tst > 100000 && is_flash_ready){
+                Mission_SaveTelemetry();
+                last_telemetry_tst = Mission_GetTick();
             }
 
             ground_pressure = prs_filtered;
@@ -657,5 +666,11 @@ void Mission_SaveTelemetry(void){
     if(res != FR_OK){
         LED_Set_Color(64, 0, 0);
         is_flash_ready = false;
+        return;
     }
+
+    /* Flush to the physical card. FatFs buffers writes; without this the file
+       is lost when the board is powered down (which is exactly how you pull the
+       card on the bench). f_sync updates the FAT + directory entry every line. */
+    f_sync(&telemetry_file);
 }

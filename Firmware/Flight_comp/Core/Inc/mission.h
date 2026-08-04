@@ -9,8 +9,8 @@
 #define MAX_ASCENT_TIME_S  10
 #define MAX_DECENT_TIME_S  50
 
-#define IDLE_TIMEOUT_S         600   /* 10 min: free-handling window, NO calibration */
-#define CALIBRATION_TIMEOUT_S  300   /* 5 min: hold the vehicle still, calibrate at the end */
+#define IDLE_TIMEOUT_S         60   /* 10 min: free-handling window, NO calibration */
+#define CALIBRATION_TIMEOUT_S  120   /* 5 min: hold the vehicle still, calibrate at the end */
 
 #define FEEFALL_TIME_S  0
 
