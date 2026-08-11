@@ -54,13 +54,19 @@ static float filtered_gps_lon = 0.0f;
    !!! Kd USED TO BE ZERO, which meant no damping at all on an inverted-pendulum
    !!! plant -- that alone guaranteed divergence.
    --------------------------------------------------------------------------- */
-#define TVC_KP          0.5f    /* deg of nozzle per deg of tilt   */
-#define TVC_KI          0.0f    /* leave at zero until P+D is tuned */
-#define TVC_KD_DEG_DPS  0.05f   /* deg of nozzle per deg/s of rate  */
+/* Gains. The sign is NEGATIVE: the bench sign-check showed the gimbal is
+   mounted inverted (both axes deflected the wrong way, driving the tilt instead
+   of correcting it). Negating Kp and Kd flips both axes to the corrective
+   direction. KEEP the minus sign when tuning — only change the magnitude. If a
+   later sign-check ever shows it correcting the WRONG way again, flip the signs
+   back. */
+#define TVC_KP         -0.5f    /* deg of nozzle per deg of tilt    */
+#define TVC_KI          0.0f    /* 0 until P+D tuned; when enabled, make it NEGATIVE too */
+#define TVC_KD_DEG_DPS -0.05f   /* deg of nozzle per deg/s of rate   */
 
 /* Cut TVC at burnout: past this point the nozzle has no thrust to vector, so
    the servos would just chase a diverging angle. Set to your motor's burn time. */
-#define MOTOR_BURN_TIME_S  2.0f
+#define MOTOR_BURN_TIME_S  10.0f
 
 static uint8_t launch_confirm_counter = 0;
 
@@ -340,6 +346,28 @@ void Mission_Update(void)
                 /* From here on, Mission_ControlTick() owns the IMU bus. */
                 Mission_StartControlLoop();
 
+                /* Set the attitude reference NOW, while the vehicle is held still
+                   and pointing up, and seed the quaternion from clean (thrust-
+                   free) gravity. This defines "straight up" for the whole flight.
+                   Doing it here rather than at launch means the reference comes
+                   from a stationary vehicle with uncorrupted gravity -- important
+                   when there is no launch rail to guarantee a clean launch pose.
+                   IMPORTANT: keep the vehicle in its launch orientation and still
+                   from here until liftoff; it is NOT re-zeroed again. */
+                IMU_Fusion_ResetAttitude(&imu_integration, Mission_GetTick());
+
+#ifdef TVC_SIGN_CHECK
+                /* Bench sign-check: arm TVC now and leave it running in READY so
+                   you can tilt the airframe and watch the nozzle. Green LED =
+                   live. Tilt FORWARD -> nozzle should deflect to push the base
+                   back; check pitch and yaw separately. */
+                TVC_Reset(&tvc);
+                TVC_Enable(&tvc);
+                tvc_armed = true;
+                LED_Set_Color(0, 64, 0);
+                BUZZ(&hbuzz1, 100);
+#endif
+
                 /* Arm now, before the SD setup. Logging is not flight-critical:
                    if the card fails below we still fly (red LED, no log) exactly
                    as before, and we never re-enter this block to re-run the
@@ -364,7 +392,8 @@ void Mission_Update(void)
 
                 const char *header =
                     "w,x,y,z,rx,ry,rz,flight_state,altitude,timestamp,"
-                    "lat,lon,vertical_speed,battery_voltage,sat_count\r\n";
+                    "lat,lon,vertical_speed,battery_voltage,sat_count,"
+                    "gx,gz,pitch,yaw,tvc_pitch,tvc_yaw\r\n";
 
                 UINT bw;
                 res = f_write(&telemetry_file, header, strlen(header), &bw);
@@ -380,6 +409,7 @@ void Mission_Update(void)
             break;
 
         case MISSION_READY:
+#ifndef TVC_SIGN_CHECK
             /* NET of gravity. imu.ry reads ~+1 g sitting on the pad. */
             if ((imu_s.ry - g_ref_mg) > LAUNCH_NET_ACCEL_THRESHOLD_MG)
             {
@@ -398,17 +428,18 @@ void Mission_Update(void)
 
                 launch_tick_us = Mission_GetTick();
 
-                /* Zero the euler integrals AND seed the quaternion from the
-                   measured gravity direction, instead of asserting identity and
-                   hoping the rail was perfectly vertical. */
-                IMU_Fusion_ResetAttitude(&imu_integration, launch_tick_us);
-
+                /* Attitude reference was already set at the end of calibration,
+                   while the vehicle was still and gravity was clean. Do NOT
+                   re-zero here: at launch the vehicle may be moving/tilted (no
+                   rail) and gravity is thrust-corrupted, which would capture a
+                   bad "up". */
                 TVC_Reset(&tvc);
                 TVC_Enable(&tvc);
                 tvc_armed = true;
 
                 BUZZ(&hbuzz1, 100);
             }
+#endif  /* !TVC_SIGN_CHECK — in sign-check mode we stay in READY with TVC live */
 
             /* Log at 10 Hz while armed and sitting on the pad/bench. Without
                this the SD file only ever gets data during ASCENT, so a bench
@@ -575,14 +606,19 @@ void Mission_ControlTick(void)
 
     IMU_Fusion_Update(&imu, &imu_integration, Mission_GetTick());
 
+#ifdef TVC_SIGN_CHECK
+    /* Bench sign-check: run TVC whenever it's armed, in any state (it's armed in
+       READY right after calibration and never launches). */
+    if (tvc_armed)
+#else
     if (mission_state == MISSION_ASCENT && tvc_armed)
+#endif
     {
         TVC_Update(&tvc,
                    imu_integration.pitch,
                    imu.gx,
                    imu_integration.yaw,
                    imu.gz,
-                   imu_integration.roll,
                    CTRL_DT_S);
     }
 }
@@ -607,7 +643,7 @@ float Mission_GetGravityRefMg(void)
 
 void Mission_SaveTelemetry(void){
     UINT bw;
-    static char line[256];
+    static char line[384];
     uint8_t tmp[54];
     Mission_BuildRAWTelemetryPacket(tmp);
 
@@ -631,6 +667,19 @@ void Mission_SaveTelemetry(void){
     int32_t vertical_speed = (int32_t)(raw_telemetry.vertical_speed * 100.0f);
     int32_t battery_voltage = (int32_t)(raw_telemetry.battery_voltage * 100.0f);
 
+    /* --- TVC / control signals (scaled ints; firmware printf has no %f).
+       Decode post-flight: gx,gz are milli-dps (/1000 for dps); pitch,yaw and
+       tvc_* are centi-degrees (/100 for degrees).
+         gx,gz            : raw gyro rate  = the D-term input
+         pitch,yaw        : integrated attitude = the P-term input
+         tvc_pitch,tvc_yaw: commanded nozzle deflection (per-axis PID output) */
+    int32_t gx_l        = (int32_t)(imu.gx);
+    int32_t gz_l        = (int32_t)(imu.gz);
+    int32_t pitch_l     = (int32_t)(imu_integration.pitch * 100.0f);
+    int32_t yaw_l       = (int32_t)(imu_integration.yaw   * 100.0f);
+    int32_t tvc_pitch_l = (int32_t)(TVC_GetPitchOutput(&tvc) * 100.0f);
+    int32_t tvc_yaw_l   = (int32_t)(TVC_GetYawOutput(&tvc)   * 100.0f);
+
 
     int len = snprintf(
         line, sizeof(line),
@@ -642,7 +691,8 @@ void Mission_SaveTelemetry(void){
         "%ld,%ld,"
         "%ld,"
         "%ld,"
-        "%u\r\n",
+        "%u,"
+        "%ld,%ld,%ld,%ld,%ld,%ld\r\n",
 
         w,
         x,
@@ -658,7 +708,13 @@ void Mission_SaveTelemetry(void){
         lon,
         vertical_speed,
         battery_voltage,
-        raw_telemetry.sat_count
+        raw_telemetry.sat_count,
+        gx_l,
+        gz_l,
+        pitch_l,
+        yaw_l,
+        tvc_pitch_l,
+        tvc_yaw_l
     );
 
     if(len < 0){return;}

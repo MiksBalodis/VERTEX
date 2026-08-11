@@ -164,16 +164,14 @@ void TVC_Reset(TVC_t *tvc);
  * Call rate: every Mission_Update cycle (~50 Hz with BMP388 at 50 Hz).
  * The D term uses the gyro rate directly so it does not depend on dt.
  */
-/* roll_angle_deg: rotation about the rocket's LONG axis, used to de-rotate the
-   pitch/yaw commands into the (body-fixed) gimbal frame. Without it, once the
-   rocket rolls 90 deg the pitch servo starts correcting yaw and the controller
-   fights itself. */
+/* Pitch/yaw-only controller — no roll compensation. The gimbal servos are
+   body-fixed and the pitch/yaw errors are integrated from the same body axes,
+   so the command maps straight to the servos with no rotation. */
 void TVC_Update(TVC_t *tvc,
                 float  pitch_angle,
                 float  pitch_rate_mdps,
                 float  yaw_angle,
                 float  yaw_rate_mdps,
-                float  roll_angle_deg,
                 float  dt_s);
 
 /*

@@ -158,7 +158,6 @@ void TVC_Update(TVC_t *tvc,
                 float  pitch_rate_mdps,
                 float  yaw_angle,
                 float  yaw_rate_mdps,
-                float  roll_angle_deg,
                 float  dt_s)
 {
     if (tvc == NULL) return;
@@ -214,30 +213,17 @@ void TVC_Update(TVC_t *tvc,
     float yaw_out   = pid_step(&tvc->yaw,   yaw_error,   -yaw_rate_mdps,   dt_s);
 
     /* ------------------------------------------------------------------
-       Convert PID output to servo angle and command actuators.
+       Command the servos directly from the per-axis PID outputs.
 
-       servo_angle = home + pid_output
-
-       pid_output is already clamped to ±TVC_MAX_DEFLECTION_DEG inside
-       pid_step, so servo_angle stays within [home - limit, home + limit].
-       Both are within the 0–180 deg SG90 range for the home angles used
-       (86 and 75 deg), so no second clamp is needed here.
+       Pitch/yaw only, NO roll compensation. The gimbal servos are body-fixed
+       and the pitch/yaw errors are integrated from the same body axes, so they
+       map straight to the servos with no rotation. (Roll about the long axis is
+       not controllable with two gimbal servos anyway.) Each output is already
+       clamped to +/-TVC_MAX_DEFLECTION_DEG inside pid_step; the clampf here is a
+       belt-and-braces limit.
        ------------------------------------------------------------------ */
-    /* ------------------------------------------------------------------
-       Roll compensation.
-
-       The gimbal axes are body-fixed and the rocket WILL roll (thrust
-       misalignment, fin cant). The pitch/yaw errors above are integrated
-       from body rates, so once roll is non-zero the 'pitch' servo is no
-       longer aligned with the pitch error. Rotate the command back into
-       the gimbal frame by the roll angle.
-       ------------------------------------------------------------------ */
-    float roll_rad = roll_angle_deg * 0.01745329252f;
-    float cr = cosf(roll_rad);
-    float sr = sinf(roll_rad);
-
-    float cmd_pitch = clampf( pitch_out * cr + yaw_out * sr, TVC_MAX_DEFLECTION_DEG);
-    float cmd_yaw   = clampf(-pitch_out * sr + yaw_out * cr, TVC_MAX_DEFLECTION_DEG);
+    float cmd_pitch = clampf(pitch_out, TVC_MAX_DEFLECTION_DEG);
+    float cmd_yaw   = clampf(yaw_out,   TVC_MAX_DEFLECTION_DEG);
 
     if (tvc->pitch_servo != NULL)
         Servo_SetAngleFine(tvc->pitch_servo, tvc->pitch_home + cmd_pitch);

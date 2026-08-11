@@ -46,13 +46,25 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+/* ===========================================================================
+   BENCH SERVO TEST — remove/comment out before flight.
+   When defined, main() runs Servo_BenchTest() forever right after the servos
+   are initialised, and never proceeds to the mission. It sweeps each TVC servo
+   on its own (servo 1 first, then servo 2) between home+20 and home-20 deg,
+   pausing at each end so you can watch whether it actually reaches the position.
+   Purely a mechanical/wiring check; comment the line out to boot normally. */
+// #define SERVO_BENCH_TEST   /* servos validated — off; using TVC_SIGN_CHECK now */
+#define SERVO_BENCH_SWEEP_DEG   20    /* +/- degrees from home */
+#define SERVO_BENCH_PAUSE_MS    1500  /* hold time at each end */
+/* =========================================================================== */
+
 /* ---------------------------------------------------------------------------
    !!! MEASURE THIS. Do not trust the schematic.
    !!! With the 3S LiFePO4 connected: DMM across the pack (V_pack) and at the
    !!! ADC pin (V_pin), then VBAT_DIV_K = V_pack / V_pin.
    !!! The old 4.13 reported 7.89 V for a pack that should sit near 9.9 V.
    --------------------------------------------------------------------------- */
-#define VBAT_DIV_K   4.13f
+#define VBAT_DIV_K   4.87f
 #define VBAT_LP_ALPHA 0.05f   /* the pack sags hard under servo/LoRa current pulses */
 
 
@@ -151,6 +163,9 @@ static void MX_TIM2_Init(void);
 static void MX_TIM6_Init(void);
 static void MX_RNG_Init(void);
 /* USER CODE BEGIN PFP */
+#ifdef SERVO_BENCH_TEST
+void Servo_BenchTest(void);
+#endif
 void Ctrl_Timer_Init(void);
 void Ctrl_Timer_Start(void);
 void Ctrl_Timer_Stop(void);
@@ -341,6 +356,11 @@ int main(void)
   IMU_Init();
   LoRa_Init();
   Servo_Init_All();
+#ifdef SERVO_BENCH_TEST
+  /* Bench servo check — never returns. Comment out SERVO_BENCH_TEST (top of
+     file) to boot normally into the mission. */
+  Servo_BenchTest();
+#endif
   FatFs_Test();
 
   HAL_RNG_GenerateRandomNumber(&hrng, &flight_rand_id);
@@ -1235,6 +1255,47 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+/* Bench servo test — see the SERVO_BENCH_TEST block near the top of the file.
+   Sweeps one TVC servo at a time between home+SWEEP and home-SWEEP, pausing at
+   each end. Loops forever; power the board off when done. Uses SetAngleFine so
+   it exercises the exact actuation path (and per-servo KST calibration) that TVC
+   uses in flight. */
+#ifdef SERVO_BENCH_TEST
+static void Servo_BenchTest_One(servo_t *servo, float home)
+{
+    /* start centred so you can see the reference point */
+    Servo_SetAngleFine(servo, home);
+    HAL_Delay(SERVO_BENCH_PAUSE_MS);
+
+    for (int i = 0; i < 3; i++)          /* a few cycles so it's easy to watch */
+    {
+        Servo_SetAngleFine(servo, home + SERVO_BENCH_SWEEP_DEG);   /* one end  */
+        HAL_Delay(SERVO_BENCH_PAUSE_MS);
+        Servo_SetAngleFine(servo, home - SERVO_BENCH_SWEEP_DEG);   /* other end*/
+        HAL_Delay(SERVO_BENCH_PAUSE_MS);
+    }
+
+    Servo_SetAngleFine(servo, home);     /* leave it centred before next servo */
+    HAL_Delay(SERVO_BENCH_PAUSE_MS);
+}
+
+void Servo_BenchTest(void)
+{
+    while (1)
+    {
+        /* Servo 1, on its own */
+        LED_Set_Color(64, 0, 0);         /* red while servo 1 sweeps */
+        Servo_BenchTest_One(&hservo1, (float)Servo1_Home);
+
+        /* Servo 2, on its own */
+        LED_Set_Color(0, 0, 64);         /* blue while servo 2 sweeps */
+        Servo_BenchTest_One(&hservo2, (float)Servo2_Home);
+    }
+}
+#endif /* SERVO_BENCH_TEST */
+
+/* USER CODE END 4 */
 
 void Get_Vbat(void){
   HAL_ADC_Start_DMA(&hadc1, adc_buff, 1);

@@ -9,8 +9,17 @@
 #define MAX_ASCENT_TIME_S  10
 #define MAX_DECENT_TIME_S  50
 
-#define IDLE_TIMEOUT_S         60   /* 10 min: free-handling window, NO calibration */
-#define CALIBRATION_TIMEOUT_S  120   /* 5 min: hold the vehicle still, calibrate at the end */
+/* ===========================================================================
+   BENCH SIGN-CHECK MODE — remove/comment out before flight.
+   When defined: after calibration the vehicle stays in READY with TVC armed and
+   running continuously (no launch needed, no burnout cutoff), so you can tilt
+   the airframe by hand and watch the nozzle. Comment the line out to restore
+   flight behaviour (TVC only during ASCENT). */
+// #define TVC_SIGN_CHECK   /* FLIGHT: OFF. Enable only for bench sign-check. */
+/* =========================================================================== */
+
+#define IDLE_TIMEOUT_S         30   /* free-handling window, NO calibration     */
+#define CALIBRATION_TIMEOUT_S  60   /* hold the vehicle still, calibrate at end  */
 
 #define FEEFALL_TIME_S  0
 
