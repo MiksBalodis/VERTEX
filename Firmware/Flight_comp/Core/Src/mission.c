@@ -60,7 +60,7 @@ static float filtered_gps_lon = 0.0f;
    direction. KEEP the minus sign when tuning — only change the magnitude. If a
    later sign-check ever shows it correcting the WRONG way again, flip the signs
    back. */
-#define TVC_KP         -0.5f    /* deg of nozzle per deg of tilt    */
+#define TVC_KP         -0.2f    /* deg of nozzle per deg of tilt    */
 #define TVC_KI          0.0f    /* 0 until P+D tuned; when enabled, make it NEGATIVE too */
 #define TVC_KD_DEG_DPS -0.05f   /* deg of nozzle per deg/s of rate   */
 

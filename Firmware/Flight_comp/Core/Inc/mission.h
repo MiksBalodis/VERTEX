@@ -18,8 +18,8 @@
 // #define TVC_SIGN_CHECK   /* FLIGHT: OFF. Enable only for bench sign-check. */
 /* =========================================================================== */
 
-#define IDLE_TIMEOUT_S         30   /* free-handling window, NO calibration     */
-#define CALIBRATION_TIMEOUT_S  60   /* hold the vehicle still, calibrate at end  */
+#define IDLE_TIMEOUT_S         420  /* free-handling window, NO calibration     */
+#define CALIBRATION_TIMEOUT_S  10   /* hold the vehicle still, calibrate at end  */
 
 #define FEEFALL_TIME_S  0
 
