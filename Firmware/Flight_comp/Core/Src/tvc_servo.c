@@ -226,10 +226,10 @@ void TVC_Update(TVC_t *tvc,
     float cmd_yaw   = clampf(yaw_out,   TVC_MAX_DEFLECTION_DEG);
 
     if (tvc->pitch_servo != NULL)
-        Servo_SetAngleFine(tvc->pitch_servo, tvc->pitch_home + cmd_pitch);
+        Servo_SetAngleFine(tvc->pitch_servo, tvc->pitch_home + TVC_PITCH_DIR * cmd_pitch);
 
     if (tvc->yaw_servo != NULL)
-        Servo_SetAngleFine(tvc->yaw_servo, tvc->yaw_home + cmd_yaw);
+        Servo_SetAngleFine(tvc->yaw_servo, tvc->yaw_home + TVC_YAW_DIR * cmd_yaw);
 }
 
 float TVC_GetPitchOutput(const TVC_t *tvc)

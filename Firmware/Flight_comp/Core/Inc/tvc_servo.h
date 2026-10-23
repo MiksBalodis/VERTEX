@@ -55,6 +55,13 @@
    ------------------------------------------------------------------ */
 #define TVC_MAX_DEFLECTION_DEG   10.0f   /* ± degrees from servo center  */
 
+/* Per-servo direction. +1 = as wired, -1 = reversed. Applied to the TVC
+   command only (after the PID), so it flips that servo's correction without
+   touching the other axis or the gains. S2 (yaw) moved the wrong way on the
+   bench, so it is reversed. */
+#define TVC_PITCH_DIR   (+1.0f)   /* S1 */
+#define TVC_YAW_DIR     (-1.0f)   /* S2 */
+
 /* ------------------------------------------------------------------
    Single-axis PID state
    ------------------------------------------------------------------ */
