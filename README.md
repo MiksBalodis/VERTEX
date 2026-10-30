@@ -1,280 +1,83 @@
-# Aktīvās kontroles raķetes avionikas sistēma
+# VERTEX Flight Computer
 
-## Projekta apraksts
-Šis projekts paredz aktīvās kontroles raķetes avionikas sistēmas izstrādi, kas ietver gan raķetē iebūvētu avionikas datoru, gan zemes bāzi datu saņemšanai, uzglabāšanai un analīzei. Sistēma nodrošina aktīvu trajektorijas korekciju reāllaikā, izmantojot sensoru datus, vadības algoritmus un elektroniskos izpildmehānismus.
+Avionics system for actively controlled high-power rockets: an STM32 flight computer that estimates vehicle state in real time and drives control actuators, plus a ground station for receiving, storing and analysing flight data.
 
-Projektā tiek apvienotas iegultās sistēmas, signālu apstrāde, vadības algoritmi, telemetrija un lietotāja saskarnes izstrāde.
-
-**Projektu izstrādā:**  
-Aleksandrs Jesiļevskis  
-Miks Balodis  
+**Authors:** Miks Balodis, Aleksandrs Jesiļevskis
 
 ---
 
-## Projekta mērķis
-Izstrādāt:
-- raķetes avionikas datoru ar aktīvas trajektorijas korekcijas iespējām,
-- zemes bāzi lidojuma datu saņemšanai un analīzei,
-- drošu un papildināmu sistēmu, kas piemērota eksperimentālām lieljaudas raķetēm.
+## Overview
 
-Sistēmai jāspēj:
-- reāllaikā noteikt raķetes stāvokli,
-- veikt aktīvo vadību ar vairākām kontroles spurām,
-- ierakstīt un uzglabāt lidojuma datus,
-- nodrošināt saziņu ar zemes bāzi lidojuma laikā.
+The system covers the full avionics chain:
 
----
+- **Flight computer** – sensor acquisition, state estimation, active control and flight data logging
+- **Telemetry link** – LoRa downlink to the ground during flight
+- **Ground station** – receiver hardware and a desktop GUI for live visualisation and data export
 
-## Idejas rašanās
-Ideja radās, balstoties uz **RTU Lieljaudas raķeškomandas (RTU HPR)** 2025. gada 1. semestra projektu – aktīvās rotācijas kontroles raķeti. Šī projekta ietvaros tika izmantots RP2040 mikrokontrolieris, kuram konstatēti vairāki ierobežojumi:
-- nav iebūvēta peldošā komata vienības (FPU),
-- ierobežota programmas atmiņa,
-- augsts enerģijas patēriņš.
+The flight computer can:
 
-Lai šos trūkumus novērstu, projektā tiek izvēlēts **STM32F405RGT6**, kas nodrošina augstāku veiktspēju, FPU atbalstu un DSP instrukcijas.
+- estimate the rocket's attitude, velocity and altitude in real time,
+- drive up to **4 PWM actuator channels** (servo-actuated control fins or a TVC gimbal),
+- log flight data on board for post-flight analysis,
+- stream telemetry to the ground station during flight.
 
----
+## What is active control?
 
-## Idejas apraksts
+Active control continuously:
 
-### Projekta lietotāji
-- studentu raķešu komandas,
-- augstskolu/vidusskolu eksperimentēšanas grupas,
-- iegulto sistēmu un vadības algoritmu izstrādātāji,
-- eksperimentālu raķešu un bezpilota sistēmu entuziasti.
+1. measures the vehicle's state (orientation, angular rates, velocity),
+2. computes the required correction,
+3. commands the actuators via PWM.
 
-### Izmantotās tehnoloģijas
-- **Iegultās sistēmas:** STM32 (ARM Cortex-M4)
-- **Sensori:** barometrs, IMU, GNSS
-- **Vadības algoritmi:** PID, Kalmana filtrs
-- **Telemetrija:** sub-GHz radio sakari
-- **Programmatūra:** C/C++, MatLab/Simulink (simulācijas), JavaScript un Svelte (GUI)
-- **Projektēšana:** KiCad
+Unlike passive stabilisation, which relies on fixed aerodynamic surfaces, an active system can respond to disturbances such as wind gusts, thrust misalignment and asymmetries during flight.
 
-### Piegādes formāts
-Projekta rezultāts būs:
-- raķetes avionikas sistēmas plate (PCB),
-- iegultā programmatūra gatava demonstratīvam raķetes lidojumam (firmware),
-- zemes bāzes programmatūra (GUI),
-- dokumentācija.
+## Architecture
 
-Šāda pieeja ļauj sistēmu izmantot gan eksperimentālos lidojumos, gan simulācijās.
+![System architecture](Documents/System_architecture.png)
+![Architecture](Documents/Arhitektura.png)
+![Flight computer block diagram](Documents/FP_block_diagram.png)
 
----
+## Hardware
 
-## Aktīvā kontrole
-Aktīvā kontrole ir vadības sistēma, kas lidojuma laikā nepārtraukti:
-- mēra raķetes stāvokli (leņķi, ātrumu, rotāciju),
-- aprēķina nepieciešamos labojumus,
-- ģenerē PWM signālus izpildmehānismiem servo kontrolētām spurām.
+| Function | Component | Notes |
+|---|---|---|
+| MCU | STM32F405RGT6 | Cortex-M4F, FPU + DSP, DMA for peripheral transfers |
+| Barometer | BMP388 | Altitude estimation; SPI up to 10 MHz |
+| IMU | LSM6DSO | 3-axis accelerometer + gyroscope|
+| GNSS | u-blox MAX-M10S | ~1.5 m CEP position accuracy, high altitude capable |
+| Flight data storage | SPI NOR flash | Exposed to a PC as a USB Mass Storage device |
+| Configuration storage | 24LC64 EEPROM | Persistent parameters, separate from flight logs |
+| Telemetry | EBYTE E22-400M22S | LoRa operating at 433 MHz |
+| Actuators | 4× PWM outputs | Servo driven fins or TVC gimbal |
 
-Sistēma atbalsta līdz **4 aktīvām spurām**, katrai paredzot atsevišķu PWM kanālu. Salīdzinājumā ar pasīvo kontroli, aktīvā kontrole spēj reaģēt uz ārējiem traucējumiem un uzlabot stabilitāti un precizitāti.
+Flight logs and configuration are deliberately kept on separate memories: the EEPROM is simple to access and keeps configuration safe from being overwritten by logging.
 
----
+## Software
 
-## Risinājuma arhitektūra
+- **Firmware:** C/C++ on STM32 (STM32CubeIDE / STM32Cube HAL), DMA-driven sensor I/O
+- **State estimation:** Kalman filter
+- **Control:** PID controller
+- **Simulation & tuning:** MATLAB/Simulink for controller and filter design; RocketPy for flight trajectory simulation
+- **Ground station GUI:** JavaScript + Svelte, with real time plots and data export
+- **PCB design:** KiCad
 
-### Konceptuālais modelis
-Sistēma sastāv no trim galvenajiem blokiem:
-1. **Sensoru slānis** – datu iegūšana
-2. **Vadības un apstrādes slānis** – aprēķini un lēmumu pieņemšana
-3. **Izpildes un komunikācijas slānis** – kontrole, datu uzglabāšana un pārraide
+## Intended users
 
-### Tehniskā arhitektūra
+- student and university rocketry teams
+- embedded systems and control algorithm developers
+- experimental rocketry and UAV hobbyists
 
-#### MCU
-- **STM32F405RGT6** - mikrokontrolieris datu apstrādei un komandu nodošanai
+## Deliverables
 
-#### Sensori
-- **BMP388** – barometrs augstuma noteikšanai
-- **LSM6DSO** – IMU (akselerometrs + žiroskops)
-- **MAX-M10S** – GNSS modulis augstas precizitātes pozīcijai
+- Flight computer PCB
+- Flight firmware
+- Ground station hardware and GUI
+- Documentation
 
-#### Datu uzglabāšana
-- **MXL1606** – lidojuma datu ierakstīšanai (USB Mass Storage režīms)
-- **24LC64 EEPROM** – konfigurācijas datiem
+## License
 
-#### Telemetrija
-- **EBYTE E22-400M22S** - LoRa moudlis saziņai ar zemes bāzi (433 MHz)
+All materials in this repository are free to use. Attribution is not required, but a short mention of where they came from is appreciated.
 
-#### Vadība
-- PWM signāli spuru servo
-- PID regulators
-- Kalmana filtrs stāvokļa novērtēšanai
+## Contact
 
-![Projekta izstrādes Gantt diagramma](Documents/System_architecture.png)
-![Projekta izstrādes Gantt diagramma](Documents/Arhitektura.png)
-![Flight computer block diagram](./Documents/FP_block_diagram.png)
-
----
-## Izstrādes plāns (10 nedēļas)
-
-Projekta izstrāde ir plānota 10 nedēļu laikā, pieņemot, ka avionikas plate jau ir uzdizainēta un pasūtīta, un nākamais solis ir tās salodēšana. Darbs tiek sadalīts starp diviem izstrādātājiem, lai maksimāli efektīvi izmantotu paralēlu izstrādi.
-
-### Lomu sadalījums
-- **Aleksandrs** – iegultās sistēmas programmēšana, STM32 firmware, sensoru draiveri, datu plūsma, vadība un telemetrija, sistēmas arhitektūras lēmumi,  integrācija, testēšana un dokumentācija.
-- **Miks** – raķetes tehniskā daļa, mehāniskā integrācija, Matlab/Simulink simulācijas, vadības algoritmu modelēšana un zemes stacijas aparatūra, sistēmas arhitektūras lēmumi,  integrācija, testēšana un dokumentācija.
-
----
-
-### 1. nedēļa – Sistēmas inicializācija un modeļu sagatavošana
-**Aleksandrs:**
-- STM32CubeIDE projekta izveide
-- Pulksteņu (clock tree) un pamata perifēriju konfigurācija
-- Debug interfeisa (SWD/UART) inicializācija
-
-**Miks:**
-- Raķetes kustības konceptuālā modeļa izstrāde
-- Aktīvās kontroles uzdevuma definēšana
-- Sensoru mērījumu teorētisko modeļu izveide
-
-**Rezultāts:**  
-MCU veiksmīgi startē un sistēmas matemātiskais modelis ir definēts.
-
----
-
-### 2. nedēļa – Perifēriju un datu plūsmas pamati
-**Aleksandrs:**
-- GPIO, UART, SPI un I2C konfigurācija
-- DMA izmantošanas pamati datu pārsūtīšanai
-- Vienkārša datu izvada testēšana
-
-**Miks:**
-- PID regulatora struktūras izveide Matlab/Simulink
-- Sākotnējo vadības parametru novērtēšana
-- Avionikas plates salodēšana
-
-**Rezultāts:**  
-MCU spēj komunicēt ar perifērijām, un PID struktūra ir gatava simulācijām, plate ir salodēta.
-
----
-
-### 3. nedēļa – Avionikas plates salodēšana un sensoru testēšana
-**Aleksandrs:**
-- IMU (LSM6DSO) un barometra (BMP388) draiveru izstrāde
-- Sensoru datu nolasīšana un izvadīšana caur UART
-
-**Miks:**
-- Barošanas un signālu līmeņu pārbaude
-- Sensoru fiziskās integrācijas novērtēšana
-
-**Rezultāts:**  
-Pilnībā funkcionējoši aktīvie sensori.
-
----
-
-### 4. nedēļa – GNSS un sensoru apvienošana
-**Aleksandrs:**
-- GNSS (MAX-M10S) draivera izstrāde
-- Laika sinhronizācija starp sensoriem
-- Datu struktūru definēšana
-
-**Miks:**
-- Sensoru kalibrācijas metodes
-- Kļūdu modelēšana
-- Mērījumu precizitātes izvērtēšana
-
-**Rezultāts:**  
-Apvienoti visi sensoru dati vienotā laika skalā.
-
----
-
-### 5. nedēļa – Aktīvā vadība un izpildmehānismi
-**Aleksandrs:**
-- PWM izvades konfigurācija
-- Taimeru konfigurācija izpildmehānismiem
-- Izpildmehānismu testēšana
-
-**Miks:**
-- PID parametru regulēšana Simulink vidē
-- Stabilitātes analīze
-- Vadības algoritma validācija simulācijā
-
-**Rezultāts:**  
-Izpildmehānismi reaģē uz vadības signāliem paredzētajā veidā.
-
----
-
-### 6. nedēļa – Datu apstrāde un uzglabāšana
-**Aleksandrs:**
-- USB Mass Storage režīma ieviešana
-- Datu struktūras optimizācija
-
-**Miks:**
-- Kalmana filtra izstrāde Simulink vidē
-- Algoritma sagatavošana ieviešanai C kodā
-
-**Rezultāts:**  
-Stabili ierakstīti un izgūstami lidojuma dati.
-
----
-
-### 7. nedēļa – Telemetrija un zemes stacijas aparatūra
-**Aleksandrs:**
-- Telemetrijas protokola izstrāde
-- EBYTE E22 radio moduļa integrācija
-- Datu pakešu formāta definēšana
-
-**Miks:**
-- Zemes stacijas plates arhitektūras izstrāde
-- Komponentu izvēle un shēmas dizains
-- Komunikācijas interfeisa plānošana
-
-**Rezultāts:**  
-Bezvadu datu pārraide starp raķeti un zemes staciju.
-
----
-
-### 8. nedēļa – Zemes stacijas programmatūra un GUI
-**Aleksandrs:**
-- Seriālās komunikācijas protokols ar datoru
-- Telemetrijas datu parsēšana
-
-**Miks:**
-- Grafiskās lietotāja saskarnes izstrāde (Svelte)
-- Reāllaika grafiki un datu attēlošana
-- Datu eksportēšana analīzei
-
-**Rezultāts:**  
-Darbojoša zemes stacija ar reāllaika datu vizualizāciju.
-
----
-
-### 9. nedēļa – Integrācija un sistēmas testi
-**Aleksandrs:**
-- Pilna vadības cikla integrācija
-- Kļūdu apstrāde un drošības mehānismi
-
-**Miks:**
-- Vibrāciju testi
-- Sensoru trokšņu ietekmes pārbaude
-
-**Rezultāts:**  
-Stabila un integrēta sistēma bez kritiskām kļūdām.
-
----
-
-### 10. nedēļa – Stabilizācija un dokumentācija
-**Abi:**
-- Koda un aparatūras kļūdu labošana
-- Projekta dokumentācijas pabeigšana
-- Demonstrācijas sagatavošana
-
-**Rezultāts:**  
-Pilnībā sagatavots projekts demonstrācijai un prezentācijai.
-
----
-
-## Projekta izstrādes grafiks
-
-![Projekta izstrādes Gantt diagramma](Documents/gantt_diagramm.png)
-
----
-
-## Licence
-Licence tiks noteikta projekta vēlākā izstrādes posmā.
-
----
-
-## Kontakti
-Jautājumu vai sadarbības gadījumā sazināties ar projekta izstrādātājiem.
+For questions, contact Miks Balodis.
